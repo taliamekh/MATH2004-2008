@@ -380,3 +380,28 @@ MATH2004-2008/
 - **Shell-head updated** — --ch4-title set to #670D2F, --ch5-title set to #740A03, pending removed from Ch4/Ch5 sidebar links
 - **Built MATH2004-notes.html** — 388KB, 22/22 fragments assembled
 - Files changed: shell-head.html, ch4-notes.html, ch5-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
+
+### Session 8 (continued) — Fixes & Polish
+- **Formula sheet fixes:**
+  - Fixed FTCLI + Chain Rule — `=` sign in tooltip text broke KaTeX rendering. NEW RULE: tooltip text must NEVER contain `=` signs (joins comma ban)
+  - Cleaned all Ch4/Ch5 tooltips: removed `()` function-call syntax and `=` signs
+  - Color legend: replaced 5-row table with 7-color card grid. Added rose (#B8336A) for Fields/operators and forest (#4A8060) for Bounds/constants
+  - Applied new colors: rose for F in curl/div/conservative formulas; forest for bounds in Fubini general
+- **SVG diagrams fixed:**
+  - Fig 5.3 (sphere): rebuilt — axes through center O, proper P→Q projection, latitude circle, legend
+  - Fig 5.4 (revolution): rebuilt — profile curve with exact control points, cross-section radii matched to profile, u-arrow repositioned
+  - Verified both via Playwright screenshots
+- **Ch4 content improved:**
+  - Key Properties: color-coded card grid replacing plain numbered list
+  - Average Value & Center of Mass: added plain-language "why" + bar notation explanation
+  - FTCLI: problem→shortcut→when-to-use→analogy structure
+  - Closed-Loop Test: plain English what/why
+  - Work-Energy Theorem: underbrace KE labels + conservation of energy
+- **Ch5 content improved:**
+  - Example 5.1: step-by-step + answer boxes
+  - §5.2 Fubini: expanded geometric meaning + "Why Fubini Works" tip + inner/outer limit rule
+  - §5.5 quadric table: Shape column restored alongside SVG Sketch column
+  - §5.6 parametric surfaces: full rewrite with derivations, 2 SVGs, decision guide
+- **Ch2 sidebar fix:** removed pending class (Session 3 oversight)
+- **htmlData tooltip rules (cumulative):** NO commas, NO `=` signs, avoid `()` function syntax
+- Files changed: ch4-notes.html, ch5-notes.html, formulas.html, shell-head.html, MATH2004-notes.html
