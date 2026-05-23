@@ -3431,6 +3431,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <p class="page-intro">Every variable explained. Click colored variables for details.</p>
     <div class="fs-toggle"><button class="active" onclick="setView('full',this)">Full Detail</button><button onclick="setView('quick',this)">Quick Reference</button><button onclick="setView('eqonly',this)">Equations Only</button></div>
 
+    <!-- Equation lookup bar -->
+    <div id="fs-lookup" style="margin:8px 0 12px;position:relative;">
+      <input type="text" id="fs-search" placeholder="🔍  Jump to equation... (e.g. Lagrange, curl, Fubini)" style="width:100%;padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);font-family:'Architects Daughter',cursive;font-size:14px;box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='var(--eq)'" onblur="setTimeout(function(){document.getElementById('fs-results').style.display='none'},200);this.style.borderColor='var(--border)'" oninput="fsFilter(this.value)">
+      <div id="fs-results" style="display:none;position:absolute;top:42px;left:0;right:0;background:var(--surface);border:1.5px solid var(--border);border-radius:8px;max-height:260px;overflow-y:auto;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.12);"></div>
+    </div>
+
     <p style="font-size:14px;margin:8px 0 4px;"><strong>Variable Color Guide</strong> — click any colored variable in a formula to see its definition.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 16px;font-size:13px;">
       <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #D45D00;background:rgba(212,93,0,.04);">
@@ -3806,6 +3812,66 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div class="empty-page" style="padding:24px;">Added when chapter is completed.</div>
     </div>
   </div>
+
+<script>
+// === Formula sheet numbering + lookup ===
+(function(){
+  // Number all fs-cards
+  var cards = document.querySelectorAll('#formulas .fs-card');
+  var catalog = [];
+  cards.forEach(function(card, i){
+    var num = i + 1;
+    var nameEl = card.querySelector('.fs-name');
+    if(!nameEl) return;
+    var name = nameEl.textContent.trim();
+    // Add number badge
+    var badge = document.createElement('span');
+    badge.className = 'fs-num';
+    badge.textContent = '#' + num;
+    badge.style.cssText = 'display:inline-block;font-size:11px;font-weight:700;color:var(--muted);background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:4px;padding:1px 6px;margin-right:8px;font-family:system-ui,sans-serif;vertical-align:middle;';
+    nameEl.insertBefore(badge, nameEl.firstChild);
+    // Find chapter
+    var ch = card.closest('.fs-chapter');
+    var chTitle = '';
+    if(ch){
+      var h2 = ch.previousElementSibling;
+      while(h2 && h2.tagName !== 'H2') h2 = h2.previousElementSibling;
+      if(h2) chTitle = h2.textContent.replace(/Chapter \d+ — /,'').trim();
+    }
+    // Add id for scrolling
+    card.id = 'eq-' + num;
+    catalog.push({num:num, name:name, ch:chTitle, el:card});
+  });
+
+  // Search/filter
+  window.fsFilter = function(q){
+    var box = document.getElementById('fs-results');
+    if(!q || q.length < 1){box.style.display='none'; return;}
+    q = q.toLowerCase();
+    var matches = catalog.filter(function(c){
+      return c.name.toLowerCase().indexOf(q) > -1 || c.ch.toLowerCase().indexOf(q) > -1;
+    });
+    if(matches.length === 0){
+      box.innerHTML = '<div style="padding:10px 14px;color:var(--muted);font-size:13px;">No matching equations</div>';
+      box.style.display='block';
+      return;
+    }
+    box.innerHTML = matches.map(function(m){
+      return '<div class="fs-result-item" onclick="document.getElementById(\'eq-'+m.num+'\').scrollIntoView({behavior:\'smooth\',block:\'center\'});document.getElementById(\'fs-results\').style.display=\'none\';document.getElementById(\'fs-search\').value=\'\';" style="padding:8px 14px;cursor:pointer;border-bottom:1px solid var(--border);font-family:\'Architects Daughter\',cursive;font-size:13px;display:flex;align-items:center;gap:8px;">'
+        + '<span style="font-size:11px;font-weight:700;color:var(--muted);background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:4px;padding:1px 6px;min-width:28px;text-align:center;font-family:system-ui;">#'+m.num+'</span>'
+        + '<span style="color:var(--text);">'+m.name+'</span>'
+        + '<span style="margin-left:auto;font-size:11px;color:var(--muted);">'+m.ch+'</span>'
+        + '</div>';
+    }).join('');
+    box.style.display='block';
+  };
+
+  // Add hover effect
+  var style = document.createElement('style');
+  style.textContent = '.fs-result-item:hover{background:rgba(0,0,0,.04)!important;}';
+  document.head.appendChild(style);
+})();
+</script>
 
   <!-- ═══ t1prep.html ═══ -->
   <div class="page" id="t1prep"><div class="page-title">Assessment Prep</div><h1>Test 1 Prep</h1><p class="page-intro">Ch 1 (1.1–1.10) & Ch 2 (2.1–2.7)</p><div class="empty-page"><div class="icon">📖</div>Upload test material to populate.</div></div>
