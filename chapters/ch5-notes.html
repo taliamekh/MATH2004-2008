@@ -26,6 +26,74 @@
     <p>The <em>innermost</em> integral has limits that depend on the outer variable. The <em>outer</em> integral has constant limits.</p>
     </div>
 
+    <div class="figure-box">
+    <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" style="max-width:600px;width:100%">
+      <!-- LEFT: x-simple (vertical slices) -->
+      <text x="100" y="22" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#8B1A1A" text-anchor="middle">x-simple (vertical slices)</text>
+      <!-- axes -->
+      <line x1="30" y1="220" x2="220" y2="220" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="30" y1="220" x2="30" y2="40" stroke="#5A5A50" stroke-width="1.2"/>
+      <text x="224" y="224" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">x</text>
+      <text x="22" y="38" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">y</text>
+      <!-- Region filled -->
+      <path d="M60,190 C80,100 120,60 180,80 C180,80 180,180 180,180 C140,200 100,210 60,190 Z" fill="rgba(74,144,217,.15)" stroke="none"/>
+      <!-- Top curve f₂(x) -->
+      <path d="M60,190 C80,100 120,60 180,80" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <text x="130" y="52" font-family="Architects Daughter,cursive" font-size="13" font-weight="600" fill="#8B1A1A">y = f₂(x)</text>
+      <!-- Bottom curve f₁(x) -->
+      <path d="M60,190 C100,210 140,200 180,180" stroke="#6B3FA0" stroke-width="2.5" fill="none"/>
+      <text x="130" y="216" font-family="Architects Daughter,cursive" font-size="13" font-weight="600" fill="#6B3FA0">y = f₁(x)</text>
+      <!-- Vertical slice at x -->
+      <line x1="120" y1="74" x2="120" y2="196" stroke="#C4883E" stroke-width="2.5"/>
+      <polygon points="120,74 116,84 124,84" fill="#C4883E"/>
+      <polygon points="120,196 116,186 124,186" fill="#C4883E"/>
+      <text x="128" y="140" font-family="Architects Daughter,cursive" font-size="13" font-weight="700" fill="#C4883E">dy</text>
+      <!-- Bounds a,b -->
+      <line x1="60" y1="224" x2="60" y2="228" stroke="#5A5A50" stroke-width="1"/>
+      <text x="56" y="240" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">a</text>
+      <line x1="180" y1="224" x2="180" y2="228" stroke="#5A5A50" stroke-width="1"/>
+      <text x="176" y="240" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">b</text>
+      <!-- dx arrow -->
+      <line x1="60" y1="250" x2="180" y2="250" stroke="#2D8B46" stroke-width="2"/>
+      <polygon points="180,250 172,246 172,254" fill="#2D8B46"/>
+      <text x="112" y="248" font-family="Architects Daughter,cursive" font-size="13" font-weight="700" fill="#2D8B46">dx</text>
+
+      <!-- Divider -->
+      <line x1="310" y1="30" x2="310" y2="250" stroke="#D0CFC8" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- RIGHT: y-simple (horizontal slices) -->
+      <text x="470" y="22" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#6B3FA0" text-anchor="middle">y-simple (horizontal slices)</text>
+      <!-- axes -->
+      <line x1="350" y1="220" x2="570" y2="220" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="350" y1="220" x2="350" y2="40" stroke="#5A5A50" stroke-width="1.2"/>
+      <text x="574" y="224" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">x</text>
+      <text x="342" y="38" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">y</text>
+      <!-- Region filled -->
+      <path d="M380,190 C400,100 440,60 500,80 C500,80 500,180 500,180 C460,200 420,210 380,190 Z" fill="rgba(107,63,160,.12)" stroke="none"/>
+      <!-- Left curve g₁(y) -->
+      <path d="M380,190 C400,100 440,60 500,80" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <text x="386" y="96" font-family="Architects Daughter,cursive" font-size="13" font-weight="600" fill="#8B1A1A">x = g₁(y)</text>
+      <!-- Right curve g₂(y) -->
+      <path d="M380,190 C420,210 460,200 500,180" stroke="#6B3FA0" stroke-width="2.5" fill="none"/>
+      <text x="446" y="210" font-family="Architects Daughter,cursive" font-size="13" font-weight="600" fill="#6B3FA0">x = g₂(y)</text>
+      <!-- Horizontal slice at y -->
+      <line x1="410" y1="140" x2="492" y2="140" stroke="#C4883E" stroke-width="2.5"/>
+      <polygon points="410,140 420,136 420,144" fill="#C4883E"/>
+      <polygon points="492,140 482,136 482,144" fill="#C4883E"/>
+      <text x="444" y="134" font-family="Architects Daughter,cursive" font-size="13" font-weight="700" fill="#C4883E">dx</text>
+      <!-- Bounds c,d -->
+      <line x1="346" y1="190" x2="350" y2="190" stroke="#5A5A50" stroke-width="1"/>
+      <text x="332" y="194" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">c</text>
+      <line x1="346" y1="80" x2="350" y2="80" stroke="#5A5A50" stroke-width="1"/>
+      <text x="332" y="84" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">d</text>
+      <!-- dy arrow -->
+      <line x1="326" y1="190" x2="326" y2="80" stroke="#2D8B46" stroke-width="2"/>
+      <polygon points="326,80 322,88 330,88" fill="#2D8B46"/>
+      <text x="316" y="140" font-family="Architects Daughter,cursive" font-size="13" font-weight="700" fill="#2D8B46">dy</text>
+    </svg>
+    <div class="figure-caption">Fig 5.1 — Left: x-simple region with vertical slices (integrate dy then dx). Right: y-simple region with horizontal slices (integrate dx then dy).</div>
+    </div>
+
     <div class="ex-card card-bracket"><div class="ex-label">Example 5.1 — Region Bounded by Parabolas (Ex. 222)</div>
     <p>Describe the region bounded by \(y=x^2\), \(y=-x^2\), and \(x=1\) using both vertical and horizontal slices.</p>
     <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
@@ -165,6 +233,51 @@
     <p>• The integrand contains \(x^2+y^2\)</p>
     <p>• The region is a sector, annulus, or cardioid</p>
     <p><strong>Common trap:</strong> forgetting the extra factor of \(\boldsymbol{r}\) in \(dA=r\,dr\,d\theta\)!</p>
+    </div>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;width:100%">
+      <!-- Axes -->
+      <line x1="60" y1="280" x2="420" y2="280" stroke="#5A5A50" stroke-width="1.5"/>
+      <line x1="60" y1="280" x2="60" y2="40" stroke="#5A5A50" stroke-width="1.5"/>
+      <polygon points="420,280 412,276 412,284" fill="#5A5A50"/>
+      <polygon points="60,40 56,48 64,48" fill="#5A5A50"/>
+      <text x="428" y="284" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
+      <text x="48" y="36" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">y</text>
+      <!-- Origin label -->
+      <text x="46" y="296" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">O</text>
+      <!-- Full sector arc (outer) at r+dr -->
+      <path d="M60,280 L310,130 A260,260 0 0,1 355,220 L60,280 Z" fill="rgba(74,144,217,.08)" stroke="none"/>
+      <!-- Inner arc at r -->
+      <path d="M60,280 L250,160 A200,200 0 0,1 285,232 L60,280 Z" fill="rgba(255,255,255,.5)" stroke="none"/>
+      <!-- The differential area element (wedge) -->
+      <path d="M250,160 L310,130 A260,260 0 0,1 355,220 L285,232 A200,200 0 0,0 250,160 Z" fill="rgba(139,26,26,.18)" stroke="#8B1A1A" stroke-width="2"/>
+      <!-- Radial lines -->
+      <line x1="60" y1="280" x2="310" y2="130" stroke="#4A90D9" stroke-width="1.5"/>
+      <line x1="60" y1="280" x2="355" y2="220" stroke="#4A90D9" stroke-width="1.5"/>
+      <!-- Inner arc -->
+      <path d="M250,160 A200,200 0 0,1 285,232" stroke="#6B3FA0" stroke-width="1.5" fill="none"/>
+      <!-- Outer arc -->
+      <path d="M310,130 A260,260 0 0,1 355,220" stroke="#6B3FA0" stroke-width="1.5" fill="none"/>
+      <!-- r label (along radial line) -->
+      <text x="140" y="222" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#4A90D9">r</text>
+      <!-- dr label (between arcs along radial direction) -->
+      <text x="284" y="142" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#C4883E">dr</text>
+      <!-- dθ angle arc at origin -->
+      <path d="M150,234 A100,100 0 0,1 172,258" stroke="#A82870" stroke-width="2" fill="none"/>
+      <text x="168" y="244" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">dθ</text>
+      <!-- θ angle arc -->
+      <path d="M110,280 A50,50 0 0,0 96,255" stroke="#5A5A50" stroke-width="1" fill="none"/>
+      <text x="108" y="266" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">θ</text>
+      <!-- r dθ arc length label -->
+      <text x="310" y="186" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#6B3FA0">r dθ</text>
+      <!-- dA label in the wedge -->
+      <text x="290" y="200" font-family="Architects Daughter,cursive" font-size="16" font-weight="700" fill="#8B1A1A">dA</text>
+      <!-- Formula -->
+      <text x="120" y="48" font-family="Architects Daughter,cursive" font-size="16" font-weight="700" fill="#8B1A1A">dA = r dr dθ</text>
+      <text x="120" y="68" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">(width dr) × (arc length r dθ)</text>
+    </svg>
+    <div class="figure-caption">Fig 5.2 — The polar area element dA = r dr dθ. The extra factor of r comes from the arc length of the angular side: width = dr, height = r dθ.</div>
     </div>
 
     <div class="eq-card card-bracket"><div class="eq-name">Area in Polar Coordinates</div>
