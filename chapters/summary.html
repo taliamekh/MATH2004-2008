@@ -1,0 +1,51 @@
+<div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Summary</h1><p class="page-intro">Auto-updated as chapters are completed.</p><div class="stat-grid"><div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Chapters</div></div><div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Formulas</div></div><div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Examples</div></div><div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Definitions</div></div></div><h2>Chapter-by-Chapter</h2><h3 style="color:var(--ch1-title)">Ch 1 — Vectors ✓</h3>
+<p class="ch-overview">Builds the vector toolkit in ℝ² and ℝ³ — definitions, operations, and geometric applications that underpin all of multivariable calculus.</p>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Vector Basics</div><dl>
+<dt class="wh-what">What:</dt><dd>Vectors defined by magnitude and direction, represented as ordered components in ℝ² or ℝ³.</dd>
+<dt class="wh-why">Why:</dt><dd>The fundamental objects everything else builds on — displacements, forces, velocities.</dd>
+<dt class="wh-how">How:</dt><dd>\(\vec{v}=\langle v_1,v_2,v_3\rangle\), \(|\vec{v}|=\sqrt{v_1^2+v_2^2+v_3^2}\)</dd>
+<dt class="wh-trap">Trap:</dt><dd>Equality means same magnitude AND direction — position in space doesn't matter.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Vector Arithmetic</div><dl>
+<dt class="wh-what">What:</dt><dd>Addition, subtraction, and scalar multiplication — all component-wise.</dd>
+<dt class="wh-why">Why:</dt><dd>Combines forces, displacements, and velocities algebraically; parallelogram law gives geometric intuition.</dd>
+<dt class="wh-how">How:</dt><dd>\(\vec{v}+\vec{w}=\langle v_1+w_1,\,v_2+w_2,\,v_3+w_3\rangle\), \(c\vec{v}=\langle cv_1,cv_2,cv_3\rangle\)</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Unit Vectors &amp; Direction</div><dl>
+<dt class="wh-what">What:</dt><dd>Normalization to length 1; standard basis î, ĵ, k̂; direction cosines and inclination angles.</dd>
+<dt class="wh-why">Why:</dt><dd>Separates direction from magnitude — essential for projections and coordinate decomposition.</dd>
+<dt class="wh-how">How:</dt><dd>\(\hat{v}=\vec{v}/|\vec{v}|\), direction cosines satisfy \(\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1\)</dd>
+<dt class="wh-trap">Trap:</dt><dd>The zero vector has no unit vector — can't normalize it.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Dot Product</div><dl>
+<dt class="wh-what">What:</dt><dd>Scalar product measuring how aligned two vectors are.</dd>
+<dt class="wh-why">Why:</dt><dd>Unlocks angles between vectors, orthogonality tests, and projections.</dd>
+<dt class="wh-how">How:</dt><dd>\(\vec{v}\cdot\vec{w}=v_1w_1+v_2w_2+v_3w_3=|\vec{v}||\vec{w}|\cos\theta\), angle: \(\theta=\arccos\!\bigl(\frac{\vec{v}\cdot\vec{w}}{|\vec{v}||\vec{w}|}\bigr)\)</dd>
+<dt class="wh-trap">Trap:</dt><dd>Result is a SCALAR, not a vector. Dot = 0 means perpendicular, not that a vector is zero.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Projections &amp; Work</div><dl>
+<dt class="wh-what">What:</dt><dd>Scalar and vector projection of one vector onto another; work as force dotted with displacement.</dd>
+<dt class="wh-why">Why:</dt><dd>Decomposes vectors into parallel/perpendicular parts — central to physics and later integration.</dd>
+<dt class="wh-how">How:</dt><dd>Scalar: \(\text{comp}_{\vec{v}}\vec{u}=\frac{\vec{u}\cdot\vec{v}}{|\vec{v}|}\), Vector: \(\text{proj}_{\vec{v}}\vec{u}=\frac{\vec{u}\cdot\vec{v}}{|\vec{v}|^2}\vec{v}\), Work: \(W=\vec{F}\cdot\vec{d}\)</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Cross Product</div><dl>
+<dt class="wh-what">What:</dt><dd>A vector perpendicular to both inputs whose magnitude equals the parallelogram area.</dd>
+<dt class="wh-why">Why:</dt><dd>Produces normal vectors to planes, computes torque, and measures area.</dd>
+<dt class="wh-how">How:</dt><dd>\(\vec{v}\times\vec{w}\) via 3×3 determinant with î, ĵ, k̂ in the first row. Magnitude: \(|\vec{v}\times\vec{w}|=|\vec{v}||\vec{w}|\sin\theta\)</dd>
+<dt class="wh-trap">Trap:</dt><dd>NOT commutative — \(\vec{v}\times\vec{w}=-(\vec{w}\times\vec{v})\). Use the right-hand rule for direction.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Geometric Applications</div><dl>
+<dt class="wh-what">What:</dt><dd>Parallelogram area, triangle area, and parallelepiped volume from cross and triple products.</dd>
+<dt class="wh-why">Why:</dt><dd>Turns abstract vector algebra into measurable geometry — areas, volumes, coplanarity.</dd>
+<dt class="wh-how">How:</dt><dd>Area△ = \(\tfrac{1}{2}|\vec{u}\times\vec{v}|\), Volume = \(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</dd>
+<dt class="wh-trap">Trap:</dt><dd>Triple product = 0 means the vectors are coplanar, not that there is "no volume."</dd>
+</dl></div>
+
+<div class="cross-links"><strong>Connections →</strong> Dot product → scalar projections → work integrals (Ch 6) · Cross product → normal vectors → planes (Ch 2) → surface integrals (Ch 7) · Magnitude &amp; distance → arc length &amp; curvature (Ch 3)</div><h3 style="color:var(--muted)">Ch 2–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr></table></div>
