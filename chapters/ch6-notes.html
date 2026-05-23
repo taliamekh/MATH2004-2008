@@ -1,29 +1,575 @@
 <div class="page" id="ch6">
-    <div class="page-title" style="color:var(--ch6-title)">Chapter 6</div><h1 style="color:var(--ch6-title)">Surface Integrals & Integral Theorems</h1>
-    <p class="page-intro">Surface area, surface integrals, flux, and the three great theorems: Green's, Stokes', and the Divergence Theorem. Also triple integrals and coordinate transforms.</p>
+    <div class="page-title" style="color:var(--ch6-title)">Chapter 6</div><h1 style="color:var(--ch6-title)">The Three Big Theorems</h1>
+    <p class="page-intro">Surface area, surface integrals, flux, and the three capstone theorems of multivariable calculus: Green's, Stokes', and the Divergence Theorem. Also triple integrals and coordinate transforms (cylindrical &amp; spherical).</p>
 
-    <h2>Course Outline — Sections Covered</h2>
-
-    <div class="def-card card-bracket"><div class="def-name">Week 9 (Second Half) — Surface Integrals</div>
-    <p><strong>§6.1:</strong> Surface area and surface integrals — definition, computation</p>
-    <p><strong>§6.2:</strong> Evaluation of surface integrals — parameterized surfaces, orientable surfaces</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Big Picture</div>
+    <p>Everything in Chapters 1–5 was building toward this chapter. Line integrals (Ch4), double integrals (Ch5), partial derivatives and curl/divergence (Ch3) all come together in three powerful theorems that relate integrals of different dimensions. <strong>Green's theorem</strong> connects a line integral around a closed curve to a double integral over the enclosed region. <strong>Stokes' theorem</strong> generalizes Green's to 3D surfaces. <strong>The Divergence theorem</strong> connects a surface integral (flux) to a triple integral over the enclosed solid.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 10 — The Big Theorems</div>
-    <p><strong>§6.2 (continued):</strong> Applications of surface integrals — open and closed surfaces, flux</p>
-    <p><strong>§6.3:</strong> Green's Theorem — relating a line integral around a simple closed curve to a double integral over the enclosed region</p>
-    <p><strong>§6.4:</strong> Stokes' Theorem — generalizing Green's theorem to surfaces in 3D</p>
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-1">§6.1 — Surface Integrals</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Recall from Ch5 that a double integral integrates a function over a flat region \(\mathscr{R}\) in the \(xy\)-plane. A <strong>surface integral</strong> is the natural next step: it integrates a function over a <em>curved surface</em> \(\mathscr{S}\) in 3D space. Think of it as a "2D version of a line integral" — instead of integrating along a curve, we integrate over a surface.</p>
+
+    <p>The key idea: for a double integral we partition the flat region \(\mathscr{R}\) into small rectangles with area \(\Delta A_{ij}\). For a surface integral we partition the surface \(\mathscr{S}\) itself into small curved patches with surface area \(\Delta S_{ij}\). Then we form the Riemann sum and take the limit.</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Surface Integral (Scalar)</div>
+    <p>Let \(F(x,y,z)\) be continuous on a smooth surface \(\mathscr{S}\). The <strong>surface integral of \(F\) over \(\mathscr{S}\)</strong> is:</p>
+    \[\iint_{\mathscr{S}} F(x,y,z)\,dS = \lim_{\|\mathscr{P}\|\to 0} \sum_{j=1}^{n}\sum_{i=1}^{m} F(x_i, y_j, f(x_i,y_j))\,\Delta S_{ij}\]
+    <p>where \(\Delta S_{ij}\) is the surface area of the \((i,j)\)-th patch and \(\|\mathscr{P}\|\) is the mesh of the partition.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Weeks 11–12 — Triple Integrals & Divergence Theorem</div>
-    <p><strong>§6.5–6.6:</strong> Triple integrals; Change of variables in triple integrals</p>
-    <p><strong>§6.7:</strong> Describing solids in cylindrical and spherical coordinates</p>
-    <p><strong>§6.8:</strong> The Divergence Theorem — relating surface flux to a triple integral over the enclosed volume</p>
+    <p>When \(F(x,y,z) = 1\), the surface integral gives the <strong>surface area</strong> of \(\mathscr{S}\).</p>
+
+    <h3>Computing Surface Integrals</h3>
+
+    <p>The surface integral reduces to a double integral over a flat region \(\mathscr{R}\) (the projection of \(\mathscr{S}\) onto a coordinate plane). The "correction factor" accounts for how tilted the surface is:</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Surface Integral — Graph Form</div>
+    <p><strong>Case 1:</strong> If \(z = f(x,y)\) defines \(\mathscr{S}\), project onto the \(xy\)-plane:</p>
+    \[\iint_{\mathscr{S}} F\,dS = \iint_{\mathscr{R}} F\!\big(x, y, f(x,y)\big)\,\sqrt{1 + f_x^2 + f_y^2}\;dA\]
+    <div class="pill-row"><span class="pill">\(F\) = integrand evaluated on the surface</span> <span class="pill">\(f_x, f_y\) = partial derivatives of the surface equation</span> <span class="pill">\(\mathscr{R}\) = projection of \(\mathscr{S}\) onto the \(xy\)-plane</span></div>
+    <p><strong>Case 2:</strong> If \(y = g(x,z)\), project onto the \(xz\)-plane: use \(\sqrt{1 + g_x^2 + g_z^2}\,dA\).</p>
+    <p><strong>Case 3:</strong> If \(x = h(y,z)\), project onto the \(yz\)-plane: use \(\sqrt{1 + h_y^2 + h_z^2}\,dA\).</p>
     </div>
 
-    <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
-    <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Surface Integral — Parametric Form</div>
+    <p>If \(\mathscr{S}\) is parametrized by \(\mathbf{r}(u,v) = \big(x(u,v),\,y(u,v),\,z(u,v)\big)\) for \((u,v) \in \mathscr{R}^*\):</p>
+    \[\iint_{\mathscr{S}} F\,dS = \iint_{\mathscr{R}^*} F\!\big(\mathbf{r}(u,v)\big)\,|\mathbf{r}_u \times \mathbf{r}_v|\;dA\]
+    <div class="pill-row"><span class="pill">\(\mathbf{r}_u\) = partial derivative of position vector w.r.t. \(u\)</span> <span class="pill">\(\mathbf{r}_v\) = partial derivative w.r.t. \(v\)</span> <span class="pill">\(|\mathbf{r}_u \times \mathbf{r}_v|\) = area magnification factor</span></div>
+    <p>Setting \(F = 1\) gives the <strong>surface area</strong>: \(\displaystyle\text{Area}(\mathscr{S}) = \iint_{\mathscr{R}^*}|\mathbf{r}_u \times \mathbf{r}_v|\,dA\).</p>
     </div>
 
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 6 lecture notes or textbook pages to populate full notes.</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Evaluation Strategy</div>
+    <p>To evaluate \(\iint_{\mathscr{S}} F\,dS\):</p>
+    <p><strong>1.</strong> Write the surface as \(z = f(x,y)\), \(y = g(x,z)\), or \(x = h(y,z)\) — whichever is easiest.</p>
+    <p><strong>2.</strong> Choose the coordinate plane to project onto and describe the projection \(\mathscr{R}\).</p>
+    <p><strong>3.</strong> Compute the partial derivatives and the square root factor.</p>
+    <p><strong>4.</strong> Evaluate the resulting double integral (Fubini — you may need to swap integration order).</p>
+    <p>If the surface has a natural parametrization (sphere, cylinder), use the parametric form instead.</p>
+    </div>
+
+    <!-- SVG: surface integral geometry -->
+    <div class="figure-box">
+    <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;">
+      <defs><marker id="ah6a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#3A3A3A"/></marker></defs>
+      <!-- axes -->
+      <line x1="60" y1="240" x2="400" y2="240" stroke="#3A3A3A" stroke-width="1.5" marker-end="url(#ah6a)"/>
+      <line x1="60" y1="240" x2="60" y2="30" stroke="#3A3A3A" stroke-width="1.5" marker-end="url(#ah6a)"/>
+      <line x1="60" y1="240" x2="10" y2="270" stroke="#3A3A3A" stroke-width="1.5" marker-end="url(#ah6a)"/>
+      <text x="405" y="245" font-size="14" fill="#3A3A3A">x</text>
+      <text x="50" y="25" font-size="14" fill="#3A3A3A">z</text>
+      <text x="5" y="278" font-size="14" fill="#3A3A3A">y</text>
+      <!-- flat region R -->
+      <path d="M120,220 L280,220 L320,250 L160,250 Z" fill="rgba(74,144,217,0.15)" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="205" y="262" font-size="13" fill="#4A90D9" text-anchor="middle">ℛ (projection)</text>
+      <!-- curved surface S -->
+      <path d="M120,160 Q160,100 200,120 Q240,140 280,90 Q300,110 320,130" fill="none" stroke="#0E7C86" stroke-width="2.5"/>
+      <path d="M120,160 Q140,180 160,190 L320,190 Q300,170 320,130" fill="rgba(14,124,134,0.12)" stroke="#0E7C86" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="335" y="110" font-size="13" fill="#0E7C86" font-weight="bold">𝒮</text>
+      <!-- dS patch -->
+      <rect x="195" y="105" width="22" height="18" fill="rgba(14,124,134,0.35)" stroke="#0E7C86" stroke-width="1" rx="2" transform="rotate(-8,206,114)"/>
+      <text x="225" y="100" font-size="12" fill="#0E7C86">ΔS<tspan font-size="9" dy="3">ij</tspan></text>
+      <!-- dA patch -->
+      <rect x="195" y="222" width="22" height="14" fill="rgba(74,144,217,0.3)" stroke="#4A90D9" stroke-width="1" rx="1"/>
+      <text x="225" y="220" font-size="12" fill="#4A90D9">ΔA<tspan font-size="9" dy="3">ij</tspan></text>
+      <!-- projection lines -->
+      <line x1="206" y1="114" x2="206" y2="229" stroke="#999" stroke-width="0.8" stroke-dasharray="3,3"/>
+    </svg>
+    <div class="figure-caption">Fig 6.1 — A surface \(\mathscr{S}\) with a small patch \(\Delta S_{ij}\) projected down to \(\Delta A_{ij}\) on the flat region \(\mathscr{R}\). The surface integral sums \(F \cdot \Delta S_{ij}\) over the curved surface.</div>
+    </div>
+
+    <h3>Worked Examples</h3>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.1 — Surface Integral over a Plane</div>
+    <p><strong>Problem:</strong> Evaluate \(\displaystyle\iint_{\mathscr{S}} F\,dS\) where \(F(x,y,z) = x+y+z\) over the surface given by the plane \(x+y+z=2\) in the first octant.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> The surface is a flat triangle in the first octant. Write \(z = 2 - x - y\) and project onto the \(xy\)-plane.</p>
+    <p><strong>Setup:</strong> With \(f(x,y) = 2-x-y\), we have \(f_x = -1\) and \(f_y = -1\), so:</p>
+    \[\sqrt{1 + f_x^2 + f_y^2} = \sqrt{1 + 1 + 1} = \sqrt{3}\]
+    <p>On the surface, \(F(x,y,f(x,y)) = x + y + (2-x-y) = 2\) (constant!).</p>
+    <p>The projection \(\mathscr{R}\) onto the \(xy\)-plane is the triangle bounded by \(x=0\), \(y=0\), and \(x+y=2\). Its area is \(\frac{1}{2}(2)(2) = 2\).</p>
+    \[\iint_{\mathscr{S}} F\,dS = \iint_{\mathscr{R}} 2\sqrt{3}\,dA = 2\sqrt{3} \cdot \text{Area}(\mathscr{R}) = 2\sqrt{3} \cdot 2 = \boxed{4\sqrt{3}}\]
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>When \(F\) simplifies to a constant on the surface, the integral becomes \(\text{constant} \times \text{Area}(\mathscr{R}) \times \sqrt{1+f_x^2+f_y^2}\). Always simplify before integrating!</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.2 — Surface Integral on a Cylinder (Three Methods)</div>
+    <p><strong>Problem:</strong> Evaluate \(\displaystyle\iint_{\mathscr{S}} xyz\,dS\) where \(\mathscr{S}\) is the part of the cylinder \(x^2+z^2=4\) in the first octant between \(y=0\) and \(y=1\).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> The cylinder \(x^2+z^2=4\) can be projected onto the \(xy\)-plane, the \(yz\)-plane, or parametrized. Let's try all three methods.</p>
+
+    <p><strong>Method 1 — Project onto the \(yz\)-plane:</strong> Write \(x = h(y,z) = \sqrt{4-z^2}\) (first octant, so \(x \geq 0\)). Then \(h_y = 0\) and \(h_z = -z/\sqrt{4-z^2}\).</p>
+    \[\sqrt{1+h_y^2+h_z^2} = \sqrt{1 + \frac{z^2}{4-z^2}} = \frac{2}{\sqrt{4-z^2}}\]
+    <p>The projection \(\mathscr{R}\) is: \(0 \leq y \leq 1\), \(0 \leq z \leq 2\). So:</p>
+    \[\iint_{\mathscr{S}} xyz\,dS = \int_0^2\!\int_0^1 \sqrt{4-z^2}\cdot y \cdot z \cdot \frac{2}{\sqrt{4-z^2}}\,dy\,dz = 2\int_0^2\!\int_0^1 yz\,dy\,dz\]
+    \[= 2\int_0^2 z\,dz \cdot \int_0^1 y\,dy = 2 \cdot 2 \cdot \tfrac{1}{2} = \boxed{2}\]
+
+    <p><strong>Method 2 — Project onto the \(xy\)-plane:</strong> Write \(z = f(x,y) = \sqrt{4-x^2}\). Then \(f_x = -x/\sqrt{4-x^2}\), \(f_y = 0\).</p>
+    \[\sqrt{1+f_x^2+f_y^2} = \frac{2}{\sqrt{4-x^2}}\]
+    <p>\(\mathscr{R} = \{(x,y): 0 \leq x \leq 2,\;0 \leq y \leq 1\}\). On \(\mathscr{S}\): \(xyz = xy\sqrt{4-x^2}\).</p>
+    \[\iint_{\mathscr{S}} xyz\,dS = \int_0^2\!\int_0^1 xy\sqrt{4-x^2}\cdot\frac{2}{\sqrt{4-x^2}}\,dy\,dx = 2\int_0^2 x\,dx\cdot\int_0^1 y\,dy = 2\cdot 2\cdot\tfrac{1}{2} = \boxed{2}\]
+
+    <p><strong>Method 3 — Parametric:</strong> Use \(x = 2\cos u\), \(y = v\), \(z = 2\sin u\) with \(0 \leq u \leq \pi/2\), \(0 \leq v \leq 1\).</p>
+    \[\mathbf{r}_u \times \mathbf{r}_v = \det\begin{pmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-2\sin u&0&2\cos u\\0&1&0\end{pmatrix} = -2\cos u\,\mathbf{i} - 0\,\mathbf{j} -2\sin u\,\mathbf{k}\]
+    <p>\(|\mathbf{r}_u \times \mathbf{r}_v| = 2\). Also \(F(\mathbf{r}(u,v)) = (2\cos u)(v)(2\sin u) = 2v\sin 2u\).</p>
+    \[\iint_{\mathscr{S}} F\,dS = \int_0^1\!\int_0^{\pi/2} 2v\sin 2u \cdot 2\,du\,dv = 4\int_0^1 v\,dv\int_0^{\pi/2}\sin 2u\,du = 4\cdot\tfrac{1}{2}\cdot 1 = \boxed{2}\]
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>All three methods give the same answer. Choose whichever makes the projection region and integrand simplest. Parametric is often cleanest for cylinders and spheres.</p></div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-2">§6.2 — Flux &amp; Oriented Surfaces</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The surface integral \(\iint_{\mathscr{S}} F\,dS\) integrates a <em>scalar</em> function over a surface. But what if we want to integrate a <em>vector field</em> \(\mathbf{F}\) over a surface? This gives the <strong>flux</strong> — the net flow of \(\mathbf{F}\) through \(\mathscr{S}\).</p>
+
+    <h3>Orientable Surfaces</h3>
+
+    <p>To define flux, we need a consistent notion of "which side is outside." A surface is <strong>orientable</strong> if we can define a unit normal vector \(\mathbf{n}\) that varies continuously over the entire surface. Most surfaces we encounter (planes, spheres, paraboloids, cylinders) are orientable. The classic non-orientable surface is the <strong>Möbius strip</strong> — if you walk a normal vector around it, you return to the start pointing the <em>opposite</em> direction.</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Open and Closed Surfaces</div>
+    <p><strong>Open surface:</strong> has a boundary curve (perimeter). Examples: a hemisphere, a piece of a plane, a bowl.</p>
+    <p><strong>Closed surface:</strong> has no boundary — it completely encloses a 3D region. Examples: a sphere, a cube, an ellipsoid. A closed surface divides \(\mathbb{R}^3\) into an interior and an exterior.</p>
+    <p>For an open surface \(z = f(x,y)\), the <strong>upward-pointing outer unit normal</strong> is:</p>
+    \[\mathbf{n} = \frac{(-f_x,\,-f_y,\,1)}{\sqrt{1+f_x^2+f_y^2}}\]
+    <p>For a closed surface, the <strong>outer normal</strong> points away from the enclosed region; the <strong>inner normal</strong> points inward.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Flux (Net Flow Through a Surface)</div>
+    <p>The <strong>flux of \(\mathbf{F}\) through \(\mathscr{S}\)</strong> is the surface integral:</p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot d\mathbf{S} = \iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS\]
+    <div class="pill-row"><span class="pill">\(\mathbf{F}\) = vector field (e.g. velocity of a fluid)</span> <span class="pill">\(\mathbf{n}\) = outer unit normal</span> <span class="pill">\(d\mathbf{S} = \mathbf{n}\,dS\)</span></div>
+    <p>Physically: if \(\mathbf{F}\) is the velocity of a fluid, the flux measures the volume of fluid passing through \(\mathscr{S}\) per unit time. Flux > 0 means net outward flow; flux < 0 means net inward flow.</p>
+    </div>
+
+    <h3>Computing Flux</h3>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Flux Formula — Graph Form</div>
+    <p>If \(z = f(x,y)\) defines \(\mathscr{S}\) and \(\mathbf{F} = (P, Q, R)\), then with the <em>upward</em> orientation:</p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot d\mathbf{S} = \iint_{\mathscr{R}} \big(-Pf_x - Qf_y + R\big)\,dA\]
+    <div class="pill-row"><span class="pill">\(P\) \(Q\) \(R\) = components of \(\mathbf{F}\) evaluated at \(\big(x\;y\;f(x{,}y)\big)\)</span> <span class="pill">\(f_x\) \(f_y\) = partial derivatives of the surface</span></div>
+    <p>Similarly: if \(y = g(x,z)\), then \(\iint \mathbf{F}\cdot d\mathbf{S} = \pm\iint_{\mathscr{R}} (Pg_x - Q + Rg_z)\,dA\). If \(x = h(y,z)\), then \(\pm\iint_{\mathscr{R}} (P - Qh_y - Rh_z)\,dA\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Flux Formula — Parametric Form</div>
+    <p>If \(\mathscr{S}\) is parametrized by \(\mathbf{r}(u,v)\):</p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot d\mathbf{S} = \iint_{\mathscr{R}^*} \mathbf{F}\!\big(\mathbf{r}(u,v)\big)\cdot(\mathbf{r}_u \times \mathbf{r}_v)\,dA\]
+    <p>Note: the sign depends on whether \(\mathbf{r}_u \times \mathbf{r}_v\) points outward. If it points inward, negate it.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.3 — Flux Through a Paraboloid</div>
+    <p><strong>Problem:</strong> Find the flux of \(\mathbf{F} = (0, 0, z)\) through the paraboloid \(z = 1 - x^2 - y^2\) above the \(xy\)-plane (upward normal).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> We have \(z = f(x,y) = 1-x^2-y^2\) with \(f_x = -2x\) and \(f_y = -2y\). Here \(P = 0\), \(Q = 0\), \(R = z = 1-x^2-y^2\).</p>
+    <p><strong>Flux formula:</strong></p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot d\mathbf{S} = \iint_{\mathscr{R}} \big(0 - 0 + (1-x^2-y^2)\big)\,dA = \iint_{\mathscr{R}} (1-x^2-y^2)\,dA\]
+    <p>The projection is the disk \(x^2+y^2 \leq 1\). Switch to polar:</p>
+    \[= \int_0^{2\pi}\!\int_0^1 (1-r^2)\,r\,dr\,d\theta = 2\pi\int_0^1(r - r^3)\,dr = 2\pi\left[\frac{r^2}{2}-\frac{r^4}{4}\right]_0^1 = 2\pi\cdot\frac{1}{4} = \boxed{\frac{\pi}{2}}\]
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>When \(\mathbf{F}\) only has a \(z\)-component and \(z=f(x{,}y)\), the flux formula simplifies to \(\iint R\,dA\) — the \(f_x\) and \(f_y\) terms vanish. This is because \(\mathbf{F}\) is vertical and the horizontal tilt doesn't affect vertical flow.</p></div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-3">§6.3 — Green's Theorem</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Green's theorem is the first of the three "big theorems." It connects a line integral around a closed curve in the plane to a double integral over the enclosed region. Think of it as the 2D version of the Fundamental Theorem of Calculus — it relates the "boundary integral" (the line integral around the edge) to the "interior integral" (the double integral over the inside).</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Positive Orientation</div>
+    <p>A simple closed curve \(\mathscr{C}\) in the \(xy\)-plane is <strong>positively oriented</strong> if, as you walk along it in the direction of increasing parameter, the enclosed region \(\mathscr{R}\) is always on your <em>left</em>. This is the <strong>counterclockwise</strong> direction.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Green's Theorem</div>
+    <p>Let \(\mathscr{C}\) be a positively oriented piecewise smooth simple closed curve enclosing a region \(\mathscr{R}\). If \(\mathbf{F}(x,y) = (P(x,y),\,Q(x,y))\) has continuous partial derivatives, then:</p>
+    \[\oint_{\mathscr{C}} P\,dx + Q\,dy = \iint_{\mathscr{R}}\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA\]
+    <div class="pill-row"><span class="pill">\(\oint\) = integral around a closed curve</span> <span class="pill">\(Q_x - P_y\) = the 2D scalar curl</span> <span class="pill">\(\mathscr{R}\) = region enclosed by \(\mathscr{C}\)</span></div>
+    <p>Equivalently: \(\displaystyle\oint_{\mathscr{C}} \mathbf{F}\cdot d\mathbf{r} = \iint_{\mathscr{R}} (\text{curl}\;\mathbf{F})_z\,dA\).</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Why It's Powerful</div>
+    <p>Green's theorem lets you convert a <em>hard</em> line integral into an <em>easy</em> double integral (or vice versa). If the line integral has nasty terms like \(e^{y^2}\) but \(Q_x - P_y\) simplifies nicely, use Green's to evaluate the double integral instead. Conversely, if the double integral is hard but the boundary is simple, convert to a line integral.</p>
+    </div>
+
+    <!-- SVG: Green's theorem diagram -->
+    <div class="figure-box">
+    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;">
+      <defs><marker id="ah6g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#0E7C86"/></marker></defs>
+      <!-- region R -->
+      <path d="M100,180 Q60,130 100,70 Q160,30 250,60 Q330,80 310,140 Q290,200 200,210 Q140,220 100,180" fill="rgba(14,124,134,0.1)" stroke="#0E7C86" stroke-width="2.5" marker-mid="url(#ah6g)"/>
+      <!-- CCW arrows on curve -->
+      <polygon points="90,120 85,113 95,115" fill="#0E7C86"/>
+      <polygon points="175,40 182,35 180,45" fill="#0E7C86"/>
+      <polygon points="315,120 320,128 310,127" fill="#0E7C86"/>
+      <polygon points="200,215 192,218 195,208" fill="#0E7C86"/>
+      <!-- labels -->
+      <text x="195" y="135" font-size="18" fill="#0E7C86" text-anchor="middle" font-weight="bold">ℛ</text>
+      <text x="335" y="105" font-size="15" fill="#0E7C86" font-weight="bold">𝒞</text>
+      <text x="65" y="97" font-size="12" fill="#5A5A50">(CCW)</text>
+      <!-- integral labels -->
+      <text x="195" y="160" font-size="11" fill="#5A5A50" text-anchor="middle">∬(Q<tspan font-size="9" dy="2">x</tspan><tspan dy="-2"> − P</tspan><tspan font-size="9" dy="2">y</tspan><tspan dy="-2">) dA</tspan></text>
+    </svg>
+    <div class="figure-caption">Fig 6.2 — Green's theorem: the line integral around the positively oriented (CCW) boundary \(\mathscr{C}\) equals the double integral of \(Q_x - P_y\) over the enclosed region \(\mathscr{R}\).</div>
+    </div>
+
+    <h3>Key Consequences</h3>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Area via Green's Theorem</div>
+    <p>Setting \(P = -y\) and \(Q = x\) gives \(Q_x - P_y = 1 + 1 = 2\), so:</p>
+    \[\text{Area of } \mathscr{R} = \frac{1}{2}\oint_{\mathscr{C}} x\,dy - y\,dx\]
+    <p>This converts an area computation into a line integral around the boundary — useful when the boundary has a nice parametrization but the region is hard to describe for a double integral.</p>
+    </div>
+
+    <div class="drv-card card-bracket"><div class="drv-name" style="color:var(--deriv)">Divergence Form of Green's Theorem</div>
+    <p>Let \(\mathbf{n}\) be the outward unit normal to \(\mathscr{C}\). Then Green's theorem can be rewritten as:</p>
+    \[\iint_{\mathscr{R}} \text{div}\,\mathbf{F}\,dA = \oint_{\mathscr{C}} \mathbf{F}\cdot\mathbf{n}\,ds\]
+    <p>This is the <strong>2D Divergence Theorem</strong> — it foreshadows the 3D Divergence Theorem in §6.8.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Regions with Holes</div>
+    <p>Green's theorem extends to regions with holes (like an annulus). Break the region into simply connected pieces, apply Green's to each, and the line integrals along the shared internal boundaries cancel. The result: the outer boundary is traversed CCW and inner boundaries CW.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.4 — Green's Theorem Simplifies a Hard Line Integral</div>
+    <p><strong>Problem:</strong> Evaluate \(\displaystyle\oint_{\mathscr{C}} (\cos x - y^3)\,dx + e^{y^2}\,dy\) where \(\mathscr{C}\) is the boundary of the region between \(y = x^2\) and \(y = \sqrt{x}\), oriented CCW.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> The line integral contains \(e^{y^2}\), which has no elementary antiderivative. But Green's theorem transforms this into a double integral where \(Q_x - P_y\) may simplify.</p>
+    <p><strong>Setup:</strong> \(P = \cos x - y^3\), \(Q = e^{y^2}\). Then:</p>
+    \[Q_x - P_y = 0 - (-3y^2) = 3y^2\]
+    <p>The region is \(\mathscr{R}_{yx}: x^2 \leq y \leq \sqrt{x}\) for \(0 \leq x \leq 1\).</p>
+    \[\oint_{\mathscr{C}} P\,dx + Q\,dy = \iint_{\mathscr{R}} 3y^2\,dA = \int_0^1\!\int_{x^2}^{\sqrt{x}} 3y^2\,dy\,dx\]
+    \[= \int_0^1 \Big[y^3\Big]_{x^2}^{\sqrt{x}}\,dx = \int_0^1 \big(x^{3/2} - x^6\big)\,dx = \left[\frac{2x^{5/2}}{5} - \frac{x^7}{7}\right]_0^1 = \frac{2}{5} - \frac{1}{7} = \boxed{\frac{9}{35}}\]
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>Green's theorem turned an impossible line integral (containing \(e^{y^2}\)) into a routine double integral. Always check \(Q_x - P_y\) first — if it simplifies, Green's is the way to go.</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.5 — Area of an Annulus via Green's</div>
+    <p><strong>Problem:</strong> Use \(\oint x\,dy - y\,dx\) to find the area of the annular region between the circles \(x^2+y^2=1\) and \(x^2+y^2=4\).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> The region has a hole, so we traverse the outer circle CCW and the inner circle CW.</p>
+    <p><strong>Outer circle</strong> (\(r=2\), CCW): \(x = 2\cos t\), \(y = 2\sin t\), \(0 \leq t \leq 2\pi\).</p>
+    \[\oint_{\mathscr{C}^{**}} x\,dy - y\,dx = \int_0^{2\pi}\!\big(2\cos t \cdot 2\cos t - 2\sin t\cdot(-2\sin t)\big)\,dt = \int_0^{2\pi} 4\,dt = 8\pi\]
+    <p><strong>Inner circle</strong> (\(r=1\), CW — same as traversing CCW but negated):</p>
+    \[\oint_{\mathscr{C}^*} x\,dy - y\,dx = -\int_0^{2\pi} 1\,dt = -2\pi\]
+    <p><strong>Area</strong> = \(\frac{1}{2}(8\pi + (-2\pi)) = \frac{1}{2}(6\pi) = \boxed{3\pi}\). Matches \(\pi(2^2 - 1^2) = 3\pi\). ✓</p>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-4">§6.4 — Stokes' Theorem</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Stokes' theorem generalizes Green's theorem from flat regions in the plane to curved surfaces in 3D. Where Green's relates a line integral around a closed curve to a double integral over the enclosed flat region, Stokes' relates a line integral around the <em>boundary</em> of a surface to a surface integral of the curl over that surface.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Stokes' Theorem</div>
+    <p>Let \(\mathscr{S}\) be an oriented smooth surface bounded by a simple closed curve \(\mathscr{C}\), with \(\mathbf{n}\) the unit normal to \(\mathscr{S}\) compatible with the orientation of \(\mathscr{C}\) (right-hand rule). If \(\mathbf{F}\) is a continuously differentiable vector field, then:</p>
+    \[\oint_{\mathscr{C}} \mathbf{F}\cdot d\mathbf{r} = \iint_{\mathscr{S}} (\nabla \times \mathbf{F})\cdot\mathbf{n}\,dS\]
+    <div class="pill-row"><span class="pill">\(\nabla \times \mathbf{F}\) = curl of \(\mathbf{F}\) (recall from §3.7)</span> <span class="pill">\(\mathbf{n}\) = outward unit normal to \(\mathscr{S}\)</span> <span class="pill">\(\mathscr{C}\) = boundary curve of \(\mathscr{S}\)</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Right-Hand Rule for Orientation</div>
+    <p>Curl the fingers of your right hand in the direction of \(\mathscr{C}\). Your thumb points in the direction of \(\mathbf{n}\). If you walk along \(\mathscr{C}\) in its positive direction with your head pointing in the direction of \(\mathbf{n}\), the surface is on your left.</p>
+    </div>
+
+    <!-- SVG: Stokes' theorem -->
+    <div class="figure-box">
+    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;">
+      <defs><marker id="ah6s" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#0E7C86"/></marker></defs>
+      <!-- surface S -->
+      <path d="M80,180 Q100,80 200,70 Q300,60 340,120 Q360,160 310,190 Q240,210 160,200 Q100,195 80,180" fill="rgba(14,124,134,0.12)" stroke="none"/>
+      <path d="M80,180 Q100,80 200,70 Q300,60 340,120" fill="none" stroke="#0E7C86" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <path d="M340,120 Q360,160 310,190 Q240,210 160,200 Q100,195 80,180" fill="none" stroke="#0E7C86" stroke-width="2.5"/>
+      <!-- boundary C -->
+      <polygon points="135,195 142,199 138,203" fill="#0E7C86"/>
+      <polygon points="290,198 283,202 286,193" fill="#0E7C86"/>
+      <!-- normal arrow -->
+      <line x1="210" y1="130" x2="210" y2="60" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <text x="220" y="58" font-size="13" fill="#D85050" font-weight="bold">n</text>
+      <!-- labels -->
+      <text x="200" y="150" font-size="16" fill="#0E7C86" text-anchor="middle" font-weight="bold">𝒮</text>
+      <text x="175" y="220" font-size="14" fill="#0E7C86" font-weight="bold">𝒞</text>
+      <text x="55" y="170" font-size="11" fill="#5A5A50">∮F·dr</text>
+      <text x="230" y="145" font-size="11" fill="#5A5A50">∬(∇×F)·n dS</text>
+    </svg>
+    <div class="figure-caption">Fig 6.3 — Stokes' theorem: the line integral of \(\mathbf{F}\) around the boundary curve \(\mathscr{C}\) equals the surface integral of the curl of \(\mathbf{F}\) over any surface \(\mathscr{S}\) bounded by \(\mathscr{C}\).</div>
+    </div>
+
+    <h3>Key Consequences</h3>
+
+    <p><strong>1. Green's theorem is a special case.</strong> If \(\mathscr{S}\) is a flat region in the \(xy\)-plane, then \(\mathbf{n} = \mathbf{k}\) and Stokes' reduces to Green's. Set \(R = 0\) — all \(z\)-terms vanish and you recover \(\oint P\,dx + Q\,dy = \iint (Q_x - P_y)\,dA\).</p>
+
+    <p><strong>2. Surface independence.</strong> If two different surfaces \(\mathscr{S}_1\) and \(\mathscr{S}_2\) share the same boundary curve \(\mathscr{C}\), then:</p>
+    \[\iint_{\mathscr{S}_1} (\nabla \times \mathbf{F})\cdot\mathbf{n}\,dS = \iint_{\mathscr{S}_2} (\nabla \times \mathbf{F})\cdot\mathbf{n}\,dS\]
+    <p>Both equal \(\oint_{\mathscr{C}} \mathbf{F}\cdot d\mathbf{r}\). This is incredibly useful: if one surface is hard to integrate over, pick an easier one with the same boundary.</p>
+
+    <p><strong>3. Conservative fields revisited.</strong> If \(\nabla \times \mathbf{F} = \mathbf{0}\) everywhere, Stokes' gives \(\oint \mathbf{F}\cdot d\mathbf{r} = 0\) for every closed curve — confirming that curl-free fields are conservative (recall from §3.7 and §4.3).</p>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.6 — Verifying Stokes' Theorem</div>
+    <p><strong>Problem:</strong> Let \(\mathbf{F} = (-10\sin t,\, 8\cos t,\, 1)\) — actually, let \(\mathbf{F}(x,y,z) = (y, -x, z^2)\). Verify Stokes' theorem where \(\mathscr{S}\) is the upper hemisphere \(x^2+y^2+z^2=4\), \(z \geq 0\), and \(\mathscr{C}\) is the circle \(x^2+y^2=4\) on the \(xy\)-plane.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Line integral side:</strong> Parametrize \(\mathscr{C}\): \(x = 2\cos t\), \(y = 2\sin t\), \(z = 0\), \(0 \leq t \leq 2\pi\).</p>
+    \[\oint \mathbf{F}\cdot d\mathbf{r} = \int_0^{2\pi}(2\sin t\cdot(-2\sin t) + (-2\cos t)\cdot 2\cos t + 0)\,dt\]
+    \[= \int_0^{2\pi}(-4\sin^2 t - 4\cos^2 t)\,dt = \int_0^{2\pi}(-4)\,dt = -8\pi\]
+
+    <p><strong>Surface integral side:</strong> Compute \(\nabla \times \mathbf{F}\):</p>
+    \[\nabla \times \mathbf{F} = \det\begin{pmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\y&-x&z^2\end{pmatrix} = (0-0)\,\mathbf{i} - (0-0)\,\mathbf{j} + (-1-1)\,\mathbf{k} = (0,0,-2)\]
+
+    <p>By surface independence, instead of integrating over the hemisphere, use the flat disk \(x^2+y^2 \leq 4\) in the \(xy\)-plane where \(\mathbf{n} = \mathbf{k}\):</p>
+    \[\iint_{\mathscr{S}} (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = \iint_{\text{disk}} (0,0,-2)\cdot(0,0,1)\,dA = -2\cdot\text{Area}(\text{disk}) = -2\cdot 4\pi = -8\pi\]
+    <p>Both sides give \(\boxed{-8\pi}\). ✓</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>We used <strong>surface independence</strong> to replace the curved hemisphere with the flat disk — same boundary, much easier integration. This trick works whenever the curl is constant.</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.7 — Stokes' on an Elliptic Surface</div>
+    <p><strong>Problem:</strong> Let \(\mathbf{F} = x^2\,\mathbf{i} + 2x\,\mathbf{j} + z^2\,\mathbf{k}\). Evaluate \(\iint_{\mathscr{S}} \text{curl}\,\mathbf{F}\cdot\mathbf{n}\,dS\) where \(\mathscr{S}\) is the surface interior to the ellipse \(4x^2+y^2=4\) on \(z=0\).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> By Stokes', convert the surface integral to a line integral around the ellipse boundary.</p>
+    <p><strong>Parametrize the ellipse:</strong> \(x = \cos t\), \(y = 2\sin t\), \(z = 0\), \(0 \leq t \leq 2\pi\).</p>
+    \[\oint \mathbf{F}\cdot d\mathbf{r} = \int_0^{2\pi}(\cos^2 t\cdot(-\sin t) + 2\cos t\cdot 2\cos t + 0)\,dt\]
+    \[= \int_0^{2\pi}(-\cos^2 t\sin t + 4\cos^2 t)\,dt\]
+    <p>The first integral: \(\int_0^{2\pi}\cos^2 t\sin t\,dt\). Let \(u = \cos t\): over a full period this is 0.</p>
+    <p>The second: \(4\int_0^{2\pi}\cos^2 t\,dt = 4\cdot\pi = 4\pi\).</p>
+    <p>Result: \(\boxed{4\pi}\).</p>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-5">§6.5 — Triple Integrals</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Just as double integrals extend single integrals to 2D regions, <strong>triple integrals</strong> extend to 3D solid regions. Where a double integral gives area (when \(f=1\)) or volume under a surface, a triple integral gives volume (when \(f=1\)) or "hypervolume" in 4D (for general \(f\)).</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Triple Integral</div>
+    <p>Let \(f(x,y,z)\) be continuous on a bounded solid region \(\mathscr{T} \subseteq \mathbb{R}^3\). The <strong>triple integral</strong> is:</p>
+    \[\iiint_{\mathscr{T}} f(x,y,z)\,dV = \lim_{\|\mathscr{P}\|\to 0} \sum_{j=1}^{n}\sum_{i=1}^{m}\sum_{k=1}^{p} f(x_i, y_j, z_k)\,\Delta V_{ijk}\]
+    <p>where \(\Delta V_{ijk}\) is the volume of each sub-box in the partition.</p>
+    </div>
+
+    <p>Setting \(f = 1\) gives \(\iiint_{\mathscr{T}} dV = \text{Volume of }\mathscr{T}\).</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Fubini's Theorem for Triple Integrals</div>
+    <p>A triple integral can be evaluated as a nested iterated integral. There are <strong>6 possible orderings</strong>, depending on which variable you integrate first. A typical form:</p>
+    \[\iiint_{\mathscr{T}} f\,dV = \int_a^b\!\int_{f_1(x)}^{f_2(x)}\!\int_{g(x,y)}^{h(x,y)} f(x,y,z)\,dz\,dy\,dx\]
+    <div class="pill-row"><span class="pill">\(a \leq x \leq b\) = outermost bounds (constants)</span> <span class="pill">\(f_1 \leq y \leq f_2\) = middle bounds (functions of \(x\))</span> <span class="pill">\(g \leq z \leq h\) = innermost bounds (functions of \(x\) and \(y\))</span></div>
+    <p>Always evaluate from the <strong>inside out</strong>. The inner integral has variable limits; the outer integral always has constant limits.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Setting Up Limits</div>
+    <p>To set up a triple integral \(dz\,dy\,dx\): <strong>1.</strong> Fix \(x\) and \(y\), find the \(z\)-bounds by solving for where the solid's top and bottom surfaces are. <strong>2.</strong> Project the solid onto the \(xy\)-plane to get a 2D region; set up the \(dy\,dx\) bounds as a double integral over that region. <strong>3.</strong> The outermost bounds are always constants (the overall range of the outermost variable).</p>
+    </div>
+
+    <h3>Applications</h3>
+
+    <p><strong>Mass:</strong> If \(\delta(x,y,z)\) is density, then \(M = \iiint_{\mathscr{T}} \delta\,dV\).</p>
+    <p><strong>Center of mass:</strong> \(\bar{x} = \frac{1}{M}\iiint x\,\delta\,dV\), \(\bar{y} = \frac{1}{M}\iiint y\,\delta\,dV\), \(\bar{z} = \frac{1}{M}\iiint z\,\delta\,dV\).</p>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.8 — Triple Integral over a Tetrahedron</div>
+    <p><strong>Problem:</strong> Evaluate \(\iiint_{\mathscr{T}} x\,dV\) where \(\mathscr{T}\) is the tetrahedron bounded by \(x+y+z=1\) and the coordinate planes in the first octant.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Setup:</strong> In the first octant with \(x+y+z \leq 1\): fix \(x\), then \(y\) ranges from 0 to \(1-x\), and \(z\) from 0 to \(1-x-y\).</p>
+    \[\iiint_{\mathscr{T}} x\,dV = \int_0^1\!\int_0^{1-x}\!\int_0^{1-x-y} x\,dz\,dy\,dx\]
+    <p><strong>Inner integral:</strong> \(\int_0^{1-x-y} x\,dz = x(1-x-y)\).</p>
+    <p><strong>Middle integral:</strong></p>
+    \[\int_0^{1-x} x(1-x-y)\,dy = x\left[(1-x)y - \frac{y^2}{2}\right]_0^{1-x} = x\cdot\frac{(1-x)^2}{2}\]
+    <p><strong>Outer integral:</strong></p>
+    \[\int_0^1 \frac{x(1-x)^2}{2}\,dx = \frac{1}{2}\int_0^1(x - 2x^2 + x^3)\,dx = \frac{1}{2}\left[\frac{x^2}{2}-\frac{2x^3}{3}+\frac{x^4}{4}\right]_0^1 = \frac{1}{2}\cdot\frac{1}{12} = \boxed{\frac{1}{24}}\]
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-6">§6.6 — Cylindrical &amp; Spherical Coordinates</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>Just as polar coordinates simplified double integrals over circular regions (recall from §5.4), <strong>cylindrical</strong> and <strong>spherical</strong> coordinates simplify triple integrals over cylindrical and spherical regions. The key is the <strong>Jacobian</strong> — the volume magnification factor when changing coordinates.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Cylindrical Coordinates</div>
+    <p>Cylindrical coordinates extend polar coordinates to 3D by adding a \(z\)-axis:</p>
+    \[x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\]
+    <p><strong>Jacobian:</strong> \(J = r\). The volume element is \(dV = r\,dr\,d\theta\,dz\).</p>
+    \[\iiint_{\mathscr{T}} f\,dV = \iiint_{\mathscr{T}'} f(r\cos\theta,\,r\sin\theta,\,z)\;r\,dr\,d\theta\,dz\]
+    <div class="pill-row"><span class="pill">\(r \geq 0\) = distance from \(z\)-axis</span> <span class="pill">\(0 \leq \theta \leq 2\pi\) = angle in \(xy\)-plane</span> <span class="pill">\(z \in \mathbb{R}\) = height</span></div>
+    <p><strong>Use when:</strong> the region or integrand involves \(x^2+y^2\) (circles/cylinders around the \(z\)-axis).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Spherical Coordinates</div>
+    <p>For regions involving spheres or cones:</p>
+    \[x = \rho\sin\varphi\cos\theta, \quad y = \rho\sin\varphi\sin\theta, \quad z = \rho\cos\varphi\]
+    <p><strong>Jacobian:</strong> \(J = \rho^2\sin\varphi\). The volume element is \(dV = \rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\).</p>
+    \[\iiint_{\mathscr{T}} f\,dV = \iiint_{\mathscr{T}'} f(\rho\sin\varphi\cos\theta,\,\rho\sin\varphi\sin\theta,\,\rho\cos\varphi)\;\rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\]
+    <div class="pill-row"><span class="pill">\(\rho \geq 0\) = distance from origin</span> <span class="pill">\(0 \leq \theta \leq 2\pi\) = azimuthal angle (longitude)</span> <span class="pill">\(0 \leq \varphi \leq \pi\) = polar angle from positive \(z\)-axis (colatitude)</span></div>
+    <p><strong>Use when:</strong> the region or integrand involves \(x^2+y^2+z^2\) (spheres and cones).</p>
+    </div>
+
+    <!-- SVG: coordinate systems -->
+    <div class="figure-box">
+    <svg viewBox="0 0 440 210" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;">
+      <defs><marker id="ah6c" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#3A3A3A"/></marker></defs>
+      <!-- CYLINDRICAL (left) -->
+      <text x="105" y="16" font-size="13" fill="#0E7C86" text-anchor="middle" font-weight="bold">Cylindrical</text>
+      <!-- axes -->
+      <line x1="105" y1="180" x2="195" y2="180" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <line x1="105" y1="180" x2="105" y2="30" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <line x1="105" y1="180" x2="55" y2="200" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <text x="200" y="185" font-size="11" fill="#3A3A3A">x</text>
+      <text x="95" y="27" font-size="11" fill="#3A3A3A">z</text>
+      <text x="48" y="207" font-size="11" fill="#3A3A3A">y</text>
+      <!-- point P -->
+      <circle cx="155" cy="90" r="3" fill="#0E7C86"/>
+      <text x="162" y="87" font-size="12" fill="#0E7C86" font-weight="bold">P</text>
+      <!-- r line -->
+      <line x1="155" y1="165" x2="155" y2="90" stroke="#D85050" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="105" y1="165" x2="155" y2="165" stroke="#4A90D9" stroke-width="2"/>
+      <text x="127" y="160" font-size="12" fill="#4A90D9" font-weight="bold">r</text>
+      <text x="160" y="130" font-size="12" fill="#D85050">z</text>
+      <!-- theta arc -->
+      <path d="M125,180 Q130,172 135,170" fill="none" stroke="#5CAB7D" stroke-width="1.5"/>
+      <text x="133" y="188" font-size="12" fill="#5CAB7D">θ</text>
+
+      <!-- SPHERICAL (right) -->
+      <text x="330" y="16" font-size="13" fill="#0E7C86" text-anchor="middle" font-weight="bold">Spherical</text>
+      <line x1="330" y1="180" x2="420" y2="180" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <line x1="330" y1="180" x2="330" y2="30" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <line x1="330" y1="180" x2="280" y2="200" stroke="#3A3A3A" stroke-width="1" marker-end="url(#ah6c)"/>
+      <text x="425" y="185" font-size="11" fill="#3A3A3A">x</text>
+      <text x="320" y="27" font-size="11" fill="#3A3A3A">z</text>
+      <text x="273" y="207" font-size="11" fill="#3A3A3A">y</text>
+      <!-- point P -->
+      <circle cx="375" cy="80" r="3" fill="#0E7C86"/>
+      <text x="382" y="77" font-size="12" fill="#0E7C86" font-weight="bold">P</text>
+      <!-- rho line -->
+      <line x1="330" y1="180" x2="375" y2="80" stroke="#D85050" stroke-width="2"/>
+      <text x="345" y="120" font-size="12" fill="#D85050" font-weight="bold">ρ</text>
+      <!-- phi arc -->
+      <path d="M330,155 Q340,140 345,130" fill="none" stroke="#8B72BE" stroke-width="1.5"/>
+      <text x="340" y="152" font-size="12" fill="#8B72BE">φ</text>
+      <!-- theta arc -->
+      <path d="M350,180 Q355,173 358,170" fill="none" stroke="#5CAB7D" stroke-width="1.5"/>
+      <text x="358" y="188" font-size="12" fill="#5CAB7D">θ</text>
+    </svg>
+    <div class="figure-caption">Fig 6.4 — Cylindrical coordinates \((r, \theta, z)\) and spherical coordinates \((\rho, \theta, \varphi)\). Note: \(\varphi\) is measured from the positive \(z\)-axis (colatitude), not from the equator.</div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Don't Forget the Jacobian!</div>
+    <p>\(dV = r\,dr\,d\theta\,dz\) in cylindrical. \(dV = \rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\) in spherical. Forgetting the factor \(r\) or \(\rho^2\sin\varphi\) is one of the most common exam mistakes.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.9 — Volume of a Sphere (Spherical)</div>
+    <p><strong>Problem:</strong> Find the volume of a sphere of radius \(R\) using spherical coordinates.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p>\(\mathscr{T}: 0 \leq \rho \leq R\), \(0 \leq \theta \leq 2\pi\), \(0 \leq \varphi \leq \pi\).</p>
+    \[V = \int_0^{2\pi}\!\int_0^{\pi}\!\int_0^R \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta = \int_0^{2\pi}d\theta\cdot\int_0^{\pi}\sin\varphi\,d\varphi\cdot\int_0^R\rho^2\,d\rho\]
+    \[= 2\pi \cdot [-\cos\varphi]_0^{\pi} \cdot \left[\frac{\rho^3}{3}\right]_0^R = 2\pi \cdot 2 \cdot \frac{R^3}{3} = \boxed{\frac{4\pi R^3}{3}}\]
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.10 — Cylindrical Coordinates for a Cylinder Volume</div>
+    <p><strong>Problem:</strong> Find the volume of the solid inside the cylinder \(x^2+y^2=4\) between \(z=0\) and \(z = 2 - r\cos\theta\) (i.e. \(z = 2-x\)).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p>In cylindrical: \(\mathscr{T} = \{(r,\theta,z): 0 \leq r \leq 2,\;0\leq\theta\leq 2\pi,\;0\leq z\leq 2-r\cos\theta\}\).</p>
+    \[V = \int_0^{2\pi}\!\int_0^{2}\!\int_0^{2-r\cos\theta} r\,dz\,dr\,d\theta = \int_0^{2\pi}\!\int_0^2 r(2-r\cos\theta)\,dr\,d\theta\]
+    \[= \int_0^{2\pi}\!\int_0^2 (2r - r^2\cos\theta)\,dr\,d\theta = \int_0^{2\pi}\left[r^2 - \frac{r^3}{3}\cos\theta\right]_0^2 d\theta\]
+    \[= \int_0^{2\pi}\left(4 - \frac{8}{3}\cos\theta\right)d\theta = 4\cdot 2\pi - \frac{8}{3}\cdot 0 = \boxed{8\pi}\]
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-7">§6.7 — Describing Solids</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>A critical skill for triple integrals is <em>describing</em> standard solid regions in cylindrical and spherical coordinates. Here's a reference guide:</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Common Surfaces in Each Coordinate System</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;">
+    <tr style="border-bottom:2px solid var(--border);"><th style="text-align:left;padding:6px;">Surface</th><th style="text-align:left;padding:6px;">Cylindrical</th><th style="text-align:left;padding:6px;">Spherical</th></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;">Sphere \(x^2+y^2+z^2=a^2\)</td><td style="padding:6px;">\(r^2+z^2=a^2\)</td><td style="padding:6px;">\(\rho = a\)</td></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;">Vertical cylinder \(x^2+y^2=a^2\)</td><td style="padding:6px;">\(r = a\)</td><td style="padding:6px;">\(\rho\sin\varphi = a\)</td></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;">Cone \(z = c\sqrt{x^2+y^2}\)</td><td style="padding:6px;">\(z = cr\)</td><td style="padding:6px;">\(\varphi = \varphi_0\) where \(\tan\varphi_0 = 1/c\)</td></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;">Horizontal plane \(z = z_0\)</td><td style="padding:6px;">\(z = z_0\)</td><td style="padding:6px;">\(\rho\cos\varphi = z_0\)</td></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;">Half-plane \(y = x\tan\theta_0\)</td><td style="padding:6px;">\(\theta = \theta_0\)</td><td style="padding:6px;">\(\theta = \theta_0\)</td></tr>
+    </table>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Choosing Coordinates</div>
+    <p><strong>Cylindrical:</strong> Use when the region has circular symmetry about the \(z\)-axis and the \(z\)-bounds are given by functions. The integrand or boundary involves \(x^2+y^2\).</p>
+    <p><strong>Spherical:</strong> Use when the region is bounded by spheres or cones centered at the origin. The integrand or boundary involves \(x^2+y^2+z^2\).</p>
+    <p><strong>Rectangular:</strong> Use for boxes, tetrahedra, and regions with flat boundaries parallel to coordinate planes.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 id="s6-8">§6.8 — The Divergence Theorem</h2>
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <p>The Divergence Theorem (also called Gauss's Theorem) is the 3D analogue of the 2D Divergence form of Green's theorem. Where Green's (divergence form) says \(\iint_{\mathscr{R}} \text{div}\,\mathbf{F}\,dA = \oint_{\mathscr{C}} \mathbf{F}\cdot\mathbf{n}\,ds\), the Divergence Theorem extends this to 3D:</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">The Divergence Theorem (Gauss's Theorem)</div>
+    <p>Let \(\mathscr{T}\) be a solid region in \(\mathbb{R}^3\) with smooth closed boundary surface \(\mathscr{S}\) and outward unit normal \(\mathbf{n}\). If \(\mathbf{F}\) is continuously differentiable, then:</p>
+    \[\iiint_{\mathscr{T}} \text{div}\,\mathbf{F}\,dV = \iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS\]
+    <div class="pill-row"><span class="pill">\(\text{div}\,\mathbf{F} = \nabla\cdot\mathbf{F} = P_x + Q_y + R_z\) (recall from §3.7)</span> <span class="pill">\(\mathscr{S}\) = closed boundary of solid \(\mathscr{T}\)</span> <span class="pill">\(\mathbf{n}\) = outward normal</span></div>
+    <p>In words: the total "source strength" inside a region equals the net outward flux through its boundary.</p>
+    </div>
+
+    <!-- SVG: Divergence theorem -->
+    <div class="figure-box">
+    <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" style="max-width:380px;">
+      <!-- solid region -->
+      <ellipse cx="190" cy="120" rx="120" ry="80" fill="rgba(14,124,134,0.1)" stroke="#0E7C86" stroke-width="2.5"/>
+      <!-- outward arrows -->
+      <line x1="310" y1="120" x2="340" y2="120" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <line x1="190" y1="40" x2="190" y2="15" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <line x1="70" y1="120" x2="40" y2="120" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <line x1="190" y1="200" x2="190" y2="212" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <line x1="275" y1="60" x2="295" y2="42" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <line x1="105" y1="60" x2="85" y2="42" stroke="#D85050" stroke-width="2" marker-end="url(#ah6a)"/>
+      <!-- labels -->
+      <text x="190" y="115" font-size="18" fill="#0E7C86" text-anchor="middle" font-weight="bold">𝒯</text>
+      <text x="190" y="135" font-size="11" fill="#5A5A50" text-anchor="middle">∭ div F dV</text>
+      <text x="345" y="115" font-size="12" fill="#D85050">n</text>
+      <text x="315" y="155" font-size="11" fill="#5A5A50">𝒮</text>
+      <text x="315" y="170" font-size="10" fill="#5A5A50">∬F·n dS</text>
+    </svg>
+    <div class="figure-caption">Fig 6.5 — The Divergence Theorem: the triple integral of \(\text{div}\,\mathbf{F}\) over the solid \(\mathscr{T}\) equals the flux of \(\mathbf{F}\) through its closed boundary \(\mathscr{S}\).</div>
+    </div>
+
+    <h3>Key Consequences</h3>
+
+    <p><strong>1. Curl flux over a closed surface is zero:</strong> \(\displaystyle\iint_{\mathscr{S}} (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = 0\) for any closed surface, because \(\nabla\cdot(\nabla\times\mathbf{F}) = 0\) always (recall from §3.7).</p>
+
+    <p><strong>2. Volume via flux:</strong> Setting \(\mathbf{F} = (x,0,0)\) or \((0,y,0)\) or \((0,0,z)\) (each has \(\text{div}\,\mathbf{F}=1\)) gives \(\text{Vol}(\mathscr{T}) = \iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS\).</p>
+
+    <p><strong>3. Regions with holes:</strong> The Divergence Theorem extends to regions bounded by two or more closed surfaces (like a hollow ball). The inner surface is traversed with <em>inward</em> normal.</p>
+
+    <!-- Summary of the three theorems -->
+    <div class="drv-card card-bracket"><div class="drv-name" style="color:var(--deriv)">The Three Big Theorems — Unified View</div>
+    <p>All three theorems have the same structure: <strong>an integral over a region equals an integral over its boundary</strong>.</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;">
+    <tr style="border-bottom:2px solid var(--border);"><th style="text-align:left;padding:6px;">Theorem</th><th style="text-align:left;padding:6px;">Interior</th><th style="text-align:left;padding:6px;">Boundary</th></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;"><strong>Green's</strong></td><td style="padding:6px;">\(\iint_{\mathscr{R}} (Q_x-P_y)\,dA\)</td><td style="padding:6px;">\(\oint_{\mathscr{C}} P\,dx+Q\,dy\)</td></tr>
+    <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px;"><strong>Stokes'</strong></td><td style="padding:6px;">\(\iint_{\mathscr{S}} (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</td><td style="padding:6px;">\(\oint_{\mathscr{C}} \mathbf{F}\cdot d\mathbf{r}\)</td></tr>
+    <tr><td style="padding:6px;"><strong>Divergence</strong></td><td style="padding:6px;">\(\iiint_{\mathscr{T}} \text{div}\,\mathbf{F}\,dV\)</td><td style="padding:6px;">\(\iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS\)</td></tr>
+    </table>
+    <p>Each connects an integral one dimension <em>higher</em> (over the interior) to an integral one dimension <em>lower</em> (over the boundary). Green's: 2D↔1D. Stokes': 2D↔1D (curved). Divergence: 3D↔2D.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.11 — Divergence Theorem on a Tetrahedron</div>
+    <p><strong>Problem:</strong> Let \(\mathbf{F} = (x^2+1)\,\mathbf{i} + (xz^2-2z)\,\mathbf{j} + (2xz+\cos y)\,\mathbf{k}\). Find the flux through the surface of the tetrahedron bounded by \(x+2y+3z=6\) and the coordinate planes.</p>
+    <details class="solution"><summary>Solution</summary>
+    <p><strong>Thought process:</strong> Computing the flux directly requires integrating over 4 faces — tedious! The Divergence Theorem converts this to a single triple integral.</p>
+    <p><strong>Compute div F:</strong></p>
+    \[\text{div}\,\mathbf{F} = \frac{\partial}{\partial x}(x^2+1) + \frac{\partial}{\partial y}(xz^2-2z) + \frac{\partial}{\partial z}(2xz+\cos y) = 2x + 0 + 2x = 4x\]
+    <p><strong>Set up the triple integral:</strong> The tetrahedron has vertices at \((6,0,0)\), \((0,3,0)\), \((0,0,2)\), and the origin.</p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_{\mathscr{T}} 4x\,dV = \int_0^6\!\int_0^{(6-x)/2}\!\int_0^{(6-x-2y)/3} 4x\,dz\,dy\,dx\]
+    <p><strong>Inner:</strong> \(\int_0^{(6-x-2y)/3} 4x\,dz = \frac{4x(6-x-2y)}{3}\).</p>
+    <p><strong>Middle:</strong> \(\frac{4x}{3}\int_0^{(6-x)/2}(6-x-2y)\,dy = \frac{4x}{3}\cdot\frac{(6-x)^2}{4} = \frac{x(6-x)^2}{3}\).</p>
+    <p><strong>Outer:</strong></p>
+    \[\frac{1}{3}\int_0^6 x(6-x)^2\,dx = \frac{1}{3}\int_0^6(36x-12x^2+x^3)\,dx = \frac{1}{3}\left[18x^2-4x^3+\frac{x^4}{4}\right]_0^6\]
+    \[= \frac{1}{3}(648-864+324) = \frac{108}{3} = \boxed{36}\]
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 6.12 — Divergence Theorem on a Sphere</div>
+    <p><strong>Problem:</strong> Find the outward flux of \(\mathbf{F} = (x^3, y^3, z^3)\) through the sphere \(x^2+y^2+z^2 = a^2\).</p>
+    <details class="solution"><summary>Solution</summary>
+    <p>\(\text{div}\,\mathbf{F} = 3x^2+3y^2+3z^2 = 3(x^2+y^2+z^2) = 3\rho^2\) in spherical.</p>
+    \[\iint_{\mathscr{S}} \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_{\mathscr{T}} 3\rho^2\,dV = \int_0^{2\pi}\!\int_0^{\pi}\!\int_0^a 3\rho^2\cdot\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta\]
+    \[= 3\int_0^{2\pi}d\theta\int_0^{\pi}\sin\varphi\,d\varphi\int_0^a\rho^4\,d\rho = 3\cdot 2\pi\cdot 2\cdot\frac{a^5}{5} = \boxed{\frac{12\pi a^5}{5}}\]
+    </details></div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ When to Use Which Theorem</div>
+    <p><strong>Green's:</strong> Closed curve in the plane. Convert between \(\oint P\,dx+Q\,dy\) and \(\iint(Q_x-P_y)\,dA\).</p>
+    <p><strong>Stokes':</strong> Open surface with boundary curve in 3D. Convert between \(\oint \mathbf{F}\cdot d\mathbf{r}\) and \(\iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\). Or swap surfaces with the same boundary.</p>
+    <p><strong>Divergence:</strong> Closed surface enclosing a solid. Convert between \(\iint\mathbf{F}\cdot\mathbf{n}\,dS\) and \(\iiint\text{div}\,\mathbf{F}\,dV\).</p>
+    <p><strong>Keyword clue:</strong> If you see a <em>closed surface</em> → Divergence. If you see a surface with a <em>boundary curve</em> → Stokes'. If you see a <em>closed curve in 2D</em> → Green's.</p>
+    </div>
+
   </div>
