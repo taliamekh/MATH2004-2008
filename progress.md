@@ -6,6 +6,22 @@
 **Theme:** Grid Paper (#8) — Architects Daughter font
 **Repo:** https://github.com/taliamekh/MATH2004-2008
 **Raw base URL:** `https://raw.githubusercontent.com/taliamekh/MATH2004-2008/main/`
+**NotebookLM notebook ID:** `6d79ff99-8491-49cf-9d6e-d707d634ac90`
+**Textbook source ID (in NotebookLM):** `df7898f7-ca93-4ebc-b44a-9a479f6a052c`
+
+## Textbook Page Ranges — READ ONLY THESE PAGES
+
+When the user uploads the textbook PDF, read ONLY the pages for the chapter being written. Do NOT read the entire book.
+
+| Chapter | Sections | Pages |
+|---------|----------|-------|
+| Ch 1 — Vectors | §1.1–1.10 | 1–49 |
+| Ch 2 — Curves & Surfaces | §2.1–2.14 | 51–163 |
+| Ch 3 — Partial Derivatives | §3.1–3.7 | 165–257 |
+| Ch 4 — Line Integrals | §4.1–4.3 | 259–289 |
+| Ch 5 — Double Integrals | §5.1–5.6 | 291–369 |
+| Ch 6 — Surface Int. & Theorems | §6.1–6.8 | 371–471 |
+| Ch 7 — Max/Min & Lagrange | §7.2–7.3 | 477–496 |
 
 ---
 
