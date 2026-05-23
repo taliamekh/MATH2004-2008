@@ -67,7 +67,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 .ex-card strong{color:var(--example);}
 .drv-card strong{color:var(--deriv);}
 .eq-card strong{color:var(--eq);}
-:root{--ch1-title:#03346E;--ch2-title:#255F38;--ch3-title:#D35400;--ch4-title:var(--muted);--ch5-title:var(--muted);--ch6-title:var(--muted);--ch7-title:var(--muted);}
+:root{--ch1-title:#03346E;--ch2-title:#255F38;--ch3-title:#D35400;--ch4-title:#670D2F;--ch5-title:#740A03;--ch6-title:var(--muted);--ch7-title:var(--muted);}
 .ex-card{--bracket-c:var(--example);background:rgba(196,136,62,.03);}
 .ex-card .ex-label{font-size:14px;font-weight:700;color:var(--example);margin-bottom:3px;}
 .ptbl{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;}
@@ -197,10 +197,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <a onclick="showPage('ch3prob')" class="sub-link" data-page="ch3prob">Problems</a>
     <a onclick="showPage('ch7')" class="pending" data-page="ch7">Ch 7 – Max/Min</a>
     <a onclick="showPage('ch7prob')" class="sub-link pending" data-page="ch7prob">Problems</a>
-    <a onclick="showPage('ch4')" class="pending" data-page="ch4">Ch 4 – Line Int.</a>
-    <a onclick="showPage('ch4prob')" class="sub-link pending" data-page="ch4prob">Problems</a>
-    <a onclick="showPage('ch5')" class="pending" data-page="ch5">Ch 5 – Double Int.</a>
-    <a onclick="showPage('ch5prob')" class="sub-link pending" data-page="ch5prob">Problems</a>
+    <a onclick="showPage('ch4')" data-page="ch4">Ch 4 – Line Int.</a>
+    <a onclick="showPage('ch4prob')" class="sub-link" data-page="ch4prob">Problems</a>
+    <a onclick="showPage('ch5')" data-page="ch5">Ch 5 – Double Int.</a>
+    <a onclick="showPage('ch5prob')" class="sub-link" data-page="ch5prob">Problems</a>
     <a onclick="showPage('ch6')" class="pending" data-page="ch6">Ch 6 – Big Thms</a>
     <a onclick="showPage('ch6prob')" class="sub-link pending" data-page="ch6prob">Problems</a>
     <div class="sep"></div>
@@ -1855,21 +1855,287 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <!-- ═══ ch4-notes.html ═══ -->
   <div class="page" id="ch4">
     <div class="page-title" style="color:var(--ch4-title)">Chapter 4</div><h1 style="color:var(--ch4-title)">Line Integrals</h1>
-    <p class="page-intro">Integrating scalar and vector fields along curves — path integrals, work, and circulation.</p>
+    <p class="page-intro">Integrating scalar and vector fields along curves — computing mass, work, circulation, and exploiting conservative fields for path independence.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.1 — Line Integrals with Respect to Arc Length</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
 
-    <div class="def-card card-bracket"><div class="def-name">Week 7 (First Half) — Line Integrals</div>
-    <p><strong>§4.1:</strong> Line integrals of scalar functions — definition, computation, arc-length parameterization</p>
-    <p><strong>§4.2:</strong> Line integrals of vector fields — work integrals</p>
-    <p><strong>§4.3:</strong> Fundamental theorem for line integrals, path independence, conservative fields</p>
+    <p>In single-variable calculus you integrate a function over an interval \([a,b]\). A <strong>line integral</strong> extends this idea: instead of integrating over a straight interval, you <em>integrate a function along a curve</em> \(\mathscr{C}\) in the plane or in space. The function \(f\) is evaluated at points <em>on the curve</em>, and you sum up \(f\) values weighted by tiny arc-length increments \(ds\).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Line Integral w.r.t. Arc Length</div>
+    <p>Let \(\mathscr{C}\) be a regular curve parametrized by \(\mathbf{r}(t)\) for \(t\in[a,b]\), and let \(f\) be a continuous scalar field defined on \(\mathscr{C}\). Partition \(\mathscr{C}\) into subarcs of lengths \(\Delta s_i\), pick sample points \(P_i^*\) on each subarc, and form the Riemann sum \(\sum f(P_i^*)\Delta s_i\). If this limit exists as \(\max\{\Delta s_i\}\to 0\), we call it the <strong>line integral of \(f\) over \(\mathscr{C}\) with respect to arc length</strong>:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Line Integral (arc-length form)</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y,z)\,ds = \lim_{n\to\infty}\sum_{i=1}^{n}f(P_i^*)\,\Delta s_i\]</div>
+    <div class="pills"><span class="pill">f — scalar field evaluated on the curve</span><span class="pill">ds — infinitesimal arc length</span><span class="pill">𝒞 — the curve of integration</span></div>
+    </div></div>
+
+    <h3>Key Properties</h3>
+    <p><strong>1.</strong> Setting \(f=1\) gives the <strong>arc length</strong>: \(\int_{\mathscr{C}}ds = L\).</p>
+    <p><strong>2.</strong> If \(\mathscr{C}=\mathscr{C}_1\cup\mathscr{C}_2\cup\cdots\cup\mathscr{C}_n\) (piecewise), then \(\int_{\mathscr{C}}f\,ds=\sum_{i=1}^{n}\int_{\mathscr{C}_i}f\,ds\).</p>
+    <p><strong>3.</strong> If \(f\) is a mass density, then \(\int_{\mathscr{C}}f\,ds=M\) (total mass of the wire).</p>
+    <p><strong>4.</strong> The surface area of the "curtain" (sheet) under \(f\geq 0\) with base \(\mathscr{C}\) in the \(xy\)-plane equals \(\int_{\mathscr{C}}f(x,y)\,ds\).</p>
+    <p><strong>5.</strong> The value is <strong>independent of orientation</strong> — reversing the direction of \(\mathscr{C}\) gives the same answer.</p>
+
+    <h3>Computation Formulas</h3>
+
+    <div class="eq-card card-bracket"><div class="eq-name">General Parametric (3D)</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y,z)\,ds = \int_a^b f\!\big(x(t),y(t),z(t)\big)\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\;dt\]</div>
+    <div class="pills"><span class="pill">r(t) = (x(t), y(t), z(t)) — parametrization</span><span class="pill">|r′(t)| = √(x′²+y′²+z′²) — speed</span><span class="pill">[a,b] — parameter interval</span></div>
+    </div>
+    <p>In compact notation: \(\int_{\mathscr{C}}f\,ds=\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\).</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">2D Special Case</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y)\,ds = \int_a^b f\!\big(x(t),y(t)\big)\sqrt{x'(t)^2+y'(t)^2}\;dt\]</div>
+    </div>
+
+    <p>If \(\mathscr{C}\) is parametrized by <strong>arc length</strong> (so \(|\mathbf{r}'(t)|=1\)), the formula simplifies to \(\int_a^b f(\mathbf{r}(t))\,dt\).</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Strategy for Computing Line Integrals (Scalar)</div>
+    <p><strong>Step 1:</strong> Parametrize the curve: find \(\mathbf{r}(t)\) and the interval \([a,b]\).</p>
+    <p><strong>Step 2:</strong> Compute \(\mathbf{r}'(t)\) and then \(|\mathbf{r}'(t)|\).</p>
+    <p><strong>Step 3:</strong> Substitute \(x=x(t),\,y=y(t),\,z=z(t)\) into \(f\) to get \(f(\mathbf{r}(t))\).</p>
+    <p><strong>Step 4:</strong> Evaluate the single-variable integral \(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\).</p>
+    </div>
+
+    <!-- Example 200 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.1 — Line Integral of x Along a Parabola (Ex. 200)</div>
+    <p>Let \(\mathscr{C}\) be the arc of the parabola \(y=x^2\) from \(x=0\) to \(x=1\). Evaluate \(\int_{\mathscr{C}}x\,ds\) and show the value is independent of orientation.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Thought process:</strong> We need a parametrization of \(y=x^2\) from \((0,0)\) to \((1,1)\). The simplest choice: let \(t=x\).</p>
+    <p><strong>Setup:</strong> \(\mathbf{r}(t)=(t,\,t^2)\), \(t\in[0,1]\). Then \(\mathbf{r}'(t)=(1,2t)\), \(|\mathbf{r}'(t)|=\sqrt{1+4t^2}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Substitute into the integral: \(\int_0^1 t\sqrt{1+4t^2}\,dt\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Let \(u=1+4t^2\), so \(du=8t\,dt\), i.e., \(t\,dt=du/8\). When \(t=0\), \(u=1\); when \(t=1\), \(u=5\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(=\frac{1}{8}\int_1^5\sqrt{u}\,du=\frac{1}{8}\cdot\frac{2}{3}u^{3/2}\Big|_1^5=\frac{1}{12}\left(5\sqrt{5}-1\right)\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle\frac{5\sqrt{5}-1}{12}\)</p>
+    <p><strong>Orientation check:</strong> Reversing the curve (from \((1,1)\) to \((0,0)\)) uses \(\mathbf{r}(t)=(1-t,(1-t)^2)\). A similar u-substitution yields the same value — confirming that line integrals w.r.t. arc length are orientation-independent.</p>
+    </div></div>
+
+    <!-- Example 201 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.2 — 3D Helix Integral (Ex. 201)</div>
+    <p>Define \(\mathscr{C}\) by \(\mathbf{r}(t)=(t\cos t,\,t\sin t,\,t)\) for \(t\in[-1,1]\) and \(f(x,y,z)=z\). Evaluate \(\int_{\mathscr{C}}z\,ds\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Setup:</strong> \(\mathbf{r}'(t)=(-t\sin t+\cos t,\;t\cos t+\sin t,\;1)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Compute \(|\mathbf{r}'(t)|^2=(-t\sin t+\cos t)^2+(t\cos t+\sin t)^2+1\). Expand: \(=t^2\sin^2t-2t\sin t\cos t+\cos^2t+t^2\cos^2t+2t\sin t\cos t+\sin^2t+1=t^2+1+1=t^2+2\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Since \(z=t\) on \(\mathscr{C}\): \(\int_{-1}^{1}t\sqrt{2+t^2}\,dt\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>The integrand \(t\sqrt{2+t^2}\) is an <strong>odd function</strong> on the symmetric interval \([-1,1]\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(0\) (odd function on symmetric interval)</p>
+    </div></div>
+
+    <!-- Example 203 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.3 — Piecewise Curve (Triangle, Ex. 203)</div>
+    <p>Let \(\mathscr{C}\) be the perimeter of the triangle in the \(xz\)-plane with vertices \((0,0)\), \((1,0)\), \((1,1)\), oriented counterclockwise. Evaluate \(\int_{\mathscr{C}}(x^2+z^2)\,ds\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Thought process:</strong> The curve consists of three line segments. Use <strong>different parameter symbols</strong> \(t_1,t_2,t_3\) for each to avoid confusion (the arc-length element \(ds\) depends on the segment).</p>
+    <p><strong>\(\mathscr{C}_1\):</strong> \((0,0)\to(1,0)\): \(\mathbf{r}(t_1)=(t_1,0)\), \(t_1\in[0,1]\), \(|\mathbf{r}'|=1\).</p>
+    <p><strong>\(\mathscr{C}_2\):</strong> \((1,0)\to(1,1)\): \(\mathbf{r}(t_2)=(1,t_2)\), \(t_2\in[0,1]\), \(|\mathbf{r}'|=1\).</p>
+    <p><strong>\(\mathscr{C}_3\):</strong> \((1,1)\to(0,0)\): \(\mathbf{r}(t_3)=(1-t_3,1-t_3)\), \(t_3\in[0,1]\), \(|\mathbf{r}'|=\sqrt{2}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\int_{\mathscr{C}_1}(x^2+z^2)\,ds=\int_0^1 t_1^2\cdot 1\,dt_1=\frac{1}{3}\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\int_{\mathscr{C}_2}(x^2+z^2)\,ds=\int_0^1(1+t_2^2)\cdot 1\,dt_2=1+\frac{1}{3}=\frac{4}{3}\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(\int_{\mathscr{C}_3}(x^2+z^2)\,ds=\int_0^1 2(1-t_3)^2\cdot\sqrt{2}\,dt_3=2\sqrt{2}\cdot\frac{1}{3}=\frac{2\sqrt{2}}{3}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle\frac{1}{3}+\frac{4}{3}+\frac{2\sqrt{2}}{3}=\frac{5+2\sqrt{2}}{3}\)</p>
+    <p><strong>★ Tip:</strong> Always use <em>different parameter variables</em> for each piece of a piecewise curve. The arc-length element \(ds\) is determined by the curve, not the parameter name.</p>
+    </div></div>
+
+    <!-- Example 204 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.4 — Mass of a Wire (Ex. 204)</div>
+    <p>A thin wire has the shape \(\mathscr{C}:\; y=2x^2\), \(1\leq x\leq 2\), with mass density \(f(x,y)=y/x\) in g/cm. Find the total mass.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Setup:</strong> \(\mathbf{r}(t)=(t,2t^2)\), \(t\in[1,2]\). Then \(\mathbf{r}'(t)=(1,4t)\), \(|\mathbf{r}'(t)|=\sqrt{1+16t^2}\).</p>
+    <p>\(f(\mathbf{r}(t))=y(t)/x(t)=2t^2/t=2t\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(M=\int_1^2 2t\sqrt{1+16t^2}\,dt\). Let \(u=1+16t^2\), \(du=32t\,dt\), so \(2t\,dt=du/16\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Bounds: \(u(1)=17\), \(u(2)=65\). So \(M=\frac{1}{16}\int_{17}^{65}\sqrt{u}\,du=\frac{1}{16}\cdot\frac{2}{3}u^{3/2}\Big|_{17}^{65}=\frac{65\sqrt{65}-17\sqrt{17}}{24}\approx 18.9\) g.</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle M=\frac{65\sqrt{65}-17\sqrt{17}}{24}\approx 18.9\) g</p>
+    </div></div>
+
+    <h3>Average Value and Center of Mass</h3>
+    <div class="eq-card card-bracket"><div class="eq-name">Average Value on a Curve</div>
+    <div class="eq-formula">\[\overline{f}=\frac{1}{L}\int_{\mathscr{C}}f\,ds\]</div>
+    <div class="pills"><span class="pill">L — total arc length of 𝒞</span><span class="pill">f̄ — average value of f on 𝒞</span></div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Center of Mass of a Wire</div>
+    <div class="eq-formula">\[\bar{x}=\frac{1}{M}\int_{\mathscr{C}}x\,f\,ds,\quad\bar{y}=\frac{1}{M}\int_{\mathscr{C}}y\,f\,ds,\quad\bar{z}=\frac{1}{M}\int_{\mathscr{C}}z\,f\,ds\]</div>
+    <div class="pills"><span class="pill">M = ∫𝒞 f ds — total mass</span><span class="pill">f(x,y,z) — mass density</span><span class="pill">(x̄, ȳ, z̄) — center of mass</span></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.2 — Line Integrals of Vector Fields</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>When integrating a <strong>vector field</strong> \(\mathbf{F}\) along a curve, we measure how much \(\mathbf{F}\) pushes <em>along</em> the curve. This gives the <strong>work</strong> done by the force field on a particle moving along \(\mathscr{C}\).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Line Integral of a Vector Field</div>
+    <p>Let \(\mathbf{F}:\mathbb{R}^n\to\mathbb{R}^n\) be a continuous vector field and \(\mathscr{C}\) a curve parametrized by \(\mathbf{r}(t)\), \(t\in[a,b]\). The <strong>line integral of F over 𝒞</strong> is:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Vector Field Line Integral</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_a^b\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\]</div>
+    <div class="pills"><span class="pill">F — vector field</span><span class="pill">r(t) — parametrization of 𝒞</span><span class="pill">r′(t) — tangent vector (velocity)</span><span class="pill">F·r′ — dot product (scalar!)</span></div>
+    </div></div>
+
+    <h3>Key Differences from Arc-Length Integrals</h3>
+    <table class="ptbl">
+    <tr><th>Property</th><th>Scalar (∫f ds)</th><th>Vector (∫F·dr)</th></tr>
+    <tr><td>Orientation</td><td>Independent</td><td><strong>Depends</strong> on direction: \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=-\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\)</td></tr>
+    <tr><td>Integrand</td><td>f · |r′(t)| (magnitude)</td><td>F · r′(t) (dot product)</td></tr>
+    <tr><td>Result sign</td><td>Always ≥ 0 if f ≥ 0</td><td>Can be negative</td></tr>
+    </table>
+
+    <h3>Component Form</h3>
+    <p>Writing \(\mathbf{F}=(P,Q,R)\) and \(d\mathbf{r}=(dx,dy,dz)\), the integral expands as:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Component Form</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_{\mathscr{C}}P\,dx+Q\,dy+R\,dz=\int_a^b\!\big(Px'+Qy'+Rz'\big)\,dt\]</div>
+    <div class="pills"><span class="pill">P, Q, R — components of F</span><span class="pill">dx = x′dt, dy = y′dt, dz = z′dt</span></div>
+    </div>
+
+    <h3>Work and Circulation</h3>
+    <div class="eq-card card-bracket"><div class="eq-name">Work Done by a Force</div>
+    <div class="eq-formula">\[W=\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\]</div>
+    <div class="pills"><span class="pill">W — work (scalar)</span><span class="pill">F — force field</span></div>
+    </div>
+    <p>When \(\mathscr{C}\) is a <strong>closed curve</strong> (loop), the integral is called the <strong>circulation</strong> of \(\mathbf{F}\) around \(\mathscr{C}\), often written \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) or \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\boldsymbol{\ell}\).</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Strategy for Computing ∫F·dr</div>
+    <p><strong>Step 1:</strong> Parametrize \(\mathscr{C}\): find \(\mathbf{r}(t)=(x(t),y(t),z(t))\) and interval \([a,b]\).</p>
+    <p><strong>Step 2:</strong> Compute \(\mathbf{r}'(t)=(x',y',z')\).</p>
+    <p><strong>Step 3:</strong> Substitute into \(\mathbf{F}\) to get \(\mathbf{F}(\mathbf{r}(t))\).</p>
+    <p><strong>Step 4:</strong> Dot-product \(\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\) — this gives a <em>scalar</em> function of \(t\).</p>
+    <p><strong>Step 5:</strong> Integrate from \(a\) to \(b\).</p>
+    </div>
+
+    <!-- Example 208 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.5 — Vector Line Integral + Orientation Reversal (Ex. 208)</div>
+    <p>Let \(\mathbf{F}(x,y,z)=(x^2-1)\,\mathbf{i}+xy\,\mathbf{j}+z\,\mathbf{k}\) and \(\mathscr{C}\) be the line segment from \(O(0,0,0)\) to \((1,-1,2)\). Evaluate \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) and \(\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Forward direction:</strong> \(\mathbf{r}(t)=(t,-t,2t)\), \(t\in[0,1]\), so \(\mathbf{r}'(t)=(1,-1,2)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\mathbf{F}(\mathbf{r}(t))=(t^2-1,\,-t^2,\,2t)\). Dot with \(\mathbf{r}'(t)\): \((t^2-1)(1)+(-t^2)(-1)+(2t)(2)=2t^2+4t-1\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\int_0^1(2t^2+4t-1)\,dt=\left[\frac{2t^3}{3}+2t^2-t\right]_0^1=\frac{2}{3}+2-1=\frac{5}{3}\).</div></div>
+    <p><strong>Reversed:</strong> \(\mathbf{r}(t)=(1-t,t-1,2-2t)\), \(\mathbf{r}'(t)=(-1,1,-2)\). Compute \(\mathbf{F}\cdot\mathbf{r}'\) and integrate over \([0,1]\) to get \(-5/3\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\frac{5}{3}\), \(\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=-\frac{5}{3}\) ✓ opposites</p>
+    </div></div>
+
+    <!-- Example 210 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.6 — Three Methods for the Same Integral (Ex. 210)</div>
+    <p>Evaluate \(\int_{\mathscr{C}}x\,dx+y\,dy\) where \(\mathscr{C}\) is the curve \(x=t,\,y=t^3\), \(1\leq t\leq 2\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Method 1 — Direct substitution:</strong> \(\mathbf{F}=(x,y)\), \(d\mathbf{r}=(dx,dy)\), \(\mathbf{r}(t)=(t,t^3)\), \(\mathbf{r}'(t)=(1,3t^2)\). So \(\mathbf{F}\cdot\mathbf{r}'=(t)(1)+(t^3)(3t^2)=t+3t^5\). Integrate: \(\int_1^2(t+3t^5)\,dt=[\frac{t^2}{2}+\frac{t^6}{2}]_1^2=(2+32)-(\frac{1}{2}+\frac{1}{2})=33\).</p>
+    <p><strong>Method 2 — Substitute differentials:</strong> \(dx=dt\), \(dy=3t^2\,dt\). Plug directly: \(\int_1^2 t\,dt+t^3(3t^2\,dt)=\int_1^2(t+3t^5)\,dt=33\).</p>
+    <p><strong>Method 3 — Eliminate parameter:</strong> Since \(y=x^3\), \(dy=3x^2\,dx\). So \(\int_1^2(x+x^3\cdot3x^2)\,dx=\int_1^2(x+3x^5)\,dx=33\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: 33 (all three methods agree)</p>
+    </div></div>
+
+    <!-- Example 211 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.7 — Piecewise 3D Path (Ex. 211)</div>
+    <p>Evaluate \(\int_{\mathscr{C}}yz\,dx-xz\,dy+xy\,dz\) where \(\mathscr{C}\) consists of three line segments: \(\mathscr{C}_1\) from \(P(0,0,0)\) to \(Q(2,0,0)\), \(\mathscr{C}_2\) from \(Q\) to \(R(1,3,-1)\), \(\mathscr{C}_3\) from \(R\) to \(S(1,3,0)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>Use the segment parametrization \(\mathbf{r}(t)=(1-t)\mathbf{A}+t\mathbf{B}\), \(t\in[0,1]\) for each piece.</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div><strong>\(\mathscr{C}_1\):</strong> \(\mathbf{r}=(2t,0,0)\), \(d\mathbf{r}=(2,0,0)\,dt\). Integrand: \(yz\cdot2=0\). So \(\int_{\mathscr{C}_1}=0\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div><strong>\(\mathscr{C}_2\):</strong> \(\mathbf{r}=(2-t,3t,-t)\), \(d\mathbf{r}=(-1,3,-1)\,dt\). Integrand: \((3t)(-t)(-1)-(2-t)(-t)(3)+(2-t)(3t)(-1)\). Simplify: \(3t^2+3t(2-t)-3t(2-t)=3t^2\). Integral: \(\int_0^1 3t^2\,dt=1\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div><strong>\(\mathscr{C}_3\):</strong> \(\mathbf{r}=(1,3,t-1)\), \(d\mathbf{r}=(0,0,1)\,dt\). Integrand: \(xy\cdot 1=3\). Integral: \(\int_0^1 3\,dt=3\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(0+1+3=4\)</p>
+    </div></div>
+
+    <!-- Example 212 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.8 — Work by a Force Field (Ex. 212)</div>
+    <p>Find the work done by \(\mathbf{F}(x,y)=x\,\mathbf{i}+x^2y\,\mathbf{j}\) on a particle moving along \(\mathbf{r}(t)=t\,\mathbf{i}+t^2\,\mathbf{j}\), \(0\leq t\leq 1\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(\mathbf{r}'(t)=(1,2t)\). \(\mathbf{F}(\mathbf{r}(t))=(t,\,t^2\cdot t^2)=(t,t^4)\).</p>
+    <p>\(\mathbf{F}\cdot\mathbf{r}'=t\cdot 1+t^4\cdot 2t=t+2t^5\).</p>
+    <p>\(W=\int_0^1(t+2t^5)\,dt=\frac{1}{2}+\frac{1}{3}=\frac{5}{6}\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(W=\frac{5}{6}\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.3 — Fundamental Theorem for Line Integrals</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>This section ties together line integrals and conservative fields (recall from §3.7 that \(\mathbf{F}\) is <strong>conservative</strong> if \(\mathbf{F}=\nabla f\) for some scalar field \(f\), equivalently \(\nabla\times\mathbf{F}=\mathbf{0}\)).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Fundamental Theorem of Calculus for Line Integrals</div>
+    <p>If \(\mathbf{F}=\nabla f\) (i.e., \(\mathbf{F}\) is a gradient field with potential function \(f\)) and \(\mathscr{C}\) is any piecewise smooth curve from \(\mathbf{r}(a)\) to \(\mathbf{r}(b)\), then:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">FTCLI</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\mathbf{r}(b))-f(\mathbf{r}(a))\]</div>
+    <div class="pills"><span class="pill">f — potential function (∇f = F)</span><span class="pill">r(a) — start point</span><span class="pill">r(b) — end point</span></div>
+    </div>
+    <p>Just like the single-variable FTC: \(\int_a^b f'(x)\,dx=f(b)-f(a)\), but now the "derivative" is the gradient and the "interval" is a curve.</p>
+    </div>
+
+    <h3>Consequences</h3>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Path Independence</div>
+    <p>If \(\mathbf{F}=\nabla f\), the integral depends <em>only on the endpoints</em>, not on the path taken between them. All paths from \(P\) to \(Q\) give the same answer: \(f(Q)-f(P)\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Closed-Loop Test</div>
+    <div class="eq-formula">\[\mathbf{F}\text{ conservative and }\mathscr{C}\text{ closed}\;\Longrightarrow\;\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=0\]</div>
+    </div>
+    <p>The converse also holds (in simply connected regions): if \(\oint\mathbf{F}\cdot d\mathbf{r}=0\) for every closed curve, then \(\mathbf{F}\) is conservative.</p>
+
+    <h3>Testing for Conservativeness (Summary)</h3>
+    <div class="def-card card-bracket"><div class="def-name">Equivalences in a Simply Connected Region</div>
+    <p>For a continuously differentiable \(\mathbf{F}\) defined on a <strong>simply connected region</strong> \(\mathscr{R}\) (no holes), the following are equivalent:</p>
+    <p><strong>1.</strong> \(\nabla\times\mathbf{F}=\mathbf{0}\) (curl-free / irrotational)</p>
+    <p><strong>2.</strong> There exists a scalar field \(f\) such that \(\mathbf{F}=\nabla f\) (gradient field)</p>
+    <p><strong>3.</strong> \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) is path-independent (depends only on endpoints)</p>
+    <p>A <strong>simply connected region</strong> is one where every closed curve can be continuously shrunk to a point without leaving \(\mathscr{R}\). Disks, rectangles, and all of \(\mathbb{R}^n\) are simply connected. A disk with its center removed is NOT simply connected.</p>
+    </div>
+
+    <h3>Finding the Potential Function via Line Integrals</h3>
+    <p>Once you verify \(\mathbf{F}\) is conservative, the potential function can be found by evaluating:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Potential via Line Integral</div>
+    <div class="eq-formula">\[f(x,y,z)=\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\]</div>
+    <div class="pills"><span class="pill">𝒞 — any curve from a fixed P₀ to (x,y,z)</span><span class="pill">The easiest choice: a line segment from the origin</span></div>
+    </div>
+    <p>The simplest path is the line segment from a convenient fixed point \(P_0\) to a general point \(P(x,y,z)\), parametrized as \(\mathbf{r}(t)=(1-t)P_0+tP\), \(t\in[0,1]\). During integration, treat \(x,y,z\) as constants.</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Two Methods to Find Potential Functions</div>
+    <p><strong>Method 1 (Component integration, from §3.7):</strong> Integrate \(f_x=P\) w.r.t. \(x\), then match \(f_y=Q\) and \(f_z=R\) to determine the "constants" of integration. Best for polynomial \(\mathbf{F}\).</p>
+    <p><strong>Method 2 (Line integral method, eq. 4.12):</strong> Choose \(P_0\), parametrize the segment from \(P_0\) to \((x,y,z)\), integrate. The answer gives \(f\) directly. Best for complicated non-polynomial fields.</p>
+    </div>
+
+    <!-- Example 215 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.9 — Newton's Gravity & Coulomb's Law (Ex. 215)</div>
+    <p>Show that the gravitational field \(\mathbf{F}=-\frac{GmM}{|\mathbf{r}|^3}\mathbf{r}\) and the electrostatic field \(\mathbf{F}=-\frac{kqQ}{|\mathbf{r}|^3}\mathbf{r}\) are both conservative. Show that \(\mathbf{F}(x,y)=(-y,x)\) is NOT conservative.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Gravity:</strong> Let \(f(x,y,z)=\frac{GmM}{|\mathbf{r}|}=\frac{GmM}{\sqrt{x^2+y^2+z^2}}\). Compute \(\frac{\partial f}{\partial x}=-GmM\frac{x}{(x^2+y^2+z^2)^{3/2}}=-GmM\frac{x}{|\mathbf{r}|^3}\). By symmetry, \(\nabla f=-\frac{GmM}{|\mathbf{r}|^3}(x,y,z)=-\frac{GmM}{|\mathbf{r}|^3}\mathbf{r}=\mathbf{F}\). ✓</p>
+    <p><strong>Coulomb:</strong> Same form with constants \(kqQ\) replacing \(GmM\). ✓</p>
+    <p><strong>\(\mathbf{F}=(-y,x)\) is NOT conservative:</strong> Method — compute the curl. Extend to 3D: \(\mathbf{F}=(-y,x,0)\). Then \(\nabla\times\mathbf{F}=\det\begin{pmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\-y&x&0\end{pmatrix}=(0,0,2)\neq\mathbf{0}\). Not conservative.</p>
+    <p><strong>Verification via closed loop:</strong> Let \(\mathscr{C}\) be the unit circle \(\mathbf{r}(t)=(\cos t,\sin t)\), \(t\in[0,2\pi]\). Then \(\mathbf{F}\cdot\mathbf{r}'=(-\sin t,\cos t)\cdot(-\sin t,\cos t)=\sin^2t+\cos^2t=1\). So \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_0^{2\pi}1\,dt=2\pi\neq 0\). ✗</p>
+    </div></div>
+
+    <!-- Example 219 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.10 — Finding a Potential via Line Integral (Ex. 219)</div>
+    <p>Find the potential function for the conservative field \(\mathbf{F}(x,y,z)=(2xy,\,z+x^2,\,y)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Verify conservative:</strong> \(\nabla\times\mathbf{F}=(R_y-Q_z,\,P_z-R_x,\,Q_x-P_y)=(1-1,\,0-0,\,2x-2x)=\mathbf{0}\). ✓</p>
+    <p><strong>Line integral method:</strong> Let \(P_0=(0,0,0)\) and \(\mathscr{C}\) be the segment to \(P(x,y,z)\): \(\mathbf{r}(t)=(tx,ty,tz)\), \(t\in[0,1]\), \(\mathbf{r}'(t)=(x,y,z)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\mathbf{F}(\mathbf{r}(t))=(2t^2xy,\,tz+t^2x^2,\,ty)\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\mathbf{F}\cdot\mathbf{r}'=2t^2x^2y+(tz+t^2x^2)y+tyz=3t^2x^2y+2tyz\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(f=\int_0^1(3t^2x^2y+2tyz)\,dt=x^2y\cdot t^3\Big|_0^1+yz\cdot t^2\Big|_0^1=x^2y+yz\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(f(x,y,z)=x^2y+yz+C\)</p>
+    <p><strong>Check:</strong> \(\nabla f=(2xy,\,x^2+z,\,y)=\mathbf{F}\). ✓</p>
+    </div></div>
+
+    <!-- Example 220 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.11 — Evaluating via FTCLI (Ex. 220)</div>
+    <p>Let \(f(1,-1,2)=2\) and \(\mathbf{F}(x,y,z)=(2y+z,\,2x,\,x)\). Find \(f(2,3,-1)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Verify conservative:</strong> \(\nabla\times\mathbf{F}=(0-0,\,1-1,\,2-2)=\mathbf{0}\). ✓</p>
+    <p>Use the line segment from \(P_0=(1,0,-1)\) to \(P=(x,y,z)\): \(\mathbf{r}(t)=(1-t)(1,0,-1)+t(x,y,z)\), \(t\in[0,1]\).</p>
+    <p>After expanding and integrating (treating \(x,y,z\) as constants):</p>
+    <p>\(f(x,y,z)=2xy+xz+1\). Since \(f(1,-1,2)=2(-1)+2+1=-2+2+1=1\neq 2\), we need \(C=1\): \(f=2xy+xz+1+C\) with \(C=1\), so \(f=2xy+xz+2\).</p>
+    <p>\(f(2,3,-1)=2(2)(3)+(2)(-1)+2=12-2+2=12\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(f(2,3,-1)=12\)</p>
+    </div></div>
+
+    <h3>Work-Energy Theorem</h3>
+    <div class="drv-card card-bracket"><div class="drv-label">Kinetic Energy and Line Integrals</div>
+    <p>If a mass \(m\) moves along \(\mathscr{C}\) under force \(\mathbf{F}\), Newton's second law gives:</p>
+    <p>\(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\frac{1}{2}m|\mathbf{v}(b)|^2-\frac{1}{2}m|\mathbf{v}(a)|^2\) — the work equals the change in kinetic energy.</p>
+    <p>If \(\mathbf{F}\) is also conservative with potential \(f\), then \(K(P)-f(P)=C\) — <strong>conservation of energy</strong>.</p>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
     <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
     </div>
-
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 4 lecture notes or textbook pages to populate full notes.</div>
   </div>
 
   <!-- ═══ ch4-prob.html ═══ -->
@@ -1892,30 +2158,270 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <!-- ═══ ch5-notes.html ═══ -->
   <div class="page" id="ch5">
     <div class="page-title" style="color:var(--ch5-title)">Chapter 5</div><h1 style="color:var(--ch5-title)">Double Integrals & Surfaces</h1>
-    <p class="page-intro">Double integrals over rectangular and general regions, change of variables, sketching and parameterizing surfaces in 3D.</p>
+    <p class="page-intro">Double integrals over rectangular and general regions, change of variables to polar coordinates, and sketching/parameterizing surfaces in 3D.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.1 — Describing Planar Regions</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
 
-    <div class="def-card card-bracket"><div class="def-name">Week 7 (Second Half) — Double Integrals</div>
-    <p><strong>§5.1:</strong> Double Integrals — definition, geometric interpretation</p>
-    <p><strong>§5.2:</strong> Iterated integrals — Fubini's theorem, evaluation over rectangular and type I/II regions</p>
+    <p>Before integrating over a region, you need to <em>describe</em> it in a way that gives you integration limits. The key idea: describe the region using <strong>slices</strong> — either vertical (fixing \(x\)) or horizontal (fixing \(y\)).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">x-simple Region (Type I)</div>
+    <p>A region \(\mathscr{R}\subseteq\mathbb{R}^2\) is <strong>x-simple</strong> if every vertical line through \(\mathscr{R}\) intersects it in at most two points. Equivalently:</p>
+    <p>\[\mathscr{R}_{yx}=\{(x,y): f_1(x)\leq y\leq f_2(x),\; a\leq x\leq b\}\]</p>
+    <p>The outer variable is \(x\) (constant limits), the inner is \(y\) (limits depend on \(x\)). Integrate <strong>dy dx</strong>.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 8 — Volume & Change of Variables</div>
-    <p><strong>§5.3:</strong> Applications to volume under a surface</p>
-    <p><strong>§5.4:</strong> Change of variables in double integrals — polar, general substitutions, Jacobians</p>
+    <div class="def-card card-bracket"><div class="def-name">y-simple Region (Type II)</div>
+    <p>A region \(\mathscr{R}\) is <strong>y-simple</strong> if every horizontal line through \(\mathscr{R}\) intersects it in at most two points:</p>
+    <p>\[\mathscr{R}_{xy}=\{(x,y): g_1(y)\leq x\leq g_2(y),\; c\leq y\leq d\}\]</p>
+    <p>The outer variable is \(y\), the inner is \(x\). Integrate <strong>dx dy</strong>.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 9 (First Half) — Surfaces</div>
-    <p><strong>§5.5:</strong> Sketching surfaces in three-dimensional space — quadric surfaces, cylinders, cones</p>
-    <p><strong>§5.6:</strong> Parametric equations of a surface</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Memory Trick: Subscript = Integration Order</div>
+    <p>\(\mathscr{R}_{yx}\) → integrate \(y\) first, then \(x\) → <strong>dy dx</strong> (vertical slices).</p>
+    <p>\(\mathscr{R}_{xy}\) → integrate \(x\) first, then \(y\) → <strong>dx dy</strong> (horizontal slices).</p>
+    <p>The <em>innermost</em> integral has limits that depend on the outer variable. The <em>outer</em> integral has constant limits.</p>
     </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.1 — Region Bounded by Parabolas (Ex. 222)</div>
+    <p>Describe the region bounded by \(y=x^2\), \(y=-x^2\), and \(x=1\) using both vertical and horizontal slices.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Vertical slices (x-simple):</strong> Fix \(x\in[0,1]\). A vertical line enters at \(y=-x^2\) (bottom) and exits at \(y=x^2\) (top).</p>
+    <p>\(\mathscr{R}_{yx}=\{(x,y): -x^2\leq y\leq x^2,\; 0\leq x\leq 1\}\)</p>
+    <p><strong>Horizontal slices (y-simple):</strong> Need to split into two regions since the boundary curves change form depending on whether \(y>0\) or \(y<0\).</p>
+    <p>For \(y\geq 0\): \(x\) ranges from \(\sqrt{y}\) to \(1\), with \(0\leq y\leq 1\).</p>
+    <p>For \(y<0\): \(x\) ranges from \(\sqrt{-y}\) to \(1\), with \(-1\leq y\leq 0\).</p>
+    <p>\(\mathscr{R}_{xy}=\{(x,y):\sqrt{y}\leq x\leq 1,\;0\leq y\leq 1\}\cup\{(x,y):\sqrt{-y}\leq x\leq 1,\;-1\leq y\leq 0\}\)</p>
+    <p><strong>★ Takeaway:</strong> Vertical slices are much simpler here — one description vs. a union of two.</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.2 — Double Integrals and Iterated Integrals</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>The <strong>double integral</strong> generalizes the definite integral to two dimensions. Just as a single integral sums \(f(x)\Delta x\) over an interval, a double integral sums \(f(x,y)\Delta A\) over a region in the plane.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Double Integral</div>
+    <p>Partition a region \(\mathscr{R}\) into small rectangles \(\mathscr{R}_{ij}\) of area \(\Delta A_{ij}\). Pick \((x_i,y_j)\in\mathscr{R}_{ij}\). If the limit exists:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Double Integral</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\lim_{\|\mathscr{P}\|\to 0}\sum_{j=1}^{n}\sum_{i=1}^{m}f(x_i,y_j)\,\Delta A_{ij}\]</div>
+    <div class="pills"><span class="pill">dA — area element (dx dy or dy dx)</span><span class="pill">‖𝒫‖ — mesh of partition → 0</span><span class="pill">𝒬 — region of integration</span></div>
+    </div></div>
+
+    <h3>Geometric Meaning</h3>
+    <p>If \(f(x,y)\geq 0\), then \(\iint_{\mathscr{R}}f\,dA=\) <strong>volume</strong> under the surface \(z=f(x,y)\) above \(\mathscr{R}\).</p>
+    <p>If \(f(x,y)=1\), then \(\iint_{\mathscr{R}}1\,dA=\) <strong>area</strong> of \(\mathscr{R}\).</p>
+
+    <h3>Fubini's Theorem</h3>
+    <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (Rectangles)</div>
+    <p>If \(f\) is continuous on a rectangle \(\mathscr{R}=\{(x,y):a\leq x\leq b,\;c\leq y\leq d\}\), then:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — Rectangular Region</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\int_a^b\!\int_c^d f(x,y)\,dy\,dx=\int_c^d\!\int_a^b f(x,y)\,dx\,dy\]</div>
+    </div>
+    <p>For rectangles, the <strong>order of integration doesn't matter</strong> — you can integrate in either order.</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (General Regions)</div>
+    <p>For non-rectangular regions, use the region description to set limits:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — x-simple (vertical slices)</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_a^b\!\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\,dx\]</div>
+    </div>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — y-simple (horizontal slices)</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_c^d\!\int_{g_1(y)}^{g_2(y)} f(x,y)\,dx\,dy\]</div>
+    </div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Anatomy of an Iterated Integral</div>
+    <p>In \(\int_a^b\int_{f_1(x)}^{f_2(x)}f(x,y)\,dy\,dx\):</p>
+    <p>• <strong>Inner integral:</strong> integrate w.r.t. \(y\) while holding \(x\) constant. Limits depend on \(x\).</p>
+    <p>• <strong>Outer integral:</strong> integrate the result w.r.t. \(x\). Limits are constants.</p>
+    <p>• <strong>Rule:</strong> the innermost differential (\(dy\)) matches the subscript order in \(\mathscr{R}_{yx}\).</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.2 — Iterated Integral over a Rectangle (Ex. 231)</div>
+    <p>Evaluate \(\int_{-1}^{1}\int_0^3(3x^2+y)\,dx\,dy\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div><strong>Inner integral</strong> (w.r.t. \(x\), hold \(y\) constant): \(\int_0^3(3x^2+y)\,dx=[x^3+yx]_0^3=27+3y\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div><strong>Outer integral:</strong> \(\int_{-1}^{1}(27+3y)\,dy=[27y+\frac{3y^2}{2}]_{-1}^{1}=(27+\frac{3}{2})-(-27+\frac{3}{2})=54\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: 54</p>
+    <p>Note: the \(3y\) term vanishes because \(y\) is odd on \([-1,1]\).</p>
+    </div></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.3 — Double Integral with Variable Limits (Ex. 232)</div>
+    <p>Evaluate \(\int_0^{1/2}\int_0^{\sqrt{1-x}}2xy\,dy\,dx\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Inner: \(\int_0^{\sqrt{1-x}}2xy\,dy=2x\cdot\frac{y^2}{2}\Big|_0^{\sqrt{1-x}}=x(1-x)\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Outer: \(\int_0^{1/2}(x-x^2)\,dx=[\frac{x^2}{2}-\frac{x^3}{3}]_0^{1/2}=\frac{1}{8}-\frac{1}{24}=\frac{1}{12}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\frac{1}{12}\)</p>
+    </div></div>
+
+    <h3>Reversing the Order of Integration</h3>
+    <p>Sometimes one order produces an integral you can't evaluate, but reversing the order makes it tractable. To reverse: <strong>sketch the region</strong>, then re-describe it using the other slice direction.</p>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.4 — Reversing Integration Order (Ex. 247)</div>
+    <p>Evaluate \(\int_0^1\int_0^{\text{Arccos}\,y}\sin(\pi\sin x)\,dx\,dy\) by interchanging the order.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Original:</strong> horizontal slices, \(\mathscr{R}_{xy}=\{(x,y): 0\leq x\leq\text{Arccos}\,y,\;0\leq y\leq 1\}\).</p>
+    <p><strong>Reverse:</strong> vertical slices. Since \(x\leq\text{Arccos}\,y\iff y\leq\cos x\), and \(x\in[0,\pi/2]\):</p>
+    <p>\(\mathscr{R}_{yx}=\{(x,y): 0\leq y\leq\cos x,\; 0\leq x\leq\pi/2\}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\int_0^{\pi/2}\int_0^{\cos x}\sin(\pi\sin x)\,dy\,dx=\int_0^{\pi/2}\sin(\pi\sin x)\cos x\,dx\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Let \(u=\sin x\), \(du=\cos x\,dx\). Limits: \(0\to 1\). So \(=\int_0^1\sin(\pi u)\,du=-\frac{1}{\pi}\cos(\pi u)\Big|_0^1=\frac{2}{\pi}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\frac{2}{\pi}\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.3 — Volume Under a Surface</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Volume computation is a direct application of double integrals:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Volume Under a Surface</div>
+    <div class="eq-formula">\[V=\iint_{\mathscr{R}}f(x,y)\,dA\]</div>
+    <div class="pills"><span class="pill">f(x,y) ≥ 0 — height of the surface above the xy-plane</span><span class="pill">𝒬 — projection of the surface onto the xy-plane</span></div>
+    </div>
+    <p>For volume <strong>between two surfaces</strong> \(z=f(x,y)\) (top) and \(z=g(x,y)\) (bottom) over \(\mathscr{R}\):</p>
+    <p>\[V=\iint_{\mathscr{R}}[f(x,y)-g(x,y)]\,dA\]</p>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.5 — Volume Under a Paraboloid (Ex. 248)</div>
+    <p>Find the volume of the solid under \(z=4-x^2-y^2\) and above the \(xy\)-plane.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(z=0\) when \(x^2+y^2=4\), so \(\mathscr{R}\) is the disk of radius 2. Using vertical slices:</p>
+    <p>\(V=\int_{-2}^{2}\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}(4-x^2-y^2)\,dy\,dx\)</p>
+    <p>This is much easier in <strong>polar coordinates</strong> (§5.4): \(V=\int_0^{2\pi}\int_0^2(4-r^2)r\,dr\,d\theta=2\pi\int_0^2(4r-r^3)\,dr=2\pi[2r^2-\frac{r^4}{4}]_0^2=2\pi(8-4)=8\pi\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(V=8\pi\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.4 — Change of Variables / Polar Coordinates</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Just as single-variable integrals use \(u\)-substitution, double integrals use a <strong>change of variables</strong>. The key extra ingredient: the <strong>Jacobian determinant</strong>, which accounts for how the transformation stretches or compresses area.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Jacobian Matrix and Determinant</div>
+    <p>For a transformation \(x=g(u,v),\;y=h(u,v)\), the <strong>Jacobian matrix</strong> is:</p>
+    <p>\[\frac{\partial(x,y)}{\partial(u,v)}=\begin{pmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}\end{pmatrix}\]</p>
+    <p>The <strong>Jacobian determinant</strong> \(J(u,v)=\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\) is the absolute value of the determinant of this matrix.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Change of Variables Formula</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\iint_{\mathscr{S}}f\!\big(g(u,v),h(u,v)\big)\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,dA\]</div>
+    <div class="pills"><span class="pill">𝒬 — original region (xy-plane)</span><span class="pill">𝒮 — transformed region (uv-plane)</span><span class="pill">|∂(x,y)/∂(u,v)| — Jacobian (area scaling factor)</span></div>
+    </div>
+
+    <h3>Polar Coordinates — The Most Important Special Case</h3>
+    <p>For regions with circular symmetry, use \(x=r\cos\theta,\;y=r\sin\theta\). The Jacobian is:</p>
+    <p>\[\frac{\partial(x,y)}{\partial(r,\theta)}=\det\begin{pmatrix}\cos\theta&\sin\theta\\-r\sin\theta&r\cos\theta\end{pmatrix}=r\cos^2\theta+r\sin^2\theta=r\]</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Double Integral in Polar Coordinates</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\iint_{\mathscr{S}}f(r\cos\theta,\,r\sin\theta)\;\boldsymbol{r}\,dr\,d\theta\]</div>
+    <div class="pills"><span class="pill">r — the Jacobian (DON'T forget!)</span><span class="pill">dA = r dr dθ — polar area element</span><span class="pill">x²+y² = r² — simplifies circular regions</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ When to Use Polar Coordinates</div>
+    <p>Switch to polar when:</p>
+    <p>• The region involves circles or arcs (\(x^2+y^2=R^2\))</p>
+    <p>• The integrand contains \(x^2+y^2\)</p>
+    <p>• The region is a sector, annulus, or cardioid</p>
+    <p><strong>Common trap:</strong> forgetting the extra factor of \(\boldsymbol{r}\) in \(dA=r\,dr\,d\theta\)!</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Area in Polar Coordinates</div>
+    <div class="eq-formula">\[\text{Area}(\mathscr{R})=\iint_{\mathscr{R}}r\,dr\,d\theta\]</div>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.6 — Polar Double Integral (Ex. 253)</div>
+    <p>Evaluate \(\iint_{\mathscr{R}}(x^2+y^2)\,dA\) where \(\mathscr{R}\) is the disk \(x^2+y^2\leq 4\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>In polar: \(x^2+y^2=r^2\), \(\mathscr{R}:\;0\leq r\leq 2,\;0\leq\theta\leq 2\pi\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\iint r^2\cdot r\,dr\,d\theta=\int_0^{2\pi}\int_0^2 r^3\,dr\,d\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Inner: \(\int_0^2 r^3\,dr=\frac{r^4}{4}\Big|_0^2=4\). Outer: \(\int_0^{2\pi}4\,d\theta=8\pi\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(8\pi\)</p>
+    </div></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.7 — Area of a Cardioid (Ex. 266)</div>
+    <p>Find the area enclosed by the cardioid \(r=2(1-\cos\theta)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(\mathscr{R}=\{(r,\theta): 0\leq r\leq 2(1-\cos\theta),\; 0\leq\theta\leq 2\pi\}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\int_0^{2\pi}\int_0^{2(1-\cos\theta)}r\,dr\,d\theta=\int_0^{2\pi}\frac{r^2}{2}\Big|_0^{2(1-\cos\theta)}d\theta=\int_0^{2\pi}2(1-\cos\theta)^2\,d\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Expand: \(2(1-2\cos\theta+\cos^2\theta)=2-4\cos\theta+2\cos^2\theta=2-4\cos\theta+1+\cos 2\theta=3-4\cos\theta+\cos 2\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(\int_0^{2\pi}(3-4\cos\theta+\cos 2\theta)\,d\theta=6\pi-0+0=6\pi\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(A=6\pi\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.5 — Three-Dimensional Plots / Quadric Surfaces</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Surfaces in \(\mathbb{R}^3\) are sketched by computing their <strong>traces</strong>: the curves of intersection with coordinate planes (or planes parallel to them). Set one variable to a constant and identify the resulting 2D curve.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Trace (Cross-Section)</div>
+    <p>A <strong>trace</strong> of a surface \(f(x,y,z)=0\) on the plane \(z=c\) is the curve \(\{(x,y,c): f(x,y,c)=0\}\). Similarly for \(x=c\) or \(y=c\) traces. Sketch traces at several values of \(c\) and "stack" them to visualize the surface.</p>
+    </div>
+
+    <h3>Catalog of Quadric Surfaces</h3>
+
+    <table class="ptbl" style="font-size:14px;">
+    <tr><th>Surface</th><th>Standard Equation</th><th>z-traces</th><th>Shape</th></tr>
+    <tr><td><strong>Ellipsoid</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (for \(|c|<1\))</td><td>Egg/football</td></tr>
+    <tr><td><strong>Elliptic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}+\frac{y^2}{b^2}\)</td><td>Ellipses</td><td>Bowl (opens up)</td></tr>
+    <tr><td><strong>Hyperbolic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}-\frac{y^2}{b^2}\)</td><td>Hyperbolas</td><td>Saddle / Pringles chip</td></tr>
+    <tr><td><strong>Elliptic Cone</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\)</td><td>Ellipses (z≠0), point (z=0)</td><td>Double cone</td></tr>
+    <tr><td><strong>Hyperboloid (1 sheet)</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\)</td><td>Ellipses</td><td>Cooling tower</td></tr>
+    <tr><td><strong>Hyperboloid (2 sheets)</strong></td><td>\(-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (large \(|z|\))</td><td>Two caps</td></tr>
+    <tr><td><strong>Elliptic Cylinder</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td><td>Same ellipse for all z</td><td>Tube</td></tr>
+    </table>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ How to Identify a Quadric</div>
+    <p><strong>Step 1:</strong> Complete the square if needed to put in standard form.</p>
+    <p><strong>Step 2:</strong> Count the number of squared terms and check their signs.</p>
+    <p>• All same sign = ellipsoid or cylinder. • Two same, one opposite = hyperboloid. • Two squared + one linear = paraboloid. • One negative on RHS = two sheets. • RHS = 0 → cone.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.8 — Identifying and Sketching a Surface (Ex. 275)</div>
+    <p>Identify and sketch the surface \(z=x^2+4y^2\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Form:</strong> \(z=\frac{x^2}{1}+\frac{y^2}{1/4}\) — this is an <strong>elliptic paraboloid</strong> opening upward.</p>
+    <p><strong>z-traces:</strong> Set \(z=c\geq 0\): \(x^2+4y^2=c\), which is an ellipse with semi-axes \(\sqrt{c}\) and \(\sqrt{c}/2\). At \(z=0\): the origin (vertex). The ellipses grow as \(z\) increases.</p>
+    <p><strong>x-traces:</strong> Set \(x=c\): \(z=c^2+4y^2\), parabola opening upward.</p>
+    <p><strong>y-traces:</strong> Set \(y=c\): \(z=x^2+4c^2\), parabola opening upward.</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.6 — Parametric Equations of Surfaces</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Just as curves are parametrized by one parameter \(t\), surfaces are parametrized by <strong>two parameters</strong> \(u,v\):</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Parametric Surface</div>
+    <div class="eq-formula">\[\mathbf{r}(u,v)=\big(x(u,v),\;y(u,v),\;z(u,v)\big),\quad (u,v)\in D\subseteq\mathbb{R}^2\]</div>
+    <div class="pills"><span class="pill">u, v — parameters (2 independent variables)</span><span class="pill">D — parameter domain (rectangle, disk, etc.)</span><span class="pill">r(u,v) — position vector of a point on the surface</span></div>
+    </div>
+
+    <h3>Common Parametrizations</h3>
+    <div class="def-card card-bracket"><div class="def-name">Sphere of Radius R</div>
+    <p>\[\mathbf{r}(u,v)=(R\cos v\cos u,\;R\cos v\sin u,\;R\sin v)\]</p>
+    <p>where \(u\in[0,2\pi]\) (longitude) and \(v\in[-\pi/2,\pi/2]\) (latitude).</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Graph Surface \(z=f(x,y)\)</div>
+    <p>Any surface given explicitly as \(z=f(x,y)\) has the trivial parametrization:</p>
+    <p>\[\mathbf{r}(u,v)=(u,\,v,\,f(u,v)),\quad (u,v)\in\mathscr{R}\]</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Surface of Revolution</div>
+    <p>Rotating \(y=g(x)\geq 0\) around the \(x\)-axis gives:</p>
+    <p>\[\mathbf{r}(u,v)=(u,\;g(u)\cos v,\;g(u)\sin v),\quad a\leq u\leq b,\;0\leq v\leq 2\pi\]</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.9 — Parametrizing a Cylinder (Ex. 282)</div>
+    <p>Find a parametric representation of the cylinder \(x^2+y^2=4\) for \(0\leq z\leq 3\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>The circle \(x^2+y^2=4\) in any fixed \(z\)-plane is parametrized as \(x=2\cos\theta,\;y=2\sin\theta\). Let \(z\) be the second parameter:</p>
+    <p>\(\mathbf{r}(\theta,z)=(2\cos\theta,\;2\sin\theta,\;z),\quad \theta\in[0,2\pi],\;z\in[0,3]\).</p>
+    </div></div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
     <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
     </div>
-
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 5 lecture notes or textbook pages to populate full notes.</div>
   </div>
 
   <!-- ═══ ch5-prob.html ═══ -->
@@ -2254,7 +2760,69 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
     </div><!-- end fs-chapter ch3 -->
 
-    <h2 style="color:var(--muted);margin-top:24px;">Chapters 4–7</h2>
+    <h2 style="color:var(--ch4-title)">Chapter 4 — Line Integrals</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch4-title)">
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line Integral (Arc Length)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\int_{\mathscr{C}}\htmlData{t=f — scalar field on the curve}{\color{#D45D00}{f}}(x{,}y{,}z)\,ds=\int_{\htmlData{t=a — start of parameter interval}{\color{#A82870}{a}}}^{\htmlData{t=b — end of parameter interval}{\color{#A82870}{b}}}\htmlData{t=f — evaluated at r(t)}{\color{#D45D00}{f}}(\mathbf{r}(t))\,\htmlData{t=|r'(t)| — speed along the curve}{\color{#2050A0}{|\mathbf{r}'(t)|}}\,dt\]</div>
+      <div class="fs-detail"><p class="fs-explain"><strong>Line integral w.r.t. arc length</strong> sums f along a curve weighted by ds. Think of f as density: the integral gives total mass. Parametrize the curve then multiply f(r(t)) by the speed |r'(t)|. Result is orientation-independent — reversing the curve gives the same answer.</p><p class="fs-origin"><strong>Where it comes from:</strong> Replace ds with |r'(t)| dt from the arc-length formula (recall from §2.10).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the integrand involves ds (arc length element) or when computing mass/charge along a wire.</div><div class="wb n"><strong>✗ Not for</strong> vector field integrals (∫F·dr) — those use the dot product instead of the speed.</div></div></div>
+      <div class="fs-quick-summary">Sum f along a curve. Multiply by |r'(t)| dt. Orientation-independent.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Vector Field Line Integral</div></div><div class="fs-body">
+      <div class="fs-formula">\[\int_{\mathscr{C}}\htmlData{t=F — vector field}{\color{#D45D00}{\mathbf{F}}}\cdot d\htmlData{t=r — position vector along curve}{\color{#0B7D7D}{\mathbf{r}}}=\int_{\htmlData{t=a — start parameter}{\color{#A82870}{a}}}^{\htmlData{t=b — end parameter}{\color{#A82870}{b}}}\htmlData{t=F(r(t)) — field evaluated on curve}{\color{#D45D00}{\mathbf{F}}}(\mathbf{r}(t))\cdot\htmlData{t=r'(t) — tangent vector}{\color{#0B7D7D}{\mathbf{r}'}}(t)\,dt\]</div>
+      <div class="fs-detail"><p class="fs-explain"><strong>Line integral of a vector field</strong> measures how much F pushes along the curve. The dot product F·r' extracts only the tangential component. This gives the <strong>work</strong> done by force F on a particle moving along C. Unlike scalar line integrals this IS orientation-dependent: reversing C negates the answer.</p><p class="fs-origin"><strong>Where it comes from:</strong> Work = force × distance in the force direction. Infinitesimally: dW = F·dr = F·r'dt.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing work done by a force or circulation of a field around a closed curve.</div><div class="wb n"><strong>✗ Not for</strong> mass or charge computations — those use the scalar (ds) version above.</div></div></div>
+      <div class="fs-quick-summary">Work integral. F·r' dt. Orientation-dependent (reversing negates).</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">FTCLI (Fundamental Theorem)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\int_{\mathscr{C}}\nabla\htmlData{t=f — potential function (∇f = F)}{\color{#5D7A20}{f}}\cdot d\mathbf{r}=\htmlData{t=f(r(b)) — potential at endpoint}{\color{#5D7A20}{f}}(\mathbf{r}(\htmlData{t=b — end of parameter}{\color{#A82870}{b}}))-\htmlData{t=f(r(a)) — potential at start}{\color{#5D7A20}{f}}(\mathbf{r}(\htmlData{t=a — start of parameter}{\color{#A82870}{a}}))\]</div>
+      <div class="fs-detail"><p class="fs-explain">If F is conservative (F = ∇f) then the line integral depends ONLY on the endpoints — not on the path! Just evaluate the potential f at the start and end points and subtract. For a closed curve (start = end) the integral is always zero. This is the multivariable version of ∫f'dx = f(b)−f(a).</p><p class="fs-origin"><strong>Where it comes from:</strong> Chain rule: F(r(t))·r'(t) = (d/dt)f(r(t)). Integrate both sides from a to b.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> F is conservative. Saves enormous computation — just evaluate f at two points!</div><div class="wb n"><strong>✗ Not for</strong> non-conservative fields. Must verify curl F = 0 first.</div></div></div>
+      <div class="fs-quick-summary">Conservative fields: integral = f(end) − f(start). Path-independent.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Potential via Line Integral</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=f — potential function to find}{\color{#5D7A20}{f}}(x{,}y{,}z)=\int_{\mathscr{C}}\htmlData{t=F — conservative vector field}{\color{#D45D00}{\mathbf{F}}}\cdot d\mathbf{r}\]</div>
+      <div class="fs-detail"><p class="fs-explain">To find the potential function of a conservative field use a line segment from a fixed point P₀ to a general point (x-y-z). Parametrize as r(t) = (1−t)P₀ + t(x-y-z) for t ∈ [0-1]. During integration treat x-y-z as constants. Don't forget to add +C.</p><p class="fs-origin"><strong>Where it comes from:</strong> By FTCLI: f(P) − f(P₀) = ∫F·dr. Setting f(P₀) = 0 gives f(P) directly.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the component-integration method is messy (non-polynomial fields).</div><div class="wb n"><strong>✗ Not for</strong> non-conservative fields — verify curl = 0 first.</div></div></div>
+      <div class="fs-quick-summary">Find f by integrating F along a segment from P₀ to (x-y-z). Treat coordinates as constants.</div>
+    </div></div>
+    </div>
+
+    <h2 style="color:var(--ch5-title)">Chapter 5 — Double Integrals</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch5-title)">
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Fubini's Theorem (Rectangle)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — continuous function on R}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound}{\color{#D45D00}{b}}}\int_{\htmlData{t=c — bottom y-bound}{\color{#5D7A20}{c}}}^{\htmlData{t=d — top y-bound}{\color{#5D7A20}{d}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx=\int_{\htmlData{t=c — bottom y-bound}{\color{#5D7A20}{c}}}^{\htmlData{t=d — top y-bound}{\color{#5D7A20}{d}}}\int_{\htmlData{t=a — left x-bound}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound}{\color{#D45D00}{b}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dx\,dy\]</div>
+      <div class="fs-detail"><p class="fs-explain"><strong>Fubini's theorem</strong> lets you compute a double integral as two nested single integrals — called an <strong>iterated integral</strong>. For a rectangle both orders (dy dx or dx dy) give the same answer. The inner integral is evaluated first while treating the outer variable as a constant.</p><p class="fs-origin"><strong>Where it comes from:</strong> The double Riemann sum factors into a product of single sums when the region is a rectangle and f is continuous.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region is a rectangle [a-b] × [c-d] with constant limits on both integrals.</div><div class="wb n"><strong>✗ Not for</strong> non-rectangular regions — use the general version with variable limits below.</div></div></div>
+      <div class="fs-quick-summary">Rectangle: either order works. Inner integral first — hold outer variable constant.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Fubini (General Region)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound (constant)}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound (constant)}{\color{#D45D00}{b}}}\int_{\htmlData{t=f₁(x) — bottom curve}{\color{#5D7A20}{f_1(x)}}}^{\htmlData{t=f₂(x) — top curve}{\color{#5D7A20}{f_2(x)}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx\]</div>
+      <div class="fs-detail"><p class="fs-explain">For non-rectangular regions describe R using vertical slices (x-simple): the outer x-limits are constants while the inner y-limits are functions of x. The subscript R_yx reminds you: y first then x → dy dx. To reverse the order: sketch the region and re-describe with horizontal slices.</p><p class="fs-origin"><strong>Where it comes from:</strong> Same as rectangular Fubini but with x-dependent limits on the inner integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region is x-simple (bounded above/below by curves in y).</div><div class="wb n"><strong>✗ Not for</strong> regions that aren't x-simple — try y-simple (dx dy) or split the region.</div></div></div>
+      <div class="fs-quick-summary">Vertical slices: outer x (constants) inner y (functions of x). R_yx → dy dx.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Double Integral</div></div><div class="fs-body">
+      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — function in Cartesian coords}{\color{#D45D00}{f}}(x{,}y)\,dA=\iint_{\mathscr{S}}\htmlData{t=f — rewritten in polar}{\color{#D45D00}{f}}(\htmlData{t=r — radial distance}{\color{#0B7D7D}{r}}\cos\htmlData{t=θ — angle from x-axis}{\color{#A82870}{\theta}},\;\htmlData{t=r — radial distance}{\color{#0B7D7D}{r}}\sin\htmlData{t=θ — angle}{\color{#A82870}{\theta}})\;\htmlData{t=r — Jacobian factor (DON'T forget!)}{\color{#0B7D7D}{r}}\,d\htmlData{t=r — radial variable}{\color{#0B7D7D}{r}}\,d\htmlData{t=θ — angular variable}{\color{#A82870}{\theta}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Converting a double integral to <strong>polar coordinates</strong>. The key: dA = r dr dθ (NOT just dr dθ). The extra factor of r is the Jacobian of the polar transformation. Replace x²+y² with r² and simplify. Best for circular regions and integrands containing x²+y².</p><p class="fs-origin"><strong>Where it comes from:</strong> Jacobian of (x-y) = (r cosθ - r sinθ) is det[cosθ sinθ; −r sinθ r cosθ] = r.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region involves circles (x²+y²=R²) or the integrand has x²+y². Converts nasty square roots to clean r.</div><div class="wb n"><strong>✗ Not for</strong> rectangular regions or integrands with no circular symmetry — rectangular coords are simpler.</div></div></div>
+      <div class="fs-quick-summary">dA = r dr dθ. Replace x²+y² → r². Don't forget the extra r!</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Change of Variables (General)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — original integrand}{\color{#D45D00}{f}}\,dA=\iint_{\mathscr{S}}\htmlData{t=f — rewritten in (u-v)}{\color{#D45D00}{f}}\!\left|\frac{\partial(x{,}y)}{\partial(\htmlData{t=u — first new variable}{\color{#0B7D7D}{u}},\htmlData{t=v — second new variable}{\color{#A82870}{v}})}\right|\,d\htmlData{t=u — new variable 1}{\color{#0B7D7D}{u}}\,d\htmlData{t=v — new variable 2}{\color{#A82870}{v}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The general change of variables formula for double integrals. The Jacobian determinant |∂(x-y)/∂(u-v)| scales the area element — it measures how much the transformation stretches or compresses area. Polar coordinates are a special case with Jacobian = r.</p><p class="fs-origin"><strong>Where it comes from:</strong> Analogous to single-variable substitution ∫f(g(t))g'(t)dt where g' plays the role of the Jacobian.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region or integrand simplifies under a specific substitution (polar - elliptic - rotational).</div><div class="wb n"><strong>✗ Not for</strong> problems already simple in rectangular coords. Don't over-complicate.</div></div></div>
+      <div class="fs-quick-summary">2D substitution rule. Multiply by |Jacobian|. Polar is the special case J = r.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Sphere Parametrization</div></div><div class="fs-body">
+      <div class="fs-formula">\[\mathbf{r}(\htmlData{t=u — longitude angle [0 to 2π]}{\color{#0B7D7D}{u}},\htmlData{t=v — latitude angle [−π/2 to π/2]}{\color{#A82870}{v}})=\big(\htmlData{t=R — radius}{\color{#2050A0}{R}}\cos\htmlData{t=v — latitude}{\color{#A82870}{v}}\cos\htmlData{t=u — longitude}{\color{#0B7D7D}{u}},\;\htmlData{t=R — radius}{\color{#2050A0}{R}}\cos\htmlData{t=v — latitude}{\color{#A82870}{v}}\sin\htmlData{t=u — longitude}{\color{#0B7D7D}{u}},\;\htmlData{t=R — radius}{\color{#2050A0}{R}}\sin\htmlData{t=v — latitude}{\color{#A82870}{v}}\big)\]</div>
+      <div class="fs-detail"><p class="fs-explain">Parametrize a sphere of radius R centered at the origin using longitude u and latitude v. This is identical to the geographic coordinate system: u = longitude (around the equator) and v = latitude (above/below equator). Every point on the sphere corresponds to exactly one (u-v) pair (except the poles).</p><p class="fs-origin"><strong>Where it comes from:</strong> Project a point P on the sphere onto the xy-plane. The angle from the xy-plane is v (latitude) and the angle in the xy-plane is u (longitude). Use trig to recover x-y-z.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> parametrizing spheres for surface integrals or when converting to spherical coordinates.</div><div class="wb n"><strong>✗ Not for</strong> cylinders or cones — each has its own parametrization.</div></div></div>
+      <div class="fs-quick-summary">Sphere: (R cos v cos u - R cos v sin u - R sin v). u = longitude - v = latitude.</div>
+    </div></div>
+    </div>
+
+    <h2 style="color:var(--muted);margin-top:24px;">Chapters 6–7</h2>
     <div class="empty-page" style="padding:24px;">Added as each chapter is completed.</div>
     </div>
   </div>
@@ -2432,7 +3000,59 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
 <div class="cross-links"><strong>Connections →</strong> Partial derivatives → chain rule → implicit differentiation · Gradient → directional derivatives → steepest ascent (optimization, Ch 7) · Tangent planes ← recall plane equation from Ch 2 · Conservative fields → line integrals (Ch 4) · Curl/Div → Green's, Stokes', Divergence theorems (Ch 6)</div>
 
-<h3 style="color:var(--muted)">Ch 4–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Dir. deriv.</td><td>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\)</td><td>rate of change in dir. u</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Steepest ascent</td><td>\(\max D_{\mathbf{u}}f = |\nabla f|\)</td><td>in direction ∇f/|∇f|</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Chain rule</td><td>\(dz/dt = z_x x' + z_y y'\)</td><td>total derivative</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Implicit ∂z/∂x</td><td>\(-f_x/f_z\)</td><td>from f(x,y,z)=0</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Tangent plane</td><td>\(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\)</td><td>normal = ∇f</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Conservative?</td><td>\(\text{curl}\;\mathbf{F}=\mathbf{0}\) (2D: \(Q_x=P_y\))</td><td>then F = ∇f exists</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Divergence</td><td>\(\nabla\cdot\mathbf{F}=P_x+Q_y+R_z\)</td><td>&gt;0 source, &lt;0 sink</td></tr></table></div>
+<h3 style="color:var(--ch4-title)">Ch 4 — Line Integrals</h3>
+<div class="ch-overview">Integrating scalar and vector functions along curves. Work, circulation, and path independence via conservative fields.</div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Scalar Line Integrals (§4.1)</div><dl>
+<dt class="wh-what" style="color:#3A0519">What:</dt><dd>Integrate a scalar field f along a curve C weighted by arc length ds. Result: total mass, charge, or surface area of a curtain.</dd>
+<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Extends single-variable integration from intervals to curves. Mass of a wire = ∫f ds where f is density.</dd>
+<dt class="wh-how" style="color:#A53860">How:</dt><dd>Parametrize C: r(t), compute |r'(t)|, substitute, integrate: \(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\). For piecewise curves, use different parameter symbols per segment.</dd>
+<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>Don't confuse |r'(t)| (speed — for ds integrals) with r'(t) (tangent vector — for F·dr integrals). Scalar line integrals are orientation-independent.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Vector Line Integrals & Work (§4.2)</div><dl>
+<dt class="wh-what" style="color:#3A0519">What:</dt><dd>Integrate a vector field F along C via the dot product F·dr. Measures how much F pushes along C. Result: work done by a force.</dd>
+<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Work = ∫F·dr. Circulation = ∮F·dr (closed loop). Foundation for Green's and Stokes' theorems.</dd>
+<dt class="wh-how" style="color:#A53860">How:</dt><dd>Parametrize C, compute F(r(t))·r'(t), integrate: \(\int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\). Or use component form: \(\int P\,dx+Q\,dy+R\,dz\).</dd>
+<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>Unlike scalar integrals, these ARE orientation-dependent: reversing C negates the answer. Don't forget the sign!</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Fundamental Theorem & Path Independence (§4.3)</div><dl>
+<dt class="wh-what" style="color:#3A0519">What:</dt><dd>If F = ∇f (conservative), the line integral depends only on endpoints: ∫F·dr = f(end) − f(start). Closed loops give zero.</dd>
+<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Massive shortcut: skip parametrization entirely for conservative fields. Key to conservation of energy in physics.</dd>
+<dt class="wh-how" style="color:#A53860">How:</dt><dd>Verify curl F = 0 (from §3.7). Find f by component integration or line integral method. Then f(Q) − f(P) = answer.</dd>
+<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>FTCLI only works for conservative fields in simply connected regions. A region with a hole (like a disk minus its center) is NOT simply connected — the theorem may fail.</dd>
+</dl></div>
+
+<div class="cross-links"><strong>Connections →</strong> Conservative fields (§3.7) → FTCLI → path independence · Work integral → kinetic energy theorem · Circulation → Green's theorem (Ch 6) · Potential functions → electrostatic and gravitational potential</div>
+
+<h3 style="color:var(--ch5-title)">Ch 5 — Double Integrals & Surfaces</h3>
+<div class="ch-overview">Double integrals over planar regions via Fubini's theorem, polar coordinates, and sketching/parameterizing 3D surfaces.</div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Region Descriptions & Fubini's Theorem (§5.1–5.2)</div><dl>
+<dt class="wh-what" style="color:#280905">What:</dt><dd>Describe regions as x-simple (R_yx: vertical slices → dy dx) or y-simple (R_xy: horizontal slices → dx dy). Fubini reduces ∬f dA to iterated integrals.</dd>
+<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Converts intimidating 2D integrals into two nested 1D integrals you already know how to do.</dd>
+<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Sketch region. Choose slices (vertical or horizontal). Write inner limits as functions of outer variable and outer limits as constants. Integrate inside-out.</dd>
+<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>Inner limits must be functions of the outer variable only! If you write ∫₀¹∫₀ˣ f dy dx, the y-limits depend on x (outer). Never let inner limits depend on the inner variable.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Polar Double Integrals (§5.4)</div><dl>
+<dt class="wh-what" style="color:#280905">What:</dt><dd>Change of variables to polar: x = r cosθ, y = r sinθ, dA = r dr dθ. The Jacobian |∂(x,y)/∂(r,θ)| = r.</dd>
+<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Circular regions and x²+y² integrands become trivial in polar. Converts double square roots to clean polynomials in r.</dd>
+<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Replace x²+y² with r², describe R in polar (r-limits then θ-limits), multiply integrand by r, integrate ∬f(r cosθ, r sinθ) r dr dθ.</dd>
+<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>FORGETTING THE EXTRA r! dA = r dr dθ, NOT dr dθ. This is the #1 error on exams with polar double integrals.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Quadric Surfaces & Parametrization (§5.5–5.6)</div><dl>
+<dt class="wh-what" style="color:#280905">What:</dt><dd>Quadric surfaces (ellipsoid, paraboloid, hyperboloid, cone, cylinder) identified by traces. Surfaces parametrized by r(u,v) with two parameters.</dd>
+<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Surface integrals (Ch 6) require parametrized surfaces. Quadric recognition is essential for setting up integrals.</dd>
+<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Traces: set x=c, y=c, or z=c and identify the 2D curve. Count squared terms and signs to classify. Parametrize: sphere uses (u,v) = (longitude, latitude), cylinder uses (θ, z).</dd>
+<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>Cone vs hyperboloid of one sheet: both have circular z-traces, but cone has RHS = 0 (vertex at origin) while hyperboloid has RHS = 1 (no vertex).</dd>
+</dl></div>
+
+<div class="cross-links"><strong>Connections →</strong> Region descriptions (§5.1) ← polar coords (§2.12) · Fubini ← single-variable FTC · Jacobian ← partial derivatives (§3.2) · Quadric surfaces → surface integrals (Ch 6) · Parametric surfaces → Stokes'/Divergence theorems (Ch 6)</div>
+
+<h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Dir. deriv.</td><td>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\)</td><td>rate of change in dir. u</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Steepest ascent</td><td>\(\max D_{\mathbf{u}}f = |\nabla f|\)</td><td>in direction ∇f/|∇f|</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Chain rule</td><td>\(dz/dt = z_x x' + z_y y'\)</td><td>total derivative</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Implicit ∂z/∂x</td><td>\(-f_x/f_z\)</td><td>from f(x,y,z)=0</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Tangent plane</td><td>\(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\)</td><td>normal = ∇f</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Conservative?</td><td>\(\text{curl}\;\mathbf{F}=\mathbf{0}\) (2D: \(Q_x=P_y\))</td><td>then F = ∇f exists</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Divergence</td><td>\(\nabla\cdot\mathbf{F}=P_x+Q_y+R_z\)</td><td>&gt;0 source, &lt;0 sink</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫f ds</td><td>\(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\)</td><td>scalar line integral</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫F·dr</td><td>\(\int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\)</td><td>work / vector line int.</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">FTCLI</td><td>\(\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\text{end})-f(\text{start})\)</td><td>conservative shortcut</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">Closed loop</td><td>F conservative + C closed ⟹ ∮F·dr = 0</td><td>path independence</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Fubini (rect)</td><td>\(\int_a^b\int_c^d f\,dy\,dx=\int_c^d\int_a^b f\,dx\,dy\)</td><td>either order on rectangles</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Polar dA</td><td>\(dA=r\,dr\,d\theta\)</td><td>DON'T forget the r!</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Jacobian</td><td>\(\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\) — area scaling factor</td><td>general change of vars</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Quadric ID</td><td>count squared terms + check signs</td><td>classify surface</td></tr></table></div>
 
   <!-- ═══ progress.html ═══ -->
   <div class="page" id="progress"><div class="page-title">Tracker</div><h1>Progress</h1><p class="page-intro">Check off items as you go. Saves automatically.</p><div class="progress-overall"><div style="display:flex;justify-content:space-between;align-items:center"><strong>Overall Progress</strong><span class="progress-pct" id="overall-pct">0%</span></div><div class="progress-bar-wrap"><div class="progress-bar-fill" id="overall-bar" style="width:0%"></div></div></div>
@@ -2446,7 +3066,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 7 — Max/Min</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c7n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c7f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
   <div class="checkpoint"><span class="flag">⚑</span><span class="cp-title">TEST 3</span><span class="cp-scope">— Ch 3.7, Ch 7.2–7.3</span></div>
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Test 3 Prep</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="t3r" onchange="saveProgress()"><span>Concept review</span></div><div class="pg-item"><input type="checkbox" data-id="t3e" onchange="saveProgress()"><span>Equations memorized</span></div><div class="pg-item"><input type="checkbox" data-id="t3p" onchange="saveProgress()"><span>Practice done</span></div></div></div>
-  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 4–6</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c456n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c456f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
+  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 4 — Line Integrals</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c4n1" onchange="saveProgress()"><span>§4.1 Line integrals w.r.t. arc length reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c4n2" onchange="saveProgress()"><span>§4.2 Vector field line integrals reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c4n3" onchange="saveProgress()"><span>§4.3 FTCLI &amp; conservative fields reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c4e1" onchange="saveProgress()"><span>Ex 4.1–4.2: Scalar line integral (parabola &amp; helix)</span></div><div class="pg-item"><input type="checkbox" data-id="c4e2" onchange="saveProgress()"><span>Ex 4.3–4.4: Piecewise curve &amp; wire mass</span></div><div class="pg-item"><input type="checkbox" data-id="c4e3" onchange="saveProgress()"><span>Ex 4.5–4.6: Vector line integral &amp; orientation</span></div><div class="pg-item"><input type="checkbox" data-id="c4e4" onchange="saveProgress()"><span>Ex 4.7–4.8: Piecewise 3D path &amp; work</span></div><div class="pg-item"><input type="checkbox" data-id="c4e5" onchange="saveProgress()"><span>Ex 4.9: Newton &amp; Coulomb conservative</span></div><div class="pg-item"><input type="checkbox" data-id="c4e6" onchange="saveProgress()"><span>Ex 4.10–4.11: Potential via line integral &amp; FTCLI</span></div><div class="pg-item"><input type="checkbox" data-id="c4f" onchange="saveProgress()"><span>Ch4 formulas memorized</span></div></div></div>
+  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 5 — Double Integrals &amp; Surfaces</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c5n1" onchange="saveProgress()"><span>§5.1 Describing planar regions reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5n2" onchange="saveProgress()"><span>§5.2 Fubini's theorem &amp; iterated integrals reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5n3" onchange="saveProgress()"><span>§5.3 Volume under a surface reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5n4" onchange="saveProgress()"><span>§5.4 Change of variables &amp; polar reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5n5" onchange="saveProgress()"><span>§5.5 Quadric surfaces reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5n6" onchange="saveProgress()"><span>§5.6 Parametric surfaces reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c5e1" onchange="saveProgress()"><span>Ex 5.1: Region bounded by parabolas</span></div><div class="pg-item"><input type="checkbox" data-id="c5e2" onchange="saveProgress()"><span>Ex 5.2–5.3: Iterated integrals (rectangle &amp; variable limits)</span></div><div class="pg-item"><input type="checkbox" data-id="c5e3" onchange="saveProgress()"><span>Ex 5.4: Reversing integration order</span></div><div class="pg-item"><input type="checkbox" data-id="c5e4" onchange="saveProgress()"><span>Ex 5.5: Volume under paraboloid (polar)</span></div><div class="pg-item"><input type="checkbox" data-id="c5e5" onchange="saveProgress()"><span>Ex 5.6–5.7: Polar integrals &amp; cardioid area</span></div><div class="pg-item"><input type="checkbox" data-id="c5e6" onchange="saveProgress()"><span>Ex 5.8–5.9: Quadric surfaces &amp; cylinder parametrization</span></div><div class="pg-item"><input type="checkbox" data-id="c5f" onchange="saveProgress()"><span>Ch5 formulas memorized</span></div></div></div>
+  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 6 — Surface Int. &amp; Theorems</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c6n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c6f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
   <div class="checkpoint"><span class="flag">⚑</span><span class="cp-title">TEST 4</span><span class="cp-scope">— Ch 4, Ch 5, Ch 6.1–6.2</span></div>
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Test 4 Prep</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="t4r" onchange="saveProgress()"><span>Concept review</span></div><div class="pg-item"><input type="checkbox" data-id="t4e" onchange="saveProgress()"><span>Equations memorized</span></div><div class="pg-item"><input type="checkbox" data-id="t4p" onchange="saveProgress()"><span>Practice done</span></div></div></div>
   <div class="checkpoint" style="background:linear-gradient(90deg,rgba(139,26,26,.1),rgba(107,63,160,.08))"><span class="flag" style="font-size:18px">⚑</span><span class="cp-title">FINAL EXAM</span><span class="cp-scope">— Cumulative</span></div>
