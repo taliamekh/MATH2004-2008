@@ -1,4 +1,4 @@
-<div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Summary</h1><p class="page-intro">Auto-updated as chapters are completed.</p><div class="stat-grid"><div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Chapters</div></div><div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Formulas</div></div><div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Examples</div></div><div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Definitions</div></div></div><h2>Chapter-by-Chapter</h2><h3 style="color:var(--ch1-title)">Ch 1 — Vectors ✓</h3>
+<div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Summary</h1><p class="page-intro">Auto-updated as chapters are completed.</p><div class="stat-grid"><div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Chapters</div></div><div class="stat-card"><div class="stat-num">29</div><div class="stat-label">Formulas</div></div><div class="stat-card"><div class="stat-num">26</div><div class="stat-label">Examples</div></div><div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Definitions</div></div></div><h2>Chapter-by-Chapter</h2><h3 style="color:var(--ch1-title)">Ch 1 — Vectors ✓</h3>
 <p class="ch-overview">Builds the vector toolkit in ℝ² and ℝ³ — definitions, operations, and geometric applications that underpin all of multivariable calculus.</p>
 
 <div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Vector Basics</div><dl>
@@ -48,4 +48,32 @@
 <dt class="wh-trap">Trap:</dt><dd>Triple product = 0 means the vectors are coplanar, not that there is "no volume."</dd>
 </dl></div>
 
-<div class="cross-links"><strong>Connections →</strong> Dot product → scalar projections → work integrals (Ch 6) · Cross product → normal vectors → planes (Ch 2) → surface integrals (Ch 7) · Magnitude &amp; distance → arc length &amp; curvature (Ch 3)</div><h3 style="color:var(--muted)">Ch 2–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr></table></div>
+<div class="cross-links"><strong>Connections →</strong> Dot product → scalar projections → work integrals (Ch 6) · Cross product → normal vectors → planes (Ch 2) → surface integrals (Ch 7) · Magnitude &amp; distance → arc length &amp; curvature (Ch 3)</div>
+
+<h3 style="color:var(--ch2-title)">Ch 2 — Lines, Planes &amp; Parametric Curves ✓</h3>
+<p class="ch-overview">Extends vectors to describe lines, planes, and curves in space. Introduces parametric and polar representations with their calculus.</p>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Lines &amp; Planes</div><dl>
+<dt class="wh-what">What:</dt><dd>Lines from point + direction vector. Planes from point + normal vector. Relations: parallel, intersecting, skew.</dd>
+<dt class="wh-why">Why:</dt><dd>Describes geometry in 3D — positions, orientations, intersections of flat surfaces.</dd>
+<dt class="wh-how">How:</dt><dd>Line: \(\vec{r}(t)=P+t\vec{v}\). Plane: \(ax+by+cz=d\) with \(\vec{n}=(a,b,c)\). Three points → normal = cross product.</dd>
+<dt class="wh-trap">Trap:</dt><dd>Skew lines: not parallel AND not intersecting — must check BOTH z-values match after solving x,y.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Parametric Curves &amp; Calculus</div><dl>
+<dt class="wh-what">What:</dt><dd>Curves as (x(t), y(t)). First/second derivatives via chain rule. Conics as special cases.</dd>
+<dt class="wh-why">Why:</dt><dd>Many curves can't be expressed as y=f(x). Parametric form handles self-intersections, loops, and 3D paths.</dd>
+<dt class="wh-how">How:</dt><dd>\(dy/dx=(dy/dt)/(dx/dt)\). Horiz tangent: dy/dt=0. Vert tangent: dx/dt=0. Area: \(\int y\,x'\,dt\). Arc length: \(\int\sqrt{(x')^2+(y')^2}\,dt\).</dd>
+<dt class="wh-trap">Trap:</dt><dd>Both derivatives zero at same point → tangent undefined (cusp or corner).</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Polar Coordinates</div><dl>
+<dt class="wh-what">What:</dt><dd>Points as (r, θ). Conversions: x=r cosθ, y=r sinθ. Special curves: cardioids, limaçons, rose curves.</dd>
+<dt class="wh-why">Why:</dt><dd>Curves with rotational symmetry (circles, spirals) have much simpler polar equations.</dd>
+<dt class="wh-how">How:</dt><dd>Slope: \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\). Area: \(\frac{1}{2}\int r^2\,d\theta\). Arc length: \(\int\sqrt{(r')^2+r^2}\,d\theta\).</dd>
+<dt class="wh-trap">Trap:</dt><dd>For area between curves, find ALL intersections (some may only appear as simultaneous r=0 at different θ).</dd>
+</dl></div>
+
+<div class="cross-links"><strong>Connections →</strong> Lines/planes → tangent planes &amp; normal lines (Ch 3) · Parametric curves → line integrals (Ch 4) · Polar coordinates → double integrals in polar (Ch 5) · Arc length ds → line integral ds (Ch 4)</div>
+
+<h3 style="color:var(--muted)">Ch 3–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr><td>Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr><td>Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr><td>Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr><td>Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr><td>Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr><td>Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr><td>Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr></table></div>
