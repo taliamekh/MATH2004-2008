@@ -345,7 +345,36 @@
     </div></div>
     </div>
 
-    <h2 style="color:var(--muted);margin-top:24px;">Chapters 6–7</h2>
-    <div class="empty-page" style="padding:24px;">Added as each chapter is completed.</div>
+    <h2 style="color:var(--ch7-title);margin-top:24px;">Chapter 7 — Max/Min &amp; Lagrange</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch7-title)">
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Critical Point Condition</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=f_x — partial derivative w.r.t. x}{\color{#D45D00}{f_x}}(\htmlData{t=a — x-coordinate of critical point}{\color{#4A8060}{a}},\htmlData{t=b — y-coordinate of critical point}{\color{#4A8060}{b}}) = 0 \quad \text{and} \quad \htmlData{t=f_y — partial derivative w.r.t. y}{\color{#D45D00}{f_y}}(\htmlData{t=a — x-coordinate}{\color{#4A8060}{a}},\htmlData{t=b — y-coordinate}{\color{#4A8060}{b}}) = 0\]</div>
+      <div class="fs-detail"><p class="fs-explain">A point where both partial derivatives vanish simultaneously is a <strong>critical point</strong> (or stationary point). Every local max and min of a differentiable function occurs at a critical point. Solve the two-equation system f_x = 0 and f_y = 0 simultaneously. Factor and use case analysis when products arise.</p><p class="fs-origin"><strong>Where it comes from:</strong> At a max or min the surface is momentarily flat in every direction. Along the x-direction this forces f_x = 0 and along y it forces f_y = 0.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding extrema of f on an open domain (no boundary constraints).</div><div class="wb n"><strong>✗ Not for</strong> boundary points — use boundary analysis or Lagrange multipliers for those.</div></div></div>
+      <div class="fs-quick-summary">Set f_x = 0 and f_y = 0 simultaneously. Every local extremum is a critical point.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Second Derivative Test (Discriminant)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=D — discriminant of the Hessian}{\color{#B8336A}{D}} = \htmlData{t=f_xx — second partial w.r.t. x twice}{\color{#D45D00}{f_{xx}}} \cdot \htmlData{t=f_yy — second partial w.r.t. y twice}{\color{#D45D00}{f_{yy}}} - \left(\htmlData{t=f_xy — mixed second partial}{\color{#0B7D7D}{f_{xy}}}\right)^2\]</div>
+      <div class="fs-detail"><p class="fs-explain">The discriminant D classifies a critical point P. <strong>D > 0 and f_xx > 0</strong> → local min. <strong>D > 0 and f_xx &lt; 0</strong> → local max. <strong>D &lt; 0</strong> → saddle point. <strong>D = 0</strong> → inconclusive. D is the determinant of the 2×2 Hessian matrix of second partials.</p><p class="fs-origin"><strong>Where it comes from:</strong> The Taylor expansion of f near P is a quadratic form h²f_xx + 2hkf_xy + k²f_yy. The discriminant determines whether this form is positive definite (min) or negative definite (max) or indefinite (saddle).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> classifying interior critical points found from f_x = f_y = 0.</div><div class="wb n"><strong>✗ Not for</strong> boundary points or points where partials don't exist. Also fails when D = 0.</div></div></div>
+      <div class="fs-quick-summary">D > 0 + f_xx > 0 → min. D > 0 + f_xx &lt; 0 → max. D &lt; 0 → saddle. D = 0 → inconclusive.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Closed-Region Extrema</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{Abs max/min of } \htmlData{t=f — the function to optimize}{\color{#D45D00}{f}} \text{ on closed } \htmlData{t=D — closed bounded region}{\color{#4A8060}{\mathscr{D}}} = \max/\min\bigl\{\text{interior CPs} \cup \text{boundary CPs} \cup \text{corners}\bigr\}\]</div>
+      <div class="fs-detail"><p class="fs-explain">On a closed bounded region: (1) find interior critical points via SDT; (2) parametrize each boundary curve and find critical points via single-variable calculus; (3) evaluate at all corners/endpoints; (4) compare all values — largest is the absolute max and smallest is the absolute min.</p><p class="fs-origin"><strong>Where it comes from:</strong> The Extreme Value Theorem guarantees a continuous function on a closed bounded set attains its max and min. They occur either inside the region or on its boundary.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the domain is a closed bounded region (rectangle or disk or triangle).</div><div class="wb n"><strong>✗ Not for</strong> open or unbounded domains — there may be no global max/min.</div></div></div>
+      <div class="fs-quick-summary">Check interior CPs + boundary CPs + corners. Compare all values.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Lagrange Multiplier Method</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=ℓ — the Lagrangian function}{\color{#B8336A}{\ell}}(\htmlData{t=x — first variable}{\color{#D45D00}{x}},\htmlData{t=y — second variable}{\color{#D45D00}{y}},\htmlData{t=λ — Lagrange multiplier}{\color{#2050A0}{\lambda}}) = \htmlData{t=f — function to optimize}{\color{#D45D00}{f}}(\htmlData{t=x — variable}{\color{#D45D00}{x}},\htmlData{t=y — variable}{\color{#D45D00}{y}}) - \htmlData{t=λ — multiplier scalar}{\color{#2050A0}{\lambda}}\,\htmlData{t=g — constraint function set to zero}{\color{#4A8060}{g}}(\htmlData{t=x — variable}{\color{#D45D00}{x}},\htmlData{t=y — variable}{\color{#D45D00}{y}})\]</div>
+      <div class="fs-detail"><p class="fs-explain">To optimize f subject to g = 0: form ℓ = f − λg and set all partials ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0. This yields f_x = λg_x and f_y = λg_y plus the constraint g = 0. Solve the system and evaluate f at each solution. The method extends to 3+ variables.</p><p class="fs-origin"><strong>Where it comes from:</strong> At a constrained extremum ∇f must be parallel to ∇g (both perpendicular to the constraint curve). So ∇f = λ∇g for some scalar λ.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> optimizing f subject to a constraint g = 0 (especially nonlinear constraints like circles or spheres).</div><div class="wb n"><strong>✗ Not for</strong> unconstrained optimization — use ordinary critical points instead. Also Lagrange finds candidates only; compare values to classify.</div></div></div>
+      <div class="fs-quick-summary">ℓ = f − λg. Set ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0. Evaluate f at solutions to classify.</div>
+    </div></div>
+
+    </div>
+
+    <h2 style="color:var(--muted);margin-top:24px;">Chapter 6</h2>
+    <div class="empty-page" style="padding:24px;">Added when chapter is completed.</div>
     </div>
   </div>
