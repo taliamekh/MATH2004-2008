@@ -304,37 +304,45 @@
     </div>
 
     <div class="figure-box">
-    <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+    <svg viewBox="0 0 440 270" xmlns="http://www.w3.org/2000/svg" style="max-width:440px">
       <defs>
-        <marker id="arrLg" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="var(--def)"/></marker>
-        <marker id="arrLg2" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="var(--eq)"/></marker>
+        <marker id="arrLg" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="var(--def)"/></marker>
+        <marker id="arrLg2" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="var(--eq)"/></marker>
       </defs>
-      <!-- constraint curve g=0 (large ellipse) -->
-      <ellipse cx="185" cy="140" rx="150" ry="90" fill="none" stroke="var(--eq)" stroke-width="2.5"/>
-      <text x="345" y="140" font-size="13" fill="var(--eq)" font-family="'Architects Daughter'">g = 0</text>
-      <!-- level curves of f (offset-center concentric ellipses) -->
-      <ellipse cx="165" cy="140" rx="100" ry="60" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
-      <text x="80" y="100" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₁</text>
-      <ellipse cx="158" cy="140" rx="70" ry="42" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
-      <text x="103" y="118" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₂</text>
-      <ellipse cx="153" cy="140" rx="40" ry="24" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
-      <!-- tangent point P on top-right of constraint -->
-      <circle cx="310" cy="75" r="7" fill="var(--example)" stroke="#fff" stroke-width="2"/>
-      <text x="290" y="62" font-size="14" fill="var(--example)" font-family="'Architects Daughter'" font-weight="700">P</text>
-      <!-- ∇g arrow — pointing outward from ellipse surface -->
-      <line x1="310" y1="75" x2="380" y2="35" stroke="var(--def)" stroke-width="2.5" marker-end="url(#arrLg)"/>
-      <text x="383" y="30" font-size="14" fill="var(--def)" font-family="'Architects Daughter'" font-weight="700">∇g</text>
-      <!-- ∇f arrow — shorter, same direction (parallel) -->
-      <line x1="310" y1="75" x2="358" y2="47" stroke="var(--eq)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrLg2)"/>
-      <text x="350" y="62" font-size="13" fill="var(--eq)" font-family="'Architects Daughter'">∇f</text>
+      <!-- constraint curve g=0 -->
+      <ellipse cx="175" cy="135" rx="150" ry="95" fill="none" stroke="var(--eq)" stroke-width="2.5"/>
+      <text x="30" y="240" font-size="13" fill="var(--eq)" font-family="'Architects Daughter'" font-weight="600">g = 0</text>
+      <!-- level curves of f (dashed, offset center) -->
+      <ellipse cx="155" cy="135" rx="105" ry="65" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="60" y="88" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₁</text>
+      <ellipse cx="148" cy="135" rx="72" ry="44" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="88" y="108" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₂</text>
+      <ellipse cx="143" cy="135" rx="40" ry="24" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+
+      <!-- P on right side of constraint -->
+      <circle cx="325" cy="120" r="7" fill="var(--example)" stroke="#fff" stroke-width="2"/>
+      <text x="315" y="150" font-size="15" fill="var(--example)" font-family="'Architects Daughter'" font-weight="700">P</text>
+
+      <!-- ∇g arrow — UPPER arrow, longer, solid -->
+      <line x1="330" y1="112" x2="415" y2="75" stroke="var(--def)" stroke-width="3" marker-end="url(#arrLg)"/>
+      <text x="418" y="72" font-size="15" fill="var(--def)" font-family="'Architects Daughter'" font-weight="700">∇g</text>
+
+      <!-- ∇f arrow — LOWER arrow, shorter, dashed, offset down -->
+      <line x1="330" y1="128" x2="395" y2="100" stroke="var(--eq)" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrLg2)"/>
+      <text x="398" y="106" font-size="14" fill="var(--eq)" font-family="'Architects Daughter'" font-weight="600">∇f</text>
+
+      <!-- "parallel" brace between arrows -->
+      <text x="380" y="92" font-size="10" fill="var(--muted)" font-family="system-ui">∥</text>
+
       <!-- key equation box -->
-      <rect x="250" y="235" width="150" height="28" rx="6" fill="var(--surface)" fill-opacity=".85" stroke="var(--border)" stroke-width="1"/>
-      <text x="325" y="254" text-anchor="middle" font-size="14" fill="var(--tip)" font-family="'Architects Daughter'" font-weight="700">∇f = λ ∇g</text>
-      <!-- annotation -->
-      <text x="335" y="108" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">both ⊥ to</text>
-      <text x="335" y="122" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">constraint</text>
+      <rect x="260" y="228" width="160" height="30" rx="6" fill="var(--surface)" fill-opacity=".85" stroke="var(--border)" stroke-width="1"/>
+      <text x="340" y="249" text-anchor="middle" font-size="15" fill="var(--tip)" font-family="'Architects Daughter'" font-weight="700">∇f = λ ∇g</text>
+
+      <!-- annotation: perpendicular to curve -->
+      <text x="340" y="175" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">both ⊥ to the</text>
+      <text x="340" y="189" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">constraint curve</text>
     </svg>
-    <div class="figure-caption">Fig 7.4 — At a constrained extremum P, ∇f is parallel to ∇g (both perpendicular to the constraint curve g = 0). The dashed ellipses are level curves of f. The constrained optimum occurs where a level curve "kisses" the constraint.</div>
+    <div class="figure-caption">Fig 7.4 — At a constrained extremum P, ∇f (dashed) is parallel to ∇g (solid). Both point perpendicular to the constraint curve g = 0. The dashed ellipses are level curves of f — the optimum is where a level curve "kisses" the constraint.</div>
     </div>
 
     <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Lagrange Multiplier Method — Step by Step</div>
