@@ -158,9 +158,27 @@ MATH2004-2008/
 **Examples:** 7 worked examples (linear combinations, inclination angles, angle between vectors, perpendicularity, projections, cross products, triangle area, parallelepiped volume)
 **Properties tables:** vector arithmetic (6 properties), dot product (6 properties), cross product (7 properties)
 
-### Ch2 — Lines, Planes & Parametric Curves (§2.1–2.14) ⬜ OUTLINE ONLY
-**Sections:** lines in space, planes, parametric curves, conics, sketching parametric, area/length of parametric curves, polar coordinates, polar area, polar arc length
-**Recommended problems:** Exercise Sets 5, 6, 10, 11, 16–22
+### Ch2 — Lines, Planes & Parametric Curves (§2.1–2.14) ✅ COMPLETE
+**Defined:** parametric line, line segment, parallel/intersecting/skew lines, plane equation, normal vector, angle between planes, plane-plane intersection, active rotation, passive rotation, translation, combined transforms, parametric curve, conic sections (parabola/ellipse/hyperbola), conic discriminant, parametric derivatives (1st and 2nd), horizontal/vertical tangents, parametric area, closed curve area, parametric arc length, polar coordinates, polar conversion, common polar curves, polar slope, polar area, area between polar curves, polar arc length
+**Key formulas:**
+- Line: r(t) = P + tv, segment: r(t) = (1-t)P + tQ
+- Plane: ax+by+cz=d, normal n=(a,b,c), find from cross product PQ×PR
+- Angle between planes: cosθ = n₁·n₂/(|n₁||n₂|)
+- Active rotation: A = [cosθ -sinθ; sinθ cosθ], Passive: transpose
+- Translation: (x',y') = (x-h, y-k)
+- Parametric slope: dy/dx = (dy/dt)/(dx/dt)
+- Parametric 2nd deriv: d²y/dx² = (d/dt(dy/dx))/(dx/dt) — NOT (y''/x'')
+- Parametric area: ∫y·x'dt, closed: |∫g(t)f'(t)dt|
+- Arc length: ∫√(x'²+y'²)dt
+- Polar↔Cartesian: x=rcosθ, y=rsinθ, r=√(x²+y²)
+- Polar slope: dy/dx = (r'sinθ+rcosθ)/(r'cosθ-rsinθ)
+- Polar area: ½∫r²dθ, between curves: ½∫(r_out²-r_in²)dθ
+- Polar arc length: ∫√(r'²+r²)dθ
+- Conic discriminant: B²-4AC (=0 parabola, >0 hyperbola, <0 ellipse)
+**Key results:** cycloid arch area=3πr², cycloid length=8r, ellipse area=πab, cardioid length=8
+**Key tests:** parallel lines ↔ v₁×v₂=0, skew ↔ not parallel + z-check fails
+**Examples:** 17 worked examples (line through points, intersecting lines, skew lines, plane through 3 points, line-plane intersection, two-plane intersection, active rotation, parametric tangent lines, H/V tangents, cycloid area, ellipse area, cycloid arc length, coordinate conversion, polar tangent, inner loop area, area between polar curves, cardioid length)
+**Diagrams:** 15 SVG figures + 3 inline table diagrams (line, segment, skew, plane+normal, two-plane intersection, rotation active/passive, parametric curve, conics, tangent types, cycloid, arc length element, polar coords, cardioid, polar area sector, limaçon) — DIAGRAMS NEED LABEL COLLISION FIXES IN NEXT SESSION
 
 ### Ch3 — Partial Derivatives & Vector Fields (§3.1–3.7) ⬜ OUTLINE ONLY
 **Sections:** limits, continuity, partial derivatives, directional derivatives, gradients, chain rule, implicit differentiation, tangent planes, normal lines, conservative fields, divergence, curl
@@ -188,8 +206,8 @@ MATH2004-2008/
 
 | Section | Status | Contains |
 |---------|--------|----------|
-| Formula Sheet | Ch1 only | 8 formula cards with variable popups, 3-view toggle |
-| Summary | Ch1 only | 7 concept clusters + quick reference table |
+| Formula Sheet | Ch1 + Ch2 | 25 formula cards with variable popups, 3-view toggle, updated color legend |
+| Summary | Ch1 + Ch2 | Ch1: 7 concept clusters. Ch2: 3 clusters (Lines/Planes, Parametric, Polar). Quick ref table with 12 rows |
 | Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items |
 | Test 1 Prep | Placeholder | — |
 | Test 2 Prep | Placeholder | — |
@@ -208,10 +226,22 @@ MATH2004-2008/
 - Created progress tracker with full course skeleton
 - Created test prep placeholders (T1–T4, Final)
 
-### Session 2 — May 23, 2026 (current)
+### Session 2 — May 23, 2026
 - Added course outline info to blank chapters (Ch2–Ch7): section breakdowns by week
 - Added recommended problems pages for all chapters with exercise set listings
 - Added sidebar sub-links (└ Problems) for Ch2–Ch7
 - **Restructured into modular file system**: shell + 22 fragment files + build.py
 - Created progress.md for cross-session state tracking
 - NotebookLM was unresponsive this session — progress.md serves as fallback
+
+### Session 3 — May 23, 2026
+- **Wrote Chapter 2 notes** (§2.1–2.14): 79KB, full prose for first-time learners
+- Content: lines, planes, rotations/translations, parametric curves, conics, polar coordinates
+- 17 worked examples with full solution pipeline (thought process → setup → annotated steps → boxed answer → tips)
+- Variable pills under every equation card
+- **Formula sheet:** expanded from 6 to 13 Ch2 cards. Fixed \htmlData bugs (commas and = signs in descriptions broke KaTeX). Updated color legend for Ch2 variables.
+- **Summary:** added 3 Ch2 clusters + 7 rows to Quick Reference table
+- **Diagrams:** 15 SVG figure-box diagrams + 3 inline table mini-diagrams. Used computed polar paths for cardioid and limaçon. ⚠ KNOWN ISSUE: several diagrams still have label collision/overlap problems — need collision check fixes next session.
+- Fixed Π labels → "Plane 1"/"Plane 2" for clarity
+- Added \quad spacing between matrices in §2.6
+- Updated claude.md to require /course-notes skill for all content
