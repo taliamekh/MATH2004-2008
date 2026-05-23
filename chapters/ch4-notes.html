@@ -22,6 +22,47 @@
     <p><strong>4.</strong> The surface area of the "curtain" (sheet) under \(f\geq 0\) with base \(\mathscr{C}\) in the \(xy\)-plane equals \(\int_{\mathscr{C}}f(x,y)\,ds\).</p>
     <p><strong>5.</strong> The value is <strong>independent of orientation</strong> — reversing the direction of \(\mathscr{C}\) gives the same answer.</p>
 
+    <div class="figure-box">
+    <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg" style="max-width:600px;width:100%">
+      <!-- xy-plane grid shadow -->
+      <rect x="60" y="200" width="500" height="100" rx="4" fill="rgba(238,238,234,.6)" stroke="none"/>
+      <!-- axes -->
+      <line x1="80" y1="280" x2="540" y2="280" stroke="#5A5A50" stroke-width="1.5"/>
+      <line x1="80" y1="280" x2="80" y2="30" stroke="#5A5A50" stroke-width="1.5"/>
+      <polygon points="540,280 532,276 532,284" fill="#5A5A50"/>
+      <polygon points="80,30 76,38 84,38" fill="#5A5A50"/>
+      <text x="550" y="284" font-family="Architects Daughter,cursive" font-size="15" fill="#5A5A50">x</text>
+      <text x="68" y="24" font-family="Architects Daughter,cursive" font-size="15" fill="#5A5A50">z = f</text>
+      <!-- curve C on xy-plane -->
+      <path d="M120,265 C180,250 280,255 360,240 C420,228 470,245 510,235" stroke="#4A90D9" stroke-width="2.5" fill="none"/>
+      <text x="310" y="265" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#4A90D9">𝒞</text>
+      <!-- surface z=f above curve — curtain -->
+      <path d="M120,265 L120,155 C180,120 280,100 360,85 C420,72 470,110 510,95 L510,235 C470,245 420,228 360,240 C280,255 180,250 120,265 Z" fill="rgba(139,26,26,.12)" stroke="none"/>
+      <!-- top edge: z = f(x,y) along C -->
+      <path d="M120,155 C180,120 280,100 360,85 C420,72 470,110 510,95" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <!-- vertical "ribs" showing curtain height -->
+      <line x1="120" y1="265" x2="120" y2="155" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <line x1="200" y1="254" x2="200" y2="117" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <line x1="280" y1="253" x2="280" y2="100" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <line x1="360" y1="240" x2="360" y2="85" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <line x1="440" y1="233" x2="440" y2="82" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <line x1="510" y1="235" x2="510" y2="95" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+      <!-- height annotation arrow -->
+      <line x1="280" y1="253" x2="280" y2="100" stroke="#C4883E" stroke-width="2"/>
+      <polygon points="280,100 276,110 284,110" fill="#C4883E"/>
+      <polygon points="280,253 276,243 284,243" fill="#C4883E"/>
+      <text x="290" y="178" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#C4883E">f(x,y)</text>
+      <!-- ds annotation -->
+      <path d="M340,243 C350,241 360,240 370,238" stroke="#2D8B46" stroke-width="3"/>
+      <text x="340" y="230" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">ds</text>
+      <!-- top label -->
+      <text x="400" y="60" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#8B1A1A">z = f(x,y)</text>
+      <!-- area label -->
+      <text x="140" y="180" font-family="Architects Daughter,cursive" font-size="14" fill="#8B1A1A" opacity=".7">Area = ∫𝒞 f ds</text>
+    </svg>
+    <div class="figure-caption">Fig 4.1 — The line integral ∫𝒞 f ds equals the area of the "curtain" hanging from the curve z = f(x,y) down to the base curve 𝒞 in the xy-plane.</div>
+    </div>
+
     <h3>Computation Formulas</h3>
 
     <div class="eq-card card-bracket"><div class="eq-name">General Parametric (3D)</div>
@@ -125,6 +166,47 @@
     <tr><td>Result sign</td><td>Always ≥ 0 if f ≥ 0</td><td>Can be negative</td></tr>
     </table>
 
+    <div class="figure-box">
+    <svg viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg" style="max-width:560px;width:100%">
+      <!-- Curve C -->
+      <path d="M60,220 C120,200 180,120 260,130 C340,140 400,80 520,100" stroke="#4A90D9" stroke-width="3" fill="none"/>
+      <text x="535" y="104" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#4A90D9">𝒞</text>
+      <!-- Point P on curve -->
+      <circle cx="260" cy="130" r="4" fill="#2A2A2A"/>
+      <text x="250" y="158" font-family="Architects Daughter,cursive" font-size="14" fill="#2A2A2A">P</text>
+      <!-- Tangent vector T at P -->
+      <line x1="260" y1="130" x2="340" y2="124" stroke="#2D8B46" stroke-width="2.5"/>
+      <polygon points="340,124 330,118 332,128" fill="#2D8B46"/>
+      <text x="348" y="118" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">T̂</text>
+      <!-- F vector at P (at an angle to tangent) -->
+      <line x1="260" y1="130" x2="320" y2="62" stroke="#8B1A1A" stroke-width="2.5"/>
+      <polygon points="320,62 310,66 316,74" fill="#8B1A1A"/>
+      <text x="328" y="58" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#8B1A1A">F</text>
+      <!-- Projection of F onto T (dashed) -->
+      <line x1="260" y1="130" x2="310" y2="126" stroke="#C4883E" stroke-width="2" stroke-dasharray="5,3"/>
+      <!-- Angle arc between F and T -->
+      <path d="M280,128 C282,120 286,114 292,111" stroke="#A82870" stroke-width="1.5" fill="none"/>
+      <text x="292" y="106" font-family="Architects Daughter,cursive" font-size="13" fill="#A82870">θ</text>
+      <!-- projection label -->
+      <text x="264" y="118" font-family="Architects Daughter,cursive" font-size="13" fill="#C4883E">F·T̂</text>
+      <!-- Perpendicular drop from F tip to tangent line -->
+      <line x1="320" y1="62" x2="310" y2="126" stroke="#5A5A50" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <!-- Additional F vectors along curve (field) -->
+      <g opacity=".35">
+        <line x1="120" y1="196" x2="160" y2="142" stroke="#8B1A1A" stroke-width="1.8"/><polygon points="160,142 152,146 156,154" fill="#8B1A1A"/>
+        <line x1="180" y1="140" x2="218" y2="82" stroke="#8B1A1A" stroke-width="1.8"/><polygon points="218,82 210,86 214,94" fill="#8B1A1A"/>
+        <line x1="360" y1="118" x2="408" y2="60" stroke="#8B1A1A" stroke-width="1.8"/><polygon points="408,60 400,64 404,72" fill="#8B1A1A"/>
+        <line x1="450" y1="104" x2="494" y2="50" stroke="#8B1A1A" stroke-width="1.8"/><polygon points="494,50 486,54 490,62" fill="#8B1A1A"/>
+      </g>
+      <!-- Direction arrow on curve -->
+      <polygon points="380,108 372,100 370,112" fill="#4A90D9"/>
+      <!-- Equation -->
+      <text x="80" y="262" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">Work = ∫𝒞 F·dr = ∫𝒞 |F| cos θ ds</text>
+      <text x="80" y="244" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">Only the tangential component of F contributes</text>
+    </svg>
+    <div class="figure-caption">Fig 4.2 — The vector line integral ∫F·dr measures the tangential component of F along 𝒞. Only the part of F parallel to the curve does work.</div>
+    </div>
+
     <h3>Component Form</h3>
     <p>Writing \(\mathbf{F}=(P,Q,R)\) and \(d\mathbf{r}=(dx,dy,dz)\), the integral expands as:</p>
     <div class="eq-card card-bracket"><div class="eq-name">Component Form</div>
@@ -207,6 +289,34 @@
     <h3>Consequences</h3>
     <div class="tip-card card-bracket"><div class="tip-label">★ Path Independence</div>
     <p>If \(\mathbf{F}=\nabla f\), the integral depends <em>only on the endpoints</em>, not on the path taken between them. All paths from \(P\) to \(Q\) give the same answer: \(f(Q)-f(P)\).</p>
+    </div>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;width:100%">
+      <!-- Path 1: upper arc -->
+      <path d="M80,160 C140,40 300,20 440,80" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <!-- Path 2: lower arc -->
+      <path d="M80,160 C160,220 340,230 440,80" stroke="#6B3FA0" stroke-width="2.5" fill="none"/>
+      <!-- Path 3: straight line -->
+      <path d="M80,160 L440,80" stroke="#2D8B46" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+      <!-- Direction arrows on paths -->
+      <polygon points="240,48 232,42 230,54" fill="#8B1A1A"/>
+      <polygon points="290,218 282,210 280,222" fill="#6B3FA0"/>
+      <polygon points="260,120 254,112 250,124" fill="#2D8B46"/>
+      <!-- Points P and Q -->
+      <circle cx="80" cy="160" r="6" fill="#2A2A2A"/>
+      <circle cx="440" cy="80" r="6" fill="#2A2A2A"/>
+      <text x="50" y="168" font-family="Architects Daughter,cursive" font-size="16" font-weight="700" fill="#2A2A2A">P</text>
+      <text x="452" y="74" font-family="Architects Daughter,cursive" font-size="16" font-weight="700" fill="#2A2A2A">Q</text>
+      <!-- Path labels -->
+      <text x="172" y="52" font-family="Architects Daughter,cursive" font-size="14" fill="#8B1A1A">𝒞₁</text>
+      <text x="180" y="222" font-family="Architects Daughter,cursive" font-size="14" fill="#6B3FA0">𝒞₂</text>
+      <text x="210" y="108" font-family="Architects Daughter,cursive" font-size="14" fill="#2D8B46">𝒞₃</text>
+      <!-- Equality -->
+      <text x="120" y="140" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">All give</text>
+      <text x="112" y="156" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">f(Q) − f(P)</text>
+    </svg>
+    <div class="figure-caption">Fig 4.3 — Path independence: when F = ∇f is conservative, all paths from P to Q yield the same integral f(Q) − f(P).</div>
     </div>
 
     <div class="eq-card card-bracket"><div class="eq-name">Closed-Loop Test</div>
