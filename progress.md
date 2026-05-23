@@ -262,3 +262,24 @@ MATH2004-2008/
 - Every fix verified with Playwright screenshots (before + after)
 - Used mandatory collision check arithmetic per /course-notes skill rules for all label placements
 - Pushed `ch2-notes.html` and rebuilt `MATH2004-notes.html`
+
+### Session 5 — May 23, 2026
+- **Second-pass diagram fixes** for 4 remaining collision issues:
+  - Diagram 8 (Conics): spread geometry — increased viewBox to 210px tall, enlarged ellipse from (rx=75,ry=50) to (rx=80,ry=60), repositioned foci/a/b labels with 20+ px clearance
+  - Diagram 9 (H/V tangents): moved vertical tangent condition text to y=118 (below tangent line end at y=100), 80px clear of curve
+  - Diagram 10 (Cycloid): moved "r" label outside dashed circle to x=138 with leader line
+  - Diagram 14 (Polar area): moved "r=f(θ)" above curve at y=52, moved α to (92,198) with 24px axis clearance
+  - All 4 fixes verified with Playwright screenshots
+- **Ch2 title color** set to green #255F38 (was --muted grey)
+  - Updated `--ch2-title` in shell-head.html
+  - Applied green palette (#18230F/#27391C/#255F38/#1F7D53) to Ch2 summary cluster What/Why/How/Trap labels
+- **Formula sheet expanded** — all 25 cards (12 Ch1 + 13 Ch2) rewritten with beginner-friendly explanations:
+  - Every card now has: plain-English explanation assuming zero background, "Where it comes from" origin story, step-by-step usage instructions, specific exam scenarios, common mistakes
+  - Formula sheet grew from ~22KB to ~50KB
+  - 3-mode toggle preserved: Full Detail (expanded), Quick Reference (concise), Equations Only
+- **Summary expanded** — Ch2 section grew from 3 clusters to 8:
+  - NEW clusters: Rotations & Translations, Conic Sections, Key Parametric Results, Polar Calculus (split from Polar Coordinates)
+  - Existing clusters expanded: Lines split from Planes, both enriched with intersection methods
+  - Quick Reference table: 12 → 20 rows (added skew test, plane angle, conic discriminant, param 2nd deriv, cycloid results, polar slope, polar between curves)
+  - Cross-links section expanded
+- Files changed: shell-head.html, chapters/ch2-notes.html, chapters/formulas.html, chapters/summary.html, MATH2004-notes.html
