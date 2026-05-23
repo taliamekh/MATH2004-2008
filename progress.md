@@ -178,7 +178,7 @@ MATH2004-2008/
 **Key results:** cycloid arch area=3πr², cycloid length=8r, ellipse area=πab, cardioid length=8
 **Key tests:** parallel lines ↔ v₁×v₂=0, skew ↔ not parallel + z-check fails
 **Examples:** 17 worked examples (line through points, intersecting lines, skew lines, plane through 3 points, line-plane intersection, two-plane intersection, active rotation, parametric tangent lines, H/V tangents, cycloid area, ellipse area, cycloid arc length, coordinate conversion, polar tangent, inner loop area, area between polar curves, cardioid length)
-**Diagrams:** 15 SVG figures + 3 inline table diagrams (line, segment, skew, plane+normal, two-plane intersection, rotation active/passive, parametric curve, conics, tangent types, cycloid, arc length element, polar coords, cardioid, polar area sector, limaçon) — DIAGRAMS NEED LABEL COLLISION FIXES IN NEXT SESSION
+**Diagrams:** 15 SVG figures + 3 inline table diagrams (line, segment, skew, plane+normal, two-plane intersection, rotation active/passive, parametric curve, conics, tangent types, cycloid, arc length element, polar coords, cardioid, polar area sector, limaçon) — ALL DIAGRAM LABELS VERIFIED CLEAR
 
 ### Ch3 — Partial Derivatives & Vector Fields (§3.1–3.7) ⬜ OUTLINE ONLY
 **Sections:** limits, continuity, partial derivatives, directional derivatives, gradients, chain rule, implicit differentiation, tangent planes, normal lines, conservative fields, divergence, curl
@@ -245,3 +245,20 @@ MATH2004-2008/
 - Fixed Π labels → "Plane 1"/"Plane 2" for clarity
 - Added \quad spacing between matrices in §2.6
 - Updated claude.md to require /course-notes skill for all content
+
+### Session 4 — May 23, 2026
+- **Fixed all Ch2 SVG diagram label collisions** — 11 label fixes across 8 diagrams:
+  - Diagram 1 (Line): moved `t=0` label below the dashed line (was overlapping at 1.2px)
+  - Diagram 5 (Two planes): moved `line of intersection` above green line (was at 5.5px), moved `Plane 2` above blue edge (was at 1px)
+  - Diagram 7 (Parametric curve): moved `(f(t), g(t))` label above the curve path
+  - Diagram 8 (Conics): moved `foci` above ellipse b-axis intersection, moved `directrix` further below dashed line
+  - Diagram 9 (H/V tangents): moved `dx/dt = 0` label further from curve at vertical tangent
+  - Diagram 10 (Cycloid): moved `r` label away from dashed circle edge (was at 14.75px)
+  - Diagram 11 (Arc length): moved `ds` label above curve/ds line (was at 14.7px)
+  - Diagram 12 (Polar coords): moved `θ` label to clear space (was at 7.4px from r-line)
+  - Diagram 14 (Polar area): moved `r=f(θ)` below curve (text top was 17px from curve), moved `α` away from x-axis (was at 7px)
+- **Recalculated Diagram 13 (Cardioid)**: new path with 216 points + adaptive cusp density, increased scale (55→65) and viewBox for visible cusp, fixed all label positions
+- **Recalculated Diagram 15 (Limaçon)**: new path with 316 points including extra points near r=0 transitions, increased scale (16→22) for visible inner loop, added dashed arrow from label to inner loop, fixed all label positions
+- Every fix verified with Playwright screenshots (before + after)
+- Used mandatory collision check arithmetic per /course-notes skill rules for all label placements
+- Pushed `ch2-notes.html` and rebuilt `MATH2004-notes.html`
