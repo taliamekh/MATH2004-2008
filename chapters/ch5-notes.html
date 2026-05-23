@@ -316,15 +316,15 @@
     <h3>Catalog of Quadric Surfaces</h3>
 
     <table class="ptbl" style="font-size:14px;">
-    <tr><th>Surface</th><th>Standard Equation</th><th>z-traces</th><th>Sketch</th></tr>
-    <tr><td><strong>Ellipsoid</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (for \(|c|<1\))</td><td style="text-align:center;padding:4px;">
+    <tr><th>Surface</th><th>Standard Equation</th><th>z-traces</th><th>Shape</th><th>Sketch</th></tr>
+    <tr><td><strong>Ellipsoid</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (for \(|c|<1\))</td><td>Egg/football</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="40" cy="45" rx="34" ry="40" fill="rgba(116,10,3,.08)" stroke="#740A03" stroke-width="1.8" />
         <ellipse cx="40" cy="45" rx="34" ry="12" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="3,2"/>
         <path d="M40,5 C52,5 52,85 40,85" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="3,2"/>
       </svg>
     </td></tr>
-    <tr><td><strong>Elliptic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}+\frac{y^2}{b^2}\)</td><td>Ellipses</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Elliptic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}+\frac{y^2}{b^2}\)</td><td>Ellipses</td><td>Bowl (opens up)</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M8,18 C8,18 20,82 40,82 C60,82 72,18 72,18" fill="rgba(116,10,3,.08)" stroke="#740A03" stroke-width="1.8"/>
         <ellipse cx="40" cy="18" rx="32" ry="10" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="3,2"/>
@@ -332,7 +332,7 @@
         <circle cx="40" cy="82" r="2" fill="#740A03"/>
       </svg>
     </td></tr>
-    <tr><td><strong>Hyperbolic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}-\frac{y^2}{b^2}\)</td><td>Hyperbolas</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Hyperbolic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}-\frac{y^2}{b^2}\)</td><td>Hyperbolas</td><td>Saddle / Pringles chip</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M6,70 C20,30 35,45 40,45 C45,45 60,30 74,70" fill="none" stroke="#740A03" stroke-width="1.8"/>
         <path d="M6,20 C20,60 35,45 40,45 C45,45 60,60 74,20" fill="none" stroke="#4A90D9" stroke-width="1.8"/>
@@ -340,7 +340,7 @@
         <text x="40" y="86" font-family="Architects Daughter,cursive" font-size="10" fill="#5A5A50" text-anchor="middle">saddle</text>
       </svg>
     </td></tr>
-    <tr><td><strong>Elliptic Cone</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\)</td><td>Ellipses (z≠0), point (z=0)</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Elliptic Cone</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\)</td><td>Ellipses (z≠0), point (z=0)</td><td>Double cone</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M10,10 L40,45 L70,10" fill="none" stroke="#740A03" stroke-width="1.8"/>
         <path d="M10,80 L40,45 L70,80" fill="none" stroke="#740A03" stroke-width="1.8"/>
@@ -349,7 +349,7 @@
         <circle cx="40" cy="45" r="2.5" fill="#C4883E"/>
       </svg>
     </td></tr>
-    <tr><td><strong>Hyperboloid (1 sheet)</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\)</td><td>Ellipses</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Hyperboloid (1 sheet)</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\)</td><td>Ellipses</td><td>Cooling tower</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M10,8 C10,8 28,40 28,45 C28,50 10,82 10,82" fill="none" stroke="#740A03" stroke-width="1.8"/>
         <path d="M70,8 C70,8 52,40 52,45 C52,50 70,82 70,82" fill="none" stroke="#740A03" stroke-width="1.8"/>
@@ -358,7 +358,7 @@
         <ellipse cx="40" cy="82" rx="30" ry="8" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="3,2"/>
       </svg>
     </td></tr>
-    <tr><td><strong>Hyperboloid (2 sheets)</strong></td><td>\(-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (large \(|z|\))</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Hyperboloid (2 sheets)</strong></td><td>\(-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (large \(|z|\))</td><td>Two caps</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M18,30 C22,22 30,16 40,14 C50,16 58,22 62,30" fill="rgba(116,10,3,.08)" stroke="#740A03" stroke-width="1.8"/>
         <ellipse cx="40" cy="30" rx="22" ry="7" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="3,2"/>
@@ -368,7 +368,7 @@
         <text x="40" y="49" font-family="Architects Daughter,cursive" font-size="9" fill="#5A5A50" text-anchor="middle">gap</text>
       </svg>
     </td></tr>
-    <tr><td><strong>Elliptic Cylinder</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td><td>Same ellipse for all z</td><td style="text-align:center;padding:4px;">
+    <tr><td><strong>Elliptic Cylinder</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td><td>Same ellipse for all z</td><td>Tube</td><td style="text-align:center;padding:4px;">
       <svg viewBox="0 0 80 90" width="72" xmlns="http://www.w3.org/2000/svg">
         <path d="M12,70 L12,20" fill="none" stroke="#740A03" stroke-width="1.8"/>
         <path d="M68,70 L68,20" fill="none" stroke="#740A03" stroke-width="1.8"/>
