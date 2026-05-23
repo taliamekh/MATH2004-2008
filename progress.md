@@ -204,13 +204,36 @@ MATH2004-2008/
 **Sections:** critical points, second derivative test, saddle points, Lagrange multipliers
 **Recommended problems:** Exercise Sets 49–50
 
-### Ch4 — Line Integrals (§4.1–4.3) ⬜ OUTLINE ONLY
-**Sections:** line integrals of scalar functions, line integrals of vector fields, fundamental theorem for line integrals
-**Recommended problems:** Exercise Sets 32–38
+### Ch4 — Line Integrals (§4.1–4.3) ✅ COMPLETE
+**Defined:** line integral w.r.t. arc length, line integral of vector field (F·dr), work integral, circulation, average value on a curve, center of mass of a wire, gradient field / potential function, Fundamental Theorem for Line Integrals (FTCLI), path independence, simply connected region, conservation of energy
+**Key formulas:**
+- Scalar line integral: ∫f ds = ∫ₐᵇ f(r(t))|r'(t)| dt
+- Vector line integral: ∫F·dr = ∫ₐᵇ F(r(t))·r'(t) dt
+- Component form: ∫P dx + Q dy + R dz = ∫(Px'+Qy'+Rz') dt
+- FTCLI: ∫∇f·dr = f(r(b)) − f(r(a))
+- Closed loop: F conservative ⟹ ∮F·dr = 0
+- Potential via line integral: f(x,y,z) = ∫F·dr (from P₀ to P)
+- Average value: f̄ = (1/L)∫f ds
+- Center of mass: x̄ = (1/M)∫xf ds, etc.
+- Work-energy: ∫F·dr = ½m|v(b)|² − ½m|v(a)|²
+**Key tests:** orientation-independent ↔ scalar (ds), orientation-dependent ↔ vector (F·dr); conservative ↔ curl F = 0 ↔ path-independent ↔ ∮F·dr = 0
+**Examples:** 11 worked examples (parabola arc, helix, piecewise triangle, wire mass, vector line integral with reversal, three methods same integral, piecewise 3D, work by force field, Newton/Coulomb conservative, potential via line integral, FTCLI evaluation)
 
-### Ch5 — Double Integrals & Surfaces (§5.1–5.6) ⬜ OUTLINE ONLY
-**Sections:** double integrals, iterated integrals, volume, change of variables, sketching 3D surfaces, parametric surfaces
-**Recommended problems:** Exercise Sets 37–42
+### Ch5 — Double Integrals & Surfaces (§5.1–5.6) ✅ COMPLETE
+**Defined:** x-simple (Type I) region, y-simple (Type II) region, vertical slices (R_yx), horizontal slices (R_xy), double integral, partition, mesh, iterated integral, Fubini's theorem (rectangle + general), reversing integration order, volume under a surface, volume between surfaces, Jacobian matrix, Jacobian determinant, change of variables formula, polar double integral (dA = r dr dθ), area in polar, trace/cross-section, quadric surfaces (ellipsoid, elliptic paraboloid, hyperbolic paraboloid, elliptic cone, hyperboloid 1/2 sheets, elliptic cylinder), parametric surface r(u,v), sphere parametrization, graph surface parametrization, surface of revolution
+**Key formulas:**
+- Fubini (rect): ∬f dA = ∫ₐᵇ∫_c^d f dy dx = ∫_c^d∫ₐᵇ f dx dy
+- Fubini (general): ∬f dA = ∫ₐᵇ∫_{f₁(x)}^{f₂(x)} f dy dx
+- Volume: V = ∬f(x,y) dA
+- Jacobian: J = |∂(x,y)/∂(u,v)| = |det[∂x/∂u ∂y/∂u; ∂x/∂v ∂y/∂v]|
+- Change of variables: ∬_R f dA = ∬_S f(g,h)|J| dA
+- Polar: ∬f(x,y) dA = ∬f(r cosθ, r sinθ) r dr dθ
+- Polar Jacobian = r
+- Area (polar): ∬r dr dθ
+- Sphere: r(u,v) = (R cos v cos u, R cos v sin u, R sin v)
+**Key tests:** x-simple ↔ vertical slices → dy dx; y-simple ↔ horizontal slices → dx dy; quadric ID by counting squared terms + signs
+**Examples:** 9 worked examples (region by parabolas, iterated rectangle, variable limits, reversing order, volume under paraboloid, polar disk integral, cardioid area, elliptic paraboloid, cylinder parametrization)
+**Quadric catalog:** ellipsoid, elliptic paraboloid, hyperbolic paraboloid, cone, hyperboloid (1/2 sheets), cylinder — all with standard equations and trace descriptions
 
 ### Ch6 — Surface Integrals & Integral Theorems (§6.1–6.8) ⬜ OUTLINE ONLY
 **Sections:** surface area, surface integrals, flux, Green's theorem, Stokes' theorem, triple integrals, cylindrical/spherical coords, Divergence theorem
@@ -222,9 +245,9 @@ MATH2004-2008/
 
 | Section | Status | Contains |
 |---------|--------|----------|
-| Formula Sheet | Ch1 + Ch2 + Ch3 | 35 formula cards with variable popups, 3-view toggle. Ch3: partial deriv, Clairaut, directional deriv, gradient, chain rule, implicit, tangent plane, curl, conservative test, divergence |
-| Summary | Ch1 + Ch2 + Ch3 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters (limits/continuity, partials, gradient/directional, chain rule/implicit, tangent planes, conservative/curl/div). Quick ref table with 27 rows |
-| Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items. Ch3 expanded to 9 items |
+| Formula Sheet | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 | 44 formula cards with variable popups, 3-view toggle. Ch4: scalar line integral, vector line integral, FTCLI, potential via line integral. Ch5: Fubini (rect + general), polar double integral, change of variables, sphere parametrization |
+| Summary | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters. Ch4: 3 clusters (scalar line integrals, vector/work, FTCLI/path independence). Ch5: 3 clusters (regions/Fubini, polar, quadrics/parametrization). Quick ref table with 35 rows |
+| Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items. Ch4 expanded to 11 items, Ch5 expanded to 14 items |
 | Test 1 Prep | Placeholder | — |
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
@@ -333,3 +356,27 @@ MATH2004-2008/
   - Fig 3.5: Source/sink/curl visualization (§3.7)
   - Fig 3.6: Grad-curl-div triangle with identities (§3.7)
 - **Key learning: \htmlData tooltip text must NEVER contain commas** — zero of 110 working Ch1/Ch2 tooltips had commas; all Ch3 breaks were caused by commas in tooltip text
+
+### Session 8 — May 23, 2026
+- **Chapter 4 notes written** (31KB, §4.1–4.3): 11 worked examples
+  - §4.1 Line integrals w.r.t. arc length: definition, computation formulas (3D + 2D), arc-length parametrization, average value, center of mass. 4 examples (parabola, helix, triangle, wire mass)
+  - §4.2 Line integrals of vector fields: definition (F·dr), component form (P dx + Q dy + R dz), work, circulation, orientation-dependence. 4 examples (line segment + reversal, three methods, piecewise 3D, work)
+  - §4.3 Fundamental Theorem for Line Integrals: FTCLI statement + proof sketch, path independence, closed-loop test, simply connected regions, potential via line integral, work-energy theorem. 3 examples (Newton/Coulomb, potential by line integral, FTCLI evaluation)
+- **Chapter 5 notes written** (24KB, §5.1–5.6): 9 worked examples
+  - §5.1 Describing planar regions: x-simple, y-simple, vertical/horizontal slices, notation R_yx and R_xy. 1 example
+  - §5.2 Double integrals & Fubini: definition, geometric meaning (volume/area), Fubini for rectangles + general regions, reversing order. 3 examples
+  - §5.3 Volume under a surface: formula, volume between surfaces. 1 example
+  - §5.4 Change of variables: Jacobian matrix/determinant, general change of variables formula, polar coordinates (dA = r dr dθ), area in polar. 2 examples
+  - §5.5 3D plots / quadric surfaces: traces, full quadric catalog table (7 types), identification strategy. 1 example
+  - §5.6 Parametric surfaces: r(u,v), sphere/graph/revolution parametrizations. 1 example
+- **Formula sheet expanded** — 9 new cards added (35→44 total):
+  - Ch4: scalar line integral, vector line integral, FTCLI, potential via line integral
+  - Ch5: Fubini (rect), Fubini (general), polar double integral, change of variables, sphere parametrization
+  - All tooltips comma-free per established convention
+- **Summary expanded** — 6 new clusters + 8 new quick reference rows (27→35 total)
+  - Ch4: pink palette (#3A0519/#670D2F/#A53860/#EF88AD) for What/Why/How/Trap
+  - Ch5: maroon palette (#280905/#740A03/#C3110C/#E6501B) for What/Why/How/Trap
+- **Progress tracker expanded** — Ch4: 2→11 items. Ch5: 2→14 items (6 sections + 6 example groups + formulas). Ch6 separated from Ch4-6 placeholder.
+- **Shell-head updated** — --ch4-title set to #670D2F, --ch5-title set to #740A03, pending removed from Ch4/Ch5 sidebar links
+- **Built MATH2004-notes.html** — 388KB, 22/22 fragments assembled
+- Files changed: shell-head.html, ch4-notes.html, ch5-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
