@@ -2966,15 +2966,45 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div class="page-title">Reference</div><h1>Formula & Theorem Sheet</h1>
     <p class="page-intro">Every variable explained. Click colored variables for details.</p>
     <div class="fs-toggle"><button class="active" onclick="setView('full',this)">Full Detail</button><button onclick="setView('quick',this)">Quick Reference</button><button onclick="setView('eqonly',this)">Equations Only</button></div>
-    <table class="ptbl" style="margin:12px 0;font-size:13px;max-width:620px;">
-      <tr><th style="width:30px;"></th><th>Color Role</th><th>What it marks</th><th>Examples</th></tr>
-      <tr><td><div style="width:14px;height:14px;border-radius:50%;background:#D45D00;margin:auto;"></div></td><td style="color:#D45D00;font-weight:600;">Primary input</td><td>The main variable being acted on — first vector, x-component, integrand</td><td>v, x, P, fₓ, f, F</td></tr>
-      <tr><td><div style="width:14px;height:14px;border-radius:50%;background:#5D7A20;margin:auto;"></div></td><td style="color:#5D7A20;font-weight:600;">Secondary input</td><td>Second variable or output — y-component, gradient, potential function</td><td>w, y, Q, fy, ∇f, f</td></tr>
-      <tr><td><div style="width:14px;height:14px;border-radius:50%;background:#0B7D7D;margin:auto;"></div></td><td style="color:#0B7D7D;font-weight:600;">Tertiary / result</td><td>Third variable, result, or curve/path variable</td><td>z, R, fz, r, u</td></tr>
-      <tr><td><div style="width:14px;height:14px;border-radius:50%;background:#A82870;margin:auto;"></div></td><td style="color:#A82870;font-weight:600;">Angles &amp; parameters</td><td>Angles, parameter bounds, rotation — things you sweep or vary</td><td>θ, α, β, t, a, b, v</td></tr>
-      <tr><td><div style="width:14px;height:14px;border-radius:50%;background:#2050A0;margin:auto;"></div></td><td style="color:#2050A0;font-weight:600;">Magnitudes &amp; scale</td><td>Lengths, norms, radii — scalar measures of size</td><td>|v|, |w|, |∇f|, R, |r'|</td></tr>
-    </table>
-    <p style="font-size:13px;color:var(--muted);margin:-4px 0 10px;">💡 <strong>Click any colored variable</strong> in a formula to see what it means. Colors are consistent across all chapters — the same role always gets the same color.</p>
+
+    <p style="font-size:14px;margin:8px 0 4px;"><strong>Variable Color Guide</strong> — click any colored variable in a formula to see its definition.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 16px;font-size:13px;">
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #D45D00;background:rgba(212,93,0,.04);">
+        <strong style="color:#D45D00;">● Primary / x-direction</strong><br>
+        <span style="color:#5A5A50">First vector, x-component, main input</span><br>
+        <span style="color:#D45D00;font-weight:600;">v, x, P, fₓ, f, F, a</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #5D7A20;background:rgba(93,122,32,.04);">
+        <strong style="color:#5D7A20;">● Secondary / y-direction</strong><br>
+        <span style="color:#5A5A50">Second vector, y-component, potential</span><br>
+        <span style="color:#5D7A20;font-weight:600;">w, y, Q, fy, ∇f, f, W</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #0B7D7D;background:rgba(11,125,125,.04);">
+        <strong style="color:#0B7D7D;">● Tertiary / z-direction</strong><br>
+        <span style="color:#5A5A50">Third variable, position vector, path</span><br>
+        <span style="color:#0B7D7D;font-weight:600;">z, R, fz, r, u, d</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #A82870;background:rgba(168,40,112,.04);">
+        <strong style="color:#A82870;">● Angles &amp; sweeps</strong><br>
+        <span style="color:#5A5A50">Rotation, latitude, longitude, parameter</span><br>
+        <span style="color:#A82870;font-weight:600;">θ, α, β, γ, t, h, v</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #2050A0;background:rgba(32,80,160,.04);">
+        <strong style="color:#2050A0;">● Magnitudes &amp; scale</strong><br>
+        <span style="color:#5A5A50">Lengths, norms, radii, speed</span><br>
+        <span style="color:#2050A0;font-weight:600;">|v|, |w|, |∇f|, R, |r'|</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #B8336A;background:rgba(184,51,106,.04);">
+        <strong style="color:#B8336A;">● Fields &amp; operators</strong><br>
+        <span style="color:#5A5A50">Vector field as a whole, curl/div target</span><br>
+        <span style="color:#B8336A;font-weight:600;">F, ∇×F, ∇·F</span>
+      </div>
+      <div style="padding:8px 10px;border-radius:6px;border-left:4px solid #4A8060;background:rgba(74,128,96,.04);">
+        <strong style="color:#4A8060;">● Bounds &amp; constants</strong><br>
+        <span style="color:#5A5A50">Integration limits, fixed endpoints</span><br>
+        <span style="color:#4A8060;font-weight:600;">a, b, c, d, P₀</span>
+      </div>
+    </div>
     <div id="fs-content" data-view="full">
     <h2 style="color:var(--ch1-title)">Chapter 1 — Vectors</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch1-title)">
@@ -3201,17 +3231,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <div class="fs-card"><div class="fs-top"><div class="fs-name">Curl (∇ × F)</div></div><div class="fs-body">
-      <div class="fs-formula">\[\text{curl}\;\htmlData{t=F — the vector field}{\color{#A82870}{\mathbf{F}}}=\nabla\times\mathbf{F}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\\htmlData{t=P — i-component of F}{\color{#D45D00}{P}}&\htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}&\htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}\end{vmatrix}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>curl</strong> measures the rotational tendency of a vector field at a point. Think of it as "how much the field swirls." It's computed as a 3×3 determinant (formal expansion along the first row). The result is a vector: curl points in the axis of rotation (by the right-hand rule), and its magnitude measures the rotation rate. In 2D: curl F = (Qₓ − P_y)k.</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ × F treats the del operator ∇ = (∂ₓ, ∂_y, ∂_z) as a vector and takes its cross product with F = (P,Q,R).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> testing if a field is conservative (curl = 0 ⟹ conservative), or computing rotation in fluid/EM applications.</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — curl only applies to vector fields. The result is a vector, not a scalar.</div></div></div>
+      <div class="fs-formula">\[\text{curl}\;\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}=\nabla\times\mathbf{F}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\\htmlData{t=P — i-component of F}{\color{#D45D00}{P}}&\htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}&\htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}\end{vmatrix}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>curl</strong> measures the rotational tendency of a vector field at a point. Think of it as "how much the field swirls." It's computed as a 3×3 determinant (formal expansion along the first row). The result is a vector: curl points in the axis of rotation (by the right-hand rule), and its magnitude measures the rotation rate. In 2D: curl F = (Qₓ − P_y)k.</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ × F treats the del operator ∇ = (∂ₓ, ∂_y, ∂_z) as a vector and takes its cross product with F = (P,Q,R).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> testing if a field is conservative (curl = 0 ⟹ conservative), or computing rotation in fluid/EM applications.</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — curl only applies to vector fields. The result is a vector, not a scalar.</div></div></div>
       <div class="fs-quick-summary">Determinant with ∇ in row 2, F in row 3. curl = 0 ⟹ conservative.</div>
     </div></div>
 
     <div class="fs-card"><div class="fs-top"><div class="fs-name">Conservative Field Test</div></div><div class="fs-body">
-      <div class="fs-formula">\[\htmlData{t=F — the vector field}{\color{#A82870}{\mathbf{F}}}\text{ conservative}\;\Longleftrightarrow\;\text{curl}\;\mathbf{F}=\mathbf{0}\;\Longleftrightarrow\;\htmlData{t=Qₓ — must equal Py}{\color{#5D7A20}{Q_x}}=\htmlData{t=Py — must equal Qₓ}{\color{#D45D00}{P_y}},\;\htmlData{t=Rₓ — must equal Pz}{\color{#0B7D7D}{R_x}}=P_z,\;R_y=Q_z\]</div><div class="fs-detail"><p class="fs-explain">A field F = (P,Q,R) is conservative if and only if its curl is zero everywhere. In 2D, this reduces to checking one condition: Qₓ = P_y. To find the potential function f, integrate fₓ = P w.r.t. x, then use f_y = Q to determine the unknown function g(y).</p><p class="fs-origin"><strong>Where it comes from:</strong> If F = ∇f, then P = fₓ, Q = f_y, R = f_z. Clairaut's theorem gives f_{xy} = f_{yx}, i.e., P_y = Qₓ. Similarly for the other pairs.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> determining if a vector field is conservative or finding a potential function.</div><div class="wb n"><strong>✗ Not for</strong> fields defined on regions with holes — curl = 0 doesn't guarantee a global potential in non-simply-connected domains.</div></div></div>
+      <div class="fs-formula">\[\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}\text{ conservative}\;\Longleftrightarrow\;\text{curl}\;\mathbf{F}=\mathbf{0}\;\Longleftrightarrow\;\htmlData{t=Qₓ — must equal Py}{\color{#5D7A20}{Q_x}}=\htmlData{t=Py — must equal Qₓ}{\color{#D45D00}{P_y}},\;\htmlData{t=Rₓ — must equal Pz}{\color{#0B7D7D}{R_x}}=P_z,\;R_y=Q_z\]</div><div class="fs-detail"><p class="fs-explain">A field F = (P,Q,R) is conservative if and only if its curl is zero everywhere. In 2D, this reduces to checking one condition: Qₓ = P_y. To find the potential function f, integrate fₓ = P w.r.t. x, then use f_y = Q to determine the unknown function g(y).</p><p class="fs-origin"><strong>Where it comes from:</strong> If F = ∇f, then P = fₓ, Q = f_y, R = f_z. Clairaut's theorem gives f_{xy} = f_{yx}, i.e., P_y = Qₓ. Similarly for the other pairs.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> determining if a vector field is conservative or finding a potential function.</div><div class="wb n"><strong>✗ Not for</strong> fields defined on regions with holes — curl = 0 doesn't guarantee a global potential in non-simply-connected domains.</div></div></div>
       <div class="fs-quick-summary">Check all mixed-partial equalities. If all match, F is conservative.</div>
     </div></div>
 
     <div class="fs-card"><div class="fs-top"><div class="fs-name">Divergence (∇ · F)</div></div><div class="fs-body">
-      <div class="fs-formula">\[\text{div}\;\htmlData{t=F — the vector field}{\color{#A82870}{\mathbf{F}}}=\nabla\cdot\mathbf{F}=\frac{\partial \htmlData{t=P — i-component of F}{\color{#D45D00}{P}}}{\partial x}+\frac{\partial \htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}}{\partial y}+\frac{\partial \htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}}{\partial z}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>divergence</strong> measures the net outward flux of a vector field at a point. Positive divergence means the field is expanding outward (a source, like a garden hose nozzle). Negative means contracting inward (a sink, like a drain). Zero means incompressible (what flows in equals what flows out).</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ · F treats del as a vector and dots it with F — sum of component-wise partial derivatives.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing sources/sinks in fluid flow or electromagnetic fields. Also needed for the Divergence Theorem (Ch 6).</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — divergence applies to vector fields only. The result is a scalar, not a vector.</div></div></div>
+      <div class="fs-formula">\[\text{div}\;\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}=\nabla\cdot\mathbf{F}=\frac{\partial \htmlData{t=P — i-component of F}{\color{#D45D00}{P}}}{\partial x}+\frac{\partial \htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}}{\partial y}+\frac{\partial \htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}}{\partial z}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>divergence</strong> measures the net outward flux of a vector field at a point. Positive divergence means the field is expanding outward (a source, like a garden hose nozzle). Negative means contracting inward (a sink, like a drain). Zero means incompressible (what flows in equals what flows out).</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ · F treats del as a vector and dots it with F — sum of component-wise partial derivatives.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing sources/sinks in fluid flow or electromagnetic fields. Also needed for the Divergence Theorem (Ch 6).</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — divergence applies to vector fields only. The result is a scalar, not a vector.</div></div></div>
       <div class="fs-quick-summary">Sum of each component's partial w.r.t. its own variable. Measures source/sink.</div>
     </div></div>
 
@@ -3255,7 +3285,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <div class="fs-card"><div class="fs-top"><div class="fs-name">Fubini (General Region)</div></div><div class="fs-body">
-      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound; constant}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound; constant}{\color{#D45D00}{b}}}\int_{\htmlData{t=f₁ — bottom boundary curve}{\color{#5D7A20}{f_1(x)}}}^{\htmlData{t=f₂ — top boundary curve}{\color{#5D7A20}{f_2(x)}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx\]</div>
+      <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound; constant}{\color{#4A8060}{a}}}^{\htmlData{t=b — right x-bound; constant}{\color{#4A8060}{b}}}\int_{\htmlData{t=f₁ — bottom boundary curve}{\color{#5D7A20}{f_1(x)}}}^{\htmlData{t=f₂ — top boundary curve}{\color{#5D7A20}{f_2(x)}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx\]</div>
       <div class="fs-detail"><p class="fs-explain">For non-rectangular regions describe R using vertical slices (x-simple): the outer x-limits are constants while the inner y-limits are functions of x. The subscript R_yx reminds you: y first then x → dy dx. To reverse the order: sketch the region and re-describe with horizontal slices.</p><p class="fs-origin"><strong>Where it comes from:</strong> Same as rectangular Fubini but with x-dependent limits on the inner integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region is x-simple (bounded above/below by curves in y).</div><div class="wb n"><strong>✗ Not for</strong> regions that aren't x-simple — try y-simple (dx dy) or split the region.</div></div></div>
       <div class="fs-quick-summary">Vertical slices: outer x (constants) inner y (functions of x). R_yx → dy dx.</div>
     </div></div>
