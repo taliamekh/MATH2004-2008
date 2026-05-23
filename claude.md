@@ -1,5 +1,16 @@
 # CLAUDE.md — MATH2004 Course Notes
 
+## Critical Rule
+
+**The `/course-notes` skill (`/mnt/skills/user/course-notes/SKILL.md`) MUST be read and followed for ALL content creation, editing, and diagram work.** This includes chapter notes, formula sheets, summaries, examples, and SVG diagrams. Read the skill BEFORE writing any content. Every requirement in the skill is mandatory — not optional.
+
+Key skill requirements that must not be skipped:
+- **Examples:** Full solution pipeline — problem statement → thought process → setup → every step annotated → boxed answer → ★ tips
+- **Diagrams:** SVG using theme palette, mandatory collision checks (compute label positions vs line positions), screenshot verification of EVERY diagram before claiming it's done
+- **Formula sheet:** ALL formulas from the chapter, `\htmlData` for clickable colored variables (no commas or extra `=` signs in descriptions), 3-view toggle, full detail (when to use / not use / origin / explanation)
+- **Content quality:** Written for a first-time learner, variable pills under every equation, plain prose between cards
+- **`/frontend-design` skill** should also be consulted for visual design quality of SVGs and layout
+
 ## Rules
 
 1. **Fetch `progress.md` FIRST.** It has the fetch guide, concepts index, and session log. Do not fetch any other file until you've read it.
