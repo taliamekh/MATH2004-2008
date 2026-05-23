@@ -2667,33 +2667,160 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <h2>§5.6 — Parametric Equations of Surfaces</h2>
     <!-- ═══════════════════════════════════════════════════ -->
 
-    <p>Just as curves are parametrized by one parameter \(t\), surfaces are parametrized by <strong>two parameters</strong> \(u,v\):</p>
+    <p>A <strong>curve</strong> is a 1D object, so one parameter \(t\) is enough to trace it out. A <strong>surface</strong> is a 2D object living in 3D space — you need to move in <em>two independent directions</em> to cover it. That means two parameters.</p>
+
+    <p>Think of it like an address system: on a curve, a single number \(t\) tells you where you are. On a surface, you need a pair \((u,v)\) — like latitude and longitude on Earth, or row and column on a grid.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Parametric Surface</div>
+    <p>A <strong>parametric surface</strong> is a vector-valued function of two variables:</p>
     <div class="eq-card card-bracket"><div class="eq-name">Parametric Surface</div>
     <div class="eq-formula">\[\mathbf{r}(u,v)=\big(x(u,v),\;y(u,v),\;z(u,v)\big),\quad (u,v)\in D\subseteq\mathbb{R}^2\]</div>
-    <div class="pills"><span class="pill">u, v — parameters (2 independent variables)</span><span class="pill">D — parameter domain (rectangle, disk, etc.)</span><span class="pill">r(u,v) — position vector of a point on the surface</span></div>
+    <div class="pills"><span class="pill">u, v — two independent parameters</span><span class="pill">D — parameter domain (rectangle, disk, etc.)</span><span class="pill">r(u,v) — position vector of a point on the surface</span></div>
+    </div>
+    <p>As \((u,v)\) ranges over the domain \(D\), the tip of \(\mathbf{r}(u,v)\) traces out the surface. Fixing \(u=c\) and varying \(v\) gives a <strong>v-curve</strong> on the surface; fixing \(v=c\) and varying \(u\) gives a <strong>u-curve</strong>. Together these form a <em>coordinate grid</em> on the surface.</p>
     </div>
 
     <h3>Common Parametrizations</h3>
-    <div class="def-card card-bracket"><div class="def-name">Sphere of Radius R</div>
-    <p>\[\mathbf{r}(u,v)=(R\cos v\cos u,\;R\cos v\sin u,\;R\sin v)\]</p>
-    <p>where \(u\in[0,2\pi]\) (longitude) and \(v\in[-\pi/2,\pi/2]\) (latitude).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">1. Sphere of Radius R</div>
+    <p>To parametrize a sphere, use the same idea as <strong>geographic coordinates</strong>. Every point on the sphere is uniquely determined by two angles:</p>
+    <p>• <strong>\(u\)</strong> = <em>longitude</em> — the angle measured around the equator (like going east/west). Ranges over \([0,2\pi]\).</p>
+    <p>• <strong>\(v\)</strong> = <em>latitude</em> — the angle measured above or below the equator (like going north/south). Ranges over \([-\pi/2,\pi/2]\).</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Sphere Parametrization</div>
+    <div class="eq-formula">\[\mathbf{r}(u,v)=(R\cos v\cos u,\;R\cos v\sin u,\;R\sin v)\]</div>
+    <div class="pills"><span class="pill">u ∈ [0, 2π] — longitude (around equator)</span><span class="pill">v ∈ [−π/2, π/2] — latitude (pole to pole)</span><span class="pill">R — radius</span></div>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Graph Surface \(z=f(x,y)\)</div>
-    <p>Any surface given explicitly as \(z=f(x,y)\) has the trivial parametrization:</p>
-    <p>\[\mathbf{r}(u,v)=(u,\,v,\,f(u,v)),\quad (u,v)\in\mathscr{R}\]</p>
+    <p><strong>How to derive it:</strong> Start with a point \(P\) on the sphere. Drop it to the \(xy\)-plane: its projection \(Q\) is at distance \(R\cos v\) from the origin (the equatorial radius shrinks as you move toward the poles). In the \(xy\)-plane, \(Q\) makes angle \(u\) with the \(x\)-axis, so \(x=R\cos v\cos u\) and \(y=R\cos v\sin u\). The height is simply \(z=R\sin v\).</p>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" style="max-width:460px;width:100%">
+      <!-- Axes -->
+      <line x1="200" y1="300" x2="430" y2="300" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="200" y1="300" x2="200" y2="50" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="200" y1="300" x2="80" y2="330" stroke="#5A5A50" stroke-width="1.2"/>
+      <polygon points="430,300 422,296 422,304" fill="#5A5A50"/>
+      <polygon points="200,50 196,58 204,58" fill="#5A5A50"/>
+      <polygon points="80,330 90,328 86,322" fill="#5A5A50"/>
+      <text x="436" y="304" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
+      <text x="188" y="46" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">z</text>
+      <text x="68" y="336" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">y</text>
+      <!-- Sphere outline -->
+      <ellipse cx="240" cy="180" rx="130" ry="130" fill="none" stroke="#740A03" stroke-width="2" opacity=".3"/>
+      <!-- Equator ellipse -->
+      <ellipse cx="240" cy="230" rx="130" ry="40" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <!-- Meridian (front half) -->
+      <path d="M240,50 C310,50 370,180 240,310" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <!-- Point P on sphere -->
+      <circle cx="340" cy="145" r="5" fill="#8B1A1A"/>
+      <text x="350" y="140" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#8B1A1A">P</text>
+      <!-- Projection Q onto xy-plane -->
+      <circle cx="340" cy="245" r="4" fill="#6B3FA0"/>
+      <text x="350" y="258" font-family="Architects Daughter,cursive" font-size="13" fill="#6B3FA0">Q</text>
+      <!-- Vertical dashed line P → Q -->
+      <line x1="340" y1="150" x2="340" y2="240" stroke="#5A5A50" stroke-width="1" stroke-dasharray="3,3"/>
+      <!-- Line from O to Q (equatorial radius) -->
+      <line x1="200" y1="300" x2="340" y2="245" stroke="#C4883E" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="258" y="285" font-family="Architects Daughter,cursive" font-size="13" fill="#C4883E">R cos v</text>
+      <!-- Line from O to P (full radius) -->
+      <line x1="200" y1="300" x2="340" y2="145" stroke="#8B1A1A" stroke-width="1.8"/>
+      <text x="248" y="210" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#8B1A1A">R</text>
+      <!-- Latitude angle v -->
+      <path d="M280,258 C290,248 298,238 302,225" stroke="#A82870" stroke-width="2" fill="none"/>
+      <text x="306" y="248" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">v</text>
+      <!-- Longitude angle u -->
+      <path d="M240,294 C260,290 280,286 296,280" stroke="#2D8B46" stroke-width="2" fill="none"/>
+      <text x="268" y="300" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">u</text>
+      <!-- Height z label -->
+      <text x="344" y="200" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">R sin v</text>
+      <!-- North pole -->
+      <circle cx="240" cy="50" r="3" fill="#5A5A50"/>
+      <text x="248" y="48" font-family="Architects Daughter,cursive" font-size="11" fill="#5A5A50">N</text>
+    </svg>
+    <div class="figure-caption">Fig 5.3 — Sphere parametrization. Longitude u sweeps around the equator; latitude v measures height above it. The equatorial radius at height v is R cos v.</div>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Surface of Revolution</div>
-    <p>Rotating \(y=g(x)\geq 0\) around the \(x\)-axis gives:</p>
-    <p>\[\mathbf{r}(u,v)=(u,\;g(u)\cos v,\;g(u)\sin v),\quad a\leq u\leq b,\;0\leq v\leq 2\pi\]</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Why Not Spherical Coordinates?</div>
+    <p>This parametrization uses <em>latitude</em> \(v\in[-\pi/2,\pi/2]\), not the physics convention of polar angle \(\phi\in[0,\pi]\) measured from the north pole. The textbook's convention matches geography: \(v=0\) is the equator, \(v=\pi/2\) is the north pole, \(v=-\pi/2\) is the south pole.</p>
+    </div>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">2. Graph Surface \(z=f(x,y)\)</div>
+    <p>If the surface is already given as \(z=f(x,y)\) — i.e., you can solve for \(z\) explicitly — then the parametrization is trivial: just let \(u=x\) and \(v=y\).</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Graph Parametrization</div>
+    <div class="eq-formula">\[\mathbf{r}(u,v)=(u,\,v,\,f(u,v)),\quad (u,v)\in\mathscr{R}\]</div>
+    </div>
+    <p>The parameter domain \(\mathscr{R}\) is just the region in the \(xy\)-plane over which the surface is defined. This is the <em>simplest possible</em> parametrization — you're using \(x\) and \(y\) themselves as the two parameters.</p>
+    <p><strong>Example:</strong> The paraboloid \(z=x^2+y^2\) over the unit disk becomes \(\mathbf{r}(u,v)=(u,v,u^2+v^2)\) for \(u^2+v^2\leq 1\).</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">3. Surface of Revolution</div>
+    <p>Take a <strong>profile curve</strong> \(y=g(x)\geq 0\) in the \(xy\)-plane and spin it around the \(x\)-axis through a full \(2\pi\) rotation. Each point \((x,g(x),0)\) traces out a circle of radius \(g(x)\) centered on the \(x\)-axis.</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Revolution Parametrization</div>
+    <div class="eq-formula">\[\mathbf{r}(u,v)=\big(u,\;g(u)\cos v,\;g(u)\sin v\big)\]</div>
+    <div class="pills"><span class="pill">u ∈ [a, b] — position along the axis</span><span class="pill">v ∈ [0, 2π] — rotation angle around the axis</span><span class="pill">g(u) — radius of the cross-sectional circle</span></div>
+    </div>
+    <p><strong>How it works:</strong> Parameter \(u\) slides along the \(x\)-axis (controlling which cross-section you're at). Parameter \(v\) rotates around the axis (controlling where on that circle you are). The radius of each circle is \(g(u)\) — determined by the profile curve.</p>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;width:100%">
+      <!-- Axis of revolution (x-axis) -->
+      <line x1="40" y1="140" x2="490" y2="140" stroke="#5A5A50" stroke-width="1.5"/>
+      <polygon points="490,140 482,136 482,144" fill="#5A5A50"/>
+      <text x="494" y="144" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
+      <!-- Profile curve (top half) -->
+      <path d="M100,140 C120,90 200,50 300,60 C370,66 430,80 460,90" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <!-- Profile curve reflected (bottom, dashed for hidden) -->
+      <path d="M100,140 C120,190 200,230 300,220 C370,214 430,200 460,190" stroke="#8B1A1A" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity=".5"/>
+      <!-- Cross-section circles at different u positions -->
+      <ellipse cx="180" cy="140" rx="8" ry="60" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <ellipse cx="300" cy="140" rx="8" ry="80" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <ellipse cx="420" cy="140" rx="8" ry="48" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <!-- Surface shading -->
+      <path d="M100,140 C120,90 200,50 300,60 C370,66 430,80 460,90 L460,190 C430,200 370,214 300,220 C200,230 120,190 100,140 Z" fill="rgba(116,10,3,.06)" stroke="none"/>
+      <!-- g(u) radius arrow at u=300 -->
+      <line x1="300" y1="140" x2="300" y2="60" stroke="#C4883E" stroke-width="2"/>
+      <polygon points="300,60 296,70 304,70" fill="#C4883E"/>
+      <text x="308" y="100" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#C4883E">g(u)</text>
+      <!-- v rotation arrow at cross-section -->
+      <path d="M310,68 C316,72 318,80 316,90" stroke="#A82870" stroke-width="2" fill="none"/>
+      <polygon points="316,90 320,82 312,82" fill="#A82870"/>
+      <text x="322" y="78" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">v</text>
+      <!-- u arrow along axis -->
+      <line x1="100" y1="156" x2="300" y2="156" stroke="#2D8B46" stroke-width="2"/>
+      <polygon points="300,156 292,152 292,160" fill="#2D8B46"/>
+      <text x="190" y="172" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">u (along axis)</text>
+      <!-- Profile label -->
+      <text x="140" y="56" font-family="Architects Daughter,cursive" font-size="13" fill="#8B1A1A">profile y = g(x)</text>
+      <!-- Tick marks on axis -->
+      <line x1="100" y1="137" x2="100" y2="143" stroke="#5A5A50" stroke-width="1"/>
+      <text x="94" y="154" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">a</text>
+      <line x1="460" y1="137" x2="460" y2="143" stroke="#5A5A50" stroke-width="1"/>
+      <text x="454" y="154" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">b</text>
+    </svg>
+    <div class="figure-caption">Fig 5.4 — Surface of revolution. The profile curve y = g(x) is spun around the x-axis. Parameter u slides along the axis; parameter v rotates around it. Each blue ellipse is a cross-section of radius g(u).</div>
+    </div>
+
+    <p><strong>Example:</strong> Revolving \(y=\sqrt{x}\) for \(x\in[0,4]\) gives a trumpet-shaped surface: \(\mathbf{r}(u,v)=(u,\sqrt{u}\cos v,\sqrt{u}\sin v)\), and the cross-sections are circles of radius \(\sqrt{u}\) that grow as \(u\) increases.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ How to Choose a Parametrization</div>
+    <p><strong>Given as z = f(x,y)?</strong> → Use the graph parametrization. Simplest option.</p>
+    <p><strong>Sphere or piece of a sphere?</strong> → Use latitude/longitude (the sphere parametrization above).</p>
+    <p><strong>Cylinder \(x^2+y^2=R^2\)?</strong> → Let \(x=R\cos\theta,\;y=R\sin\theta\), use \(z\) as the second parameter.</p>
+    <p><strong>Surface of revolution?</strong> → Identify the profile curve and axis of rotation, then apply the formula.</p>
+    <p><strong>General rule:</strong> look for the natural "grid" on the surface — the two families of curves that cover it.</p>
     </div>
 
     <div class="ex-card card-bracket"><div class="ex-label">Example 5.9 — Parametrizing a Cylinder (Ex. 282)</div>
     <p>Find a parametric representation of the cylinder \(x^2+y^2=4\) for \(0\leq z\leq 3\).</p>
     <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
-    <p>The circle \(x^2+y^2=4\) in any fixed \(z\)-plane is parametrized as \(x=2\cos\theta,\;y=2\sin\theta\). Let \(z\) be the second parameter:</p>
-    <p>\(\mathbf{r}(\theta,z)=(2\cos\theta,\;2\sin\theta,\;z),\quad \theta\in[0,2\pi],\;z\in[0,3]\).</p>
+    <p><strong>Thought process:</strong> The cylinder has circular cross-sections of radius 2. At any fixed height \(z\), the circle \(x^2+y^2=4\) is parametrized by the angle \(\theta\). That gives us one parameter. The second parameter is just \(z\) itself — it slides up and down the cylinder.</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Circle at height \(z\): \(x=2\cos\theta,\;y=2\sin\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Let \(z\) be the second parameter (it ranges independently of \(\theta\)).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\mathbf{r}(\theta,z)=(2\cos\theta,\;2\sin\theta,\;z),\quad \theta\in[0,2\pi],\;z\in[0,3]\)</p>
+    <p><strong>★ Tip:</strong> The \(\theta\)-curves (fix \(z\)) are horizontal circles. The \(z\)-curves (fix \(\theta\)) are vertical lines — the "rulings" of the cylinder.</p>
     </div></div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
