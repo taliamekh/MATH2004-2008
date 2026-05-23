@@ -19,8 +19,13 @@
 
     <p>The reasoning is clean: if P is a local max, then along any line through P the function has a single-variable max. In particular, moving along the x-direction, f(x, b) has a max at x = a, forcing f_x(a, b) = 0. The same argument along the y-direction gives f_y(a, b) = 0.</p>
 
-    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Strategy for Finding Critical Points</div>
-    <p>Set up the system of equations f_x = 0 and f_y = 0, then solve simultaneously. Often one equation gives one variable in terms of the other, which you substitute into the second equation. Watch for <strong>case analysis</strong> — factoring often gives multiple solution branches (e.g., "either y = 0 or 2x + 1 = 0"), and you must check ALL branches to find ALL critical points.</p>
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Step-by-Step Strategy for Finding Critical Points</div>
+    <p><strong>Step 1:</strong> Compute both partial derivatives f_x and f_y.</p>
+    <p><strong>Step 2:</strong> Set f_x = 0 and f_y = 0 simultaneously — you need BOTH to be zero at the same point.</p>
+    <p><strong>Step 3: Factor.</strong> Look for common factors. For example, f_x = y(2x + y − 1) = 0 gives two branches: y = 0 OR 2x + y − 1 = 0.</p>
+    <p><strong>Step 4: Case analysis.</strong> For each branch from Step 3, substitute into the OTHER equation and solve. Track every solution pair (x, y). This is where most students lose points — they check one case and forget the others.</p>
+    <p><strong>Step 5:</strong> List ALL critical points found from ALL cases. Verify each satisfies BOTH f_x = 0 and f_y = 0.</p>
+    <p><strong>Step 6:</strong> Classify each one using the Second Derivative Test (compute D at each point).</p>
     </div>
 
     <h3>The Second Derivative Test</h3>
@@ -51,82 +56,89 @@
 
     <!-- SVG: All three critical point types side by side -->
     <div class="figure-box">
-    <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="max-width:720px;width:100%">
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="max-width:720px;width:100%">
       <style>
         .cp-label{font-family:'Architects Daughter',cursive;font-size:13px}
         .cp-title{font-family:'Architects Daughter',cursive;font-size:15px;font-weight:700}
         .cp-formula{font-family:'Architects Daughter',cursive;font-size:11px}
       </style>
 
-      <!-- === PANEL 1: LOCAL MINIMUM (bowl up) === -->
-      <rect x="5" y="5" width="225" height="270" rx="8" fill="var(--eq)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <!-- === PANEL 1: LOCAL MINIMUM (valley / bowl up) === -->
+      <rect x="5" y="5" width="225" height="290" rx="8" fill="var(--eq)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
       <text x="118" y="28" text-anchor="middle" class="cp-title" fill="var(--eq)">Local Minimum</text>
 
-      <!-- 3D bowl shape using layered ellipses -->
-      <ellipse cx="118" cy="200" rx="90" ry="22" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <ellipse cx="118" cy="180" rx="72" ry="17" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <ellipse cx="118" cy="160" rx="52" ry="12" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <!-- bowl cross-section curves -->
-      <path d="M28,200 Q50,130 75,100 Q95,80 118,72 Q141,80 161,100 Q186,130 208,200" stroke="var(--eq)" stroke-width="2.5" fill="var(--eq)" fill-opacity=".06"/>
-      <path d="M58,200 Q80,150 100,120 Q110,100 118,92 Q126,100 136,120 Q156,150 178,200" stroke="var(--eq)" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
-      <!-- minimum point -->
-      <circle cx="118" cy="72" r="6" fill="var(--eq)" stroke="#fff" stroke-width="2"/>
-      <text x="118" y="58" text-anchor="middle" class="cp-label" fill="var(--eq)">P (min)</text>
-      <!-- arrows showing "curves up in all directions" -->
-      <line x1="70" y1="105" x2="55" y2="135" stroke="var(--eq)" stroke-width="1.5" marker-end="url(#arrUp)"/>
-      <line x1="166" y1="105" x2="181" y2="135" stroke="var(--eq)" stroke-width="1.5" marker-end="url(#arrUp)"/>
+      <!-- Bowl opening UPWARD — P at bottom of valley -->
+      <!-- Cross-section curve: U-shape -->
+      <path d="M30,80 Q50,120 70,155 Q90,195 118,210 Q146,195 166,155 Q186,120 206,80" stroke="var(--eq)" stroke-width="2.5" fill="var(--eq)" fill-opacity=".06"/>
+      <!-- Second cross-section (rotated direction, dashed) -->
+      <path d="M58,90 Q75,130 95,170 Q108,200 118,210 Q128,200 141,170 Q161,130 178,90" stroke="var(--eq)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <!-- Contour ellipses above the minimum -->
+      <ellipse cx="118" cy="170" rx="55" ry="14" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <ellipse cx="118" cy="140" rx="72" ry="18" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <ellipse cx="118" cy="110" rx="85" ry="20" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <!-- minimum point at bottom of valley -->
+      <circle cx="118" cy="210" r="6" fill="var(--eq)" stroke="#fff" stroke-width="2"/>
+      <text x="118" y="235" text-anchor="middle" class="cp-label" fill="var(--eq)">P (min)</text>
+      <!-- annotation arrows pointing up from P -->
+      <line x1="85" y1="190" x2="65" y2="145" stroke="var(--eq)" stroke-width="1.2" marker-end="url(#arrEq)"/>
+      <line x1="151" y1="190" x2="171" y2="145" stroke="var(--eq)" stroke-width="1.2" marker-end="url(#arrEq)"/>
+      <text x="50" y="135" class="cp-formula" fill="var(--eq)">↑ up</text>
+      <text x="170" y="135" class="cp-formula" fill="var(--eq)">↑ up</text>
       <!-- conditions -->
-      <text x="118" y="238" text-anchor="middle" class="cp-formula" fill="var(--eq)">D &gt; 0 and f_xx &gt; 0</text>
-      <text x="118" y="255" text-anchor="middle" class="cp-formula" fill="var(--muted)">bowl opens upward</text>
+      <text x="118" y="260" text-anchor="middle" class="cp-formula" fill="var(--eq)">D &gt; 0 and f_xx &gt; 0</text>
+      <text x="118" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">valley — curves up everywhere</text>
 
-      <!-- === PANEL 2: LOCAL MAXIMUM (bowl down) === -->
-      <rect x="247" y="5" width="225" height="270" rx="8" fill="var(--def)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <!-- === PANEL 2: LOCAL MAXIMUM (hilltop / dome) === -->
+      <rect x="247" y="5" width="225" height="290" rx="8" fill="var(--def)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
       <text x="360" y="28" text-anchor="middle" class="cp-title" fill="var(--def)">Local Maximum</text>
 
-      <!-- inverted bowl -->
-      <ellipse cx="360" cy="110" rx="90" ry="22" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <ellipse cx="360" cy="130" rx="72" ry="17" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <ellipse cx="360" cy="150" rx="52" ry="12" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <!-- dome cross-section curves -->
-      <path d="M270,110 Q292,180 317,210 Q337,225 360,232 Q383,225 403,210 Q428,180 450,110" stroke="var(--def)" stroke-width="2.5" fill="var(--def)" fill-opacity=".06"/>
-      <path d="M300,110 Q322,160 342,190 Q352,205 360,212 Q368,205 378,190 Q398,160 420,110" stroke="var(--def)" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
-      <!-- maximum point -->
-      <circle cx="360" cy="232" r="6" fill="var(--def)" stroke="#fff" stroke-width="2"/>
-      <text x="360" y="250" text-anchor="middle" class="cp-label" fill="var(--def)">P (max)</text>
-      <!-- arrows -->
-      <line x1="312" y1="205" x2="297" y2="175" stroke="var(--def)" stroke-width="1.5" marker-end="url(#arrDn)"/>
-      <line x1="408" y1="205" x2="423" y2="175" stroke="var(--def)" stroke-width="1.5" marker-end="url(#arrDn)"/>
+      <!-- Dome / hilltop — P at top, curves down in all directions -->
+      <!-- Cross-section curve: inverted U-shape (arch) -->
+      <path d="M270,230 Q290,190 310,155 Q330,115 360,100 Q390,115 410,155 Q430,190 450,230" stroke="var(--def)" stroke-width="2.5" fill="var(--def)" fill-opacity=".06"/>
+      <!-- Second cross-section (dashed) -->
+      <path d="M300,220 Q320,180 340,145 Q350,115 360,100 Q370,115 380,145 Q400,180 420,220" stroke="var(--def)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <!-- Contour ellipses below the peak -->
+      <ellipse cx="360" cy="140" rx="55" ry="14" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <ellipse cx="360" cy="170" rx="72" ry="18" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <ellipse cx="360" cy="200" rx="85" ry="20" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+      <!-- maximum point at top of dome -->
+      <circle cx="360" cy="100" r="6" fill="var(--def)" stroke="#fff" stroke-width="2"/>
+      <text x="360" y="82" text-anchor="middle" class="cp-label" fill="var(--def)">P (max)</text>
+      <!-- annotation arrows pointing down from P -->
+      <line x1="327" y1="120" x2="307" y2="165" stroke="var(--def)" stroke-width="1.2" marker-end="url(#arrDf)"/>
+      <line x1="393" y1="120" x2="413" y2="165" stroke="var(--def)" stroke-width="1.2" marker-end="url(#arrDf)"/>
+      <text x="286" y="177" class="cp-formula" fill="var(--def)">↓ down</text>
+      <text x="408" y="177" class="cp-formula" fill="var(--def)">↓ down</text>
       <!-- conditions -->
-      <text x="360" y="72" text-anchor="middle" class="cp-formula" fill="var(--def)">D &gt; 0 and f_xx &lt; 0</text>
-      <text x="360" y="89" text-anchor="middle" class="cp-formula" fill="var(--muted)">dome opens downward</text>
+      <text x="360" y="260" text-anchor="middle" class="cp-formula" fill="var(--def)">D &gt; 0 and f_xx &lt; 0</text>
+      <text x="360" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">hilltop — curves down everywhere</text>
 
       <!-- === PANEL 3: SADDLE POINT === -->
-      <rect x="489" y="5" width="225" height="270" rx="8" fill="var(--tip)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <rect x="489" y="5" width="225" height="290" rx="8" fill="var(--tip)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
       <text x="602" y="28" text-anchor="middle" class="cp-title" fill="var(--tip)">Saddle Point</text>
 
-      <!-- saddle: up in x, down in y -->
-      <path d="M510,155 Q535,210 560,155 Q575,115 602,105 Q629,115 644,155 Q669,210 694,155" stroke="var(--eq)" stroke-width="2" fill="none"/>
-      <path d="M550,65 Q570,90 590,110 Q600,120 602,125 Q604,120 614,110 Q634,90 654,65" stroke="var(--def)" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
-      <!-- contour lines suggesting the saddle shape -->
-      <path d="M540,130 Q570,145 602,125 Q634,145 664,130" stroke="var(--muted)" stroke-width="1" fill="none" stroke-dasharray="3,3" opacity=".5"/>
-      <path d="M540,180 Q570,165 602,185 Q634,165 664,180" stroke="var(--muted)" stroke-width="1" fill="none" stroke-dasharray="3,3" opacity=".5"/>
+      <!-- Saddle: up in x-direction, down in y-direction -->
+      <!-- x-direction cross section: U-shape (curves up) -->
+      <path d="M510,155 Q540,220 570,155 Q585,110 602,100 Q619,110 634,155 Q664,220 694,155" stroke="var(--eq)" stroke-width="2.5" fill="none"/>
+      <!-- y-direction cross section: arch (curves down) -->
+      <path d="M550,155 Q565,105 580,80 Q592,60 602,55 Q612,60 624,80 Q639,105 654,155" stroke="var(--def)" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
       <!-- saddle point -->
-      <circle cx="602" cy="125" r="6" fill="var(--tip)" stroke="#fff" stroke-width="2"/>
-      <text x="602" y="112" text-anchor="middle" class="cp-label" fill="var(--tip)">P (saddle)</text>
+      <circle cx="602" cy="100" r="6" fill="var(--tip)" stroke="#fff" stroke-width="2"/>
+      <text x="602" y="82" text-anchor="middle" class="cp-label" fill="var(--tip)">P (saddle)</text>
       <!-- direction labels -->
-      <text x="525" y="200" class="cp-formula" fill="var(--eq)">up in x-dir</text>
-      <text x="610" y="58" class="cp-formula" fill="var(--def)">down in y-dir</text>
+      <text x="510" y="180" class="cp-formula" fill="var(--eq)">up in x-dir ↗</text>
+      <text x="610" y="50" class="cp-formula" fill="var(--def)">↘ down in y-dir</text>
       <!-- conditions -->
-      <text x="602" y="238" text-anchor="middle" class="cp-formula" fill="var(--tip)">D &lt; 0</text>
-      <text x="602" y="255" text-anchor="middle" class="cp-formula" fill="var(--muted)">mixed curvature</text>
+      <text x="602" y="260" text-anchor="middle" class="cp-formula" fill="var(--tip)">D &lt; 0</text>
+      <text x="602" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">up one way — down the other</text>
 
       <!-- Arrow markers -->
       <defs>
-        <marker id="arrUp" markerWidth="7" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--eq)"/></marker>
-        <marker id="arrDn" markerWidth="7" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--def)"/></marker>
+        <marker id="arrEq" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--eq)"/></marker>
+        <marker id="arrDf" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--def)"/></marker>
       </defs>
     </svg>
-    <div class="figure-caption">Fig 7.1 — The three outcomes of the Second Derivative Test. Left: local minimum (bowl up, D > 0, f_xx > 0). Center: local maximum (dome, D > 0, f_xx &lt; 0). Right: saddle point (mixed curvature, D &lt; 0).</div>
+    <div class="figure-caption">Fig 7.1 — The three outcomes of the Second Derivative Test. Left: local minimum (valley, D > 0, f_xx > 0). Center: local maximum (hilltop, D > 0, f_xx &lt; 0). Right: saddle point (up one way and down the other, D &lt; 0). Solid curve = x-direction cross-section, dashed = y-direction.</div>
     </div>
 
     <h3>Worked Examples — Critical Points &amp; Second Derivative Test</h3>
@@ -252,24 +264,34 @@
     </div>
 
     <div class="figure-box">
-    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
-      <rect x="60" y="30" width="180" height="130" fill="var(--eq)" fill-opacity=".06" stroke="var(--eq)" stroke-width="1.5" rx="2"/>
-      <circle cx="140" cy="95" r="5" fill="var(--example)"/>
-      <text x="148" y="92" font-size="12" fill="var(--example)" font-family="'Architects Daughter'">interior CP</text>
-      <circle cx="100" cy="30" r="4" fill="var(--def)"/>
-      <circle cx="200" cy="160" r="4" fill="var(--def)"/>
-      <text x="108" y="24" font-size="11" fill="var(--def)" font-family="'Architects Daughter'">boundary CP</text>
-      <circle cx="60" cy="30" r="4" fill="var(--tip)"/>
-      <circle cx="240" cy="30" r="4" fill="var(--tip)"/>
-      <circle cx="60" cy="160" r="4" fill="var(--tip)"/>
-      <circle cx="240" cy="160" r="4" fill="var(--tip)"/>
-      <text x="62" y="175" font-size="11" fill="var(--tip)" font-family="'Architects Daughter'">corners</text>
-      <text x="130" y="25" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₁</text>
-      <text x="130" y="175" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₂</text>
-      <text x="245" y="100" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₃</text>
-      <text x="38" y="100" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₄</text>
+    <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
+      <!-- rectangle region -->
+      <rect x="60" y="40" width="220" height="140" fill="var(--eq)" fill-opacity=".06" stroke="var(--eq)" stroke-width="2" rx="2"/>
+      <!-- edge labels OUTSIDE the rectangle -->
+      <text x="170" y="32" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₁ (top edge)</text>
+      <text x="170" y="198" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₂ (bottom edge)</text>
+      <text x="295" y="115" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₃</text>
+      <text x="35" y="115" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'" text-anchor="end">𝒞₄</text>
+      <!-- interior critical point -->
+      <circle cx="160" cy="110" r="6" fill="var(--example)"/>
+      <text x="175" y="107" font-size="13" fill="var(--example)" font-family="'Architects Daughter'">interior CP</text>
+      <!-- boundary critical points (on edges, not at corners) -->
+      <circle cx="140" cy="40" r="5" fill="var(--def)"/>
+      <text x="160" y="56" font-size="12" fill="var(--def)" font-family="'Architects Daughter'">boundary CP</text>
+      <circle cx="220" cy="180" r="5" fill="var(--def)"/>
+      <!-- 4 corners -->
+      <circle cx="60" cy="40" r="5" fill="var(--tip)"/>
+      <circle cx="280" cy="40" r="5" fill="var(--tip)"/>
+      <circle cx="60" cy="180" r="5" fill="var(--tip)"/>
+      <circle cx="280" cy="180" r="5" fill="var(--tip)"/>
+      <!-- corner label below-left -->
+      <text x="60" y="218" text-anchor="middle" font-size="12" fill="var(--tip)" font-family="'Architects Daughter'">corners (check all 4)</text>
+      <!-- legend at bottom -->
+      <circle cx="80" cy="232" r="3.5" fill="var(--example)"/><text x="88" y="236" font-size="10" fill="var(--muted)">Interior CP</text>
+      <circle cx="165" cy="232" r="3.5" fill="var(--def)"/><text x="173" y="236" font-size="10" fill="var(--muted)">Boundary CP</text>
+      <circle cx="253" cy="232" r="3.5" fill="var(--tip)"/><text x="261" y="236" font-size="10" fill="var(--muted)">Corner</text>
     </svg>
-    <div class="figure-caption">Fig 7.3 — Absolute extrema on a closed rectangle: check interior CPs, boundary CPs on each edge, and all 4 corners.</div>
+    <div class="figure-caption">Fig 7.3 — Absolute extrema on a closed rectangle: check interior CPs (from f_x = f_y = 0), boundary CPs (single-variable calculus on each edge), and all 4 corners (direct evaluation).</div>
     </div>
 
     <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.3 — Absolute Extrema on a Closed Rectangle</div>
@@ -305,38 +327,63 @@
 
     <p>What if we need to optimize f(x, y) but the variables must satisfy a constraint g(x, y) = 0? The <strong>method of Lagrange multipliers</strong> handles this without substitution.</p>
 
-    <h3>The Geometric Idea</h3>
+    <h3>The Geometric Idea — Why Lagrange Works</h3>
 
-    <p>If P is an extremum of f on the constraint curve g = 0, then ∇f(P) must be perpendicular to the curve at P. But ∇g(P) is also perpendicular to the curve (recall from §3.5). Therefore ∇f and ∇g must be parallel:</p>
+    <p>Imagine you're hiking on a mountain (the surface z = f(x, y)) but you're constrained to walk along a specific trail (the curve g(x, y) = 0). Where on this trail is the highest point? It's NOT necessarily where the mountain's own peak is — it's the highest point <em>reachable from the trail</em>.</p>
+
+    <p>Here's the key insight: as you walk along the constraint curve, the function f changes. At the constrained maximum, f has <em>stopped increasing along the trail</em>. This means the gradient ∇f (which points in the direction of steepest increase of f) must be <strong>perpendicular to the trail</strong> at that point — if ∇f had any component along the trail, you could still increase f by walking further.</p>
+
+    <p>But wait — ∇g is ALSO perpendicular to the constraint curve g = 0 (recall from §3.5 that the gradient is always perpendicular to level curves). Since both ∇f and ∇g point perpendicular to the same curve at the same point, they must be <strong>parallel</strong>:</p>
     <div style="overflow-x:auto;overflow-y:hidden">\[\nabla f(P) = \lambda \, \nabla g(P)\]</div>
-    <p>where λ is the <strong>Lagrange multiplier</strong>.</p>
+    <p>where λ is a scalar called the <strong>Lagrange multiplier</strong>. We don't care about the value of λ itself — it's just a ratio telling us how much bigger (or smaller) ∇f is compared to ∇g.</p>
 
-    <div class="figure-box">
-    <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" style="max-width:360px">
-      <defs><marker id="arrLg" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="var(--def)"/></marker>
-      <marker id="arrLg2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="var(--tip)"/></marker></defs>
-      <ellipse cx="180" cy="110" rx="120" ry="70" fill="none" stroke="var(--eq)" stroke-width="2"/>
-      <text x="305" y="108" font-size="12" fill="var(--eq)" font-family="'Architects Daughter'">g = 0</text>
-      <ellipse cx="180" cy="110" rx="80" ry="46" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <ellipse cx="180" cy="110" rx="55" ry="32" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="128" y="76" font-size="10" fill="var(--muted)">f = c₁</text>
-      <text x="140" y="88" font-size="10" fill="var(--muted)">f = c₂</text>
-      <circle cx="300" cy="110" r="5" fill="var(--example)"/>
-      <line x1="300" y1="110" x2="345" y2="110" stroke="var(--def)" stroke-width="2" marker-end="url(#arrLg)"/>
-      <line x1="300" y1="110" x2="335" y2="110" stroke="var(--tip)" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrLg2)"/>
-      <text x="325" y="100" font-size="11" fill="var(--def)" font-family="'Architects Daughter'">∇g</text>
-      <text x="306" y="132" font-size="11" fill="var(--tip)" font-family="'Architects Daughter'">∇f = λ∇g</text>
-      <text x="285" y="100" font-size="12" fill="var(--example)" font-family="'Architects Daughter'">P</text>
-    </svg>
-    <div class="figure-caption">Fig 7.4 — At a constrained extremum P, ∇f ∥ ∇g (both perpendicular to the constraint curve).</div>
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ The "Kissing Curves" Picture</div>
+    <p>Think of the level curves of f (f = 1, f = 2, f = 3, ...) as concentric rings. The constraint g = 0 is another curve cutting through them. As you "inflate" the level curves (increasing c), at some point the level curve f = c will just <strong>touch ("kiss")</strong> the constraint curve — tangent to it, not crossing it. At that tangent point, the two curves share the same normal direction, meaning ∇f ∥ ∇g. That's your constrained optimum!</p>
     </div>
 
-    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Lagrange Multiplier Method</div>
-    <p>To optimize f(x, y) [or f(x,y,z)] subject to g(x, y) = 0 [or g(x,y,z) = 0]:</p>
-    <p><strong>1.</strong> Define the Lagrangian: \(\ell = f - \lambda \, g\)</p>
-    <p><strong>2.</strong> Set all partial derivatives to zero: ∂ℓ/∂x = 0, ∂ℓ/∂y = 0, [∂ℓ/∂z = 0], ∂ℓ/∂λ = 0</p>
-    <p><strong>3.</strong> Solve for all variables + λ. Evaluate f at each solution.</p>
-    <div class="pill-row"><span class="pill">∂ℓ/∂λ = 0 recovers the constraint</span><span class="pill">∂ℓ/∂x = 0 gives f_x = λg_x</span></div>
+    <div class="figure-box">
+    <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+      <defs>
+        <marker id="arrLg" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="var(--def)"/></marker>
+        <marker id="arrLg2" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="var(--eq)"/></marker>
+      </defs>
+      <!-- constraint curve g=0 (large ellipse) -->
+      <ellipse cx="185" cy="140" rx="150" ry="90" fill="none" stroke="var(--eq)" stroke-width="2.5"/>
+      <text x="345" y="140" font-size="13" fill="var(--eq)" font-family="'Architects Daughter'">g = 0</text>
+      <!-- level curves of f (offset-center concentric ellipses) -->
+      <ellipse cx="165" cy="140" rx="100" ry="60" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="80" y="100" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₁</text>
+      <ellipse cx="158" cy="140" rx="70" ry="42" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+      <text x="103" y="118" font-size="12" fill="var(--muted)" font-family="'Architects Daughter'">f = c₂</text>
+      <ellipse cx="153" cy="140" rx="40" ry="24" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5,4"/>
+      <!-- tangent point P on top-right of constraint -->
+      <circle cx="310" cy="75" r="7" fill="var(--example)" stroke="#fff" stroke-width="2"/>
+      <text x="290" y="62" font-size="14" fill="var(--example)" font-family="'Architects Daughter'" font-weight="700">P</text>
+      <!-- ∇g arrow — pointing outward from ellipse surface -->
+      <line x1="310" y1="75" x2="380" y2="35" stroke="var(--def)" stroke-width="2.5" marker-end="url(#arrLg)"/>
+      <text x="383" y="30" font-size="14" fill="var(--def)" font-family="'Architects Daughter'" font-weight="700">∇g</text>
+      <!-- ∇f arrow — shorter, same direction (parallel) -->
+      <line x1="310" y1="75" x2="358" y2="47" stroke="var(--eq)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrLg2)"/>
+      <text x="350" y="62" font-size="13" fill="var(--eq)" font-family="'Architects Daughter'">∇f</text>
+      <!-- key equation box -->
+      <rect x="250" y="235" width="150" height="28" rx="6" fill="var(--surface)" fill-opacity=".85" stroke="var(--border)" stroke-width="1"/>
+      <text x="325" y="254" text-anchor="middle" font-size="14" fill="var(--tip)" font-family="'Architects Daughter'" font-weight="700">∇f = λ ∇g</text>
+      <!-- annotation -->
+      <text x="335" y="108" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">both ⊥ to</text>
+      <text x="335" y="122" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">constraint</text>
+    </svg>
+    <div class="figure-caption">Fig 7.4 — At a constrained extremum P, ∇f is parallel to ∇g (both perpendicular to the constraint curve g = 0). The dashed ellipses are level curves of f. The constrained optimum occurs where a level curve "kisses" the constraint.</div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Lagrange Multiplier Method — Step by Step</div>
+    <p><strong>Given:</strong> Optimize f(x, y) subject to the constraint g(x, y) = 0.</p>
+    <p><strong>Step 1:</strong> Write the Lagrangian: \(\ell(x, y, \lambda) = f(x, y) - \lambda \, g(x, y)\)</p>
+    <p><strong>Step 2:</strong> Take partial derivatives and set each to zero:</p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[\frac{\partial \ell}{\partial x} = 0 \;\Rightarrow\; f_x = \lambda \, g_x \qquad \frac{\partial \ell}{\partial y} = 0 \;\Rightarrow\; f_y = \lambda \, g_y \qquad \frac{\partial \ell}{\partial \lambda} = 0 \;\Rightarrow\; g(x,y) = 0\]</div>
+    <p><strong>Step 3:</strong> Solve this system of 3 equations in 3 unknowns (x, y, λ). Use case analysis: try λ = 0 vs λ ≠ 0, or eliminate λ by dividing equations.</p>
+    <p><strong>Step 4:</strong> Evaluate f at every solution (x, y). The largest value = constrained max; smallest = constrained min.</p>
+    <div class="pill-row"><span class="pill">∂ℓ/∂λ = 0 recovers the constraint</span><span class="pill">λ is a helper variable — its value usually doesn't matter</span></div>
+    <p style="margin-top:8px"><em>For 3 variables:</em> ℓ(x,y,z,λ) = f − λg. Set ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂z = ∂ℓ/∂λ = 0 (4 equations, 4 unknowns).</p>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Lagrange Does NOT Classify</div>
