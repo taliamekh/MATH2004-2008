@@ -200,9 +200,18 @@ MATH2004-2008/
 **Examples:** 18 worked examples (ε-δ limit proof, two-path DNE, continuity proof, cannot-be-made-continuous, basic partials, 3-variable partials, Clairaut verification, max directional derivative, directional derivative in given direction, related rates cylinder, implicit differentiation, tangent plane to sphere, tangent plane to z=g(x,y), 2D conservative test, potential function, 3D conservative test, divergence computation, div(curl F)=0 proof)
 **Diagrams:** 2 SVG figures (partial derivative geometry — surface slice, gradient perpendicular to level curves)
 
-### Ch7 — Maxima, Minima & Lagrange (§7.2–7.3) ⬜ OUTLINE ONLY
-**Sections:** critical points, second derivative test, saddle points, Lagrange multipliers
-**Recommended problems:** Exercise Sets 49–50
+### Ch7 — Maxima, Minima & Lagrange (§7.2–7.3) ✅ COMPLETE
+**Defined:** critical point (stationary point), discriminant D, Hessian matrix, Second Derivative Test (SDT), saddle point, local/global max/min, compact set, closed-region extrema algorithm, Lagrange multiplier λ, Lagrangian function ℓ, constrained optimization
+**Key formulas:**
+- Critical point: f_x(a,b) = 0 and f_y(a,b) = 0
+- Discriminant: D = f_xx·f_yy − (f_xy)² at P
+- SDT: D>0+f_xx>0 → min; D>0+f_xx<0 → max; D<0 → saddle; D=0 → inconclusive
+- Closed region: check interior CPs + boundary CPs + corners/endpoints
+- Lagrangian: ℓ = f − λg, set ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0
+- Geometric meaning: ∇f = λ∇g (gradients parallel at constrained extremum)
+**Key tests:** saddle ↔ D<0; local extremum only at CPs; closed+bounded → global max/min exist
+**Examples:** 9 worked examples (quadratic max, 4-CP classification with saddles, rectangle boundary, trig on square, semicircle Lagrange, ellipse distance, 3-variable Lagrange, interior+Lagrange boundary, substitution vs Lagrange)
+**Diagrams:** 4 SVG figures (saddle point cross-sections, closed-region strategy, semicircle rectangle, Lagrange gradient geometry)
 
 ### Ch4 — Line Integrals (§4.1–4.3) ✅ COMPLETE
 **Defined:** line integral w.r.t. arc length, line integral of vector field (F·dr), work integral, circulation, average value on a curve, center of mass of a wire, gradient field / potential function, Fundamental Theorem for Line Integrals (FTCLI), path independence, simply connected region, conservation of energy
@@ -245,9 +254,9 @@ MATH2004-2008/
 
 | Section | Status | Contains |
 |---------|--------|----------|
-| Formula Sheet | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 | 44 formula cards with variable popups, 3-view toggle. Ch4: scalar line integral, vector line integral, FTCLI, potential via line integral. Ch5: Fubini (rect + general), polar double integral, change of variables, sphere parametrization |
-| Summary | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters. Ch4: 3 clusters (scalar line integrals, vector/work, FTCLI/path independence). Ch5: 3 clusters (regions/Fubini, polar, quadrics/parametrization). Quick ref table with 35 rows |
-| Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items. Ch4 expanded to 11 items, Ch5 expanded to 14 items |
+| Formula Sheet | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch7 | 48 formula cards with variable popups, 3-view toggle. Ch7: critical point condition, SDT discriminant, closed-region extrema, Lagrange multiplier method |
+| Summary | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch7 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters. Ch4: 3 clusters. Ch5: 3 clusters. Ch7: 3 clusters (CPs/SDT, closed-region, Lagrange). Quick ref table with 39 rows |
+| Progress | Full skeleton | All checkpoints and groups. Ch7 expanded to 9 items (3 sections + 5 example groups + formulas) |
 | Test 1 Prep | Placeholder | — |
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
@@ -405,3 +414,19 @@ MATH2004-2008/
 - **Ch2 sidebar fix:** removed pending class (Session 3 oversight)
 - **htmlData tooltip rules (cumulative):** NO commas, NO `=` signs, avoid `()` function syntax
 - Files changed: ch4-notes.html, ch5-notes.html, formulas.html, shell-head.html, MATH2004-notes.html
+
+### Session 9 — May 23, 2026
+- **Chapter 7 notes written** (29KB, §7.2–7.3): 9 worked examples, 4 SVG diagrams
+  - §7.2 Critical Points: definition, ∇f = 0 condition, case analysis strategy. 2 examples (quadratic max, 4-CP classification with 3 saddles + 1 min)
+  - §7.2 Closed-Region Extrema: algorithm (interior + boundary + corners), Extreme Value Theorem. 2 examples (rectangle boundary, sin x + sin y on square)
+  - §7.3 Lagrange Multipliers: geometric derivation (∇f ∥ ∇g), Lagrangian ℓ = f − λg, method for 2D and 3D. 5 examples (semicircle rectangle, rotated ellipse distance, 3-variable xyz²z³, interior+Lagrange boundary on disk, substitution vs Lagrange comparison)
+  - SVG diagrams: saddle point cross-sections, closed-region strategy, semicircle inscribed rectangle, Lagrange gradient geometry
+- **Formula sheet expanded** — 4 new Ch7 cards added (44→48 total):
+  - Critical point condition, SDT discriminant, closed-region extrema, Lagrange multiplier method
+  - All tooltips comma-free and equals-free per established convention
+- **Summary expanded** — 3 new Ch7 concept clusters + 4 new quick reference rows (35→39 total)
+  - Ch7: red palette (#4A0404/#7B0A0A/#B91C1C/#E53935) for What/Why/How/Trap labels
+- **Progress tracker expanded** — Ch7: 2→9 items (3 sections + 5 example groups + formulas)
+- **Shell-head updated** — --ch7-title set to #B91C1C (bright red), pending removed from Ch7 sidebar links
+- **Built MATH2004-notes.html** — 472KB, 22/22 fragments assembled
+- Files changed: shell-head.html, ch7-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
