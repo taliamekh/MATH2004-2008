@@ -1,18 +1,284 @@
 <div class="page" id="ch4">
     <div class="page-title" style="color:var(--ch4-title)">Chapter 4</div><h1 style="color:var(--ch4-title)">Line Integrals</h1>
-    <p class="page-intro">Integrating scalar and vector fields along curves — path integrals, work, and circulation.</p>
+    <p class="page-intro">Integrating scalar and vector fields along curves — computing mass, work, circulation, and exploiting conservative fields for path independence.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.1 — Line Integrals with Respect to Arc Length</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
 
-    <div class="def-card card-bracket"><div class="def-name">Week 7 (First Half) — Line Integrals</div>
-    <p><strong>§4.1:</strong> Line integrals of scalar functions — definition, computation, arc-length parameterization</p>
-    <p><strong>§4.2:</strong> Line integrals of vector fields — work integrals</p>
-    <p><strong>§4.3:</strong> Fundamental theorem for line integrals, path independence, conservative fields</p>
+    <p>In single-variable calculus you integrate a function over an interval \([a,b]\). A <strong>line integral</strong> extends this idea: instead of integrating over a straight interval, you <em>integrate a function along a curve</em> \(\mathscr{C}\) in the plane or in space. The function \(f\) is evaluated at points <em>on the curve</em>, and you sum up \(f\) values weighted by tiny arc-length increments \(ds\).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Line Integral w.r.t. Arc Length</div>
+    <p>Let \(\mathscr{C}\) be a regular curve parametrized by \(\mathbf{r}(t)\) for \(t\in[a,b]\), and let \(f\) be a continuous scalar field defined on \(\mathscr{C}\). Partition \(\mathscr{C}\) into subarcs of lengths \(\Delta s_i\), pick sample points \(P_i^*\) on each subarc, and form the Riemann sum \(\sum f(P_i^*)\Delta s_i\). If this limit exists as \(\max\{\Delta s_i\}\to 0\), we call it the <strong>line integral of \(f\) over \(\mathscr{C}\) with respect to arc length</strong>:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Line Integral (arc-length form)</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y,z)\,ds = \lim_{n\to\infty}\sum_{i=1}^{n}f(P_i^*)\,\Delta s_i\]</div>
+    <div class="pills"><span class="pill">f — scalar field evaluated on the curve</span><span class="pill">ds — infinitesimal arc length</span><span class="pill">𝒞 — the curve of integration</span></div>
+    </div></div>
+
+    <h3>Key Properties</h3>
+    <p><strong>1.</strong> Setting \(f=1\) gives the <strong>arc length</strong>: \(\int_{\mathscr{C}}ds = L\).</p>
+    <p><strong>2.</strong> If \(\mathscr{C}=\mathscr{C}_1\cup\mathscr{C}_2\cup\cdots\cup\mathscr{C}_n\) (piecewise), then \(\int_{\mathscr{C}}f\,ds=\sum_{i=1}^{n}\int_{\mathscr{C}_i}f\,ds\).</p>
+    <p><strong>3.</strong> If \(f\) is a mass density, then \(\int_{\mathscr{C}}f\,ds=M\) (total mass of the wire).</p>
+    <p><strong>4.</strong> The surface area of the "curtain" (sheet) under \(f\geq 0\) with base \(\mathscr{C}\) in the \(xy\)-plane equals \(\int_{\mathscr{C}}f(x,y)\,ds\).</p>
+    <p><strong>5.</strong> The value is <strong>independent of orientation</strong> — reversing the direction of \(\mathscr{C}\) gives the same answer.</p>
+
+    <h3>Computation Formulas</h3>
+
+    <div class="eq-card card-bracket"><div class="eq-name">General Parametric (3D)</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y,z)\,ds = \int_a^b f\!\big(x(t),y(t),z(t)\big)\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\;dt\]</div>
+    <div class="pills"><span class="pill">r(t) = (x(t), y(t), z(t)) — parametrization</span><span class="pill">|r′(t)| = √(x′²+y′²+z′²) — speed</span><span class="pill">[a,b] — parameter interval</span></div>
+    </div>
+    <p>In compact notation: \(\int_{\mathscr{C}}f\,ds=\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\).</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">2D Special Case</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}} f(x,y)\,ds = \int_a^b f\!\big(x(t),y(t)\big)\sqrt{x'(t)^2+y'(t)^2}\;dt\]</div>
+    </div>
+
+    <p>If \(\mathscr{C}\) is parametrized by <strong>arc length</strong> (so \(|\mathbf{r}'(t)|=1\)), the formula simplifies to \(\int_a^b f(\mathbf{r}(t))\,dt\).</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Strategy for Computing Line Integrals (Scalar)</div>
+    <p><strong>Step 1:</strong> Parametrize the curve: find \(\mathbf{r}(t)\) and the interval \([a,b]\).</p>
+    <p><strong>Step 2:</strong> Compute \(\mathbf{r}'(t)\) and then \(|\mathbf{r}'(t)|\).</p>
+    <p><strong>Step 3:</strong> Substitute \(x=x(t),\,y=y(t),\,z=z(t)\) into \(f\) to get \(f(\mathbf{r}(t))\).</p>
+    <p><strong>Step 4:</strong> Evaluate the single-variable integral \(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\).</p>
+    </div>
+
+    <!-- Example 200 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.1 — Line Integral of x Along a Parabola (Ex. 200)</div>
+    <p>Let \(\mathscr{C}\) be the arc of the parabola \(y=x^2\) from \(x=0\) to \(x=1\). Evaluate \(\int_{\mathscr{C}}x\,ds\) and show the value is independent of orientation.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Thought process:</strong> We need a parametrization of \(y=x^2\) from \((0,0)\) to \((1,1)\). The simplest choice: let \(t=x\).</p>
+    <p><strong>Setup:</strong> \(\mathbf{r}(t)=(t,\,t^2)\), \(t\in[0,1]\). Then \(\mathbf{r}'(t)=(1,2t)\), \(|\mathbf{r}'(t)|=\sqrt{1+4t^2}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Substitute into the integral: \(\int_0^1 t\sqrt{1+4t^2}\,dt\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Let \(u=1+4t^2\), so \(du=8t\,dt\), i.e., \(t\,dt=du/8\). When \(t=0\), \(u=1\); when \(t=1\), \(u=5\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(=\frac{1}{8}\int_1^5\sqrt{u}\,du=\frac{1}{8}\cdot\frac{2}{3}u^{3/2}\Big|_1^5=\frac{1}{12}\left(5\sqrt{5}-1\right)\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle\frac{5\sqrt{5}-1}{12}\)</p>
+    <p><strong>Orientation check:</strong> Reversing the curve (from \((1,1)\) to \((0,0)\)) uses \(\mathbf{r}(t)=(1-t,(1-t)^2)\). A similar u-substitution yields the same value — confirming that line integrals w.r.t. arc length are orientation-independent.</p>
+    </div></div>
+
+    <!-- Example 201 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.2 — 3D Helix Integral (Ex. 201)</div>
+    <p>Define \(\mathscr{C}\) by \(\mathbf{r}(t)=(t\cos t,\,t\sin t,\,t)\) for \(t\in[-1,1]\) and \(f(x,y,z)=z\). Evaluate \(\int_{\mathscr{C}}z\,ds\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Setup:</strong> \(\mathbf{r}'(t)=(-t\sin t+\cos t,\;t\cos t+\sin t,\;1)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Compute \(|\mathbf{r}'(t)|^2=(-t\sin t+\cos t)^2+(t\cos t+\sin t)^2+1\). Expand: \(=t^2\sin^2t-2t\sin t\cos t+\cos^2t+t^2\cos^2t+2t\sin t\cos t+\sin^2t+1=t^2+1+1=t^2+2\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Since \(z=t\) on \(\mathscr{C}\): \(\int_{-1}^{1}t\sqrt{2+t^2}\,dt\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>The integrand \(t\sqrt{2+t^2}\) is an <strong>odd function</strong> on the symmetric interval \([-1,1]\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(0\) (odd function on symmetric interval)</p>
+    </div></div>
+
+    <!-- Example 203 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.3 — Piecewise Curve (Triangle, Ex. 203)</div>
+    <p>Let \(\mathscr{C}\) be the perimeter of the triangle in the \(xz\)-plane with vertices \((0,0)\), \((1,0)\), \((1,1)\), oriented counterclockwise. Evaluate \(\int_{\mathscr{C}}(x^2+z^2)\,ds\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Thought process:</strong> The curve consists of three line segments. Use <strong>different parameter symbols</strong> \(t_1,t_2,t_3\) for each to avoid confusion (the arc-length element \(ds\) depends on the segment).</p>
+    <p><strong>\(\mathscr{C}_1\):</strong> \((0,0)\to(1,0)\): \(\mathbf{r}(t_1)=(t_1,0)\), \(t_1\in[0,1]\), \(|\mathbf{r}'|=1\).</p>
+    <p><strong>\(\mathscr{C}_2\):</strong> \((1,0)\to(1,1)\): \(\mathbf{r}(t_2)=(1,t_2)\), \(t_2\in[0,1]\), \(|\mathbf{r}'|=1\).</p>
+    <p><strong>\(\mathscr{C}_3\):</strong> \((1,1)\to(0,0)\): \(\mathbf{r}(t_3)=(1-t_3,1-t_3)\), \(t_3\in[0,1]\), \(|\mathbf{r}'|=\sqrt{2}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\int_{\mathscr{C}_1}(x^2+z^2)\,ds=\int_0^1 t_1^2\cdot 1\,dt_1=\frac{1}{3}\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\int_{\mathscr{C}_2}(x^2+z^2)\,ds=\int_0^1(1+t_2^2)\cdot 1\,dt_2=1+\frac{1}{3}=\frac{4}{3}\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(\int_{\mathscr{C}_3}(x^2+z^2)\,ds=\int_0^1 2(1-t_3)^2\cdot\sqrt{2}\,dt_3=2\sqrt{2}\cdot\frac{1}{3}=\frac{2\sqrt{2}}{3}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle\frac{1}{3}+\frac{4}{3}+\frac{2\sqrt{2}}{3}=\frac{5+2\sqrt{2}}{3}\)</p>
+    <p><strong>★ Tip:</strong> Always use <em>different parameter variables</em> for each piece of a piecewise curve. The arc-length element \(ds\) is determined by the curve, not the parameter name.</p>
+    </div></div>
+
+    <!-- Example 204 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.4 — Mass of a Wire (Ex. 204)</div>
+    <p>A thin wire has the shape \(\mathscr{C}:\; y=2x^2\), \(1\leq x\leq 2\), with mass density \(f(x,y)=y/x\) in g/cm. Find the total mass.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Setup:</strong> \(\mathbf{r}(t)=(t,2t^2)\), \(t\in[1,2]\). Then \(\mathbf{r}'(t)=(1,4t)\), \(|\mathbf{r}'(t)|=\sqrt{1+16t^2}\).</p>
+    <p>\(f(\mathbf{r}(t))=y(t)/x(t)=2t^2/t=2t\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(M=\int_1^2 2t\sqrt{1+16t^2}\,dt\). Let \(u=1+16t^2\), \(du=32t\,dt\), so \(2t\,dt=du/16\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Bounds: \(u(1)=17\), \(u(2)=65\). So \(M=\frac{1}{16}\int_{17}^{65}\sqrt{u}\,du=\frac{1}{16}\cdot\frac{2}{3}u^{3/2}\Big|_{17}^{65}=\frac{65\sqrt{65}-17\sqrt{17}}{24}\approx 18.9\) g.</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\displaystyle M=\frac{65\sqrt{65}-17\sqrt{17}}{24}\approx 18.9\) g</p>
+    </div></div>
+
+    <h3>Average Value and Center of Mass</h3>
+    <div class="eq-card card-bracket"><div class="eq-name">Average Value on a Curve</div>
+    <div class="eq-formula">\[\overline{f}=\frac{1}{L}\int_{\mathscr{C}}f\,ds\]</div>
+    <div class="pills"><span class="pill">L — total arc length of 𝒞</span><span class="pill">f̄ — average value of f on 𝒞</span></div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Center of Mass of a Wire</div>
+    <div class="eq-formula">\[\bar{x}=\frac{1}{M}\int_{\mathscr{C}}x\,f\,ds,\quad\bar{y}=\frac{1}{M}\int_{\mathscr{C}}y\,f\,ds,\quad\bar{z}=\frac{1}{M}\int_{\mathscr{C}}z\,f\,ds\]</div>
+    <div class="pills"><span class="pill">M = ∫𝒞 f ds — total mass</span><span class="pill">f(x,y,z) — mass density</span><span class="pill">(x̄, ȳ, z̄) — center of mass</span></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.2 — Line Integrals of Vector Fields</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>When integrating a <strong>vector field</strong> \(\mathbf{F}\) along a curve, we measure how much \(\mathbf{F}\) pushes <em>along</em> the curve. This gives the <strong>work</strong> done by the force field on a particle moving along \(\mathscr{C}\).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Line Integral of a Vector Field</div>
+    <p>Let \(\mathbf{F}:\mathbb{R}^n\to\mathbb{R}^n\) be a continuous vector field and \(\mathscr{C}\) a curve parametrized by \(\mathbf{r}(t)\), \(t\in[a,b]\). The <strong>line integral of F over 𝒞</strong> is:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Vector Field Line Integral</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_a^b\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\]</div>
+    <div class="pills"><span class="pill">F — vector field</span><span class="pill">r(t) — parametrization of 𝒞</span><span class="pill">r′(t) — tangent vector (velocity)</span><span class="pill">F·r′ — dot product (scalar!)</span></div>
+    </div></div>
+
+    <h3>Key Differences from Arc-Length Integrals</h3>
+    <table class="ptbl">
+    <tr><th>Property</th><th>Scalar (∫f ds)</th><th>Vector (∫F·dr)</th></tr>
+    <tr><td>Orientation</td><td>Independent</td><td><strong>Depends</strong> on direction: \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=-\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\)</td></tr>
+    <tr><td>Integrand</td><td>f · |r′(t)| (magnitude)</td><td>F · r′(t) (dot product)</td></tr>
+    <tr><td>Result sign</td><td>Always ≥ 0 if f ≥ 0</td><td>Can be negative</td></tr>
+    </table>
+
+    <h3>Component Form</h3>
+    <p>Writing \(\mathbf{F}=(P,Q,R)\) and \(d\mathbf{r}=(dx,dy,dz)\), the integral expands as:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Component Form</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_{\mathscr{C}}P\,dx+Q\,dy+R\,dz=\int_a^b\!\big(Px'+Qy'+Rz'\big)\,dt\]</div>
+    <div class="pills"><span class="pill">P, Q, R — components of F</span><span class="pill">dx = x′dt, dy = y′dt, dz = z′dt</span></div>
+    </div>
+
+    <h3>Work and Circulation</h3>
+    <div class="eq-card card-bracket"><div class="eq-name">Work Done by a Force</div>
+    <div class="eq-formula">\[W=\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\]</div>
+    <div class="pills"><span class="pill">W — work (scalar)</span><span class="pill">F — force field</span></div>
+    </div>
+    <p>When \(\mathscr{C}\) is a <strong>closed curve</strong> (loop), the integral is called the <strong>circulation</strong> of \(\mathbf{F}\) around \(\mathscr{C}\), often written \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) or \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\boldsymbol{\ell}\).</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Strategy for Computing ∫F·dr</div>
+    <p><strong>Step 1:</strong> Parametrize \(\mathscr{C}\): find \(\mathbf{r}(t)=(x(t),y(t),z(t))\) and interval \([a,b]\).</p>
+    <p><strong>Step 2:</strong> Compute \(\mathbf{r}'(t)=(x',y',z')\).</p>
+    <p><strong>Step 3:</strong> Substitute into \(\mathbf{F}\) to get \(\mathbf{F}(\mathbf{r}(t))\).</p>
+    <p><strong>Step 4:</strong> Dot-product \(\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\) — this gives a <em>scalar</em> function of \(t\).</p>
+    <p><strong>Step 5:</strong> Integrate from \(a\) to \(b\).</p>
+    </div>
+
+    <!-- Example 208 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.5 — Vector Line Integral + Orientation Reversal (Ex. 208)</div>
+    <p>Let \(\mathbf{F}(x,y,z)=(x^2-1)\,\mathbf{i}+xy\,\mathbf{j}+z\,\mathbf{k}\) and \(\mathscr{C}\) be the line segment from \(O(0,0,0)\) to \((1,-1,2)\). Evaluate \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) and \(\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Forward direction:</strong> \(\mathbf{r}(t)=(t,-t,2t)\), \(t\in[0,1]\), so \(\mathbf{r}'(t)=(1,-1,2)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\mathbf{F}(\mathbf{r}(t))=(t^2-1,\,-t^2,\,2t)\). Dot with \(\mathbf{r}'(t)\): \((t^2-1)(1)+(-t^2)(-1)+(2t)(2)=2t^2+4t-1\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\int_0^1(2t^2+4t-1)\,dt=\left[\frac{2t^3}{3}+2t^2-t\right]_0^1=\frac{2}{3}+2-1=\frac{5}{3}\).</div></div>
+    <p><strong>Reversed:</strong> \(\mathbf{r}(t)=(1-t,t-1,2-2t)\), \(\mathbf{r}'(t)=(-1,1,-2)\). Compute \(\mathbf{F}\cdot\mathbf{r}'\) and integrate over \([0,1]\) to get \(-5/3\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\frac{5}{3}\), \(\int_{-\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=-\frac{5}{3}\) ✓ opposites</p>
+    </div></div>
+
+    <!-- Example 210 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.6 — Three Methods for the Same Integral (Ex. 210)</div>
+    <p>Evaluate \(\int_{\mathscr{C}}x\,dx+y\,dy\) where \(\mathscr{C}\) is the curve \(x=t,\,y=t^3\), \(1\leq t\leq 2\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Method 1 — Direct substitution:</strong> \(\mathbf{F}=(x,y)\), \(d\mathbf{r}=(dx,dy)\), \(\mathbf{r}(t)=(t,t^3)\), \(\mathbf{r}'(t)=(1,3t^2)\). So \(\mathbf{F}\cdot\mathbf{r}'=(t)(1)+(t^3)(3t^2)=t+3t^5\). Integrate: \(\int_1^2(t+3t^5)\,dt=[\frac{t^2}{2}+\frac{t^6}{2}]_1^2=(2+32)-(\frac{1}{2}+\frac{1}{2})=33\).</p>
+    <p><strong>Method 2 — Substitute differentials:</strong> \(dx=dt\), \(dy=3t^2\,dt\). Plug directly: \(\int_1^2 t\,dt+t^3(3t^2\,dt)=\int_1^2(t+3t^5)\,dt=33\).</p>
+    <p><strong>Method 3 — Eliminate parameter:</strong> Since \(y=x^3\), \(dy=3x^2\,dx\). So \(\int_1^2(x+x^3\cdot3x^2)\,dx=\int_1^2(x+3x^5)\,dx=33\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: 33 (all three methods agree)</p>
+    </div></div>
+
+    <!-- Example 211 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.7 — Piecewise 3D Path (Ex. 211)</div>
+    <p>Evaluate \(\int_{\mathscr{C}}yz\,dx-xz\,dy+xy\,dz\) where \(\mathscr{C}\) consists of three line segments: \(\mathscr{C}_1\) from \(P(0,0,0)\) to \(Q(2,0,0)\), \(\mathscr{C}_2\) from \(Q\) to \(R(1,3,-1)\), \(\mathscr{C}_3\) from \(R\) to \(S(1,3,0)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>Use the segment parametrization \(\mathbf{r}(t)=(1-t)\mathbf{A}+t\mathbf{B}\), \(t\in[0,1]\) for each piece.</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div><strong>\(\mathscr{C}_1\):</strong> \(\mathbf{r}=(2t,0,0)\), \(d\mathbf{r}=(2,0,0)\,dt\). Integrand: \(yz\cdot2=0\). So \(\int_{\mathscr{C}_1}=0\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div><strong>\(\mathscr{C}_2\):</strong> \(\mathbf{r}=(2-t,3t,-t)\), \(d\mathbf{r}=(-1,3,-1)\,dt\). Integrand: \((3t)(-t)(-1)-(2-t)(-t)(3)+(2-t)(3t)(-1)\). Simplify: \(3t^2+3t(2-t)-3t(2-t)=3t^2\). Integral: \(\int_0^1 3t^2\,dt=1\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div><strong>\(\mathscr{C}_3\):</strong> \(\mathbf{r}=(1,3,t-1)\), \(d\mathbf{r}=(0,0,1)\,dt\). Integrand: \(xy\cdot 1=3\). Integral: \(\int_0^1 3\,dt=3\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(0+1+3=4\)</p>
+    </div></div>
+
+    <!-- Example 212 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.8 — Work by a Force Field (Ex. 212)</div>
+    <p>Find the work done by \(\mathbf{F}(x,y)=x\,\mathbf{i}+x^2y\,\mathbf{j}\) on a particle moving along \(\mathbf{r}(t)=t\,\mathbf{i}+t^2\,\mathbf{j}\), \(0\leq t\leq 1\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(\mathbf{r}'(t)=(1,2t)\). \(\mathbf{F}(\mathbf{r}(t))=(t,\,t^2\cdot t^2)=(t,t^4)\).</p>
+    <p>\(\mathbf{F}\cdot\mathbf{r}'=t\cdot 1+t^4\cdot 2t=t+2t^5\).</p>
+    <p>\(W=\int_0^1(t+2t^5)\,dt=\frac{1}{2}+\frac{1}{3}=\frac{5}{6}\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(W=\frac{5}{6}\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§4.3 — Fundamental Theorem for Line Integrals</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>This section ties together line integrals and conservative fields (recall from §3.7 that \(\mathbf{F}\) is <strong>conservative</strong> if \(\mathbf{F}=\nabla f\) for some scalar field \(f\), equivalently \(\nabla\times\mathbf{F}=\mathbf{0}\)).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Fundamental Theorem of Calculus for Line Integrals</div>
+    <p>If \(\mathbf{F}=\nabla f\) (i.e., \(\mathbf{F}\) is a gradient field with potential function \(f\)) and \(\mathscr{C}\) is any piecewise smooth curve from \(\mathbf{r}(a)\) to \(\mathbf{r}(b)\), then:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">FTCLI</div>
+    <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\mathbf{r}(b))-f(\mathbf{r}(a))\]</div>
+    <div class="pills"><span class="pill">f — potential function (∇f = F)</span><span class="pill">r(a) — start point</span><span class="pill">r(b) — end point</span></div>
+    </div>
+    <p>Just like the single-variable FTC: \(\int_a^b f'(x)\,dx=f(b)-f(a)\), but now the "derivative" is the gradient and the "interval" is a curve.</p>
+    </div>
+
+    <h3>Consequences</h3>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Path Independence</div>
+    <p>If \(\mathbf{F}=\nabla f\), the integral depends <em>only on the endpoints</em>, not on the path taken between them. All paths from \(P\) to \(Q\) give the same answer: \(f(Q)-f(P)\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Closed-Loop Test</div>
+    <div class="eq-formula">\[\mathbf{F}\text{ conservative and }\mathscr{C}\text{ closed}\;\Longrightarrow\;\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=0\]</div>
+    </div>
+    <p>The converse also holds (in simply connected regions): if \(\oint\mathbf{F}\cdot d\mathbf{r}=0\) for every closed curve, then \(\mathbf{F}\) is conservative.</p>
+
+    <h3>Testing for Conservativeness (Summary)</h3>
+    <div class="def-card card-bracket"><div class="def-name">Equivalences in a Simply Connected Region</div>
+    <p>For a continuously differentiable \(\mathbf{F}\) defined on a <strong>simply connected region</strong> \(\mathscr{R}\) (no holes), the following are equivalent:</p>
+    <p><strong>1.</strong> \(\nabla\times\mathbf{F}=\mathbf{0}\) (curl-free / irrotational)</p>
+    <p><strong>2.</strong> There exists a scalar field \(f\) such that \(\mathbf{F}=\nabla f\) (gradient field)</p>
+    <p><strong>3.</strong> \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) is path-independent (depends only on endpoints)</p>
+    <p>A <strong>simply connected region</strong> is one where every closed curve can be continuously shrunk to a point without leaving \(\mathscr{R}\). Disks, rectangles, and all of \(\mathbb{R}^n\) are simply connected. A disk with its center removed is NOT simply connected.</p>
+    </div>
+
+    <h3>Finding the Potential Function via Line Integrals</h3>
+    <p>Once you verify \(\mathbf{F}\) is conservative, the potential function can be found by evaluating:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Potential via Line Integral</div>
+    <div class="eq-formula">\[f(x,y,z)=\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\]</div>
+    <div class="pills"><span class="pill">𝒞 — any curve from a fixed P₀ to (x,y,z)</span><span class="pill">The easiest choice: a line segment from the origin</span></div>
+    </div>
+    <p>The simplest path is the line segment from a convenient fixed point \(P_0\) to a general point \(P(x,y,z)\), parametrized as \(\mathbf{r}(t)=(1-t)P_0+tP\), \(t\in[0,1]\). During integration, treat \(x,y,z\) as constants.</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Two Methods to Find Potential Functions</div>
+    <p><strong>Method 1 (Component integration, from §3.7):</strong> Integrate \(f_x=P\) w.r.t. \(x\), then match \(f_y=Q\) and \(f_z=R\) to determine the "constants" of integration. Best for polynomial \(\mathbf{F}\).</p>
+    <p><strong>Method 2 (Line integral method, eq. 4.12):</strong> Choose \(P_0\), parametrize the segment from \(P_0\) to \((x,y,z)\), integrate. The answer gives \(f\) directly. Best for complicated non-polynomial fields.</p>
+    </div>
+
+    <!-- Example 215 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.9 — Newton's Gravity & Coulomb's Law (Ex. 215)</div>
+    <p>Show that the gravitational field \(\mathbf{F}=-\frac{GmM}{|\mathbf{r}|^3}\mathbf{r}\) and the electrostatic field \(\mathbf{F}=-\frac{kqQ}{|\mathbf{r}|^3}\mathbf{r}\) are both conservative. Show that \(\mathbf{F}(x,y)=(-y,x)\) is NOT conservative.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Gravity:</strong> Let \(f(x,y,z)=\frac{GmM}{|\mathbf{r}|}=\frac{GmM}{\sqrt{x^2+y^2+z^2}}\). Compute \(\frac{\partial f}{\partial x}=-GmM\frac{x}{(x^2+y^2+z^2)^{3/2}}=-GmM\frac{x}{|\mathbf{r}|^3}\). By symmetry, \(\nabla f=-\frac{GmM}{|\mathbf{r}|^3}(x,y,z)=-\frac{GmM}{|\mathbf{r}|^3}\mathbf{r}=\mathbf{F}\). ✓</p>
+    <p><strong>Coulomb:</strong> Same form with constants \(kqQ\) replacing \(GmM\). ✓</p>
+    <p><strong>\(\mathbf{F}=(-y,x)\) is NOT conservative:</strong> Method — compute the curl. Extend to 3D: \(\mathbf{F}=(-y,x,0)\). Then \(\nabla\times\mathbf{F}=\det\begin{pmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\-y&x&0\end{pmatrix}=(0,0,2)\neq\mathbf{0}\). Not conservative.</p>
+    <p><strong>Verification via closed loop:</strong> Let \(\mathscr{C}\) be the unit circle \(\mathbf{r}(t)=(\cos t,\sin t)\), \(t\in[0,2\pi]\). Then \(\mathbf{F}\cdot\mathbf{r}'=(-\sin t,\cos t)\cdot(-\sin t,\cos t)=\sin^2t+\cos^2t=1\). So \(\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_0^{2\pi}1\,dt=2\pi\neq 0\). ✗</p>
+    </div></div>
+
+    <!-- Example 219 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.10 — Finding a Potential via Line Integral (Ex. 219)</div>
+    <p>Find the potential function for the conservative field \(\mathbf{F}(x,y,z)=(2xy,\,z+x^2,\,y)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Verify conservative:</strong> \(\nabla\times\mathbf{F}=(R_y-Q_z,\,P_z-R_x,\,Q_x-P_y)=(1-1,\,0-0,\,2x-2x)=\mathbf{0}\). ✓</p>
+    <p><strong>Line integral method:</strong> Let \(P_0=(0,0,0)\) and \(\mathscr{C}\) be the segment to \(P(x,y,z)\): \(\mathbf{r}(t)=(tx,ty,tz)\), \(t\in[0,1]\), \(\mathbf{r}'(t)=(x,y,z)\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\mathbf{F}(\mathbf{r}(t))=(2t^2xy,\,tz+t^2x^2,\,ty)\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\mathbf{F}\cdot\mathbf{r}'=2t^2x^2y+(tz+t^2x^2)y+tyz=3t^2x^2y+2tyz\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(f=\int_0^1(3t^2x^2y+2tyz)\,dt=x^2y\cdot t^3\Big|_0^1+yz\cdot t^2\Big|_0^1=x^2y+yz\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(f(x,y,z)=x^2y+yz+C\)</p>
+    <p><strong>Check:</strong> \(\nabla f=(2xy,\,x^2+z,\,y)=\mathbf{F}\). ✓</p>
+    </div></div>
+
+    <!-- Example 220 -->
+    <div class="ex-card card-bracket"><div class="ex-label">Example 4.11 — Evaluating via FTCLI (Ex. 220)</div>
+    <p>Let \(f(1,-1,2)=2\) and \(\mathbf{F}(x,y,z)=(2y+z,\,2x,\,x)\). Find \(f(2,3,-1)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Verify conservative:</strong> \(\nabla\times\mathbf{F}=(0-0,\,1-1,\,2-2)=\mathbf{0}\). ✓</p>
+    <p>Use the line segment from \(P_0=(1,0,-1)\) to \(P=(x,y,z)\): \(\mathbf{r}(t)=(1-t)(1,0,-1)+t(x,y,z)\), \(t\in[0,1]\).</p>
+    <p>After expanding and integrating (treating \(x,y,z\) as constants):</p>
+    <p>\(f(x,y,z)=2xy+xz+1\). Since \(f(1,-1,2)=2(-1)+2+1=-2+2+1=1\neq 2\), we need \(C=1\): \(f=2xy+xz+1+C\) with \(C=1\), so \(f=2xy+xz+2\).</p>
+    <p>\(f(2,3,-1)=2(2)(3)+(2)(-1)+2=12-2+2=12\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(f(2,3,-1)=12\)</p>
+    </div></div>
+
+    <h3>Work-Energy Theorem</h3>
+    <div class="drv-card card-bracket"><div class="drv-label">Kinetic Energy and Line Integrals</div>
+    <p>If a mass \(m\) moves along \(\mathscr{C}\) under force \(\mathbf{F}\), Newton's second law gives:</p>
+    <p>\(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\frac{1}{2}m|\mathbf{v}(b)|^2-\frac{1}{2}m|\mathbf{v}(a)|^2\) — the work equals the change in kinetic energy.</p>
+    <p>If \(\mathbf{F}\) is also conservative with potential \(f\), then \(K(P)-f(P)=C\) — <strong>conservation of energy</strong>.</p>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
     <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
     </div>
-
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 4 lecture notes or textbook pages to populate full notes.</div>
   </div>
