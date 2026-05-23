@@ -440,3 +440,11 @@ MATH2004-2008/
 - **Lagrange explanation expanded**: hiking analogy, "kissing curves" intuition, step-by-step method card with explicit equations.
 - **Formula sheet: numbering + lookup bar**: all 48 cards auto-numbered with #N badges. Search bar at top — type name, chapter, or #number to instant-scroll to any equation.
 - Files changed: ch7-notes.html, formulas.html, MATH2004-notes.html
+
+### Session 9 (final fixes)
+- **All prose subscripts fixed** — 58 instances of f_x, f_xx, g_x etc. converted to proper HTML <sub> tags. KaTeX math mode left untouched.
+- **All 9 examples rewritten** to full solution pipeline standard:
+  - Every example now has: thought process, "what we need to find", setup, annotated step-by-step solution, boxed answer, ★ Tips card, concept bridge (formula sheet #refs)
+  - Classification tables expanded to show all intermediate values (f_xx, f_yy, f_xy, D)
+  - Closed-region examples label results as ★ GLOBAL MIN / ★ GLOBAL MAX
+- Files changed: ch7-notes.html, MATH2004-notes.html
