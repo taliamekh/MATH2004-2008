@@ -51,29 +51,63 @@
 <div class="cross-links"><strong>Connections →</strong> Dot product → scalar projections → work integrals (Ch 6) · Cross product → normal vectors → planes (Ch 2) → surface integrals (Ch 7) · Magnitude &amp; distance → arc length &amp; curvature (Ch 3)</div>
 
 <h3 style="color:var(--ch2-title)">Ch 2 — Lines, Planes &amp; Parametric Curves ✓</h3>
-<p class="ch-overview">Extends vectors to describe lines, planes, and curves in space. Introduces parametric and polar representations with their calculus.</p>
+<p class="ch-overview">Extends vectors to describe lines, planes, and curves in space. Introduces rotations, conic sections, parametric and polar representations with their full calculus toolkit.</p>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Lines &amp; Planes</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Lines from point + direction vector. Planes from point + normal vector. Relations: parallel, intersecting, skew.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Describes geometry in 3D — positions, orientations, intersections of flat surfaces.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Line: \(\vec{r}(t)=P+t\vec{v}\). Plane: \(ax+by+cz=d\) with \(\vec{n}=(a,b,c)\). Three points → normal = cross product.</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Skew lines: not parallel AND not intersecting — must check BOTH z-values match after solving x,y.</dd>
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Lines in Space</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>A line is defined by a point P and a direction vector v⃗. A line segment restricts the parameter to [0, 1]. Two lines in 3D can be parallel (same direction), intersecting (meet at a point), or skew (neither parallel nor meeting — only in 3D).</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Lines are the simplest curves and the foundation for parametric thinking — every more complex curve builds on this "point + direction" idea.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Line: \(\vec{r}(t)=P+t\vec{v}\). Segment: \(\vec{r}(t)=(1-t)P+tQ\), \(0\le t\le 1\). Midpoint at \(t=\tfrac{1}{2}\). Parallel test: \(\vec{v}_1\times\vec{v}_2=\vec{0}\). Skew test: not parallel AND z-values disagree after solving x, y.</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Skew ≠ "don't intersect." Non-parallel lines that don't meet are skew. Parallel lines that don't meet are just parallel. Always check BOTH conditions.</dd>
 </dl></div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Parametric Curves &amp; Calculus</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Curves as (x(t), y(t)). First/second derivatives via chain rule. Conics as special cases.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Many curves can't be expressed as y=f(x). Parametric form handles self-intersections, loops, and 3D paths.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>\(dy/dx=(dy/dt)/(dx/dt)\). Horiz tangent: dy/dt=0. Vert tangent: dx/dt=0. Area: \(\int y\,x'\,dt\). Arc length: \(\int\sqrt{(x')^2+(y')^2}\,dt\).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Both derivatives zero at same point → tangent undefined (cusp or corner).</dd>
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Planes</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>A plane is a flat surface defined by a point and a normal vector (perpendicular arrow). Three non-collinear points determine a unique plane. Two planes can be parallel (same normal direction) or intersect in a line.</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Planes describe surfaces in 3D. Their normals are essential for tangent planes (Ch 3), surface integrals (Ch 6), and flux calculations.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Equation: \(ax+by+cz=d\), normal \(\vec{n}=(a,b,c)\). From 3 points: \(\vec{n}=\overrightarrow{PQ}\times\overrightarrow{PR}\). Angle between planes: \(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\). Two-plane intersection: direction = \(\vec{n}_1\times\vec{n}_2\), find one point by setting a variable to 0.</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Lines use direction vectors (parallel to the line). Planes use normal vectors (perpendicular to the plane). Don't mix these up — they're fundamentally different.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Rotations &amp; Translations</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>Active rotation moves a point by angle θ (matrix A). Passive rotation rotates the axes instead (matrix A⁻¹ = Aᵀ). Translation shifts the origin to (h, k) by substituting (x−h, y−k). Combined: translate first, then rotate.</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Used to eliminate cross-terms (Bxy) in conic equations, aligning a rotated conic with the coordinate axes for easier analysis.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Active: \(A=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\). Passive: flip sin signs. Translation: \((x',y')=(x-h,\,y-k)\). Combined: translate → rotate.</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Active vs passive differ only by the sign on sinθ — using the wrong one rotates in the opposite direction.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Conic Sections</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>The three classical conics — parabola, ellipse, hyperbola — classified by the discriminant of the general second-degree equation \(Ax^2+Bxy+Cy^2+Dx+Ey+F=0\).</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Conics appear everywhere: planetary orbits (ellipses), projectile paths (parabolas), satellite dishes (paraboloids). The discriminant gives instant classification without completing the square.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Discriminant \(B^2-4AC\): negative → ellipse, zero → parabola, positive → hyperbola. Parametrizations: ellipse \((a\cos t,\,b\sin t)\), circle \((r\cos t,\,r\sin t)\).</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Degenerate cases exist: the "ellipse" x²+y²=−1 is empty, and B²−4AC=0 could give two parallel lines instead of a parabola.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Parametric Calculus</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>Derivatives, tangent classification, area, and arc length for curves written as x(t), y(t). The chain rule adapts all standard calculus tools to parametric form.</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Many curves (cycloids, epicycloids, Lissajous figures) can't be written as y=f(x). Parametric form handles self-intersections, loops, and multi-valued curves naturally.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Slope: \(dy/dx=(dy/dt)/(dx/dt)\). Second deriv: \(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\). H-tangent: dy/dt=0. V-tangent: dx/dt=0. Area: \(\int y\,x'\,dt\). Arc length: \(\int\sqrt{(x')^2+(y')^2}\,dt\).</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>The second derivative is NOT (d²y/dt²)/(d²x/dt²) — this is the #1 exam mistake. You must differentiate dy/dx with respect to t, then divide by dx/dt again.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Key Parametric Results</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>Named results for classic curves that appear repeatedly on exams and in later chapters.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Cycloid \(x=r(t-\sin t),\,y=r(1-\cos t)\): arch area = \(3\pi r^2\), arch length = \(8r\). Ellipse \(x=a\cos t,\,y=b\sin t\): area = \(\pi ab\). Key identity: \(1-\cos t=2\sin^2(t/2)\).</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Cycloid area = 3× the rolling circle (not 2×, not π×). The identity 1−cosθ = 2sin²(θ/2) is essential for simplifying cycloid integrals — memorize it.</dd>
 </dl></div>
 
 <div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Polar Coordinates</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Points as (r, θ). Conversions: x=r cosθ, y=r sinθ. Special curves: cardioids, limaçons, rose curves.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Curves with rotational symmetry (circles, spirals) have much simpler polar equations.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Slope: \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\). Area: \(\frac{1}{2}\int r^2\,d\theta\). Arc length: \(\int\sqrt{(r')^2+r^2}\,d\theta\).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>For area between curves, find ALL intersections (some may only appear as simultaneous r=0 at different θ).</dd>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>Points described by distance r and angle θ from the origin. Common curves: cardioids \(r=1+\sin\theta\), limaçons \(r=a+b\cos\theta\), roses \(r=\cos(n\theta)\) with n petals (or 2n if n is even).</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Curves with circular symmetry (spirals, petals, hearts) are simple in polar but nightmarish in Cartesian. Polar form also simplifies double integrals over circular regions (Ch 5).</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Conversion: \(x=r\cos\theta,\;y=r\sin\theta,\;r=\sqrt{x^2+y^2}\). Convention: \((-r,\theta)=(r,\theta+\pi)\). Quadrant check required for θ = arctan(y/x).</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>arctan(y/x) only returns (−π/2, π/2). A point in Q3 like (−1,−1) gives arctan(1)=π/4, but the correct angle is 5π/4. Always check the quadrant.</dd>
 </dl></div>
 
-<div class="cross-links"><strong>Connections →</strong> Lines/planes → tangent planes &amp; normal lines (Ch 3) · Parametric curves → line integrals (Ch 4) · Polar coordinates → double integrals in polar (Ch 5) · Arc length ds → line integral ds (Ch 4)</div>
+<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Polar Calculus</div><dl>
+<dt class="wh-what" style="color:#18230F">What:</dt><dd>Slope, area, and arc length formulas adapted for polar curves r = f(θ). Area uses sectors (pie slices), not rectangles.</dd>
+<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Computing area/length of polar curves directly — without converting to Cartesian — is usually much simpler.</dd>
+<dt class="wh-how" style="color:#255F38">How:</dt><dd>Slope: \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\). Area: \(\frac{1}{2}\int r^2\,d\theta\). Between curves: \(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\). Arc length: \(\int\sqrt{(r')^2+r^2}\,d\theta\). Cardioid perimeter = 8.</dd>
+<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>For area between polar curves, find ALL intersections first — some only show up as r=0 at different θ values (both curves pass through the origin but at different angles).</dd>
+</dl></div>
 
-<h3 style="color:var(--muted)">Ch 3–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr><td>Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr><td>Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr><td>Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr><td>Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr><td>Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr><td>Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr><td>Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr></table></div>
+<div class="cross-links"><strong>Connections →</strong> Lines/planes → tangent planes &amp; normal lines (Ch 3) · Rotations → eliminating cross-terms in conics · Parametric curves → line integrals (Ch 4) · Polar coordinates → double integrals in polar (Ch 5) · Arc length ds → line integral ds (Ch 4) · Conic sections → quadric surfaces (Ch 5)</div>
+
+<h3 style="color:var(--muted)">Ch 3–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr><td>Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr><td>Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr><td>Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr><td>Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr><td>Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr><td>Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr><td>Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr><td>Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr><td>Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr><td>Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr><td>Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr><td>Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr><td>Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr><td>Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr></table></div>
