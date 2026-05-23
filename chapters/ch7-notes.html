@@ -1,17 +1,304 @@
 <div class="page" id="ch7">
-    <div class="page-title" style="color:var(--ch7-title)">Chapter 7</div><h1 style="color:var(--ch7-title)">Maxima, Minima & Lagrange Multipliers</h1>
-    <p class="page-intro">Finding and classifying critical points of multivariable functions, constrained optimization via Lagrange multipliers.</p>
+    <div class="page-title" style="color:var(--ch7-title)">Chapter 7</div><h1 style="color:var(--ch7-title)">Maxima, Minima &amp; Lagrange Multipliers</h1>
+    <p class="page-intro">Finding and classifying critical points of multivariable functions. The Second Derivative Test for surfaces. Constrained optimization via Lagrange multipliers — the elegant technique for optimizing one function subject to another equation.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <h2 style="color:var(--ch7-title)">§7.2 — Maxima and Minima</h2>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 6 — Optimization</div>
-    <p><strong>§7.2:</strong> Maxima and minima of functions of two variables — critical points, second derivative test, saddle points</p>
-    <p><strong>§7.3:</strong> Lagrange multipliers — constrained optimization with one or more constraints</p>
+    <p>In single-variable calculus you found max/min by setting f'(x) = 0, then used the second derivative to classify. We now extend this idea to functions of two (or more) variables: z = f(x, y). The core question is the same — where are the peaks and valleys of a surface? — but we now have <em>two</em> partial derivatives to set to zero simultaneously, and the classification test is more involved.</p>
+
+    <h3>Critical Points</h3>
+
+    <p>Recall from §3.5 that the gradient ∇f = (f_x, f_y) points in the direction of steepest increase. At a maximum or minimum, there is no direction of increase or decrease — the surface is momentarily "flat." This means the gradient must be the zero vector.</p>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Critical Point</div>
+    <p>A point P(a, b) in the domain of f(x, y) is a <strong>critical point</strong> (or <strong>stationary point</strong>) if both partial derivatives vanish at P:</p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[\frac{\partial f}{\partial x}(a, b) = 0 \quad \text{and} \quad \frac{\partial f}{\partial y}(a, b) = 0\]</div>
+    <div class="pill-row"><span class="pill">f_x = partial w.r.t. x</span><span class="pill">f_y = partial w.r.t. y</span><span class="pill">(a,b) = coordinates of the critical point</span></div>
+    <p style="margin-top:8px">Equivalently: <strong>∇f(a, b) = 0</strong>. Every local maximum and every local minimum of a differentiable function occurs at a critical point. However, not every critical point is a max or min — it could be a <strong>saddle point</strong>.</p>
     </div>
 
-    <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
-    <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
+    <p>The reasoning is clean: if P is a local max, then along any line through P the function has a single-variable max. In particular, moving along the x-direction, f(x, b) has a max at x = a, forcing f_x(a, b) = 0. The same argument along the y-direction gives f_y(a, b) = 0.</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Strategy for Finding Critical Points</div>
+    <p>Set up the system of equations f_x = 0 and f_y = 0, then solve simultaneously. Often one equation gives one variable in terms of the other, which you substitute into the second equation. Watch for <strong>case analysis</strong> — factoring often gives multiple solution branches (e.g., "either y = 0 or 2x + 1 = 0"), and you must check ALL branches to find ALL critical points.</p>
     </div>
 
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 7 lecture notes or textbook pages to populate full notes.</div>
+    <h3>The Second Derivative Test</h3>
+
+    <p>Once you have the critical points, you need to classify each one: is it a local max, local min, or saddle point? In single-variable calculus, you check the sign of f''(x). For two variables, we need to consider not just f_xx and f_yy, but also the <em>mixed partial</em> f_xy, because the surface can curve differently in different directions.</p>
+
+    <p>The key quantity is the <strong>discriminant</strong> D, built from the second-order partial derivatives evaluated at the critical point:</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Discriminant (Hessian Determinant)</div>
+    <div style="overflow-x:auto;overflow-y:hidden">\[D = f_{xx} \cdot f_{yy} - (f_{xy})^2 \quad \text{at } P(a,b)\]</div>
+    <div class="pill-row"><span class="pill">f_xx = ∂²f/∂x²</span><span class="pill">f_yy = ∂²f/∂y²</span><span class="pill">f_xy = ∂²f/∂x∂y (mixed partial)</span></div>
+    <p style="margin-top:8px">This is the determinant of the <strong>Hessian matrix</strong> \(H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy}\end{pmatrix}\). The discriminant tells you whether the surface curves the same way in all directions (D > 0) or curves up in one direction and down in another (D &lt; 0).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Second Derivative Test (for two variables)</div>
+    <p>Let P(a, b) be a critical point of f (so f_x = f_y = 0 at P). Compute D = f_xx · f_yy − (f_xy)² at P. Then:</p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[\begin{cases} D > 0 \text{ and } f_{xx} > 0 &\Rightarrow \text{local minimum at } P \\ D > 0 \text{ and } f_{xx} < 0 &\Rightarrow \text{local maximum at } P \\ D < 0 &\Rightarrow \text{saddle point at } P \\ D = 0 &\Rightarrow \text{inconclusive (need other methods)}\end{cases}\]</div>
+    <div class="pill-row"><span class="pill">D = f_xx f_yy − f_xy² (discriminant)</span><span class="pill">f_xx determines concavity when D > 0</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Why f_xx and not f_yy?</div>
+    <p>When D > 0, the signs of f_xx and f_yy must agree (since D = f_xx · f_yy − f_xy² > 0 forces f_xx and f_yy to have the same sign). So checking f_xx alone suffices — you could equally check f_yy and get the same answer.</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Saddle Point</div>
+    <p>A critical point where D &lt; 0 is called a <strong>saddle point</strong>. At a saddle point, the surface curves <em>upward</em> in one direction and <em>downward</em> in another — like a mountain pass or horse saddle. The function is neither a local max nor a local min there, regardless of the signs of f_xx and f_yy individually.</p>
+    </div>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
+      <line x1="30" y1="180" x2="310" y2="180" stroke="var(--muted)" stroke-width="1"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="var(--muted)" stroke-width="1"/>
+      <path d="M50,110 Q110,180 170,110 Q230,40 290,110" stroke="var(--eq)" stroke-width="2" fill="none"/>
+      <path d="M90,50 Q130,80 170,110 Q210,140 250,170" stroke="var(--tip)" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+      <circle cx="170" cy="110" r="5" fill="var(--eq)"/>
+      <text x="174" y="100" font-size="13" fill="var(--text)" font-family="'Architects Daughter'">saddle point</text>
+      <text x="55" y="130" font-size="12" fill="var(--eq)" font-family="'Architects Daughter'">curves up (x-dir)</text>
+      <text x="200" y="58" font-size="12" fill="var(--tip)" font-family="'Architects Daughter'">curves down (y-dir)</text>
+      <text x="290" y="195" font-size="12" fill="var(--muted)">x</text>
+      <text x="175" y="18" font-size="12" fill="var(--muted)">z</text>
+    </svg>
+    <div class="figure-caption">Fig 7.1 — Saddle point: the surface z = x² − y² curves up along the x-axis and down along the y-axis. D = (2)(−2) − 0² = −4 &lt; 0.</div>
+    </div>
+
+    <h3>Worked Examples — Critical Points &amp; Second Derivative Test</h3>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.1 — Relative Extrema of a Quadratic Surface</div>
+    <p><strong>Problem:</strong> Find the relative maxima and minima of \(z = 2x + 4y - x^2 - y^2 - 3\).</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Thought process:</strong> This is a degree-2 function with negative leading coefficients on x² and y². We expect a single hilltop (maximum). Set both partials to zero.</p>
+    <p><strong>Step 1 — Find critical points:</strong></p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_x = 2 - 2x = 0 \;\Rightarrow\; x = 1\]</div>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_y = 4 - 2y = 0 \;\Rightarrow\; y = 2\]</div>
+    <p>The only critical point is P(1, 2).</p>
+    <p><strong>Step 2 — Compute the discriminant:</strong></p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_{xx} = -2, \quad f_{yy} = -2, \quad f_{xy} = 0\]</div>
+    <div style="overflow-x:auto;overflow-y:hidden">\[D = (-2)(-2) - 0^2 = 4 > 0\]</div>
+    <p><strong>Step 3 — Classify:</strong> D > 0 and f_xx = −2 &lt; 0, so P(1, 2) is a <strong>local maximum</strong>.</p>
+    <p>The maximum value is f(1, 2) = 2 + 8 − 1 − 4 − 3 = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">2</strong>.</p>
+    <p>Note: since the domain is all of ℝ² and f → −∞ as ||(x,y)|| → ∞, this local max is also the global maximum. There is no global minimum.</p>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.2 — Multiple Critical Points with Saddles</div>
+    <p><strong>Problem:</strong> Classify the critical points of \(f(x, y) = x^2 y + x y^2 - xy\) on ℝ².</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Thought process:</strong> Higher-degree terms mean multiple critical points. Careful case analysis after factoring is essential.</p>
+    <p><strong>Step 1 — Find critical points:</strong></p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_x = 2xy + y^2 - y = y(2x + y - 1) = 0\]</div>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_y = x^2 + 2xy - x = x(x + 2y - 1) = 0\]</div>
+    <p>By inspection (0, 0) satisfies both. Now handle cases:</p>
+    <p><strong>Case 1: x = 0.</strong> From f_x = 0: y(y − 1) = 0, giving y = 0 (known) or y = 1. New point: <strong>(0, 1)</strong>.</p>
+    <p><strong>Case 2: y = 0.</strong> From f_y = 0: x(x − 1) = 0, giving x = 0 (known) or x = 1. New point: <strong>(1, 0)</strong>.</p>
+    <p><strong>Case 3: 2x + y − 1 = 0 and x + 2y − 1 = 0.</strong> Solving: (x, y) = <strong>(1/3, 1/3)</strong>.</p>
+    <p>Total: 4 critical points.</p>
+    <p><strong>Step 2 — Second derivatives:</strong></p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[f_{xx} = 2y, \quad f_{yy} = 2x, \quad f_{xy} = 2x + 2y - 1\]</div>
+    <p><strong>Step 3 — Classification table:</strong></p>
+    <table class="ptbl" style="font-size:14px"><tr><th>P(a,b)</th><th>D</th><th>f_xx</th><th>Type</th></tr>
+    <tr><td>(0, 0)</td><td>0·0 − (−1)² = −1</td><td>0</td><td>Saddle</td></tr>
+    <tr><td>(1, 0)</td><td>0·2 − 1² = −1</td><td>0</td><td>Saddle</td></tr>
+    <tr><td>(0, 1)</td><td>2·0 − 1² = −1</td><td>2</td><td>Saddle</td></tr>
+    <tr><td>(1/3, 1/3)</td><td>(2/3)(2/3) − (1/3)² = 1/3</td><td>2/3</td><td><strong>Local min</strong></td></tr></table>
+    <p>Min value at (1/3, 1/3): f = 1/9·1/3 + 1/3·1/9 − 1/9 = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">−1/27</strong>. Not a global min (f(−1,−1) = −3).</p>
+    </details></div>
+
+    <h3>Extrema on Closed Regions</h3>
+
+    <p>When f is continuous on a closed, bounded region 𝒟 (including its boundary), the Extreme Value Theorem guarantees a global max and min. Finding them requires checking <em>both</em> interior and boundary.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Closed-Region Extrema Algorithm</div>
+    <p><strong>1.</strong> Find and classify all critical points <strong>inside</strong> 𝒟 (not on the boundary) using the SDT.</p>
+    <p><strong>2.</strong> Find critical points of f on the <strong>boundary</strong> — parametrize each boundary curve and reduce to single-variable optimization.</p>
+    <p><strong>3.</strong> Evaluate f at all critical points (interior + boundary) and at all <strong>corners/endpoints</strong>.</p>
+    <p><strong>4.</strong> The largest value = absolute maximum; smallest = absolute minimum.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Always Check Corners/Endpoints</div>
+    <p>Derivatives don't exist at corners of a polygonal boundary. These points must be checked by direct evaluation. On a rectangle: 4 corners. On a triangle: 3. On a disk: the boundary parametrization handles everything (no corners).</p>
+    </div>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="max-width:300px">
+      <rect x="60" y="30" width="180" height="130" fill="var(--eq)" fill-opacity=".06" stroke="var(--eq)" stroke-width="1.5" rx="2"/>
+      <circle cx="140" cy="95" r="5" fill="var(--example)"/>
+      <text x="148" y="92" font-size="12" fill="var(--example)" font-family="'Architects Daughter'">interior CP</text>
+      <circle cx="100" cy="30" r="4" fill="var(--def)"/>
+      <circle cx="200" cy="160" r="4" fill="var(--def)"/>
+      <text x="108" y="24" font-size="11" fill="var(--def)" font-family="'Architects Daughter'">boundary CP</text>
+      <circle cx="60" cy="30" r="4" fill="var(--tip)"/>
+      <circle cx="240" cy="30" r="4" fill="var(--tip)"/>
+      <circle cx="60" cy="160" r="4" fill="var(--tip)"/>
+      <circle cx="240" cy="160" r="4" fill="var(--tip)"/>
+      <text x="62" y="175" font-size="11" fill="var(--tip)" font-family="'Architects Daughter'">corners</text>
+      <text x="130" y="25" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₁</text>
+      <text x="130" y="175" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₂</text>
+      <text x="245" y="100" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₃</text>
+      <text x="38" y="100" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">𝒞₄</text>
+    </svg>
+    <div class="figure-caption">Fig 7.2 — Absolute extrema on a closed rectangle: check interior CPs, boundary CPs on each edge, and all 4 corners.</div>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.3 — Absolute Extrema on a Closed Rectangle</div>
+    <p><strong>Problem:</strong> Find all local and absolute extrema of \(f(x,y) = x^2 + xy + y^2\) on \(\mathscr{D} = \{-2 \le x \le 2,\; -1 \le y \le 1\}\).</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Interior:</strong> f_x = 2x+y = 0, f_y = x+2y = 0 → (0,0). D = 4−1 = 3 > 0, f_xx = 2 > 0 → <strong>local min</strong>, f(0,0) = 0.</p>
+    <p><strong>𝒞₁ (y = −1):</strong> h(x) = x²−x+1, h' = 2x−1 = 0 → x = 1/2. h(1/2) = 3/4. Ends: h(−2) = 7, h(2) = 3.</p>
+    <p><strong>𝒞₂ (x = 2):</strong> h(y) = y²+2y+4, h' = 2y+2 = 0 → y = −1 (corner). h(1) = 7.</p>
+    <p><strong>𝒞₃ (y = 1):</strong> h(x) = x²+x+1, h' = 2x+1 = 0 → x = −1/2. h(−1/2) = 3/4. Ends: h(−2) = 3, h(2) = 7.</p>
+    <p><strong>𝒞₄ (x = −2):</strong> h(y) = y²−2y+4, h' = 2y−2 = 0 → y = 1 (corner). h(−1) = 7.</p>
+    <table class="ptbl" style="font-size:13px"><tr><th>Point</th><th>f</th><th>Type</th></tr>
+    <tr><td>(0, 0)</td><td><strong>0</strong></td><td>Global min</td></tr>
+    <tr><td>(−2, −1), (2, 1)</td><td><strong>7</strong></td><td>Global max</td></tr>
+    <tr><td>(1/2,−1), (−1/2,1)</td><td>3/4</td><td>Loc. min on boundary</td></tr>
+    <tr><td>(2,−1), (−2,1)</td><td>3</td><td>Loc. max on boundary</td></tr></table>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.4 — Trigonometric Function on a Square</div>
+    <p><strong>Problem:</strong> Find the absolute max and min of \(f(x,y) = \sin x + \sin y\) on \([0, 2\pi] \times [0, 2\pi]\).</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Boundary:</strong> On each edge, one variable is 0 or 2π (sin = 0), so f reduces to sin of the free variable. Max = 1 at π/2, min = −1 at 3π/2. Boundary max/min = ±1.</p>
+    <p><strong>Interior:</strong> cos x = 0 → x = π/2 or 3π/2. cos y = 0 → y = π/2 or 3π/2. Four CPs.</p>
+    <p>f_xx = −sin x, f_yy = −sin y, f_xy = 0.</p>
+    <table class="ptbl" style="font-size:13px"><tr><th>Point</th><th>D</th><th>f_xx</th><th>Type</th><th>Value</th></tr>
+    <tr><td>(π/2, π/2)</td><td>+1</td><td>−1</td><td>Local max</td><td><strong>+2</strong></td></tr>
+    <tr><td>(π/2, 3π/2)</td><td>−1</td><td>−1</td><td>Saddle</td><td>0</td></tr>
+    <tr><td>(3π/2, π/2)</td><td>−1</td><td>+1</td><td>Saddle</td><td>0</td></tr>
+    <tr><td>(3π/2, 3π/2)</td><td>+1</td><td>+1</td><td>Local min</td><td><strong>−2</strong></td></tr></table>
+    <p><strong>Answer:</strong> Abs max = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">2 at (π/2, π/2)</strong>. Abs min = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">−2 at (3π/2, 3π/2)</strong>.</p>
+    </details></div>
+
+    <h2 style="color:var(--ch7-title)">§7.3 — Lagrange Multipliers</h2>
+
+    <p>What if we need to optimize f(x, y) but the variables must satisfy a constraint g(x, y) = 0? The <strong>method of Lagrange multipliers</strong> handles this without substitution.</p>
+
+    <h3>The Geometric Idea</h3>
+
+    <p>If P is an extremum of f on the constraint curve g = 0, then ∇f(P) must be perpendicular to the curve at P. But ∇g(P) is also perpendicular to the curve (recall from §3.5). Therefore ∇f and ∇g must be parallel:</p>
+    <div style="overflow-x:auto;overflow-y:hidden">\[\nabla f(P) = \lambda \, \nabla g(P)\]</div>
+    <p>where λ is the <strong>Lagrange multiplier</strong>.</p>
+
+    <div class="figure-box">
+    <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" style="max-width:360px">
+      <defs><marker id="arrLg" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="var(--def)"/></marker>
+      <marker id="arrLg2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="var(--tip)"/></marker></defs>
+      <ellipse cx="180" cy="110" rx="120" ry="70" fill="none" stroke="var(--eq)" stroke-width="2"/>
+      <text x="305" y="108" font-size="12" fill="var(--eq)" font-family="'Architects Daughter'">g = 0</text>
+      <ellipse cx="180" cy="110" rx="80" ry="46" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
+      <ellipse cx="180" cy="110" rx="55" ry="32" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="128" y="76" font-size="10" fill="var(--muted)">f = c₁</text>
+      <text x="140" y="88" font-size="10" fill="var(--muted)">f = c₂</text>
+      <circle cx="300" cy="110" r="5" fill="var(--example)"/>
+      <line x1="300" y1="110" x2="345" y2="110" stroke="var(--def)" stroke-width="2" marker-end="url(#arrLg)"/>
+      <line x1="300" y1="110" x2="335" y2="110" stroke="var(--tip)" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrLg2)"/>
+      <text x="325" y="100" font-size="11" fill="var(--def)" font-family="'Architects Daughter'">∇g</text>
+      <text x="306" y="132" font-size="11" fill="var(--tip)" font-family="'Architects Daughter'">∇f = λ∇g</text>
+      <text x="285" y="100" font-size="12" fill="var(--example)" font-family="'Architects Daughter'">P</text>
+    </svg>
+    <div class="figure-caption">Fig 7.3 — At a constrained extremum P, ∇f ∥ ∇g (both perpendicular to the constraint curve).</div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name" style="color:var(--eq)">Lagrange Multiplier Method</div>
+    <p>To optimize f(x, y) [or f(x,y,z)] subject to g(x, y) = 0 [or g(x,y,z) = 0]:</p>
+    <p><strong>1.</strong> Define the Lagrangian: \(\ell = f - \lambda \, g\)</p>
+    <p><strong>2.</strong> Set all partial derivatives to zero: ∂ℓ/∂x = 0, ∂ℓ/∂y = 0, [∂ℓ/∂z = 0], ∂ℓ/∂λ = 0</p>
+    <p><strong>3.</strong> Solve for all variables + λ. Evaluate f at each solution.</p>
+    <div class="pill-row"><span class="pill">∂ℓ/∂λ = 0 recovers the constraint</span><span class="pill">∂ℓ/∂x = 0 gives f_x = λg_x</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Lagrange Does NOT Classify</div>
+    <p>Lagrange finds candidates. To classify, evaluate f at all candidates and compare. The largest value is the constrained max and the smallest is the constrained min. On a closed constraint (like a circle), both must exist.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Case-by-Case Analysis</div>
+    <p>Lagrange systems involve products. When a factor can be zero, consider all possibilities: if y = 0, what does the constraint give? If y ≠ 0, divide and continue. Missing a case = missing critical points.</p>
+    </div>
+
+    <h3>Worked Examples — Lagrange Multipliers</h3>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.5 — Largest Rectangle in a Semicircle</div>
+    <p><strong>Problem:</strong> Find the area of the largest rectangle inscribed in a semicircle of radius a.</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Setup:</strong> Place semicircle centered at origin. Rectangle has corners (±x, 0) and (±x, y) with (x,y) on x²+y² = a². Maximize A = 2xy with constraint g = x²+y²−a² = 0.</p>
+    <div class="figure-box" style="margin:12px 0">
+    <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="max-width:260px">
+      <path d="M30,130 A110,110 0 0 1 250,130" fill="none" stroke="var(--eq)" stroke-width="2"/>
+      <line x1="30" y1="130" x2="250" y2="130" stroke="var(--eq)" stroke-width="1.5"/>
+      <rect x="70" y="50" width="140" height="80" fill="var(--example)" fill-opacity=".08" stroke="var(--example)" stroke-width="1.5"/>
+      <text x="135" y="43" font-size="12" fill="var(--example)" font-family="'Architects Daughter'">(x, y)</text>
+      <circle cx="210" cy="50" r="3" fill="var(--example)"/>
+      <text x="133" y="145" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">2x</text>
+      <text x="215" y="95" font-size="11" fill="var(--muted)" font-family="'Architects Daughter'">y</text>
+    </svg></div>
+    <p><strong>Lagrangian:</strong> ℓ = 2xy − λ(x²+y²−a²).</p>
+    <p>ℓ_x = 2y − 2λx = 0 → y = λx [1]</p>
+    <p>ℓ_y = 2x − 2λy = 0 → x = λy [2]</p>
+    <p>ℓ_λ = −(x²+y²−a²) = 0 → x²+y² = a² [3]</p>
+    <p>From [1] and [2]: y = λx and x = λy = λ²x. Since y ≠ 0: λ² = 1 → λ = ±1. With x,y > 0: y = x.</p>
+    <p>From [3]: 2x² = a² → x = a/√2 = y.</p>
+    <p><strong>Max area</strong> = 2·(a/√2)·(a/√2) = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">a²</strong>.</p>
+    <p>The largest inscribed rectangle is a square of the circle's radius!</p>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.6 — Distance from Origin to a Rotated Ellipse</div>
+    <p><strong>Problem:</strong> Find the shortest and longest distance from the origin to \(x^2 + xy + y^2 = 16\).</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Thought process:</strong> Minimize/maximize f = x²+y² (distance²) subject to g = x²+xy+y²−16 = 0. The curve is a rotated ellipse (B²−4AC = 1−4 = −3 &lt; 0; recall conic discriminant from §2.8).</p>
+    <p><strong>Lagrangian:</strong> ℓ = x²+y² − λ(x²+xy+y²−16).</p>
+    <p>ℓ_x = 2x − λ(2x+y) = 0 [1]</p>
+    <p>ℓ_y = 2y − λ(x+2y) = 0 [2]</p>
+    <p>ℓ_λ = −(x²+xy+y²−16) = 0 [3]</p>
+    <p><strong>Case λ = 0:</strong> → x = y = 0, violates [3]. No solution.</p>
+    <p><strong>Case λ ≠ 0, 2x+y ≠ 0:</strong> λ = 2x/(2x+y). Sub into [2] and simplify → y²−x² = 0 → <strong>y = ±x</strong>.</p>
+    <p><strong>y = x:</strong> 3x² = 16 → x = ±4/√3. Distance² = 32/3. Distance = √(32/3).</p>
+    <p><strong>y = −x:</strong> x² = 16 → x = ±4. Distance² = 32. Distance = √32.</p>
+    <table class="ptbl" style="font-size:13px"><tr><th>Point</th><th>x²+y²</th><th>Distance</th></tr>
+    <tr><td>(±4/√3, ±4/√3)</td><td>32/3</td><td>√(32/3) ≈ 3.27 (min)</td></tr>
+    <tr><td>(4,−4), (−4,4)</td><td>32</td><td>√32 ≈ 5.66 (max)</td></tr></table>
+    <p><strong>Shortest</strong> = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">4√(2/3)</strong>. <strong>Longest</strong> = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">4√2</strong>.</p>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.7 — Lagrange in Three Variables</div>
+    <p><strong>Problem:</strong> Maximize \(f = xy^2z^3\) subject to \(x+y+z = 12\) with x,y,z > 0.</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Setup:</strong> g = x+y+z−12 = 0. Lagrangian: ℓ = xy²z³ − λ(x+y+z−12).</p>
+    <p>ℓ_x = y²z³ − λ = 0, ℓ_y = 2xyz³ − λ = 0, ℓ_z = 3xy²z² − λ = 0.</p>
+    <p>Setting all three equal to λ: y²z³ = 2xyz³ = 3xy²z².</p>
+    <p>From first pair: y = 2x. From first and third: z = 3x.</p>
+    <p>Constraint: x + 2x + 3x = 12 → x = 2, y = 4, z = 6.</p>
+    <p>Max = 2·16·216 = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">6912</strong> at (2, 4, 6).</p>
+    <p><em>Pattern:</em> Exponents (1, 2, 3) split the sum proportionally: x gets 1/6, y gets 2/6, z gets 3/6 of 12.</p>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.8 — Interior + Lagrange Boundary</div>
+    <p><strong>Problem:</strong> Find the absolute max/min of \(f = 3x^2+2y^2-2x-1\) on the disk \(x^2+y^2 \le 9\).</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Interior:</strong> f_x = 6x−2 = 0 → x = 1/3. f_y = 4y = 0 → y = 0. Check: (1/3)²+0² = 1/9 &lt; 9 ✓. Value: f(1/3,0) = 1/3−2/3−1 = −4/3.</p>
+    <p><strong>Boundary (Lagrange):</strong> g = x²+y²−9 = 0. ℓ = f − λg.</p>
+    <p>ℓ_x = 6x−2−2λx = 0 → x(3−λ) = 1 [1]</p>
+    <p>ℓ_y = 4y−2λy = 0 → y(2−λ) = 0 [2]</p>
+    <p><strong>Case y = 0:</strong> x² = 9 → x = ±3. f(3,0) = 20, f(−3,0) = 32.</p>
+    <p><strong>Case λ = 2:</strong> From [1]: x = 1. From [3]: y² = 8 → y = ±√8. f(1,±√8) = 3+16−2−1 = 16.</p>
+    <table class="ptbl" style="font-size:13px"><tr><th>Point</th><th>f</th></tr>
+    <tr><td>(1/3, 0)</td><td>−4/3</td></tr><tr><td>(3, 0)</td><td>20</td></tr><tr><td>(−3, 0)</td><td>32</td></tr><tr><td>(1, ±√8)</td><td>16</td></tr></table>
+    <p>Abs min = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">−4/3 at (1/3, 0)</strong>. Abs max = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">32 at (−3, 0)</strong>.</p>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-name" style="color:var(--example)">Example 7.9 — Substitution Method (Compare with Lagrange)</div>
+    <p><strong>Problem:</strong> Maximize xy²z³ with x+y+z = 12 and x,y,z > 0 using <strong>substitution</strong> instead of Lagrange.</p>
+    <details><summary style="color:var(--example);cursor:pointer">Show full solution</summary>
+    <p><strong>Substitute x = 12−y−z</strong> → g(y,z) = (12−y−z)y²z³.</p>
+    <p>g_y = yz³(24−3y−2z) = 0. Since y,z > 0: 24−3y−2z = 0.</p>
+    <p>g_z = y²z²(36−3y−4z) = 0. Since y,z > 0: 36−3y−4z = 0.</p>
+    <p>Subtract first from second: 12−2z = 0 → z = 6, y = 4, x = 2.</p>
+    <p>Second derivative test at (4,6): D = f_yy·f_zz − f_yz² = 2985984 > 0 and g_yy = −2592 &lt; 0 → local max.</p>
+    <p>Max value = <strong style="border:2px solid var(--example);padding:2px 8px;border-radius:4px">6912</strong>. Same answer as Lagrange (Ex 7.7)!</p>
+    </details></div>
+
+    <div class="tip-card card-bracket"><div class="tip-label" style="color:var(--tip)">★ Substitution vs. Lagrange — When to Use Which</div>
+    <p><strong>Substitution</strong> is simplest when the constraint is linear (easy to isolate one variable). <strong>Lagrange</strong> is symmetric and cleaner for nonlinear constraints (circles, ellipses, spheres). Both give the same answer — choose based on which creates less algebraic mess.</p>
+    </div>
   </div>
