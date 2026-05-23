@@ -430,3 +430,13 @@ MATH2004-2008/
 - **Shell-head updated** — --ch7-title set to #B91C1C (bright red), pending removed from Ch7 sidebar links
 - **Built MATH2004-notes.html** — 472KB, 22/22 fragments assembled
 - Files changed: shell-head.html, ch7-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
+
+### Session 9 (continued) — Fixes & Polish
+- **Fig 7.1 (3-panel CP types) completely redrawn**: stripped to essentials — one clean curve per panel (U for min, arch for max, crossing curves for saddle). No contour ellipses, no overlapping arrows. Condition badges at bottom.
+- **Saddle point explanation rewritten**: mountain pass analogy first ("stand at a pass — valley one way, hilltop the other, so neither max nor min"), then math. Simple → complex.
+- **Fig 7.3 (rectangle) fixed**: edge labels moved outside rectangle, boundary CP separated from corner dots, legend added.
+- **Fig 7.4 (Lagrange) fixed**: ∇g and ∇f arrows vertically offset (start from above/below P), no overlap. ∥ symbol between them. Labels in clear open space past arrowheads.
+- **Critical point strategy expanded**: single paragraph → 6 numbered steps (compute partials → set to zero → factor → case analysis → list all CPs → classify).
+- **Lagrange explanation expanded**: hiking analogy, "kissing curves" intuition, step-by-step method card with explicit equations.
+- **Formula sheet: numbering + lookup bar**: all 48 cards auto-numbered with #N badges. Search bar at top — type name, chapter, or #number to instant-scroll to any equation.
+- Files changed: ch7-notes.html, formulas.html, MATH2004-notes.html
