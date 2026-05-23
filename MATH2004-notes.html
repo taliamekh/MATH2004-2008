@@ -67,7 +67,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 .ex-card strong{color:var(--example);}
 .drv-card strong{color:var(--deriv);}
 .eq-card strong{color:var(--eq);}
-:root{--ch1-title:#03346E;--ch2-title:#255F38;--ch3-title:var(--muted);--ch4-title:var(--muted);--ch5-title:var(--muted);--ch6-title:var(--muted);--ch7-title:var(--muted);}
+:root{--ch1-title:#03346E;--ch2-title:#255F38;--ch3-title:#D35400;--ch4-title:var(--muted);--ch5-title:var(--muted);--ch6-title:var(--muted);--ch7-title:var(--muted);}
 .ex-card{--bracket-c:var(--example);background:rgba(196,136,62,.03);}
 .ex-card .ex-label{font-size:14px;font-weight:700;color:var(--example);margin-bottom:3px;}
 .ptbl{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;}
@@ -193,8 +193,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <a onclick="showPage('ch1prob')" class="sub-link" data-page="ch1prob">Problems</a>
     <a onclick="showPage('ch2')" class="pending" data-page="ch2">Ch 2 – Lines & Curves</a>
     <a onclick="showPage('ch2prob')" class="sub-link pending" data-page="ch2prob">Problems</a>
-    <a onclick="showPage('ch3')" class="pending" data-page="ch3">Ch 3 – Vector Cal.</a>
-    <a onclick="showPage('ch3prob')" class="sub-link pending" data-page="ch3prob">Problems</a>
+    <a onclick="showPage('ch3')" data-page="ch3">Ch 3 – Vector Cal.</a>
+    <a onclick="showPage('ch3prob')" class="sub-link" data-page="ch3prob">Problems</a>
     <a onclick="showPage('ch7')" class="pending" data-page="ch7">Ch 7 – Max/Min</a>
     <a onclick="showPage('ch7prob')" class="sub-link pending" data-page="ch7prob">Problems</a>
     <a onclick="showPage('ch4')" class="pending" data-page="ch4">Ch 4 – Line Int.</a>
@@ -1267,29 +1267,351 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
   <!-- ═══ ch3-notes.html ═══ -->
   <div class="page" id="ch3">
-    <div class="page-title" style="color:var(--ch3-title)">Chapter 3</div><h1 style="color:var(--ch3-title)">Partial Derivatives & Vector Fields</h1>
-    <p class="page-intro">Limits and continuity of multivariable functions, partial derivatives, gradients, chain rule, implicit differentiation, tangent planes, and conservative vector fields.</p>
+    <div class="page-title" style="color:var(--ch3-title)">Chapter 3</div><h1 style="color:var(--ch3-title)">Partial Derivatives &amp; Vector Fields</h1>
+    <p class="page-intro">We extend calculus to functions of several variables: limits, continuity, partial derivatives, directional derivatives, the gradient, the multivariable chain rule, tangent planes, and the trio of vector field operators — gradient, curl, and divergence.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.1 — Limits and Continuity</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
 
-    <div class="def-card card-bracket"><div class="def-name">Week 4 — Limits & Partial Derivatives</div>
-    <p><strong>§3.1–3.2:</strong> Limits, Continuity of functions of several variables</p>
-    <p><strong>§3.3:</strong> Partial Derivatives — definition, computation, higher-order partials</p>
+    <p>In single-variable calculus, a function \(y=f(x)\) takes one input and produces one output. Now we work with functions of <strong>two</strong> (or more) variables: \(z = f(x,y)\). The graph of such a function is a <strong>surface</strong> in \(\mathbb{R}^3\). Just as we studied limits of \(f(x)\) as \(x \to x_0\), we now study limits of \(f(x,y)\) as the point \((x,y)\) approaches a target point \((x_0,y_0)\) — but here the approach can come from <strong>infinitely many directions</strong>, not just left and right.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Limit of a Function of Two Variables</div>
+    <p>We write</p>
+    <div style="overflow-x:auto;overflow-y:hidden;"><p>\[\lim_{(x,y)\to(x_0,y_0)} f(x,y) = L\]</p></div>
+    <p>if for every \(\varepsilon > 0\) there exists a \(\delta > 0\) such that whenever \(\sqrt{(x-x_0)^2+(y-y_0)^2} < \delta\), we have \(|f(x,y)-L| < \varepsilon\).</p>
+    <p>In words: <strong>no matter how tight a tolerance we demand on the output</strong> (\(\varepsilon\)), we can find a small enough disk around \((x_0,y_0)\) (\(\delta\)) so that every point inside that disk maps to within \(\varepsilon\) of \(L\).</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 5 — Differentiation & Vector Fields</div>
-    <p><strong>§3.5, 3.5.1:</strong> Directional derivatives; Gradients</p>
-    <p><strong>§3.6:</strong> The Chain Rule for multivariable functions</p>
-    <p><strong>§3.6.2:</strong> Implicit differentiation</p>
-    <p><strong>§3.6.3:</strong> Tangent planes and normal lines</p>
-    <p><strong>§3.7:</strong> Conservative vector fields, Divergence, and Curl</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Key Difference from Single-Variable</div>
+    <p>In one dimension, \(x \to x_0\) means approaching from the <strong>left or right</strong> (two directions). In two dimensions, \((x,y) \to (x_0,y_0)\) means approaching along <strong>any path whatsoever</strong> — straight lines, parabolas, spirals, or any curve. If even one path gives a different limit, the limit does not exist.</p>
     </div>
 
-    <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
-    <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
+    <p><strong>Proving a limit exists</strong> typically requires an \(\varepsilon\)-\(\delta\) argument or algebraic bounding. <strong>Proving a limit does NOT exist</strong> is often easier: find two paths to the same point that give different limiting values.</p>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.1 — Proving a Limit Exists (ε-δ)</div>
+    <p><strong>Problem:</strong> Prove that \(\displaystyle\lim_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} = 0.\)</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Thought process:</strong> Plugging in gives 0/0 — indeterminate. We guess \(L = 0\) since the numerator has degree 4 while the denominator has degree 2, so the fraction should shrink to 0. We need an ε-δ proof.</p>
+    <p><strong>Setup:</strong> We must show: for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that if \(\sqrt{x^2+y^2} < \delta\), then \(\left|\frac{x^2y^2}{x^2+y^2}\right| < \varepsilon\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Since \(|x| \le \sqrt{x^2+y^2} < \delta\) and \(|y| \le \sqrt{x^2+y^2} < \delta\), multiplying gives \(|x||y| \le \delta^2\).</p>
+    <p>Also, \((|x|-|y|)^2 \ge 0\) implies \(x^2+y^2 \ge 2|x||y|\), so \(\frac{1}{x^2+y^2} \le \frac{1}{2|x||y|}\).</p>
+    <p>Therefore: \[\frac{x^2y^2}{x^2+y^2} \le \frac{|x|^2|y|^2}{2|x||y|} = \frac{|x||y|}{2} < \frac{\delta^2}{2}.\]</p>
+    <p>Choose \(\delta = \sqrt{2\varepsilon}\). Then \(\delta^2/2 = \varepsilon\), so the expression is less than \(\varepsilon\). ∎</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\lim_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} = 0}\]</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>When bounding, use \(|x| \le \sqrt{x^2+y^2}\) and \(|y| \le \sqrt{x^2+y^2}\) freely. The key trick is expressing everything in terms of \(\delta = \sqrt{x^2+y^2}\).</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.2 — Proving a Limit Does Not Exist (Two-Path Test)</div>
+    <p><strong>Problem:</strong> Prove that \(\displaystyle\lim_{(x,y)\to(0,0)} \frac{xy}{x^2+y^2}\) does not exist.</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Thought process:</strong> Try two different paths to \((0,0)\). If they give different limits, the overall limit cannot exist.</p>
+    <p><strong>Path 1 — along \(y = 0\):</strong> \(\frac{x \cdot 0}{x^2+0} = 0\). Limit = <strong>0</strong>.</p>
+    <p><strong>Path 2 — along \(y = x\):</strong> \(\frac{x \cdot x}{x^2+x^2} = \frac{x^2}{2x^2} = \frac{1}{2}\). Limit = <strong>1/2</strong>.</p>
+    <p>Since \(0 \neq 1/2\), the two paths give different limits.</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\text{The limit does not exist (DNE).}}\]</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>Popular test paths: \(y=0\), \(x=0\), \(y=x\), \(y=mx\), \(y=x^2\). If \(y=mx\) gives a limit that depends on \(m\), the limit doesn't exist. You can also try polar: \(x=r\cos\theta, y=r\sin\theta\) — if the limit as \(r\to 0\) depends on \(\theta\), it DNE.</p></div>
+    </details></div>
+
+    <div class="def-card card-bracket"><div class="def-name">Continuity of f(x,y) at a Point</div>
+    <p>A function \(f\) is <strong>continuous at \((x_0,y_0)\)</strong> if:</p>
+    <p>1. \(f(x_0,y_0)\) is defined (a finite real number), and</p>
+    <p>2. \(\displaystyle\lim_{(x,y)\to(x_0,y_0)} f(x,y) = f(x_0,y_0)\).</p>
+    <p>Geometrically: the surface \(z=f(x,y)\) has <strong>no break, hole, or jump</strong> at that point.</p>
     </div>
 
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 3 lecture notes or textbook pages to populate full notes.</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Key Fact — Continuous Functions</div>
+    <p>All polynomials in \(x\) and \(y\) (like \(x^2y + y^2 - 3xy + 6\)) are continuous everywhere. Rational functions (ratio of polynomials) are continuous wherever the denominator is nonzero. Compositions with \(\sin, \cos, e^x, \ln\) remain continuous on their domains.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.3 — Proving Continuity</div>
+    <p><strong>Problem:</strong> Show that \(f(x,y) = \sin(xy)\) is continuous at \((0,0)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Step 1:</strong> \(f(0,0) = \sin(0) = 0\). ✓ Defined.</p>
+    <p><strong>Step 2:</strong> Show \(\lim \sin(xy) = 0\). Use \(|\sin r| \le |r|\): \(|f(x,y)| = |\sin(xy)| \le |xy| \le |x||y| < \delta^2\).</p>
+    <p>Choose \(\delta = \sqrt{\varepsilon}\). Then \(|f(x,y)| < \varepsilon\). ∎</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{f(x,y) = \sin(xy) \text{ is continuous at } (0,0).}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.4 — Function That Cannot Be Made Continuous</div>
+    <p><strong>Problem:</strong> Let \(f(x,y) = \begin{cases} \frac{y^2}{x^2+y^2} & (x,y)\neq(0,0) \\ c & (x,y)=(0,0) \end{cases}\). Show \(f\) is not continuous at \((0,0)\) for any \(c\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Path 1 — \(y=0\):</strong> \(f(x,0) = 0\). Limit = 0, forces \(c = 0\).</p>
+    <p><strong>Path 2 — \(x=0\):</strong> \(f(0,y) = y^2/y^2 = 1\). Limit = 1, forces \(c = 1\).</p>
+    <p>Contradiction: \(c\) can't be both 0 and 1.</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{f \text{ cannot be made continuous at } (0,0) \text{ for any } c.}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.2 — Partial Derivatives</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>When a function depends on several variables, we can ask: how does the output change when we wiggle <strong>just one</strong> input, holding all others fixed? This is a <strong>partial derivative</strong>.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Partial Derivative Definitions</div>
+    <div class="eq-formula">\[\frac{\partial f}{\partial x}(x_0,y_0) = \lim_{h\to 0} \frac{f(x_0+h,\,y_0) - f(x_0,y_0)}{h}, \qquad \frac{\partial f}{\partial y}(x_0,y_0) = \lim_{h\to 0} \frac{f(x_0,\,y_0+h) - f(x_0,y_0)}{h}\]</div>
+    <div class="pills"><span class="pill">\(\partial f/\partial x\) — hold \(y\) constant, differentiate w.r.t. \(x\)</span> <span class="pill">\(\partial f/\partial y\) — hold \(x\) constant, differentiate w.r.t. \(y\)</span></div>
+    </div>
+
+    <p><strong>Geometric meaning:</strong> \(f_x(x_0,y_0)\) is the slope of the curve formed by slicing the surface \(z = f(x,y)\) with the plane \(y = y_0\). Similarly, \(f_y\) is the slope of the slice by the plane \(x = x_0\). Each partial derivative gives the rate of change along one coordinate axis.</p>
+
+    <p><strong>Notation:</strong> All equivalent: \(\frac{\partial f}{\partial x},\ f_x,\ f_{(1)},\ D_xf\).</p>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ NOT Implicit Differentiation</div>
+    <p>Partial differentiation treats \(x\) and \(y\) as <strong>independent</strong> variables. Implicit differentiation (§3.6.2) assumes one variable depends on the others. Don't confuse them.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.5 — Computing Partial Derivatives</div>
+    <p><strong>Problem:</strong> Let \(z = x^2 + 3xy + y^2\). Find \(\partial z/\partial x\) and \(\partial z/\partial y\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>For \(\partial z/\partial x\)</strong> — treat \(y\) as a constant:</p>
+    <p>\[\frac{\partial z}{\partial x} = \frac{\partial}{\partial x}(x^2) + \frac{\partial}{\partial x}(3xy) + \frac{\partial}{\partial x}(y^2) = 2x + 3y + 0 = 2x + 3y\]</p>
+    <p>(\(y^2\) is a constant → derivative is 0. In \(3xy\), the factor \(3y\) is a constant coefficient.)</p>
+    <p><strong>For \(\partial z/\partial y\)</strong> — treat \(x\) as a constant:</p>
+    <p>\[\frac{\partial z}{\partial y} = 0 + 3x + 2y = 3x + 2y\]</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\frac{\partial z}{\partial x} = 2x+3y, \qquad \frac{\partial z}{\partial y} = 3x+2y}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.6 — Three-Variable Partial Derivatives</div>
+    <p><strong>Problem:</strong> Let \(f(x,y,z) = \ln(x+y^2+z^3)\). Find \(f_x, f_y, f_z\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>Chain rule with outer \(\ln u\), inner \(u = x+y^2+z^3\):</p>
+    <p>\[f_x = \frac{1}{x+y^2+z^3}, \quad f_y = \frac{2y}{x+y^2+z^3}, \quad f_z = \frac{3z^2}{x+y^2+z^3}\]</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{f_x = \frac{1}{x+y^2+z^3},\quad f_y = \frac{2y}{x+y^2+z^3},\quad f_z = \frac{3z^2}{x+y^2+z^3}}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.3 — Higher-Order Partial Derivatives</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>Just as in single-variable calculus, we can differentiate partial derivatives again. The four second-order partials of \(f(x,y)\) are: \(f_{xx}\), \(f_{xy}\), \(f_{yx}\), and \(f_{yy}\).</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Clairaut's Theorem (Young's Theorem)</div>
+    <div class="eq-formula">\[f_{xy} = f_{yx}\]</div>
+    <div class="pills"><span class="pill">\(f_{xy}\) — differentiate w.r.t. \(x\) first, then \(y\)</span> <span class="pill">\(f_{yx}\) — differentiate w.r.t. \(y\) first, then \(x\)</span></div>
+    <p>If \(f\) and all its partial derivatives up to order 2 are continuous, then <strong>mixed partials are equal</strong> — the order of differentiation doesn't matter. This extends to higher orders.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.7 — Second-Order Partials and Clairaut's Theorem</div>
+    <p><strong>Problem:</strong> Let \(z = 2x^2 - 5xy + y^2\). Find all four second-order partials. Verify \(z_{xy}=z_{yx}\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>First partials:</strong> \(z_x = 4x - 5y\), \(\;z_y = -5x + 2y\).</p>
+    <p><strong>Second partials:</strong></p>
+    <p>\(z_{xx} = \frac{\partial}{\partial x}(4x-5y) = 4\)</p>
+    <p>\(z_{xy} = \frac{\partial}{\partial y}(4x-5y) = -5\)</p>
+    <p>\(z_{yx} = \frac{\partial}{\partial x}(-5x+2y) = -5\)</p>
+    <p>\(z_{yy} = \frac{\partial}{\partial y}(-5x+2y) = 2\)</p>
+    <p>✓ \(z_{xy} = z_{yx} = -5\) — Clairaut's theorem confirmed.</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{z_{xx}=4,\quad z_{xy}=z_{yx}=-5,\quad z_{yy}=2}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.5 — Directional Derivatives and Gradients</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>Partial derivatives measure rates of change along the coordinate axes. But what about <strong>any other direction</strong>? The directional derivative answers this, and the <strong>gradient</strong> ties it all together.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">The Gradient</div>
+    <p>The <strong>gradient</strong> of \(f\) at a point \(P\), written \(\nabla f(P)\), is the vector of all partial derivatives:</p>
+    <div style="overflow-x:auto;overflow-y:hidden;"><p>\[\nabla f = \left(\frac{\partial f}{\partial x},\;\frac{\partial f}{\partial y}\right) \quad\text{(2D)}, \qquad \nabla f = \left(\frac{\partial f}{\partial x},\;\frac{\partial f}{\partial y},\;\frac{\partial f}{\partial z}\right) \quad\text{(3D)}\]</p></div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Directional Derivative via the Gradient</div>
+    <div class="eq-formula">\[D_{\mathbf{u}}f(P) = \nabla f(P) \cdot \mathbf{u} = |\nabla f(P)|\,|\mathbf{u}|\cos\theta\]</div>
+    <div class="pills"><span class="pill">\(D_{\mathbf{u}}f\) — rate of change in direction \(\mathbf{u}\)</span> <span class="pill">\(\nabla f\) — gradient vector</span> <span class="pill">\(\theta\) — angle between \(\nabla f\) and \(\mathbf{u}\)</span></div>
+    <p>When \(\mathbf{u}\) is a unit vector, this is the <strong>directional derivative</strong>: the instantaneous rate of change per unit distance in that direction. Setting \(\mathbf{u} = \mathbf{i}\) recovers \(f_x\); setting \(\mathbf{u} = \mathbf{j}\) recovers \(f_y\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Direction of Steepest Ascent &amp; Descent</div>
+    <div class="eq-formula">\[\max D_{\mathbf{u}}f = |\nabla f| \;\;\text{when } \mathbf{u} = \frac{\nabla f}{|\nabla f|}, \qquad \min D_{\mathbf{u}}f = -|\nabla f| \;\;\text{when } \mathbf{u} = -\frac{\nabla f}{|\nabla f|}\]</div>
+    <div class="pills"><span class="pill">\(|\nabla f|\) — maximum rate of increase</span> <span class="pill">\(\nabla f/|\nabla f|\) — direction of steepest ascent</span></div>
+    <p>\(f\) increases fastest in the gradient direction. It decreases fastest opposite to the gradient. Perpendicular to the gradient (\(\cos\theta = 0\)), \(D_{\mathbf{u}}f = 0\) — you're on a <strong>level curve</strong>.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Gradient Perpendicular to Level Curves</div>
+    <p>The gradient \(\nabla f\) at any point is <strong>perpendicular to the level curve</strong> \(f(x,y) = c\) through that point, and points toward increasing \(f\). This is why hikers going straight uphill are walking in the gradient direction, and contour lines on a map are perpendicular to the steepest slope.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.8 — Maximum Directional Derivative</div>
+    <p><strong>Problem:</strong> Let \(f(x,y) = e^x\cos y\), \(P(2, -\pi/4)\). Find the unit vector giving the maximum \(D_{\mathbf{u}}f\) and its value.</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Gradient:</strong> \(\nabla f = (e^x\cos y,\;-e^x\sin y)\). At \(P\): \(\nabla f = \left(\frac{e^2}{\sqrt{2}},\;\frac{e^2}{\sqrt{2}}\right)\).</p>
+    <p>\(|\nabla f| = \sqrt{\frac{e^4}{2}+\frac{e^4}{2}} = e^2\). Direction: \(\mathbf{u} = \frac{\nabla f}{|\nabla f|} = \left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\mathbf{u} = \left(\tfrac{1}{\sqrt{2}},\tfrac{1}{\sqrt{2}}\right), \quad \max D_{\mathbf{u}}f = e^2}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.9 — Directional Derivative in a Given Direction</div>
+    <p><strong>Problem:</strong> Let \(f(x,y) = x^2-y^2\), \(P(2,-1)\), \(\mathbf{u} = \mathbf{i}-\mathbf{j}\). Find \(D_{\mathbf{u}}f(P)\) and the directional derivative at \(P\) in the same direction.</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Gradient:</strong> \(\nabla f = (2x, -2y)\). At \(P(2,-1)\): \(\nabla f = (4, 2)\).</p>
+    <p><strong>Derivative w.r.t. \(\mathbf{u}\):</strong> \(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u} = (4,2)\cdot(1,-1) = 4 - 2 = 2\).</p>
+    <p><strong>Directional derivative</strong> (requires unit vector): \(\mathbf{v} = \frac{\mathbf{u}}{|\mathbf{u}|} = \frac{(1,-1)}{\sqrt{2}}\).</p>
+    <p>\(D_{\mathbf{v}}f = \nabla f \cdot \mathbf{v} = (4,2)\cdot\frac{(1,-1)}{\sqrt{2}} = \frac{2}{\sqrt{2}} = \sqrt{2}\).</p>
+    <p>Check: \(D_{\mathbf{u}}f = |\mathbf{u}|\cdot D_{\mathbf{v}}f = \sqrt{2}\cdot\sqrt{2} = 2\). ✓</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{D_{\mathbf{u}}f(P) = 2, \qquad D_{\mathbf{v}}f(P) = \sqrt{2}}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.6 — The Chain Rule in ℝ² and ℝ³</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>When the input variables of \(f\) are themselves functions of other parameters, we chain the derivatives. The multivariable chain rule generalizes \(\frac{d}{dt}f(r(t)) = f'(r(t))\,r'(t)\) to higher dimensions.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Chain Rule — One Parameter</div>
+    <div class="eq-formula">\[\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}\]</div>
+    <div class="pills"><span class="pill">\(z = f(x,y)\) where \(x = x(t),\;y = y(t)\)</span> <span class="pill">\(dz/dt\) — total derivative w.r.t. \(t\)</span></div>
+    <p>For three variables: add \(\frac{\partial z}{\partial w}\frac{dw}{dt}\). The pattern: <strong>sum over all intermediate variables</strong>.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Chain Rule — Two Parameters</div>
+    <div class="eq-formula">\[\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}, \qquad \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}\]</div>
+    <div class="pills"><span class="pill">\(x = x(s,t),\;y = y(s,t)\) — depend on two parameters</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tree Diagram Mnemonic</div>
+    <p>Draw a tree: \(z\) at the top branches to \(x\) and \(y\); each branches to \(s,t\). Each path from \(z\) to a bottom variable gives one term (multiply partials along the path). Add all paths to the same bottom variable.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.10 — Related Rates via Chain Rule</div>
+    <p><strong>Problem:</strong> A cylinder has radius 6″ (increasing at 0.2 in/s) and height 8″ (decreasing at 0.4 in/s). Find \(dV/dt\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(V = \pi r^2 h\). \(\frac{dV}{dt} = 2\pi rh\frac{dr}{dt} + \pi r^2\frac{dh}{dt} = 2\pi(6)(8)(0.2) + \pi(36)(-0.4) = 19.2\pi - 14.4\pi\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\frac{dV}{dt} = 4.8\pi \approx 15.08\;\text{in}^3/\text{s}}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.6.2 — Implicit Differentiation</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>When a surface is defined implicitly by \(f(x,y,z) = 0\), we can find \(\partial z/\partial x\) and \(\partial z/\partial y\) without solving for \(z\) explicitly.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Implicit Partial Derivatives</div>
+    <div class="eq-formula">\[\frac{\partial z}{\partial x} = -\frac{f_x}{f_z}, \qquad \frac{\partial z}{\partial y} = -\frac{f_y}{f_z}\]</div>
+    <div class="pills"><span class="pill">\(f(x,y,z) = 0\) — implicit equation</span> <span class="pill">\(f_z \neq 0\) required</span></div>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.11 — Implicit Differentiation</div>
+    <p><strong>Problem:</strong> Let \(x^2 + y^2 + z^2 + 2xyz - 10 = 0\). Find \(\partial z/\partial x\) at \(P(1,1,2)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>Set \(f = x^2+y^2+z^2+2xyz-10\). Then \(f_x = 2x+2yz = 6\), \(f_z = 2z+2xy = 6\) at \(P\).</p>
+    <p>\(\partial z/\partial x = -f_x/f_z = -6/6 = -1\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\frac{\partial z}{\partial x}\bigg|_P = -1}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.6.3 — Tangent Planes and Normal Lines</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>In single-variable calculus, the tangent line approximates a curve. In multivariable calculus, the <strong>tangent plane</strong> approximates a surface. The gradient provides the <strong>normal direction</strong>.</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Tangent Plane to f(x,y,z) = 0</div>
+    <div class="eq-formula">\[f_x(P)(x-x_0) + f_y(P)(y-y_0) + f_z(P)(z-z_0) = 0\]</div>
+    <div class="pills"><span class="pill">\(P = (x_0,y_0,z_0)\) — point on surface</span> <span class="pill">\(\nabla f(P)\) — normal to the plane</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Special Case: z = g(x,y)</div>
+    <p>Rewrite as \(g(x,y) - z = 0\). Then \(f_z = -1\) and the tangent plane becomes:</p>
+    <p>\[z - z_0 = g_x(P)(x-x_0) + g_y(P)(y-y_0)\]</p>
+    <p>This is the multivariable analog of the tangent line formula \(y-y_0 = f'(x_0)(x-x_0)\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Normal Line to a Surface</div>
+    <div class="eq-formula">\[\mathbf{r}(t) = P + t\,\nabla f(P) = (x_0+f_x t,\;\;y_0+f_y t,\;\;z_0+f_z t)\]</div>
+    <div class="pills"><span class="pill">Direction = \(\nabla f(P)\)</span> <span class="pill">Passes through \(P\), perpendicular to tangent plane</span></div>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.12 — Tangent Plane and Normal Line</div>
+    <p><strong>Problem:</strong> Find the tangent plane and normal line to \(x^2+y^2+z^2 = 9\) at \(P(1,2,2)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(f = x^2+y^2+z^2-9\). \(\nabla f = (2x,2y,2z)\). At \(P\): \(\nabla f = (2,4,4)\).</p>
+    <p><strong>Tangent plane:</strong> \(2(x-1)+4(y-2)+4(z-2)=0 \implies x+2y+2z=9\).</p>
+    <p><strong>Normal line:</strong> \(\mathbf{r}(t)=(1+2t,\;2+4t,\;2+4t)\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\text{Plane: } x+2y+2z=9 \qquad \text{Normal: } \mathbf{r}(t) = (1+2t,\,2+4t,\,2+4t)}\]</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>For a sphere centered at the origin, the normal line at any surface point always passes through \((0,0,0)\). Quick check: set \(t=-1/2\) to get \((0,0,0)\). ✓</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.13 — Tangent Plane to z = g(x,y)</div>
+    <p><strong>Problem:</strong> Find the tangent plane to \(z = x^2 + 2y^2\) at \((1,1,3)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(g_x = 2x = 2\), \(g_y = 4y = 4\) at \((1,1)\). Tangent plane: \(z - 3 = 2(x-1)+4(y-1)\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{z = 2x + 4y - 3}\]</div>
+    </details></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>§3.7 — Conservative Fields, Curl, and Divergence</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <p>A <strong>vector field</strong> assigns a vector to every point in space: \(\mathbf{F}(x,y,z) = P\,\mathbf{i} + Q\,\mathbf{j} + R\,\mathbf{k}\). Examples include gravitational fields, electric fields, and fluid velocity fields.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Conservative Vector Field</div>
+    <p>A vector field \(\mathbf{F}\) is <strong>conservative</strong> if there exists a scalar field \(f\) (called the <strong>potential function</strong>) such that \(\mathbf{F} = \nabla f\). Think of it as the multivariable analog of finding an antiderivative.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Curl of a Vector Field</div>
+    <div class="eq-formula">\[\text{curl}\;\mathbf{F} = \nabla \times \mathbf{F} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial_x & \partial_y & \partial_z \\ P & Q & R \end{vmatrix}\]</div>
+    <div class="pills"><span class="pill">\(\nabla \times \mathbf{F}\) — curl (outputs a vector)</span> <span class="pill">Measures <strong>rotation</strong> at a point</span></div>
+    <p>Expanding: \(\text{curl}\;\mathbf{F} = (R_y-Q_z)\,\mathbf{i} - (R_x-P_z)\,\mathbf{j} + (Q_x-P_y)\,\mathbf{k}\).</p>
+    <p>In 2D (\(\mathbf{F} = P\,\mathbf{i}+Q\,\mathbf{j}\)): \(\text{curl}\;\mathbf{F} = (Q_x - P_y)\,\mathbf{k}\).</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Conservative Field Test</div>
+    <div class="eq-formula">\[\mathbf{F} \text{ is conservative} \;\Longleftrightarrow\; \text{curl}\;\mathbf{F} = \mathbf{0}\]</div>
+    <div class="pills"><span class="pill">In 2D: \(Q_x = P_y\)</span> <span class="pill">In 3D: \(R_y = Q_z\), \(P_z = R_x\), \(Q_x = P_y\)</span></div>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Divergence of a Vector Field</div>
+    <div class="eq-formula">\[\text{div}\;\mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\]</div>
+    <div class="pills"><span class="pill">\(\nabla \cdot \mathbf{F}\) — divergence (outputs a scalar)</span> <span class="pill">\(>0\): source, \(<0\): sink, \(=0\): incompressible</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Key Identities</div>
+    <p>1. \(\nabla \times (\nabla f) = \mathbf{0}\) — curl of a gradient is always zero (conservative ⟹ irrotational).</p>
+    <p>2. \(\nabla \cdot (\nabla \times \mathbf{F}) = 0\) — divergence of a curl is always zero.</p>
+    <p>Both follow from Clairaut's theorem: mixed partials are equal.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.14 — Conservative Field Test (2D)</div>
+    <p><strong>Problem:</strong> Is \(\mathbf{F} = (x^2+y^2)\,\mathbf{i} + 2xy\,\mathbf{j}\) conservative?</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(P = x^2+y^2\), \(Q = 2xy\). Check: \(Q_x = 2y\), \(P_y = 2y\). Equal ✓.</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\text{Yes — } Q_x = P_y = 2y, \text{ so } \mathbf{F} \text{ is conservative.}}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.15 — Finding a Potential Function</div>
+    <p><strong>Problem:</strong> Find \(f\) such that \(\nabla f = (4x^3y^4+2x)\,\mathbf{i} + (4y^3x^4+2y)\,\mathbf{j}\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p><strong>Step 1:</strong> Integrate \(f_x = 4x^3y^4+2x\) w.r.t. \(x\): \(f = x^4y^4 + x^2 + g(y)\).</p>
+    <p><strong>Step 2:</strong> Differentiate w.r.t. \(y\): \(f_y = 4x^4y^3 + g'(y)\). Set equal to \(Q = 4y^3x^4+2y\): \(g'(y) = 2y\), so \(g(y) = y^2+C\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{f(x,y) = x^4y^4 + x^2 + y^2 + C}\]</div>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Tip</div><p>Always verify: \(\nabla f = (4x^3y^4+2x,\;4x^4y^3+2y) = \mathbf{F}\). ✓ If starting with \(f_x\) leads to messy integrals, try starting with \(f_y\) instead.</p></div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.16 — Conservative Field Test (3D)</div>
+    <p><strong>Problem:</strong> Show \(\mathbf{F} = 4xy^2z\,\mathbf{i} + 4x^2yz\,\mathbf{j} + 2x^2y^2\,\mathbf{k}\) is conservative.</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(P = 4xy^2z\), \(Q = 4x^2yz\), \(R = 2x^2y^2\).</p>
+    <p>\(Q_x = 8xyz = P_y\) ✓. \(R_x = 4xy^2 = P_z\) ✓. \(R_y = 4x^2y = Q_z\) ✓.</p>
+    <p>All three conditions met: curl \(\mathbf{F} = \mathbf{0}\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\text{curl } \mathbf{F} = \mathbf{0} \implies \mathbf{F} \text{ is conservative.}}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.17 — Computing Divergence</div>
+    <p><strong>Problem:</strong> Find \(\text{div}\;\mathbf{F}\) for \(\mathbf{F} = \sin x\,\mathbf{i} + x\cos y\,\mathbf{j} + \sin z\,\mathbf{k}\) at \(P(\pi/2, 0, \pi)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(\text{div}\;\mathbf{F} = \cos x - x\sin y + \cos z\). At \(P\): \(0 - 0 + (-1) = -1\).</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\text{div}\;\mathbf{F}(P) = -1 \;\text{(sink)}}\]</div>
+    </details></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 3.18 — Proving div(curl F) = 0</div>
+    <p><strong>Problem:</strong> Show \(\nabla \cdot (\nabla \times \mathbf{F}) = 0\) for any twice-differentiable \(\mathbf{F} = (P,Q,R)\).</p>
+    <details class="solution"><summary class="coll">Show Solution ▾</summary>
+    <p>\(\nabla \times \mathbf{F} = (R_y-Q_z,\;P_z-R_x,\;Q_x-P_y)\).</p>
+    <p>\(\nabla \cdot (\nabla \times \mathbf{F}) = R_{yx}-Q_{zx}+P_{zy}-R_{xy}+Q_{xz}-P_{yz}\).</p>
+    <p>By Clairaut's theorem: \(R_{yx}=R_{xy}\), \(Q_{zx}=Q_{xz}\), \(P_{zy}=P_{yz}\). Each pair cancels.</p>
+    <div class="answer-box" style="border:2px solid var(--example);border-radius:6px;padding:8px 12px;margin:8px 0;background:rgba(196,136,62,.05);">\[\boxed{\nabla \cdot (\nabla \times \mathbf{F}) = 0}\]</div>
+    </details></div>
+
   </div>
 
   <!-- ═══ ch3-prob.html ═══ -->
@@ -1670,7 +1992,73 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
     </div><!-- end fs-chapter ch2 -->
 
-    <h2 style="color:var(--muted);margin-top:24px;">Chapters 3–7</h2>
+    <!-- ══════════════ CHAPTER 3 — Partial Derivatives & Vector Fields ══════════════ -->
+    <h2 style="color:var(--ch3-title);margin-top:24px;">Ch 3 — Partial Derivatives &amp; Vector Fields</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch3-title)">
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Partial Derivative (Definition)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\frac{\partial f}{\partial x}(x_0,y_0)=\lim_{h\to 0}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}\]</div>
+      <div class="fs-detail"><p class="fs-explain"><strong>Partial derivatives</strong> measure the rate of change of a multivariable function when you vary one variable and hold all others constant. For ∂f/∂x, treat y as a constant and differentiate with respect to x using all the usual single-variable rules. The geometric meaning: ∂f/∂x is the slope of the curve you get by slicing the surface z = f(x,y) with the plane y = y₀.</p><p class="fs-origin"><strong>Where it comes from:</strong> Same definition as the ordinary derivative, but applied to one variable at a time while freezing the others.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to find ∂f/∂x or fₓ of any function of two or more variables.</div><div class="wb n"><strong>✗ Not for</strong> implicit differentiation (§3.6.2) — that's a different procedure where z depends on x,y through an equation f(x,y,z)=0.</div></div></div>
+      <div class="fs-quick-summary">Treat all other variables as constants and differentiate normally.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Clairaut's Theorem</div></div><div class="fs-body">
+      <div class="fs-formula">\[f_{xy}=f_{yx}\]</div>
+      <div class="fs-detail"><p class="fs-explain"><strong>Mixed partial derivatives are equal</strong> when f and its partials up to order 2 are continuous. The order of differentiation doesn't matter: differentiating first by x then y gives the same result as y then x.</p><p class="fs-origin"><strong>Where it comes from:</strong> Proved using the limit definition and the mean value theorem. The continuity requirement is essential — without it, counterexamples exist.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing mixed partials — you can choose the easier order. Also used to prove identities like curl(∇f) = 0.</div><div class="wb n"><strong>✗ Not for</strong> functions with discontinuous second partials — check continuity first.</div></div></div>
+      <div class="fs-quick-summary">Order of mixed partials doesn't matter (when continuous).</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Directional Derivative</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=Dᵤf — directional derivative}{\color{#D45D00}{D_{\mathbf{u}}f(P)}}=\htmlData{t=∇f — gradient vector}{\color{#5D7A20}{\nabla f(P)}}\cdot\htmlData{t=u — direction vector}{\color{#0B7D7D}{\mathbf{u}}}=\htmlData{t=|∇f| — gradient magnitude}{\color{#5D7A20}{|\nabla f|}}\,\htmlData{t=|u| — length of u}{\color{#0B7D7D}{|\mathbf{u}|}}\cos\htmlData{t=θ — angle between ∇f and u}{\color{#A82870}{\theta}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The <strong>directional derivative</strong> gives the rate of change of f in any direction, not just along the axes. Compute the gradient ∇f = (fₓ, f_y), then dot it with the direction vector u. When u is a unit vector, this gives the rate of change per unit distance. The formula D = ∇f · u = |∇f||u|cosθ shows the directional derivative depends on the angle between the gradient and the direction.</p><p class="fs-origin"><strong>Where it comes from:</strong> Expand the limit definition of D_u f using the linearity of derivatives. The result factors as the dot product of the gradient with u.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked for the rate of change in a specific direction, or finding the direction of maximum/minimum change.</div><div class="wb n"><strong>✗ Not for</strong> finding the derivative along a curved path — that needs the chain rule with parametric curves.</div></div></div>
+      <div class="fs-quick-summary">Rate of change in direction u. Dot the gradient with u.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Gradient — Direction of Steepest Ascent</div></div><div class="fs-body">
+      <div class="fs-formula">\[\max D_{\mathbf{u}}f=|\nabla f|\;\text{ in direction }\;\frac{\nabla f}{|\nabla f|}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The function f increases <strong>fastest</strong> in the direction of the gradient ∇f, and the rate of that fastest increase equals the magnitude |∇f|. It decreases fastest in the direction −∇f. Perpendicular to the gradient (along level curves), the directional derivative is zero.</p><p class="fs-origin"><strong>Where it comes from:</strong> D_u f = |∇f|cosθ is maximized when cosθ = 1 (u parallel to ∇f) and minimized when cosθ = −1.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked "in which direction does f increase fastest?" or "what is the maximum rate of change?"</div><div class="wb n"><strong>✗ Not for</strong> finding where f itself is maximum — that's optimization (Ch 7). The gradient gives direction of increase, not the location of extrema.</div></div></div>
+      <div class="fs-quick-summary">Max rate of change = |∇f|, in direction of ∇f. Zero along level curves.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Chain Rule (One Parameter)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\frac{dz}{dt}=\frac{\partial z}{\partial x}\frac{dx}{dt}+\frac{\partial z}{\partial y}\frac{dy}{dt}\]</div>
+      <div class="fs-detail"><p class="fs-explain">When z = f(x,y) and both x, y depend on a parameter t, the <strong>total derivative</strong> dz/dt combines both paths of influence. Each term is a product: the partial of z w.r.t. an intermediate variable times that variable's derivative w.r.t. t. Add all such terms. For three intermediate variables, add a third term (∂z/∂w · dw/dt).</p><p class="fs-origin"><strong>Where it comes from:</strong> The gradient form d/dt f(r(t)) = ∇f · r'(t), expanded into components.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> z depends on x,y which themselves depend on t. Also for related rates in multivariable settings.</div><div class="wb n"><strong>✗ Not for</strong> cases where x,y are independent — then just compute partial derivatives directly.</div></div></div>
+      <div class="fs-quick-summary">Sum ∂z/∂(each var) × d(var)/dt over all intermediate variables.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Implicit Partial Derivatives</div></div><div class="fs-body">
+      <div class="fs-formula">\[\frac{\partial z}{\partial x}=-\frac{f_x}{f_z},\qquad\frac{\partial z}{\partial y}=-\frac{f_y}{f_z}\]</div>
+      <div class="fs-detail"><p class="fs-explain">When a surface is defined implicitly by f(x,y,z) = 0 and you can't solve for z explicitly, these formulas give the partial derivatives. Differentiate f = 0 with respect to x (treating z as a function of x,y), then solve for ∂z/∂x.</p><p class="fs-origin"><strong>Where it comes from:</strong> Apply the chain rule to f(x,y,z(x,y)) = 0: fₓ + f_z · ∂z/∂x = 0, then solve.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the surface equation f(x,y,z)=0 can't easily be solved for z. Quick shortcut: just compute the three partials of f and take ratios.</div><div class="wb n"><strong>✗ Not for</strong> cases where f_z = 0 at the point — the formula breaks down (z can't be expressed as a function of x,y near that point).</div></div></div>
+      <div class="fs-quick-summary">∂z/∂x = −fₓ/f_z. Requires f_z ≠ 0.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Tangent Plane</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=fₓ — partial w.r.t. x at P}{\color{#D45D00}{f_x(P)}}(x-x_0)+\htmlData{t=f_y — partial w.r.t. y at P}{\color{#5D7A20}{f_y(P)}}(y-y_0)+\htmlData{t=f_z — partial w.r.t. z at P}{\color{#0B7D7D}{f_z(P)}}(z-z_0)=0\]</div>
+      <div class="fs-detail"><p class="fs-explain">The <strong>tangent plane</strong> to a surface f(x,y,z)=0 at a point P is the plane that best approximates the surface near P. The gradient ∇f(P) = (fₓ, f_y, f_z) is the normal vector to this plane. For z = g(x,y), rewrite as g(x,y)−z = 0, so f_z = −1 and the plane becomes z − z₀ = gₓ(x−x₀) + g_y(y−y₀).</p><p class="fs-origin"><strong>Where it comes from:</strong> Any curve on the surface through P has a tangent vector perpendicular to ∇f. The plane of all such tangent vectors is the tangent plane.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to find the tangent plane or normal vector to a surface at a point.</div><div class="wb n"><strong>✗ Not for</strong> curves in 3D — those have tangent lines (using r'(t)), not tangent planes.</div></div></div>
+      <div class="fs-quick-summary">Normal = ∇f. For z=g(x,y): z−z₀ = gₓ(x−x₀)+g_y(y−y₀).</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Curl (∇ × F)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{curl}\;\mathbf{F}=\nabla\times\mathbf{F}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\P&Q&R\end{vmatrix}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The <strong>curl</strong> measures the rotational tendency of a vector field at a point. Think of it as "how much the field swirls." It's computed as a 3×3 determinant (formal expansion along the first row). The result is a vector: curl points in the axis of rotation (by the right-hand rule), and its magnitude measures the rotation rate. In 2D: curl F = (Qₓ − P_y)k.</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ × F treats the del operator ∇ = (∂ₓ, ∂_y, ∂_z) as a vector and takes its cross product with F = (P,Q,R).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> testing if a field is conservative (curl = 0 ⟹ conservative), or computing rotation in fluid/EM applications.</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — curl only applies to vector fields. The result is a vector, not a scalar.</div></div></div>
+      <div class="fs-quick-summary">Determinant with ∇ in row 2, F in row 3. curl = 0 ⟹ conservative.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Conservative Field Test</div></div><div class="fs-body">
+      <div class="fs-formula">\[\mathbf{F}\text{ conservative}\;\Longleftrightarrow\;\text{curl}\;\mathbf{F}=\mathbf{0}\;\Longleftrightarrow\;Q_x=P_y,\;R_x=P_z,\;R_y=Q_z\]</div>
+      <div class="fs-detail"><p class="fs-explain">A field F = (P,Q,R) is conservative if and only if its curl is zero everywhere. In 2D, this reduces to checking one condition: Qₓ = P_y. To find the potential function f, integrate fₓ = P w.r.t. x, then use f_y = Q to determine the unknown function g(y).</p><p class="fs-origin"><strong>Where it comes from:</strong> If F = ∇f, then P = fₓ, Q = f_y, R = f_z. Clairaut's theorem gives f_{xy} = f_{yx}, i.e., P_y = Qₓ. Similarly for the other pairs.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> determining if a vector field is conservative or finding a potential function.</div><div class="wb n"><strong>✗ Not for</strong> fields defined on regions with holes — curl = 0 doesn't guarantee a global potential in non-simply-connected domains.</div></div></div>
+      <div class="fs-quick-summary">Check all mixed-partial equalities. If all match, F is conservative.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Divergence (∇ · F)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{div}\;\mathbf{F}=\nabla\cdot\mathbf{F}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The <strong>divergence</strong> measures the net outward flux of a vector field at a point. Positive divergence means the field is expanding outward (a source, like a garden hose nozzle). Negative means contracting inward (a sink, like a drain). Zero means incompressible (what flows in equals what flows out).</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ · F treats del as a vector and dots it with F — sum of component-wise partial derivatives.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing sources/sinks in fluid flow or electromagnetic fields. Also needed for the Divergence Theorem (Ch 6).</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — divergence applies to vector fields only. The result is a scalar, not a vector.</div></div></div>
+      <div class="fs-quick-summary">Sum of each component's partial w.r.t. its own variable. Measures source/sink.</div>
+    </div></div>
+
+    </div><!-- end fs-chapter ch3 -->
+
+    <h2 style="color:var(--muted);margin-top:24px;">Chapters 4–7</h2>
     <div class="empty-page" style="padding:24px;">Added as each chapter is completed.</div>
     </div>
   </div>
@@ -1803,7 +2191,52 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
 <div class="cross-links"><strong>Connections →</strong> Lines/planes → tangent planes &amp; normal lines (Ch 3) · Rotations → eliminating cross-terms in conics · Parametric curves → line integrals (Ch 4) · Polar coordinates → double integrals in polar (Ch 5) · Arc length ds → line integral ds (Ch 4) · Conic sections → quadric surfaces (Ch 5)</div>
 
-<h3 style="color:var(--muted)">Ch 3–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr><td>Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr><td>Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr><td>Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr><td>Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr><td>Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr><td>Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr><td>Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr><td>Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr><td>Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr><td>Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr><td>Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr><td>Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr><td>Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr><td>Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr></table></div>
+<h3 style="color:var(--ch3-title)">Ch 3 — Partial Derivatives &amp; Vector Fields (§3.1–3.7)</h3>
+<p style="font-style:italic;color:var(--muted);">Extends calculus to functions of several variables, introduces the gradient as the unifying concept, and defines the three fundamental vector field operators.</p>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Limits &amp; Continuity (Multivariable)</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>Limits of f(x,y) as (x,y) → (x₀,y₀). Continuity requires the limit to exist and equal the function value. Unlike 1D, approach can come from infinitely many directions.</dd>
+<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Foundation for all multivariable calculus. If a function isn't continuous, derivatives may not exist or behave as expected.</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>Limit exists: ε-δ proof (bound \(|f-L|\) using \(\sqrt{x^2+y^2}<\delta\)). Limit DNE: find two paths giving different values. Continuous: all polynomials in x,y.</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>Two paths agreeing does NOT prove the limit exists — there could be a third path that disagrees. ε-δ is the only way to prove existence.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Partial Derivatives</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>The rate of change of f(x,y) when one variable changes and the others are held constant. Notation: ∂f/∂x, fₓ, f₍₁₎, Dₓf.</dd>
+<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Building block for everything in multivariable calculus — gradients, chain rules, tangent planes, and optimization all use partial derivatives.</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>For ∂f/∂x: treat y as a constant, differentiate w.r.t. x. Clairaut: \(f_{xy}=f_{yx}\) when second partials are continuous.</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>Partial derivatives existing does NOT guarantee continuity. A function can have both partials at a point yet be discontinuous there.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Gradient &amp; Directional Derivatives</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>The gradient ∇f = (fₓ, f_y) is the vector of partials. The directional derivative D_u f = ∇f · u gives the rate of change in any direction u.</dd>
+<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>∇f points in the direction of steepest ascent, perpendicular to level curves. Max rate = |∇f|. Essential for optimization and physics.</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u} = |\nabla f||\mathbf{u}|\cos\theta\). Max when u ∥ ∇f. Zero along level curves.</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>D_u f requires u to be a unit vector for the "directional derivative." If u is not unit, normalize first — or use D_u f = |u| · D_v f.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Chain Rule &amp; Implicit Differentiation</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>Chain rule for z = f(x,y) where x,y depend on other variables. Implicit differentiation for surfaces f(x,y,z)=0.</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>One parameter: \(dz/dt = z_x\,x' + z_y\,y'\). Implicit: \(\partial z/\partial x = -f_x/f_z\). Tree diagrams help: multiply partials along each path, sum all paths to the target variable.</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>In the chain rule with two parameters, use ∂ (partial), not d (total). Don't forget the tree diagram has multiple paths.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Tangent Planes &amp; Normal Lines</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>The tangent plane approximates a surface near a point. The normal line is perpendicular to it, in the direction of ∇f.</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>Plane: \(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\). Normal line: \(\mathbf{r}(t) = P + t\nabla f\). For z=g(x,y): \(z-z_0 = g_x(x-x_0)+g_y(y-y_0)\).</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>For z=g(x,y), rewrite as g−z=0, so f_z = −1. Don't forget the negative sign on the z term.</dd>
+</dl></div>
+
+<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Conservative Fields, Curl &amp; Divergence</div><dl>
+<dt class="wh-what" style="color:#B33000">What:</dt><dd>Vector fields F = (P,Q,R). Conservative: F = ∇f for some scalar f. Curl measures rotation. Divergence measures source/sink behavior.</dd>
+<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Conservative fields simplify line integrals (Ch 4). Curl and div appear in Green's, Stokes', and Divergence theorems (Ch 6).</dd>
+<dt class="wh-how" style="color:#E06600">How:</dt><dd>Test: curl F = 0 ⟹ conservative. Curl = \(\nabla\times\mathbf{F}\) (determinant). Div = \(\nabla\cdot\mathbf{F} = P_x+Q_y+R_z\). Identities: curl(∇f)=0, div(curl F)=0.</dd>
+<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>To check if F is conservative, you DON'T take the gradient of F. You check if F IS someone's gradient by verifying curl F = 0.</dd>
+</dl></div>
+
+<div class="cross-links"><strong>Connections →</strong> Partial derivatives → chain rule → implicit differentiation · Gradient → directional derivatives → steepest ascent (optimization, Ch 7) · Tangent planes ← recall plane equation from Ch 2 · Conservative fields → line integrals (Ch 4) · Curl/Div → Green's, Stokes', Divergence theorems (Ch 6)</div>
+
+<h3 style="color:var(--muted)">Ch 4–7</h3><p style="color:var(--muted);font-style:italic">Pending.</p><h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr><td>Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr><td>Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr><td>Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr><td>Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr><td>Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr><td>Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr><td>Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr><td>Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr><td>Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr><td>Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr><td>Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr><td>Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr><td>Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr><td>Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr><td>Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr><td>Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr><td>Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr><td>Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr><td>Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr><tr><td>Dir. deriv.</td><td>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\)</td><td>rate of change in dir. u</td></tr><tr><td>Steepest ascent</td><td>\(\max D_{\mathbf{u}}f = |\nabla f|\)</td><td>in direction ∇f/|∇f|</td></tr><tr><td>Chain rule</td><td>\(dz/dt = z_x x' + z_y y'\)</td><td>total derivative</td></tr><tr><td>Implicit ∂z/∂x</td><td>\(-f_x/f_z\)</td><td>from f(x,y,z)=0</td></tr><tr><td>Tangent plane</td><td>\(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\)</td><td>normal = ∇f</td></tr><tr><td>Conservative?</td><td>\(\text{curl}\;\mathbf{F}=\mathbf{0}\) (2D: \(Q_x=P_y\))</td><td>then F = ∇f exists</td></tr><tr><td>Divergence</td><td>\(\nabla\cdot\mathbf{F}=P_x+Q_y+R_z\)</td><td>&gt;0 source, &lt;0 sink</td></tr></table></div>
 
   <!-- ═══ progress.html ═══ -->
   <div class="page" id="progress"><div class="page-title">Tracker</div><h1>Progress</h1><p class="page-intro">Check off items as you go. Saves automatically.</p><div class="progress-overall"><div style="display:flex;justify-content:space-between;align-items:center"><strong>Overall Progress</strong><span class="progress-pct" id="overall-pct">0%</span></div><div class="progress-bar-wrap"><div class="progress-bar-fill" id="overall-bar" style="width:0%"></div></div></div>
@@ -1811,7 +2244,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 2 — Lines & Curves</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c2n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c2f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
   <div class="checkpoint"><span class="flag">⚑</span><span class="cp-title">TEST 1</span><span class="cp-scope">— Ch 1–2</span></div>
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Test 1 Prep</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="t1r" onchange="saveProgress()"><span>Concept review</span></div><div class="pg-item"><input type="checkbox" data-id="t1e" onchange="saveProgress()"><span>Equations memorized</span></div><div class="pg-item"><input type="checkbox" data-id="t1p" onchange="saveProgress()"><span>Practice done</span></div><div class="pg-item"><input type="checkbox" data-id="t1t" onchange="saveProgress()"><span>Traps reviewed</span></div></div></div>
-  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 3 — Vector Calculus</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c3n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c3f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
+  <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 3 — Partial Derivatives &amp; Vector Fields</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c3n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c3ex" onchange="saveProgress()"><span>Chapter examples completed</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e1" onchange="saveProgress()"><span>Ex 3.1–3.4 — Limits &amp; continuity</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e2" onchange="saveProgress()"><span>Ex 3.5–3.7 — Partial derivatives &amp; Clairaut</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e3" onchange="saveProgress()"><span>Ex 3.8–3.9 — Gradient &amp; directional derivatives</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e4" onchange="saveProgress()"><span>Ex 3.10–3.11 — Chain rule</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e5" onchange="saveProgress()"><span>Ex 3.12–3.13 — Tangent planes &amp; normal lines</span></div><div class="pg-item sub"><input type="checkbox" data-id="c3e6" onchange="saveProgress()"><span>Ex 3.14–3.18 — Conservative fields, curl, div</span></div><div class="pg-item"><input type="checkbox" data-id="c3f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
   <div class="checkpoint"><span class="flag">⚑</span><span class="cp-title">TEST 2</span><span class="cp-scope">— Ch 2.8–2.14, Ch 3.1–3.6.3</span></div>
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Test 2 Prep</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="t2r" onchange="saveProgress()"><span>Concept review</span></div><div class="pg-item"><input type="checkbox" data-id="t2e" onchange="saveProgress()"><span>Equations memorized</span></div><div class="pg-item"><input type="checkbox" data-id="t2p" onchange="saveProgress()"><span>Practice done</span></div><div class="pg-item"><input type="checkbox" data-id="t2t" onchange="saveProgress()"><span>Traps reviewed</span></div></div></div>
   <div class="pg-group"><div class="pg-group-header" onclick="toggleGroup(this)"><span class="chevron">▸</span><span>Ch 7 — Max/Min</span><span class="progress-pct pg-group-pct">0%</span></div><div class="pg-items"><div class="pg-item"><input type="checkbox" data-id="c7n" onchange="saveProgress()"><span>Notes reviewed</span></div><div class="pg-item"><input type="checkbox" data-id="c7f" onchange="saveProgress()"><span>Formulas memorized</span></div></div></div>
