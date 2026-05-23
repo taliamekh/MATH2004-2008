@@ -1,0 +1,49 @@
+
+</div>
+</div>
+</div>
+
+<script>
+function toggleSidebar(){var s=document.getElementById('sidebar'),o=document.getElementById('toggleOpen');s.classList.toggle('closed');o.style.display=s.classList.contains('closed')?'flex':'none';}
+function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.getElementById(id).classList.add('active');document.querySelectorAll('.sidebar a').forEach(function(a){a.classList.remove('active')});var l=document.querySelector('.sidebar a[data-page="'+id+'"]');if(l)l.classList.add('active');document.querySelector('.main-scroll').scrollTop=0;renderMathInElement(document.getElementById(id),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,trust:true,strict:false});if(id==='formulas'){setTimeout(initVarPopups,300);setTimeout(initVarPopups,800);}}
+function toggleGroup(h){h.querySelector('.chevron').classList.toggle('open');h.nextElementSibling.classList.toggle('show');}
+function setView(v,btn){document.getElementById('fs-content').dataset.view=v;document.querySelectorAll('.fs-toggle button').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');}
+var SK='math2004-progress';
+function saveProgress(){var s={};document.querySelectorAll('.pg-item input[type="checkbox"]').forEach(function(c){s[c.dataset.id]=c.checked});localStorage.setItem(SK,JSON.stringify(s));updateBars();}
+function loadProgress(){try{var s=JSON.parse(localStorage.getItem(SK));if(!s)return;document.querySelectorAll('.pg-item input[type="checkbox"]').forEach(function(c){if(s[c.dataset.id]){c.checked=true;c.closest('.pg-item').classList.add('checked')}});}catch(e){}updateBars();}
+function updateBars(){document.querySelectorAll('.pg-group').forEach(function(g){var b=g.querySelectorAll('input[type="checkbox"]'),c=[].filter.call(b,function(x){return x.checked}).length,t=b.length,p=t?Math.round(c/t*100):0;var l=g.querySelector('.pg-group-pct');if(l)l.textContent=p+'%';});var all=document.querySelectorAll('.pg-item input[type="checkbox"]'),ac=[].filter.call(all,function(x){return x.checked}).length,ta=all.length,op=ta?Math.round(ac/ta*100):0;document.getElementById('overall-pct').textContent=op+'%';document.getElementById('overall-bar').style.width=op+'%';document.querySelectorAll('.pg-item input[type="checkbox"]').forEach(function(c){c.closest('.pg-item').classList.toggle('checked',c.checked)});}
+function initVarPopups(){
+  var els=document.querySelectorAll('#formulas [data-t]');
+  els.forEach(function(el){
+    if(el.dataset.popupDone) return;
+    el.dataset.popupDone='1';
+    el.classList.add('vc');
+    el.style.cursor='pointer';
+    el.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var pop=document.getElementById('varpop');
+      if(!pop){pop=document.createElement('div');pop.id='varpop';document.body.appendChild(pop);}
+      if(pop.dataset.src===el.dataset.t&&pop.style.display==='block'){pop.style.display='none';return;}
+      var desc=el.dataset.t;
+      var parts=desc.split(' \u2014 ');
+      var info=parts[1]||'';
+      var innerHtml=el.innerHTML;
+      var symHtml='<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base">'+innerHtml+'</span></span></span>';
+      pop.innerHTML='<div class="vp-sym">'+symHtml+'</div>'+(info?'<div class="vp-desc">'+info+'</div>':'');
+      pop.dataset.src=desc;
+      var rect=el.getBoundingClientRect();
+      pop.style.display='block';
+      var pw=pop.offsetWidth;
+      var left=rect.left+rect.width/2-pw/2;
+      if(left<4)left=4;
+      if(left+pw>window.innerWidth-4)left=window.innerWidth-pw-4;
+      pop.style.left=left+'px';
+      pop.style.top=(rect.top-pop.offsetHeight-10)+'px';
+    });
+  });
+}
+document.addEventListener('click',function(){var p=document.getElementById('varpop');if(p)p.style.display='none';});
+document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.getElementById('ch1'),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,trust:true,strict:false});loadProgress();document.getElementById('toggleOpen').style.display='none';});
+</script>
+</body>
+</html>
