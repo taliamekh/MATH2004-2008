@@ -1869,95 +1869,57 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div>
 
     <div class="def-card card-bracket"><div class="def-name" style="color:var(--def)">Saddle Point</div>
-    <p>A critical point where D &lt; 0 is called a <strong>saddle point</strong>. At a saddle point, the surface curves <em>upward</em> in one direction and <em>downward</em> in another — like a mountain pass or horse saddle. The function is neither a local max nor a local min there, regardless of the signs of f_xx and f_yy individually.</p>
+    <p>Think of a <strong>mountain pass</strong> — the road between two peaks. Standing at the pass and looking left-right along the road, you're at a <em>valley</em> (the road goes up on both sides). But looking forward-backward toward the peaks, you're at a <em>hilltop</em> (the mountains drop away on both sides). So are you at a min or a max? <strong>Neither.</strong> You're at a <strong>saddle point</strong>.</p>
+    <p>Mathematically: cut the surface through P along the x-axis → you see a valley (curves up). Cut along the y-axis → you see a hilltop (curves down). The surface has no consistent curvature at P — it goes up one way and down the other. The discriminant D &lt; 0 detects exactly this "disagreement."</p>
     </div>
 
-    <!-- SVG: All three critical point types side by side -->
+    <!-- SVG: All three critical point types — CLEAN -->
     <div class="figure-box">
-    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="max-width:720px;width:100%">
-      <style>
-        .cp-label{font-family:'Architects Daughter',cursive;font-size:13px}
-        .cp-title{font-family:'Architects Daughter',cursive;font-size:15px;font-weight:700}
-        .cp-formula{font-family:'Architects Daughter',cursive;font-size:11px}
-      </style>
+    <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" style="max-width:720px;width:100%">
 
-      <!-- === PANEL 1: LOCAL MINIMUM (valley / bowl up) === -->
-      <rect x="5" y="5" width="225" height="290" rx="8" fill="var(--eq)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
-      <text x="118" y="28" text-anchor="middle" class="cp-title" fill="var(--eq)">Local Minimum</text>
+      <!-- === PANEL 1: LOCAL MINIMUM === -->
+      <rect x="5" y="5" width="225" height="240" rx="8" fill="var(--eq)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <text x="118" y="28" text-anchor="middle" font-family="'Architects Daughter',cursive" font-size="15" font-weight="700" fill="var(--eq)">Local Minimum</text>
+      <!-- Simple U-curve -->
+      <path d="M30,70 Q75,180 118,190 Q161,180 206,70" stroke="var(--eq)" stroke-width="2.5" fill="none"/>
+      <circle cx="118" cy="190" r="6" fill="var(--eq)" stroke="#fff" stroke-width="2"/>
+      <text x="118" y="210" text-anchor="middle" font-family="'Architects Daughter',cursive" font-size="13" fill="var(--eq)">P</text>
+      <text x="42" y="60" font-family="'Architects Daughter',cursive" font-size="12" fill="var(--muted)">goes up &#x2197;</text>
+      <text x="156" y="60" font-family="'Architects Daughter',cursive" font-size="12" fill="var(--muted)">&#x2196; goes up</text>
+      <rect x="25" y="218" width="186" height="20" rx="4" fill="var(--eq)" fill-opacity=".08"/>
+      <text x="118" y="232" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="var(--eq)">D &gt; 0  &amp;  f_xx &gt; 0</text>
 
-      <!-- Bowl opening UPWARD — P at bottom of valley -->
-      <!-- Cross-section curve: U-shape -->
-      <path d="M30,80 Q50,120 70,155 Q90,195 118,210 Q146,195 166,155 Q186,120 206,80" stroke="var(--eq)" stroke-width="2.5" fill="var(--eq)" fill-opacity=".06"/>
-      <!-- Second cross-section (rotated direction, dashed) -->
-      <path d="M58,90 Q75,130 95,170 Q108,200 118,210 Q128,200 141,170 Q161,130 178,90" stroke="var(--eq)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
-      <!-- Contour ellipses above the minimum -->
-      <ellipse cx="118" cy="170" rx="55" ry="14" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <ellipse cx="118" cy="140" rx="72" ry="18" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <ellipse cx="118" cy="110" rx="85" ry="20" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <!-- minimum point at bottom of valley -->
-      <circle cx="118" cy="210" r="6" fill="var(--eq)" stroke="#fff" stroke-width="2"/>
-      <text x="118" y="235" text-anchor="middle" class="cp-label" fill="var(--eq)">P (min)</text>
-      <!-- annotation arrows pointing up from P -->
-      <line x1="85" y1="190" x2="65" y2="145" stroke="var(--eq)" stroke-width="1.2" marker-end="url(#arrEq)"/>
-      <line x1="151" y1="190" x2="171" y2="145" stroke="var(--eq)" stroke-width="1.2" marker-end="url(#arrEq)"/>
-      <text x="50" y="135" class="cp-formula" fill="var(--eq)">↑ up</text>
-      <text x="170" y="135" class="cp-formula" fill="var(--eq)">↑ up</text>
-      <!-- conditions -->
-      <text x="118" y="260" text-anchor="middle" class="cp-formula" fill="var(--eq)">D &gt; 0 and f_xx &gt; 0</text>
-      <text x="118" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">valley — curves up everywhere</text>
-
-      <!-- === PANEL 2: LOCAL MAXIMUM (hilltop / dome) === -->
-      <rect x="247" y="5" width="225" height="290" rx="8" fill="var(--def)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
-      <text x="360" y="28" text-anchor="middle" class="cp-title" fill="var(--def)">Local Maximum</text>
-
-      <!-- Dome / hilltop — P at top, curves down in all directions -->
-      <!-- Cross-section curve: inverted U-shape (arch) -->
-      <path d="M270,230 Q290,190 310,155 Q330,115 360,100 Q390,115 410,155 Q430,190 450,230" stroke="var(--def)" stroke-width="2.5" fill="var(--def)" fill-opacity=".06"/>
-      <!-- Second cross-section (dashed) -->
-      <path d="M300,220 Q320,180 340,145 Q350,115 360,100 Q370,115 380,145 Q400,180 420,220" stroke="var(--def)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
-      <!-- Contour ellipses below the peak -->
-      <ellipse cx="360" cy="140" rx="55" ry="14" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <ellipse cx="360" cy="170" rx="72" ry="18" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <ellipse cx="360" cy="200" rx="85" ry="20" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
-      <!-- maximum point at top of dome -->
-      <circle cx="360" cy="100" r="6" fill="var(--def)" stroke="#fff" stroke-width="2"/>
-      <text x="360" y="82" text-anchor="middle" class="cp-label" fill="var(--def)">P (max)</text>
-      <!-- annotation arrows pointing down from P -->
-      <line x1="327" y1="120" x2="307" y2="165" stroke="var(--def)" stroke-width="1.2" marker-end="url(#arrDf)"/>
-      <line x1="393" y1="120" x2="413" y2="165" stroke="var(--def)" stroke-width="1.2" marker-end="url(#arrDf)"/>
-      <text x="286" y="177" class="cp-formula" fill="var(--def)">↓ down</text>
-      <text x="408" y="177" class="cp-formula" fill="var(--def)">↓ down</text>
-      <!-- conditions -->
-      <text x="360" y="260" text-anchor="middle" class="cp-formula" fill="var(--def)">D &gt; 0 and f_xx &lt; 0</text>
-      <text x="360" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">hilltop — curves down everywhere</text>
+      <!-- === PANEL 2: LOCAL MAXIMUM === -->
+      <rect x="247" y="5" width="225" height="240" rx="8" fill="var(--def)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <text x="360" y="28" text-anchor="middle" font-family="'Architects Daughter',cursive" font-size="15" font-weight="700" fill="var(--def)">Local Maximum</text>
+      <!-- Simple arch curve -->
+      <path d="M270,200 Q315,80 360,70 Q405,80 450,200" stroke="var(--def)" stroke-width="2.5" fill="none"/>
+      <circle cx="360" cy="70" r="6" fill="var(--def)" stroke="#fff" stroke-width="2"/>
+      <text x="360" y="58" text-anchor="middle" font-family="'Architects Daughter',cursive" font-size="13" fill="var(--def)">P</text>
+      <text x="270" y="208" font-family="'Architects Daughter',cursive" font-size="12" fill="var(--muted)">goes down &#x2199;</text>
+      <text x="393" y="208" font-family="'Architects Daughter',cursive" font-size="12" fill="var(--muted)">&#x2198; goes down</text>
+      <rect x="267" y="218" width="186" height="20" rx="4" fill="var(--def)" fill-opacity=".08"/>
+      <text x="360" y="232" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="var(--def)">D &gt; 0  &amp;  f_xx &lt; 0</text>
 
       <!-- === PANEL 3: SADDLE POINT === -->
-      <rect x="489" y="5" width="225" height="290" rx="8" fill="var(--tip)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
-      <text x="602" y="28" text-anchor="middle" class="cp-title" fill="var(--tip)">Saddle Point</text>
+      <rect x="489" y="5" width="225" height="240" rx="8" fill="var(--tip)" fill-opacity=".03" stroke="var(--border)" stroke-width="1"/>
+      <text x="602" y="28" text-anchor="middle" font-family="'Architects Daughter',cursive" font-size="15" font-weight="700" fill="var(--tip)">Saddle Point</text>
+      <!-- x-slice: valley (solid) -->
+      <path d="M510,65 Q556,175 602,130 Q648,175 694,65" stroke="var(--eq)" stroke-width="2.5" fill="none"/>
+      <!-- y-slice: hilltop (dashed) -->
+      <path d="M540,195 Q571,90 602,130 Q633,90 664,195" stroke="var(--def)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+      <circle cx="602" cy="130" r="6" fill="var(--tip)" stroke="#fff" stroke-width="2"/>
+      <text x="620" y="126" font-family="'Architects Daughter',cursive" font-size="13" fill="var(--tip)">P</text>
+      <!-- labels in clear space -->
+      <text x="500" y="52" font-family="'Architects Daughter',cursive" font-size="11" fill="var(--eq)">x-slice: valley &#x2191;</text>
+      <text x="545" y="208" font-family="'Architects Daughter',cursive" font-size="11" fill="var(--def)">y-slice: hilltop &#x2193;</text>
+      <rect x="509" y="218" width="186" height="20" rx="4" fill="var(--tip)" fill-opacity=".08"/>
+      <text x="602" y="232" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="var(--tip)">D &lt; 0</text>
 
-      <!-- Saddle: up in x-direction, down in y-direction -->
-      <!-- x-direction cross section: U-shape (curves up) -->
-      <path d="M510,155 Q540,220 570,155 Q585,110 602,100 Q619,110 634,155 Q664,220 694,155" stroke="var(--eq)" stroke-width="2.5" fill="none"/>
-      <!-- y-direction cross section: arch (curves down) -->
-      <path d="M550,155 Q565,105 580,80 Q592,60 602,55 Q612,60 624,80 Q639,105 654,155" stroke="var(--def)" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
-      <!-- saddle point -->
-      <circle cx="602" cy="100" r="6" fill="var(--tip)" stroke="#fff" stroke-width="2"/>
-      <text x="602" y="82" text-anchor="middle" class="cp-label" fill="var(--tip)">P (saddle)</text>
-      <!-- direction labels -->
-      <text x="510" y="180" class="cp-formula" fill="var(--eq)">up in x-dir ↗</text>
-      <text x="610" y="50" class="cp-formula" fill="var(--def)">↘ down in y-dir</text>
-      <!-- conditions -->
-      <text x="602" y="260" text-anchor="middle" class="cp-formula" fill="var(--tip)">D &lt; 0</text>
-      <text x="602" y="276" text-anchor="middle" class="cp-formula" fill="var(--muted)">up one way — down the other</text>
-
-      <!-- Arrow markers -->
-      <defs>
-        <marker id="arrEq" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--eq)"/></marker>
-        <marker id="arrDf" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="var(--def)"/></marker>
-      </defs>
     </svg>
-    <div class="figure-caption">Fig 7.1 — The three outcomes of the Second Derivative Test. Left: local minimum (valley, D > 0, f_xx > 0). Center: local maximum (hilltop, D > 0, f_xx &lt; 0). Right: saddle point (up one way and down the other, D &lt; 0). Solid curve = x-direction cross-section, dashed = y-direction.</div>
+    <div class="figure-caption">Fig 7.1 &#x2014; At a minimum, every slice through P curves up. At a maximum, every slice curves down. At a saddle point, the x-slice is a valley (solid) but the y-slice is a hilltop (dashed) &#x2014; P is neither max nor min.</div>
     </div>
+
 
     <h3>Worked Examples — Critical Points &amp; Second Derivative Test</h3>
 
