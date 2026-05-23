@@ -1871,11 +1871,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <h3>Key Properties</h3>
-    <p><strong>1.</strong> Setting \(f=1\) gives the <strong>arc length</strong>: \(\int_{\mathscr{C}}ds = L\).</p>
-    <p><strong>2.</strong> If \(\mathscr{C}=\mathscr{C}_1\cup\mathscr{C}_2\cup\cdots\cup\mathscr{C}_n\) (piecewise), then \(\int_{\mathscr{C}}f\,ds=\sum_{i=1}^{n}\int_{\mathscr{C}_i}f\,ds\).</p>
-    <p><strong>3.</strong> If \(f\) is a mass density, then \(\int_{\mathscr{C}}f\,ds=M\) (total mass of the wire).</p>
-    <p><strong>4.</strong> The surface area of the "curtain" (sheet) under \(f\geq 0\) with base \(\mathscr{C}\) in the \(xy\)-plane equals \(\int_{\mathscr{C}}f(x,y)\,ds\).</p>
-    <p><strong>5.</strong> The value is <strong>independent of orientation</strong> — reversing the direction of \(\mathscr{C}\) gives the same answer.</p>
+    <div class="wu" style="grid-template-columns:1fr;">
+    <div class="wb y"><strong style="color:var(--deriv)">✓ f = 1 → Arc Length</strong> Setting \(f=1\) gives the total <strong>arc length</strong> of the curve: \(\int_{\mathscr{C}}1\,ds = L\). The simplest line integral — just measuring how long the curve is.</div>
+    </div>
+    <div class="wu">
+    <div class="wb y"><strong style="color:var(--deriv)">✓ Piecewise Curves</strong> If \(\mathscr{C}\) is made of pieces \(\mathscr{C}_1,\mathscr{C}_2,\ldots\), add up each piece: \(\int_{\mathscr{C}}f\,ds=\int_{\mathscr{C}_1}f\,ds+\int_{\mathscr{C}_2}f\,ds+\cdots\)</div>
+    <div class="wb y"><strong style="color:var(--deriv)">✓ Mass of a Wire</strong> If \(f\) is mass density (g/cm), the integral gives <strong>total mass</strong>: \(\int_{\mathscr{C}}f\,ds=M\). Think: density × length, summed along the curve.</div>
+    </div>
+    <div class="wu">
+    <div class="wb y"><strong style="color:var(--deriv)">✓ Curtain Area</strong> If \(f\geq 0\), the integral equals the area of the "curtain" hanging from \(z=f(x,y)\) down to the curve in the \(xy\)-plane (see Fig 4.1 below).</div>
+    <div class="wb n"><strong style="color:var(--eq)">★ Orientation-Independent</strong> Reversing the direction of \(\mathscr{C}\) gives the <em>same answer</em>. This is NOT true for vector field integrals (§4.2).</div>
+    </div>
 
     <div class="figure-box">
     <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg" style="max-width:600px;width:100%">
@@ -1990,15 +1996,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <h3>Average Value and Center of Mass</h3>
+    <p><strong>Why these matter:</strong> Imagine a wire (not necessarily straight) with varying thickness. The <em>average value</em> tells you what the "typical" density is along the wire. The <em>center of mass</em> tells you where you'd need to place your finger to balance the wire.</p>
+
     <div class="eq-card card-bracket"><div class="eq-name">Average Value on a Curve</div>
-    <div class="eq-formula">\[\overline{f}=\frac{1}{L}\int_{\mathscr{C}}f\,ds\]</div>
-    <div class="pills"><span class="pill">L — total arc length of 𝒞</span><span class="pill">f̄ — average value of f on 𝒞</span></div>
+    <div class="eq-formula">\[\bar{f}=\frac{1}{L}\int_{\mathscr{C}}f\,ds\]</div>
+    <div class="pills"><span class="pill">L — total arc length of 𝒞</span><span class="pill">f̄ (f-bar) — average value of f along 𝒞</span></div>
     </div>
+    <p>This is the curve version of the single-variable average \(\bar{f}=\frac{1}{b-a}\int_a^b f(x)\,dx\). Instead of dividing by the interval length \(b-a\), you divide by the curve length \(L\). The bar notation \(\bar{f}\) means "average of \(f\)."</p>
 
     <div class="eq-card card-bracket"><div class="eq-name">Center of Mass of a Wire</div>
     <div class="eq-formula">\[\bar{x}=\frac{1}{M}\int_{\mathscr{C}}x\,f\,ds,\quad\bar{y}=\frac{1}{M}\int_{\mathscr{C}}y\,f\,ds,\quad\bar{z}=\frac{1}{M}\int_{\mathscr{C}}z\,f\,ds\]</div>
-    <div class="pills"><span class="pill">M = ∫𝒞 f ds — total mass</span><span class="pill">f(x,y,z) — mass density</span><span class="pill">(x̄, ȳ, z̄) — center of mass</span></div>
+    <div class="pills"><span class="pill">M — total mass (M = ∫𝒞 f ds)</span><span class="pill">f — mass density at each point</span><span class="pill">(x̄, ȳ, z̄) — the balance point</span></div>
     </div>
+    <p>Each coordinate of the center of mass is a <strong>weighted average</strong>: \(\bar{x}\) is the average \(x\)-position, weighted by how much mass is at each point. The bar notation \(\bar{x}\), \(\bar{y}\), \(\bar{z}\) means "average coordinate." If the density is constant (\(f=c\) everywhere), the center of mass is the geometric center of the curve.</p>
 
     <!-- ═══════════════════════════════════════════════════ -->
     <h2>§4.2 — Line Integrals of Vector Fields</h2>
@@ -2133,12 +2143,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <p>This section ties together line integrals and conservative fields (recall from §3.7 that \(\mathbf{F}\) is <strong>conservative</strong> if \(\mathbf{F}=\nabla f\) for some scalar field \(f\), equivalently \(\nabla\times\mathbf{F}=\mathbf{0}\)).</p>
 
     <div class="def-card card-bracket"><div class="def-name">Fundamental Theorem of Calculus for Line Integrals</div>
-    <p>If \(\mathbf{F}=\nabla f\) (i.e., \(\mathbf{F}\) is a gradient field with potential function \(f\)) and \(\mathscr{C}\) is any piecewise smooth curve from \(\mathbf{r}(a)\) to \(\mathbf{r}(b)\), then:</p>
+    <p><strong>The problem:</strong> Computing \(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}\) normally requires parametrizing the curve, dotting, and integrating — a lot of work. Is there a shortcut?</p>
+    <p><strong>The shortcut:</strong> If \(\mathbf{F}\) happens to be a <em>gradient field</em> (\(\mathbf{F}=\nabla f\) for some scalar \(f\)), then the entire line integral collapses to just <strong>plugging in the endpoints</strong>:</p>
     <div class="eq-card card-bracket"><div class="eq-name">FTCLI</div>
     <div class="eq-formula">\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\mathbf{r}(b))-f(\mathbf{r}(a))\]</div>
-    <div class="pills"><span class="pill">f — potential function (∇f = F)</span><span class="pill">r(a) — start point</span><span class="pill">r(b) — end point</span></div>
+    <div class="pills"><span class="pill">f — potential function (∇f gives you F)</span><span class="pill">r(a) — start point</span><span class="pill">r(b) — end point</span></div>
     </div>
-    <p>Just like the single-variable FTC: \(\int_a^b f'(x)\,dx=f(b)-f(a)\), but now the "derivative" is the gradient and the "interval" is a curve.</p>
+    <p><strong>When to use it:</strong> Whenever the field is conservative. First verify \(\nabla\times\mathbf{F}=\mathbf{0}\) (from §3.7), then find the potential \(f\), then just subtract: \(f(\text{end})-f(\text{start})\). No parametrization needed.</p>
+    <p><strong>Analogy:</strong> This is exactly like the single-variable FTC: \(\int_a^b f'(x)\,dx=f(b)-f(a)\). There, you skip the Riemann sum by finding an antiderivative. Here, you skip the parametrization by finding a potential function.</p>
     </div>
 
     <h3>Consequences</h3>
@@ -2177,7 +2189,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div class="eq-card card-bracket"><div class="eq-name">Closed-Loop Test</div>
     <div class="eq-formula">\[\mathbf{F}\text{ conservative and }\mathscr{C}\text{ closed}\;\Longrightarrow\;\oint_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=0\]</div>
     </div>
-    <p>The converse also holds (in simply connected regions): if \(\oint\mathbf{F}\cdot d\mathbf{r}=0\) for every closed curve, then \(\mathbf{F}\) is conservative.</p>
+    <p><strong>What this says:</strong> If a field is conservative and you walk in a <em>closed loop</em> (ending where you started), the total work is <strong>zero</strong>. Makes sense from the FTCLI: \(f(\text{end})-f(\text{start})=0\) because end = start.</p>
+    <p><strong>Why it's useful:</strong> It works as a <em>test</em>. If you find ANY closed path where \(\oint\mathbf{F}\cdot d\mathbf{r}\neq 0\), the field is definitely NOT conservative. Conversely, if the integral is zero around every closed loop (in a simply connected region), the field IS conservative.</p>
 
     <h3>Testing for Conservativeness (Summary)</h3>
     <div class="def-card card-bracket"><div class="def-name">Equivalences in a Simply Connected Region</div>
@@ -2237,10 +2250,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <h3>Work-Energy Theorem</h3>
+    <p><strong>Why this matters:</strong> This connects the math (line integrals) to physics (kinetic energy). It's the reason line integrals are so important in science and engineering.</p>
+
     <div class="drv-card card-bracket"><div class="drv-label">Kinetic Energy and Line Integrals</div>
-    <p>If a mass \(m\) moves along \(\mathscr{C}\) under force \(\mathbf{F}\), Newton's second law gives:</p>
-    <p>\(\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\frac{1}{2}m|\mathbf{v}(b)|^2-\frac{1}{2}m|\mathbf{v}(a)|^2\) — the work equals the change in kinetic energy.</p>
-    <p>If \(\mathbf{F}\) is also conservative with potential \(f\), then \(K(P)-f(P)=C\) — <strong>conservation of energy</strong>.</p>
+    <p><strong>The idea:</strong> When a force \(\mathbf{F}\) pushes a mass \(m\) along a curve \(\mathscr{C}\), the work done by \(\mathbf{F}\) equals the change in the object's <strong>kinetic energy</strong>:</p>
+    <p>\[\int_{\mathscr{C}}\mathbf{F}\cdot d\mathbf{r}=\underbrace{\tfrac{1}{2}m|\mathbf{v}(b)|^2}_{\text{KE at end}}-\underbrace{\tfrac{1}{2}m|\mathbf{v}(a)|^2}_{\text{KE at start}}\]</p>
+    <p><strong>In plain English:</strong> Positive work speeds the object up; negative work slows it down. The line integral tells you exactly how much.</p>
+    <p><strong>Conservation of energy:</strong> If \(\mathbf{F}\) is also conservative with potential \(f\), then the total energy \(\frac{1}{2}m|\mathbf{v}|^2 + f\) stays constant along the path. Energy can convert between kinetic (motion) and potential (position) forms, but the total never changes.</p>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
