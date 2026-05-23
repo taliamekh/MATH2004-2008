@@ -2365,13 +2365,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div class="ex-card card-bracket"><div class="ex-label">Example 5.1 — Region Bounded by Parabolas (Ex. 222)</div>
     <p>Describe the region bounded by \(y=x^2\), \(y=-x^2\), and \(x=1\) using both vertical and horizontal slices.</p>
     <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
-    <p><strong>Vertical slices (x-simple):</strong> Fix \(x\in[0,1]\). A vertical line enters at \(y=-x^2\) (bottom) and exits at \(y=x^2\) (top).</p>
-    <p>\(\mathscr{R}_{yx}=\{(x,y): -x^2\leq y\leq x^2,\; 0\leq x\leq 1\}\)</p>
-    <p><strong>Horizontal slices (y-simple):</strong> Need to split into two regions since the boundary curves change form depending on whether \(y>0\) or \(y<0\).</p>
-    <p>For \(y\geq 0\): \(x\) ranges from \(\sqrt{y}\) to \(1\), with \(0\leq y\leq 1\).</p>
-    <p>For \(y<0\): \(x\) ranges from \(\sqrt{-y}\) to \(1\), with \(-1\leq y\leq 0\).</p>
-    <p>\(\mathscr{R}_{xy}=\{(x,y):\sqrt{y}\leq x\leq 1,\;0\leq y\leq 1\}\cup\{(x,y):\sqrt{-y}\leq x\leq 1,\;-1\leq y\leq 0\}\)</p>
-    <p><strong>★ Takeaway:</strong> Vertical slices are much simpler here — one description vs. a union of two.</p>
+    <p><strong>Step 1 — Sketch the region.</strong> The curves \(y=x^2\) (parabola opening up) and \(y=-x^2\) (parabola opening down) meet at the origin. The vertical line \(x=1\) closes off the region on the right. The region looks like a "lens" or "eye" shape between the two parabolas.</p>
+    <p><strong>Step 2 — Vertical slices (x-simple):</strong> Fix a value of \(x\in[0,1]\). A vertical line at that \(x\) enters the region at the bottom parabola \(y=-x^2\) and exits at the top parabola \(y=x^2\). One clean description:</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer (vertical): \(\mathscr{R}_{yx}=\{(x,y): -x^2\leq y\leq x^2,\;\; 0\leq x\leq 1\}\) → integrate <strong>dy dx</strong></p>
+    <p><strong>Step 3 — Horizontal slices (y-simple):</strong> Fix a value of \(y\). A horizontal line's entry/exit points depend on whether \(y>0\) or \(y<0\), so we must <em>split</em> the region:</p>
+    <p>For \(y\geq 0\): entering at \(x=\sqrt{y}\), exiting at \(x=1\), with \(0\leq y\leq 1\).</p>
+    <p>For \(y< 0\): entering at \(x=\sqrt{-y}\), exiting at \(x=1\), with \(-1\leq y\leq 0\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer (horizontal): union of two sub-regions — requires <strong>two separate integrals</strong></p>
+    <p><strong>★ Takeaway:</strong> Vertical slices give <em>one</em> clean description; horizontal slices require splitting into two. When one order is simpler, use that one!</p>
     </div></div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -2388,26 +2389,35 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     </div></div>
 
     <h3>Geometric Meaning</h3>
-    <p>If \(f(x,y)\geq 0\), then \(\iint_{\mathscr{R}}f\,dA=\) <strong>volume</strong> under the surface \(z=f(x,y)\) above \(\mathscr{R}\).</p>
-    <p>If \(f(x,y)=1\), then \(\iint_{\mathscr{R}}1\,dA=\) <strong>area</strong> of \(\mathscr{R}\).</p>
+    <p>The double integral has two key geometric interpretations:</p>
+    <p><strong>Volume:</strong> If \(f(x,y)\geq 0\), then \(\iint_{\mathscr{R}}f\,dA\) equals the <strong>volume</strong> of the solid that sits above the region \(\mathscr{R}\) in the \(xy\)-plane and below the surface \(z=f(x,y)\). Think of it as stacking infinitely many thin vertical columns of height \(f(x,y)\) and cross-sectional area \(dA\) — the integral adds up all their volumes.</p>
+    <p><strong>Area:</strong> If \(f(x,y)=1\), then every column has height 1, so the integral just measures how much "floor space" there is: \(\iint_{\mathscr{R}}1\,dA=\) <strong>area</strong> of \(\mathscr{R}\).</p>
+    <p>If \(f\) takes negative values, the integral counts volume below the \(xy\)-plane as negative — just like single-variable integrals count area below the \(x\)-axis as negative.</p>
 
     <h3>Fubini's Theorem</h3>
+    <p>The definition of the double integral as a limit of Riemann sums is important for theory but <em>useless for computation</em>. <strong>Fubini's Theorem</strong> is the tool that makes double integrals computable: it says you can evaluate a double integral by doing <em>two single-variable integrals, one inside the other</em> — called an <strong>iterated integral</strong>.</p>
+
     <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (Rectangles)</div>
     <p>If \(f\) is continuous on a rectangle \(\mathscr{R}=\{(x,y):a\leq x\leq b,\;c\leq y\leq d\}\), then:</p>
     <div class="eq-card card-bracket"><div class="eq-name">Fubini — Rectangular Region</div>
     <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\int_a^b\!\int_c^d f(x,y)\,dy\,dx=\int_c^d\!\int_a^b f(x,y)\,dx\,dy\]</div>
     </div>
-    <p>For rectangles, the <strong>order of integration doesn't matter</strong> — you can integrate in either order.</p>
+    <p>For rectangles, the <strong>order of integration doesn't matter</strong> — you can integrate in either order and get the same answer. Pick whichever is easier to compute.</p>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Why Fubini Works — The Intuition</div>
+    <p>Imagine computing the volume under \(z=f(x,y)\) by slicing the solid into thin vertical <em>slabs</em> perpendicular to the \(x\)-axis. Each slab at position \(x\) has a cross-sectional area of \(A(x)=\int_c^d f(x,y)\,dy\) (a single integral in \(y\), treating \(x\) as a constant). Then the total volume is \(\int_a^b A(x)\,dx\) — stack up all the slabs. That's exactly the iterated integral \(\int_a^b\int_c^d f\,dy\,dx\).</p>
     </div>
 
     <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (General Regions)</div>
-    <p>For non-rectangular regions, use the region description to set limits:</p>
+    <p>For non-rectangular regions, the limits on the inner integral become <em>functions</em> of the outer variable (from the §5.1 region descriptions):</p>
     <div class="eq-card card-bracket"><div class="eq-name">Fubini — x-simple (vertical slices)</div>
     <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_a^b\!\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\,dx\]</div>
     </div>
     <div class="eq-card card-bracket"><div class="eq-name">Fubini — y-simple (horizontal slices)</div>
     <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_c^d\!\int_{g_1(y)}^{g_2(y)} f(x,y)\,dx\,dy\]</div>
     </div>
+    <p><strong>Key rule:</strong> the inner limits can depend on the outer variable, but the outer limits must be <em>constants</em>. If your outer limits contain a variable, your integral is set up incorrectly.</p>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Anatomy of an Iterated Integral</div>
@@ -2695,50 +2705,65 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <p><strong>How to derive it:</strong> Start with a point \(P\) on the sphere. Drop it to the \(xy\)-plane: its projection \(Q\) is at distance \(R\cos v\) from the origin (the equatorial radius shrinks as you move toward the poles). In the \(xy\)-plane, \(Q\) makes angle \(u\) with the \(x\)-axis, so \(x=R\cos v\cos u\) and \(y=R\cos v\sin u\). The height is simply \(z=R\sin v\).</p>
 
     <div class="figure-box">
-    <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" style="max-width:460px;width:100%">
+    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;width:100%">
+      <!-- Sphere center O at (220,185), R=115. Axes through center. -->
       <!-- Axes -->
-      <line x1="200" y1="300" x2="430" y2="300" stroke="#5A5A50" stroke-width="1.2"/>
-      <line x1="200" y1="300" x2="200" y2="50" stroke="#5A5A50" stroke-width="1.2"/>
-      <line x1="200" y1="300" x2="80" y2="330" stroke="#5A5A50" stroke-width="1.2"/>
-      <polygon points="430,300 422,296 422,304" fill="#5A5A50"/>
-      <polygon points="200,50 196,58 204,58" fill="#5A5A50"/>
-      <polygon points="80,330 90,328 86,322" fill="#5A5A50"/>
-      <text x="436" y="304" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
-      <text x="188" y="46" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">z</text>
-      <text x="68" y="336" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">y</text>
+      <line x1="220" y1="185" x2="400" y2="185" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="220" y1="185" x2="220" y2="34" stroke="#5A5A50" stroke-width="1.2"/>
+      <line x1="220" y1="185" x2="120" y2="250" stroke="#5A5A50" stroke-width="1.2"/>
+      <polygon points="400,185 392,181 392,189" fill="#5A5A50"/>
+      <polygon points="220,34 216,42 224,42" fill="#5A5A50"/>
+      <polygon points="120,250 130,246 126,240" fill="#5A5A50"/>
+      <text x="406" y="189" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
+      <text x="208" y="30" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">z</text>
+      <text x="108" y="258" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">y</text>
+      <text x="226" y="198" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">O</text>
       <!-- Sphere outline -->
-      <ellipse cx="240" cy="180" rx="130" ry="130" fill="none" stroke="#740A03" stroke-width="2" opacity=".3"/>
-      <!-- Equator ellipse -->
-      <ellipse cx="240" cy="230" rx="130" ry="40" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <!-- Meridian (front half) -->
-      <path d="M240,50 C310,50 370,180 240,310" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <!-- Point P on sphere -->
-      <circle cx="340" cy="145" r="5" fill="#8B1A1A"/>
-      <text x="350" y="140" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#8B1A1A">P</text>
-      <!-- Projection Q onto xy-plane -->
-      <circle cx="340" cy="245" r="4" fill="#6B3FA0"/>
-      <text x="350" y="258" font-family="Architects Daughter,cursive" font-size="13" fill="#6B3FA0">Q</text>
-      <!-- Vertical dashed line P → Q -->
-      <line x1="340" y1="150" x2="340" y2="240" stroke="#5A5A50" stroke-width="1" stroke-dasharray="3,3"/>
-      <!-- Line from O to Q (equatorial radius) -->
-      <line x1="200" y1="300" x2="340" y2="245" stroke="#C4883E" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <text x="258" y="285" font-family="Architects Daughter,cursive" font-size="13" fill="#C4883E">R cos v</text>
-      <!-- Line from O to P (full radius) -->
-      <line x1="200" y1="300" x2="340" y2="145" stroke="#8B1A1A" stroke-width="1.8"/>
-      <text x="248" y="210" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#8B1A1A">R</text>
-      <!-- Latitude angle v -->
-      <path d="M280,258 C290,248 298,238 302,225" stroke="#A82870" stroke-width="2" fill="none"/>
-      <text x="306" y="248" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">v</text>
-      <!-- Longitude angle u -->
-      <path d="M240,294 C260,290 280,286 296,280" stroke="#2D8B46" stroke-width="2" fill="none"/>
-      <text x="268" y="300" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">u</text>
-      <!-- Height z label -->
-      <text x="344" y="200" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">R sin v</text>
-      <!-- North pole -->
-      <circle cx="240" cy="50" r="3" fill="#5A5A50"/>
-      <text x="248" y="48" font-family="Architects Daughter,cursive" font-size="11" fill="#5A5A50">N</text>
+      <circle cx="220" cy="185" r="115" fill="none" stroke="#740A03" stroke-width="1.8" opacity=".25"/>
+      <!-- Equator ellipse at sphere center -->
+      <ellipse cx="220" cy="185" rx="115" ry="35" fill="none" stroke="#4A90D9" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <!-- Front meridian arc (right semicircle in xz-plane) -->
+      <path d="M335,185 A115,115 0 0,0 105,185" fill="none" stroke="#4A90D9" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <!-- North pole label -->
+      <circle cx="220" cy="70" r="3" fill="#5A5A50"/>
+      <text x="230" y="66" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">N pole</text>
+      <!-- P on sphere: latitude v≈33°.
+           R sin33° ≈ 115×0.545 = 63 → y_P = 185-63 = 122
+           R cos33° ≈ 115×0.839 = 96 (equatorial radius at this latitude)
+           Place P at longitude u≈15° → mostly along x-axis
+           x_P ≈ 220 + 96 = 316, y_P = 122
+      -->
+      <circle cx="316" cy="122" r="5" fill="#8B1A1A"/>
+      <text x="326" y="116" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#8B1A1A">P</text>
+      <!-- Q: projection of P down to equator (same horizontal, z=0 → y=185) -->
+      <circle cx="316" cy="185" r="4" fill="#6B3FA0"/>
+      <text x="324" y="180" font-family="Architects Daughter,cursive" font-size="13" fill="#6B3FA0">Q</text>
+      <!-- P → Q vertical drop -->
+      <line x1="316" y1="128" x2="316" y2="181" stroke="#5A5A50" stroke-width="1.3" stroke-dasharray="3,3"/>
+      <!-- R sin v label (right of vertical line) -->
+      <text x="322" y="158" font-family="Architects Daughter,cursive" font-size="13" fill="#5A5A50">R sin v</text>
+      <!-- O → P radius (solid red) -->
+      <line x1="220" y1="185" x2="316" y2="122" stroke="#8B1A1A" stroke-width="2.2"/>
+      <!-- R label on the radius line — offset perpendicular -->
+      <text x="250" y="140" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#8B1A1A">R</text>
+      <!-- O → Q equatorial radius (dashed orange) -->
+      <line x1="220" y1="185" x2="312" y2="185" stroke="#C4883E" stroke-width="2" stroke-dasharray="5,3"/>
+      <!-- R cos v label below the line -->
+      <text x="248" y="210" font-family="Architects Daughter,cursive" font-size="13" font-weight="600" fill="#C4883E">R cos v</text>
+      <!-- v angle arc: from OQ direction to OP direction -->
+      <path d="M256,185 C260,175 264,165 270,158" stroke="#A82870" stroke-width="2.5" fill="none"/>
+      <text x="266" y="180" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#A82870">v</text>
+      <!-- u angle arc: from x-axis around toward Q (small arc near O) -->
+      <path d="M250,185 C252,188 254,190 258,192" stroke="#2D8B46" stroke-width="2.5" fill="none"/>
+      <text x="252" y="200" font-family="Architects Daughter,cursive" font-size="15" font-weight="700" fill="#2D8B46">u</text>
+      <!-- Latitude circle at P's height (smaller ellipse, dashed pink) -->
+      <ellipse cx="220" cy="122" rx="96" ry="30" fill="none" stroke="#A82870" stroke-width="1" stroke-dasharray="3,2" opacity=".35"/>
+      <!-- Legend at bottom -->
+      <text x="30" y="345" font-family="Architects Daughter,cursive" font-size="13" fill="#2D8B46">● u = longitude (around equator) [0, 2π]</text>
+      <text x="30" y="365" font-family="Architects Daughter,cursive" font-size="13" fill="#A82870">● v = latitude (above/below equator) [−π/2, π/2]</text>
+      <text x="30" y="385" font-family="Architects Daughter,cursive" font-size="13" fill="#C4883E">● R cos v = equatorial radius shrinks toward poles</text>
     </svg>
-    <div class="figure-caption">Fig 5.3 — Sphere parametrization. Longitude u sweeps around the equator; latitude v measures height above it. The equatorial radius at height v is R cos v.</div>
+    <div class="figure-caption">Fig 5.3 — Sphere parametrization. Point P is located by longitude u (green) and latitude v (pink). Its projection Q onto the equator is at distance R cos v from the center.</div>
     </div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Why Not Spherical Coordinates?</div>
@@ -2764,42 +2789,53 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <p><strong>How it works:</strong> Parameter \(u\) slides along the \(x\)-axis (controlling which cross-section you're at). Parameter \(v\) rotates around the axis (controlling where on that circle you are). The radius of each circle is \(g(u)\) — determined by the profile curve.</p>
 
     <div class="figure-box">
-    <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;width:100%">
-      <!-- Axis of revolution (x-axis) -->
+    <svg viewBox="0 0 520 290" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;width:100%">
+      <!-- Axis of revolution (x-axis) at y=140 -->
       <line x1="40" y1="140" x2="490" y2="140" stroke="#5A5A50" stroke-width="1.5"/>
       <polygon points="490,140 482,136 482,144" fill="#5A5A50"/>
       <text x="494" y="144" font-family="Architects Daughter,cursive" font-size="14" fill="#5A5A50">x</text>
-      <!-- Profile curve (top half) -->
-      <path d="M100,140 C120,90 200,50 300,60 C370,66 430,80 460,90" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
-      <!-- Profile curve reflected (bottom, dashed for hidden) -->
-      <path d="M100,140 C120,190 200,230 300,220 C370,214 430,200 460,190" stroke="#8B1A1A" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity=".5"/>
-      <!-- Cross-section circles at different u positions -->
-      <ellipse cx="180" cy="140" rx="8" ry="60" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <ellipse cx="300" cy="140" rx="8" ry="80" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <ellipse cx="420" cy="140" rx="8" ry="48" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <!-- Surface shading -->
-      <path d="M100,140 C120,90 200,50 300,60 C370,66 430,80 460,90 L460,190 C430,200 370,214 300,220 C200,230 120,190 100,140 Z" fill="rgba(116,10,3,.06)" stroke="none"/>
-      <!-- g(u) radius arrow at u=300 -->
-      <line x1="300" y1="140" x2="300" y2="60" stroke="#C4883E" stroke-width="2"/>
-      <polygon points="300,60 296,70 304,70" fill="#C4883E"/>
-      <text x="308" y="100" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#C4883E">g(u)</text>
-      <!-- v rotation arrow at cross-section -->
-      <path d="M310,68 C316,72 318,80 316,90" stroke="#A82870" stroke-width="2" fill="none"/>
-      <polygon points="316,90 320,82 312,82" fill="#A82870"/>
-      <text x="322" y="78" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">v</text>
-      <!-- u arrow along axis -->
-      <line x1="100" y1="156" x2="300" y2="156" stroke="#2D8B46" stroke-width="2"/>
-      <polygon points="300,156 292,152 292,160" fill="#2D8B46"/>
-      <text x="190" y="172" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">u (along axis)</text>
+      <!-- Profile curve (top half): starts at axis, arcs up, comes back down
+           Key points on profile (x → y-height above axis):
+           x=100: y=140 (on axis, start)
+           x=180: y=72 (68px above axis)
+           x=300: y=58 (82px above axis — peak)
+           x=420: y=82 (58px above axis)
+           x=460: y=92 (48px above axis, end)
+      -->
+      <path d="M100,140 C130,88 190,64 250,58 C310,54 380,60 460,92" stroke="#8B1A1A" stroke-width="2.5" fill="none"/>
+      <!-- Profile curve reflected (bottom half, dashed) -->
+      <path d="M100,140 C130,192 190,216 250,222 C310,226 380,220 460,188" stroke="#8B1A1A" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity=".4"/>
+      <!-- Surface fill between top and bottom profiles -->
+      <path d="M100,140 C130,88 190,64 250,58 C310,54 380,60 460,92 L460,188 C380,220 310,226 250,222 C190,216 130,192 100,140 Z" fill="rgba(116,10,3,.06)" stroke="none"/>
+      <!-- Cross-section ellipses — ry matches profile curve height at that x
+           x=180: profile ≈ y=72 → ry = 140-72 = 68
+           x=300: profile ≈ y=56 → ry = 140-56 = 84
+           x=420: profile ≈ y=84 → ry = 140-84 = 56
+      -->
+      <ellipse cx="180" cy="140" rx="8" ry="68" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <ellipse cx="300" cy="140" rx="8" ry="84" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <ellipse cx="420" cy="140" rx="8" ry="56" fill="none" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <!-- g(u) radius arrow at u=300 (from axis up to profile) -->
+      <line x1="300" y1="140" x2="300" y2="56" stroke="#C4883E" stroke-width="2"/>
+      <polygon points="300,56 296,66 304,66" fill="#C4883E"/>
+      <text x="308" y="98" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#C4883E">g(u)</text>
+      <!-- v rotation arrow at the cross-section at x=300 -->
+      <path d="M310,64 C316,70 318,80 316,92" stroke="#A82870" stroke-width="2" fill="none"/>
+      <polygon points="316,92 320,84 312,84" fill="#A82870"/>
+      <text x="322" y="76" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#A82870">v</text>
+      <!-- u arrow along axis (below axis, clear of a/b labels) -->
+      <line x1="100" y1="168" x2="300" y2="168" stroke="#2D8B46" stroke-width="2"/>
+      <polygon points="300,168 292,164 292,172" fill="#2D8B46"/>
+      <text x="185" y="184" font-family="Architects Daughter,cursive" font-size="14" font-weight="700" fill="#2D8B46">u (along axis)</text>
       <!-- Profile label -->
-      <text x="140" y="56" font-family="Architects Daughter,cursive" font-size="13" fill="#8B1A1A">profile y = g(x)</text>
-      <!-- Tick marks on axis -->
+      <text x="116" y="52" font-family="Architects Daughter,cursive" font-size="13" fill="#8B1A1A">profile y = g(x)</text>
+      <!-- a and b tick marks -->
       <line x1="100" y1="137" x2="100" y2="143" stroke="#5A5A50" stroke-width="1"/>
       <text x="94" y="154" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">a</text>
       <line x1="460" y1="137" x2="460" y2="143" stroke="#5A5A50" stroke-width="1"/>
       <text x="454" y="154" font-family="Architects Daughter,cursive" font-size="12" fill="#5A5A50">b</text>
     </svg>
-    <div class="figure-caption">Fig 5.4 — Surface of revolution. The profile curve y = g(x) is spun around the x-axis. Parameter u slides along the axis; parameter v rotates around it. Each blue ellipse is a cross-section of radius g(u).</div>
+    <div class="figure-caption">Fig 5.4 — Surface of revolution. The profile curve y = g(x) is spun around the x-axis. Each blue ellipse is a cross-section whose radius matches the profile height g(u) at that position.</div>
     </div>
 
     <p><strong>Example:</strong> Revolving \(y=\sqrt{x}\) for \(x\in[0,4]\) gives a trumpet-shaped surface: \(\mathbf{r}(u,v)=(u,\sqrt{u}\cos v,\sqrt{u}\sin v)\), and the cross-sections are circles of radius \(\sqrt{u}\) that grow as \(u\) increases.</p>
