@@ -4,11 +4,11 @@
     <div class="fs-toggle"><button class="active" onclick="setView('full',this)">Full Detail</button><button onclick="setView('quick',this)">Quick Reference</button><button onclick="setView('eqonly',this)">Equations Only</button></div>
     <div class="color-legend">
       <span style="font-weight:600;color:var(--muted);margin-right:4px;">Click colored variables for info:</span>
-      <div class="cl-item"><div class="cl-dot" style="background:var(--v1)"></div><span>v (vector/components)</span></div>
-      <div class="cl-item"><div class="cl-dot" style="background:var(--v2)"></div><span>w (vector/components)</span></div>
-      <div class="cl-item"><div class="cl-dot" style="background:var(--v3)"></div><span>angles (θ, α, β, γ)</span></div>
-      <div class="cl-item"><div class="cl-dot" style="background:var(--v4)"></div><span>scalars (a, b, c, u)</span></div>
-      <div class="cl-item"><div class="cl-dot" style="background:var(--v5)"></div><span>magnitudes (|v|, |w|)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v1)"></div><span>primary (v, P, a, r, x)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v2)"></div><span>secondary (w, Q, dy/dt, y)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v3)"></div><span>angles (θ, α, β, γ, φ)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v4)"></div><span>parameters &amp; scalars (t, d, r')</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v5)"></div><span>magnitudes (|v|, |w|, |n|)</span></div>
     </div>
     <div id="fs-content" data-view="full">
     <h2 style="color:var(--ch1-title)">Chapter 1 — Vectors</h2>
@@ -86,7 +86,91 @@
     </div></div>
 
     </div><!-- end fs-chapter ch1 -->
-    <h2 style="color:var(--muted);margin-top:24px;">Chapters 2–7</h2>
+
+    <h2 style="color:var(--ch2-title);margin-top:24px;">Chapter 2 — Lines, Planes &amp; Parametric Curves</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch2-title)">
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line (Parametric)</div></div><div class="fs-body">
+      <div class="fs-formula">\[\vec{r}(t)=\htmlData{t=P — a known point on the line}{\color{#D45D00}{P}}+\htmlData{t=t — parameter (real number)}{\color{#5D7A20}{t}}\,\htmlData{t=v⃗ — direction vector parallel to the line}{\color{#0B7D7D}{\vec{v}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">A line through point P in direction v. In 3D: (x,y,z)=(p₁+tv₁, p₂+tv₂, p₃+tv₃). Two points → direction = Q−P.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Given point + direction, or two points on the line.</div><div class="wb n"><strong>✗ Not for</strong>Plane equations (those use a normal vector, not direction).</div></div></div>
+      <div class="fs-quick-summary">Point + direction vector → parametric line. t ∈ ℝ for full line, [0,1] for segment.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Plane Equation</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=a — x-component of normal}{\color{#D45D00}{a}}x+\htmlData{t=b — y-component of normal}{\color{#D45D00}{b}}y+\htmlData{t=c — z-component of normal}{\color{#D45D00}{c}}z=\htmlData{t=d — constant found by substituting a known point}{\color{#5D7A20}{d}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Normal vector n⃗=(a,b,c) is ⊥ to the plane. Three points → n⃗ = PQ × PR. Find d by substituting any point on the plane.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Three non-collinear points, or point + normal given.</div><div class="wb n"><strong>✗ Not for</strong>Lines (lines use direction vectors, not normals).</div></div></div>
+      <div class="fs-quick-summary">Normal vector determines the plane. Cross product of two in-plane vectors gives it.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Parametric Derivatives</div></div><div class="fs-body">
+      <div class="fs-formula">\[\frac{dy}{dx}=\frac{\htmlData{t=dy/dt — derivative of y(t) w.r.t. parameter}{\color{#0B7D7D}{dy/dt}}}{\htmlData{t=dx/dt — derivative of x(t) w.r.t. parameter}{\color{#D45D00}{dx/dt}}},\quad \frac{d^2y}{dx^2}=\frac{\frac{d}{dt}\!\left(\frac{dy}{dx}\right)}{\htmlData{t=dx/dt — must be nonzero}{\color{#D45D00}{dx/dt}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Chain rule adapted for parametric form. Horizontal tangent: dy/dt=0. Vertical tangent: dx/dt=0. Second derivative for concavity.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Finding tangent slopes, concavity, or tangent lines to parametric curves.</div><div class="wb n"><strong>✗ Not for</strong>Direct y=f(x) — just use regular derivatives.</div></div></div>
+      <div class="fs-quick-summary">Slope = (dy/dt)/(dx/dt). Second derivative: differentiate slope w.r.t. t, then divide by dx/dt.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Arc Length (Parametric)</div></div><div class="fs-body">
+      <div class="fs-formula">\[L=\int_{\htmlData{t=α — start of parameter range}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — end of parameter range}{\color{#A82870}{\beta}}}\sqrt{\left[\htmlData{t=x'(t)}{\color{#D45D00}{x'(t)}}\right]^2+\left[\htmlData{t=y'(t)}{\color{#0B7D7D}{y'(t)}}\right]^2}\,dt\]</div>
+      <div class="fs-detail"><p class="fs-explain">Sum of infinitesimal line segments √(dx²+dy²). Curve must be traced exactly once.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Parametric or Cartesian curves. For y=f(x): L = ∫√(1+(y')²) dx.</div><div class="wb n"><strong>✗ Not for</strong>Polar curves — use √(r'²+r²) dθ instead.</div></div></div>
+      <div class="fs-quick-summary">Length = ∫ speed dt. Cycloid arch = 8r.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Area</div></div><div class="fs-body">
+      <div class="fs-formula">\[A=\int_{\htmlData{t=α — starting angle}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — ending angle}{\color{#A82870}{\beta}}}\frac{1}{2}\htmlData{t=r — polar radius function}{\color{#D45D00}{r}}^2\,d\theta\]</div>
+      <div class="fs-detail"><p class="fs-explain">Sum of infinitesimal sector areas ½r²dθ. Between two curves: ½(r_out² − r_in²). Always find intersections first.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Area enclosed by polar curves. Between curves: use outer² − inner².</div><div class="wb n"><strong>✗ Not for</strong>Cartesian regions — use ∫y dx there.</div></div></div>
+      <div class="fs-quick-summary">½∫r² dθ. Between curves: ½∫(r_out² − r_in²) dθ.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Arc Length</div></div><div class="fs-body">
+      <div class="fs-formula">\[L=\int_{\htmlData{t=α — starting angle}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — ending angle}{\color{#A82870}{\beta}}}\sqrt{\htmlData{t=r' — derivative dr/dθ}{\color{#0B7D7D}{(r'_\theta)}}^2+\htmlData{t=r — polar radius}{\color{#D45D00}{r}}^2}\;d\theta\]</div>
+      <div class="fs-detail"><p class="fs-explain">Derived from (x'_θ)²+(y'_θ)² = (r')²+r². Cardioid r=1+sinθ has length 8.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Length of polar curve r = f(θ).</div><div class="wb n"><strong>✗ Not for</strong>Parametric curves — use √(x'²+y'²) dt there.</div></div></div>
+      <div class="fs-quick-summary">√(r'²+r²) dθ. Simpler than converting to Cartesian.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line Segment</div></div><div class="fs-body">
+      <div class="fs-formula">\[\vec{r}(t)=(1-\htmlData{t=t — parameter from 0 to 1}{\color{#5D7A20}{t}})\,\htmlData{t=P — start point}{\color{#D45D00}{\vec{P}}}+\htmlData{t=t — parameter}{\color{#5D7A20}{t}}\,\htmlData{t=Q — end point}{\color{#0B7D7D}{\vec{Q}}},\quad 0\le t\le 1\]</div>
+      <div class="fs-detail"><p class="fs-explain">Traces from P to Q. At t=0 → P, t=1 → Q, t=½ → midpoint.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Need a finite segment between two points.</div><div class="wb n"><strong>✗ Not for</strong>Full lines (use t ∈ ℝ).</div></div></div>
+      <div class="fs-quick-summary">Weighted average of two endpoints. t=½ gives midpoint.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Angle Between Planes</div></div><div class="fs-body">
+      <div class="fs-formula">\[\cos\htmlData{t=θ — angle between the planes}{\color{#A82870}{\theta}}=\frac{\htmlData{t=n⃗₁ — normal to first plane}{\color{#D45D00}{\vec{n}_1}}\cdot\htmlData{t=n⃗₂ — normal to second plane}{\color{#0B7D7D}{\vec{n}_2}}}{|\vec{n}_1|\,|\vec{n}_2|}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Same as the angle-between-vectors formula from §1.7, applied to normals. Parallel planes have parallel normals.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Finding angle between two planes.</div><div class="wb n"><strong>✗ Not for</strong>Finding intersection line (use cross product of normals for direction).</div></div></div>
+      <div class="fs-quick-summary">Angle between planes is the angle between their normal vectors.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Rotation Matrices</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{Active: }A=\begin{pmatrix}\cos\htmlData{t=θ — CCW rotation angle}{\color{#A82870}{\theta}}&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\quad\text{Passive: }A^{-1}=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Active rotates the point. Passive rotates the axes. Passive is the transpose/inverse. Combined with translation: apply (x−h, y−k) first, then multiply by A or A⁻¹.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Rotating points or axes, eliminating cross-terms in conics.</div><div class="wb n"><strong>✗ Not for</strong>Mixing up which matrix to use — active vs passive differ by sign on sin terms.</div></div></div>
+      <div class="fs-quick-summary">Active: rotate point. Passive: rotate axes (flip sin signs). Translation first, then rotate.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Parametric Area</div></div><div class="fs-body">
+      <div class="fs-formula">\[A=\int_{\htmlData{t=α — start parameter}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — end parameter}{\color{#A82870}{\beta}}}\htmlData{t=y(t) — height function}{\color{#0B7D7D}{y(t)}}\,\htmlData{t=x'(t) — derivative of x-component}{\color{#D45D00}{x'(t)}}\,dt\]</div>
+      <div class="fs-detail"><p class="fs-explain">From ∫y dx via substitution dx → x'(t) dt. Closed curve: A = |∫g(t) f'(t) dt|. Cycloid arch area is 3πr².</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Area under or enclosed by parametric curves.</div><div class="wb n"><strong>✗ Not for</strong>Polar curves (use ½∫r² dθ).</div></div></div>
+      <div class="fs-quick-summary">Replace dx → x'(t)dt. Cycloid arch gives 3πr². Ellipse gives πab.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar ↔ Cartesian</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=x — Cartesian horizontal}{\color{#D45D00}{x}}=\htmlData{t=r — distance from origin}{\color{#5D7A20}{r}}\cos\htmlData{t=θ — angle from positive x-axis}{\color{#A82870}{\theta}},\quad \htmlData{t=y — Cartesian vertical}{\color{#0B7D7D}{y}}=r\sin\theta;\quad r=\sqrt{x^2+y^2}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Convert between polar and Cartesian. Convention: (−r,θ) represents (r,θ+π). For θ: always check quadrant.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Converting coordinates or simplifying curves with circular symmetry.</div><div class="wb n"><strong>✗ Not for</strong>3D — use cylindrical or spherical coordinates.</div></div></div>
+      <div class="fs-quick-summary">Polar→Cart: x=rcosθ, y=rsinθ. Cart→Polar: r=√(x²+y²), check quadrant for θ.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Slope</div></div><div class="fs-body">
+      <div class="fs-formula">\[\frac{dy}{dx}=\frac{\htmlData{t=r' — derivative dr/dθ}{\color{#5D7A20}{r'}}\sin\htmlData{t=θ — polar angle}{\color{#A82870}{\theta}}+\htmlData{t=r — polar radius}{\color{#D45D00}{r}}\cos\theta}{\htmlData{t=r' — derivative dr/dθ}{\color{#5D7A20}{r'}}\cos\theta-\htmlData{t=r — polar radius}{\color{#D45D00}{r}}\sin\theta}\]</div>
+      <div class="fs-detail"><p class="fs-explain">From (dy/dθ)/(dx/dθ) with product rule on x=rcosθ, y=rsinθ. Convert to (x,y) before writing tangent line.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Tangent lines to polar curves.</div><div class="wb n"><strong>✗ Not for</strong>Parametric curves x(t),y(t) — use (dy/dt)/(dx/dt) directly.</div></div></div>
+      <div class="fs-quick-summary">Slope of polar curve. Don't forget to convert (r,θ) → (x,y) for the line equation.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Conic Discriminant</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=B² − 4AC — the conic discriminant}{\color{#D45D00}{B^2-4AC}}:\quad {\lt}0\;\text{ellipse},\quad {\gt}0\;\text{hyperbola},\quad {=}0\;\text{parabola}\]</div>
+      <div class="fs-detail"><p class="fs-explain">For Ax²+Bxy+Cy²+Dx+Ey+F=0. Degenerate cases possible (lines, points, empty set).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Classifying a general second-degree equation.</div><div class="wb n"><strong>✗ Not for</strong>Finding the equation itself — complete the square, then compare to standard form.</div></div></div>
+      <div class="fs-quick-summary">B²−4AC classifies: negative→ellipse, positive→hyperbola, zero→parabola.</div>
+    </div></div>
+
+    </div><!-- end fs-chapter ch2 -->
+
+    <h2 style="color:var(--muted);margin-top:24px;">Chapters 3–7</h2>
     <div class="empty-page" style="padding:24px;">Added as each chapter is completed.</div>
     </div>
   </div>
