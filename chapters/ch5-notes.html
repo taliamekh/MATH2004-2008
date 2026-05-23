@@ -1,27 +1,267 @@
 <div class="page" id="ch5">
     <div class="page-title" style="color:var(--ch5-title)">Chapter 5</div><h1 style="color:var(--ch5-title)">Double Integrals & Surfaces</h1>
-    <p class="page-intro">Double integrals over rectangular and general regions, change of variables, sketching and parameterizing surfaces in 3D.</p>
+    <p class="page-intro">Double integrals over rectangular and general regions, change of variables to polar coordinates, and sketching/parameterizing surfaces in 3D.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.1 — Describing Planar Regions</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
 
-    <div class="def-card card-bracket"><div class="def-name">Week 7 (Second Half) — Double Integrals</div>
-    <p><strong>§5.1:</strong> Double Integrals — definition, geometric interpretation</p>
-    <p><strong>§5.2:</strong> Iterated integrals — Fubini's theorem, evaluation over rectangular and type I/II regions</p>
+    <p>Before integrating over a region, you need to <em>describe</em> it in a way that gives you integration limits. The key idea: describe the region using <strong>slices</strong> — either vertical (fixing \(x\)) or horizontal (fixing \(y\)).</p>
+
+    <div class="def-card card-bracket"><div class="def-name">x-simple Region (Type I)</div>
+    <p>A region \(\mathscr{R}\subseteq\mathbb{R}^2\) is <strong>x-simple</strong> if every vertical line through \(\mathscr{R}\) intersects it in at most two points. Equivalently:</p>
+    <p>\[\mathscr{R}_{yx}=\{(x,y): f_1(x)\leq y\leq f_2(x),\; a\leq x\leq b\}\]</p>
+    <p>The outer variable is \(x\) (constant limits), the inner is \(y\) (limits depend on \(x\)). Integrate <strong>dy dx</strong>.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 8 — Volume & Change of Variables</div>
-    <p><strong>§5.3:</strong> Applications to volume under a surface</p>
-    <p><strong>§5.4:</strong> Change of variables in double integrals — polar, general substitutions, Jacobians</p>
+    <div class="def-card card-bracket"><div class="def-name">y-simple Region (Type II)</div>
+    <p>A region \(\mathscr{R}\) is <strong>y-simple</strong> if every horizontal line through \(\mathscr{R}\) intersects it in at most two points:</p>
+    <p>\[\mathscr{R}_{xy}=\{(x,y): g_1(y)\leq x\leq g_2(y),\; c\leq y\leq d\}\]</p>
+    <p>The outer variable is \(y\), the inner is \(x\). Integrate <strong>dx dy</strong>.</p>
     </div>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 9 (First Half) — Surfaces</div>
-    <p><strong>§5.5:</strong> Sketching surfaces in three-dimensional space — quadric surfaces, cylinders, cones</p>
-    <p><strong>§5.6:</strong> Parametric equations of a surface</p>
+    <div class="tip-card card-bracket"><div class="tip-label">★ Memory Trick: Subscript = Integration Order</div>
+    <p>\(\mathscr{R}_{yx}\) → integrate \(y\) first, then \(x\) → <strong>dy dx</strong> (vertical slices).</p>
+    <p>\(\mathscr{R}_{xy}\) → integrate \(x\) first, then \(y\) → <strong>dx dy</strong> (horizontal slices).</p>
+    <p>The <em>innermost</em> integral has limits that depend on the outer variable. The <em>outer</em> integral has constant limits.</p>
     </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.1 — Region Bounded by Parabolas (Ex. 222)</div>
+    <p>Describe the region bounded by \(y=x^2\), \(y=-x^2\), and \(x=1\) using both vertical and horizontal slices.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Vertical slices (x-simple):</strong> Fix \(x\in[0,1]\). A vertical line enters at \(y=-x^2\) (bottom) and exits at \(y=x^2\) (top).</p>
+    <p>\(\mathscr{R}_{yx}=\{(x,y): -x^2\leq y\leq x^2,\; 0\leq x\leq 1\}\)</p>
+    <p><strong>Horizontal slices (y-simple):</strong> Need to split into two regions since the boundary curves change form depending on whether \(y>0\) or \(y<0\).</p>
+    <p>For \(y\geq 0\): \(x\) ranges from \(\sqrt{y}\) to \(1\), with \(0\leq y\leq 1\).</p>
+    <p>For \(y<0\): \(x\) ranges from \(\sqrt{-y}\) to \(1\), with \(-1\leq y\leq 0\).</p>
+    <p>\(\mathscr{R}_{xy}=\{(x,y):\sqrt{y}\leq x\leq 1,\;0\leq y\leq 1\}\cup\{(x,y):\sqrt{-y}\leq x\leq 1,\;-1\leq y\leq 0\}\)</p>
+    <p><strong>★ Takeaway:</strong> Vertical slices are much simpler here — one description vs. a union of two.</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.2 — Double Integrals and Iterated Integrals</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>The <strong>double integral</strong> generalizes the definite integral to two dimensions. Just as a single integral sums \(f(x)\Delta x\) over an interval, a double integral sums \(f(x,y)\Delta A\) over a region in the plane.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Definition — Double Integral</div>
+    <p>Partition a region \(\mathscr{R}\) into small rectangles \(\mathscr{R}_{ij}\) of area \(\Delta A_{ij}\). Pick \((x_i,y_j)\in\mathscr{R}_{ij}\). If the limit exists:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Double Integral</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\lim_{\|\mathscr{P}\|\to 0}\sum_{j=1}^{n}\sum_{i=1}^{m}f(x_i,y_j)\,\Delta A_{ij}\]</div>
+    <div class="pills"><span class="pill">dA — area element (dx dy or dy dx)</span><span class="pill">‖𝒫‖ — mesh of partition → 0</span><span class="pill">𝒬 — region of integration</span></div>
+    </div></div>
+
+    <h3>Geometric Meaning</h3>
+    <p>If \(f(x,y)\geq 0\), then \(\iint_{\mathscr{R}}f\,dA=\) <strong>volume</strong> under the surface \(z=f(x,y)\) above \(\mathscr{R}\).</p>
+    <p>If \(f(x,y)=1\), then \(\iint_{\mathscr{R}}1\,dA=\) <strong>area</strong> of \(\mathscr{R}\).</p>
+
+    <h3>Fubini's Theorem</h3>
+    <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (Rectangles)</div>
+    <p>If \(f\) is continuous on a rectangle \(\mathscr{R}=\{(x,y):a\leq x\leq b,\;c\leq y\leq d\}\), then:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — Rectangular Region</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\int_a^b\!\int_c^d f(x,y)\,dy\,dx=\int_c^d\!\int_a^b f(x,y)\,dx\,dy\]</div>
+    </div>
+    <p>For rectangles, the <strong>order of integration doesn't matter</strong> — you can integrate in either order.</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Fubini's Theorem (General Regions)</div>
+    <p>For non-rectangular regions, use the region description to set limits:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — x-simple (vertical slices)</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_a^b\!\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\,dx\]</div>
+    </div>
+    <div class="eq-card card-bracket"><div class="eq-name">Fubini — y-simple (horizontal slices)</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f\,dA=\int_c^d\!\int_{g_1(y)}^{g_2(y)} f(x,y)\,dx\,dy\]</div>
+    </div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ Anatomy of an Iterated Integral</div>
+    <p>In \(\int_a^b\int_{f_1(x)}^{f_2(x)}f(x,y)\,dy\,dx\):</p>
+    <p>• <strong>Inner integral:</strong> integrate w.r.t. \(y\) while holding \(x\) constant. Limits depend on \(x\).</p>
+    <p>• <strong>Outer integral:</strong> integrate the result w.r.t. \(x\). Limits are constants.</p>
+    <p>• <strong>Rule:</strong> the innermost differential (\(dy\)) matches the subscript order in \(\mathscr{R}_{yx}\).</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.2 — Iterated Integral over a Rectangle (Ex. 231)</div>
+    <p>Evaluate \(\int_{-1}^{1}\int_0^3(3x^2+y)\,dx\,dy\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div><strong>Inner integral</strong> (w.r.t. \(x\), hold \(y\) constant): \(\int_0^3(3x^2+y)\,dx=[x^3+yx]_0^3=27+3y\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div><strong>Outer integral:</strong> \(\int_{-1}^{1}(27+3y)\,dy=[27y+\frac{3y^2}{2}]_{-1}^{1}=(27+\frac{3}{2})-(-27+\frac{3}{2})=54\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: 54</p>
+    <p>Note: the \(3y\) term vanishes because \(y\) is odd on \([-1,1]\).</p>
+    </div></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.3 — Double Integral with Variable Limits (Ex. 232)</div>
+    <p>Evaluate \(\int_0^{1/2}\int_0^{\sqrt{1-x}}2xy\,dy\,dx\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>Inner: \(\int_0^{\sqrt{1-x}}2xy\,dy=2x\cdot\frac{y^2}{2}\Big|_0^{\sqrt{1-x}}=x(1-x)\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Outer: \(\int_0^{1/2}(x-x^2)\,dx=[\frac{x^2}{2}-\frac{x^3}{3}]_0^{1/2}=\frac{1}{8}-\frac{1}{24}=\frac{1}{12}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\frac{1}{12}\)</p>
+    </div></div>
+
+    <h3>Reversing the Order of Integration</h3>
+    <p>Sometimes one order produces an integral you can't evaluate, but reversing the order makes it tractable. To reverse: <strong>sketch the region</strong>, then re-describe it using the other slice direction.</p>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.4 — Reversing Integration Order (Ex. 247)</div>
+    <p>Evaluate \(\int_0^1\int_0^{\text{Arccos}\,y}\sin(\pi\sin x)\,dx\,dy\) by interchanging the order.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Original:</strong> horizontal slices, \(\mathscr{R}_{xy}=\{(x,y): 0\leq x\leq\text{Arccos}\,y,\;0\leq y\leq 1\}\).</p>
+    <p><strong>Reverse:</strong> vertical slices. Since \(x\leq\text{Arccos}\,y\iff y\leq\cos x\), and \(x\in[0,\pi/2]\):</p>
+    <p>\(\mathscr{R}_{yx}=\{(x,y): 0\leq y\leq\cos x,\; 0\leq x\leq\pi/2\}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\int_0^{\pi/2}\int_0^{\cos x}\sin(\pi\sin x)\,dy\,dx=\int_0^{\pi/2}\sin(\pi\sin x)\cos x\,dx\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Let \(u=\sin x\), \(du=\cos x\,dx\). Limits: \(0\to 1\). So \(=\int_0^1\sin(\pi u)\,du=-\frac{1}{\pi}\cos(\pi u)\Big|_0^1=\frac{2}{\pi}\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(\frac{2}{\pi}\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.3 — Volume Under a Surface</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Volume computation is a direct application of double integrals:</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Volume Under a Surface</div>
+    <div class="eq-formula">\[V=\iint_{\mathscr{R}}f(x,y)\,dA\]</div>
+    <div class="pills"><span class="pill">f(x,y) ≥ 0 — height of the surface above the xy-plane</span><span class="pill">𝒬 — projection of the surface onto the xy-plane</span></div>
+    </div>
+    <p>For volume <strong>between two surfaces</strong> \(z=f(x,y)\) (top) and \(z=g(x,y)\) (bottom) over \(\mathscr{R}\):</p>
+    <p>\[V=\iint_{\mathscr{R}}[f(x,y)-g(x,y)]\,dA\]</p>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.5 — Volume Under a Paraboloid (Ex. 248)</div>
+    <p>Find the volume of the solid under \(z=4-x^2-y^2\) and above the \(xy\)-plane.</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(z=0\) when \(x^2+y^2=4\), so \(\mathscr{R}\) is the disk of radius 2. Using vertical slices:</p>
+    <p>\(V=\int_{-2}^{2}\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}(4-x^2-y^2)\,dy\,dx\)</p>
+    <p>This is much easier in <strong>polar coordinates</strong> (§5.4): \(V=\int_0^{2\pi}\int_0^2(4-r^2)r\,dr\,d\theta=2\pi\int_0^2(4r-r^3)\,dr=2\pi[2r^2-\frac{r^4}{4}]_0^2=2\pi(8-4)=8\pi\).</p>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(V=8\pi\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.4 — Change of Variables / Polar Coordinates</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Just as single-variable integrals use \(u\)-substitution, double integrals use a <strong>change of variables</strong>. The key extra ingredient: the <strong>Jacobian determinant</strong>, which accounts for how the transformation stretches or compresses area.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Jacobian Matrix and Determinant</div>
+    <p>For a transformation \(x=g(u,v),\;y=h(u,v)\), the <strong>Jacobian matrix</strong> is:</p>
+    <p>\[\frac{\partial(x,y)}{\partial(u,v)}=\begin{pmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}\end{pmatrix}\]</p>
+    <p>The <strong>Jacobian determinant</strong> \(J(u,v)=\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\) is the absolute value of the determinant of this matrix.</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Change of Variables Formula</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\iint_{\mathscr{S}}f\!\big(g(u,v),h(u,v)\big)\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,dA\]</div>
+    <div class="pills"><span class="pill">𝒬 — original region (xy-plane)</span><span class="pill">𝒮 — transformed region (uv-plane)</span><span class="pill">|∂(x,y)/∂(u,v)| — Jacobian (area scaling factor)</span></div>
+    </div>
+
+    <h3>Polar Coordinates — The Most Important Special Case</h3>
+    <p>For regions with circular symmetry, use \(x=r\cos\theta,\;y=r\sin\theta\). The Jacobian is:</p>
+    <p>\[\frac{\partial(x,y)}{\partial(r,\theta)}=\det\begin{pmatrix}\cos\theta&\sin\theta\\-r\sin\theta&r\cos\theta\end{pmatrix}=r\cos^2\theta+r\sin^2\theta=r\]</p>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Double Integral in Polar Coordinates</div>
+    <div class="eq-formula">\[\iint_{\mathscr{R}}f(x,y)\,dA=\iint_{\mathscr{S}}f(r\cos\theta,\,r\sin\theta)\;\boldsymbol{r}\,dr\,d\theta\]</div>
+    <div class="pills"><span class="pill">r — the Jacobian (DON'T forget!)</span><span class="pill">dA = r dr dθ — polar area element</span><span class="pill">x²+y² = r² — simplifies circular regions</span></div>
+    </div>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ When to Use Polar Coordinates</div>
+    <p>Switch to polar when:</p>
+    <p>• The region involves circles or arcs (\(x^2+y^2=R^2\))</p>
+    <p>• The integrand contains \(x^2+y^2\)</p>
+    <p>• The region is a sector, annulus, or cardioid</p>
+    <p><strong>Common trap:</strong> forgetting the extra factor of \(\boldsymbol{r}\) in \(dA=r\,dr\,d\theta\)!</p>
+    </div>
+
+    <div class="eq-card card-bracket"><div class="eq-name">Area in Polar Coordinates</div>
+    <div class="eq-formula">\[\text{Area}(\mathscr{R})=\iint_{\mathscr{R}}r\,dr\,d\theta\]</div>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.6 — Polar Double Integral (Ex. 253)</div>
+    <p>Evaluate \(\iint_{\mathscr{R}}(x^2+y^2)\,dA\) where \(\mathscr{R}\) is the disk \(x^2+y^2\leq 4\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>In polar: \(x^2+y^2=r^2\), \(\mathscr{R}:\;0\leq r\leq 2,\;0\leq\theta\leq 2\pi\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\iint r^2\cdot r\,dr\,d\theta=\int_0^{2\pi}\int_0^2 r^3\,dr\,d\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Inner: \(\int_0^2 r^3\,dr=\frac{r^4}{4}\Big|_0^2=4\). Outer: \(\int_0^{2\pi}4\,d\theta=8\pi\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(8\pi\)</p>
+    </div></div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.7 — Area of a Cardioid (Ex. 266)</div>
+    <p>Find the area enclosed by the cardioid \(r=2(1-\cos\theta)\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>\(\mathscr{R}=\{(r,\theta): 0\leq r\leq 2(1-\cos\theta),\; 0\leq\theta\leq 2\pi\}\).</p>
+    <div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\int_0^{2\pi}\int_0^{2(1-\cos\theta)}r\,dr\,d\theta=\int_0^{2\pi}\frac{r^2}{2}\Big|_0^{2(1-\cos\theta)}d\theta=\int_0^{2\pi}2(1-\cos\theta)^2\,d\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">2</div><div>Expand: \(2(1-2\cos\theta+\cos^2\theta)=2-4\cos\theta+2\cos^2\theta=2-4\cos\theta+1+\cos 2\theta=3-4\cos\theta+\cos 2\theta\).</div></div>
+    <div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(\int_0^{2\pi}(3-4\cos\theta+\cos 2\theta)\,d\theta=6\pi-0+0=6\pi\).</div></div>
+    <p style="background:rgba(196,136,62,.08);padding:6px 10px;border-radius:5px;font-weight:600;color:var(--example);">Answer: \(A=6\pi\)</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.5 — Three-Dimensional Plots / Quadric Surfaces</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Surfaces in \(\mathbb{R}^3\) are sketched by computing their <strong>traces</strong>: the curves of intersection with coordinate planes (or planes parallel to them). Set one variable to a constant and identify the resulting 2D curve.</p>
+
+    <div class="def-card card-bracket"><div class="def-name">Trace (Cross-Section)</div>
+    <p>A <strong>trace</strong> of a surface \(f(x,y,z)=0\) on the plane \(z=c\) is the curve \(\{(x,y,c): f(x,y,c)=0\}\). Similarly for \(x=c\) or \(y=c\) traces. Sketch traces at several values of \(c\) and "stack" them to visualize the surface.</p>
+    </div>
+
+    <h3>Catalog of Quadric Surfaces</h3>
+
+    <table class="ptbl" style="font-size:14px;">
+    <tr><th>Surface</th><th>Standard Equation</th><th>z-traces</th><th>Shape</th></tr>
+    <tr><td><strong>Ellipsoid</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (for \(|c|<1\))</td><td>Egg/football</td></tr>
+    <tr><td><strong>Elliptic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}+\frac{y^2}{b^2}\)</td><td>Ellipses</td><td>Bowl (opens up)</td></tr>
+    <tr><td><strong>Hyperbolic Paraboloid</strong></td><td>\(z=\frac{x^2}{a^2}-\frac{y^2}{b^2}\)</td><td>Hyperbolas</td><td>Saddle / Pringles chip</td></tr>
+    <tr><td><strong>Elliptic Cone</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\)</td><td>Ellipses (z≠0), point (z=0)</td><td>Double cone</td></tr>
+    <tr><td><strong>Hyperboloid (1 sheet)</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\)</td><td>Ellipses</td><td>Cooling tower</td></tr>
+    <tr><td><strong>Hyperboloid (2 sheets)</strong></td><td>\(-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td><td>Ellipses (large \(|z|\))</td><td>Two caps</td></tr>
+    <tr><td><strong>Elliptic Cylinder</strong></td><td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td><td>Same ellipse for all z</td><td>Tube</td></tr>
+    </table>
+
+    <div class="tip-card card-bracket"><div class="tip-label">★ How to Identify a Quadric</div>
+    <p><strong>Step 1:</strong> Complete the square if needed to put in standard form.</p>
+    <p><strong>Step 2:</strong> Count the number of squared terms and check their signs.</p>
+    <p>• All same sign = ellipsoid or cylinder. • Two same, one opposite = hyperboloid. • Two squared + one linear = paraboloid. • One negative on RHS = two sheets. • RHS = 0 → cone.</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.8 — Identifying and Sketching a Surface (Ex. 275)</div>
+    <p>Identify and sketch the surface \(z=x^2+4y^2\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p><strong>Form:</strong> \(z=\frac{x^2}{1}+\frac{y^2}{1/4}\) — this is an <strong>elliptic paraboloid</strong> opening upward.</p>
+    <p><strong>z-traces:</strong> Set \(z=c\geq 0\): \(x^2+4y^2=c\), which is an ellipse with semi-axes \(\sqrt{c}\) and \(\sqrt{c}/2\). At \(z=0\): the origin (vertex). The ellipses grow as \(z\) increases.</p>
+    <p><strong>x-traces:</strong> Set \(x=c\): \(z=c^2+4y^2\), parabola opening upward.</p>
+    <p><strong>y-traces:</strong> Set \(y=c\): \(z=x^2+4c^2\), parabola opening upward.</p>
+    </div></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>§5.6 — Parametric Equations of Surfaces</h2>
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <p>Just as curves are parametrized by one parameter \(t\), surfaces are parametrized by <strong>two parameters</strong> \(u,v\):</p>
+    <div class="eq-card card-bracket"><div class="eq-name">Parametric Surface</div>
+    <div class="eq-formula">\[\mathbf{r}(u,v)=\big(x(u,v),\;y(u,v),\;z(u,v)\big),\quad (u,v)\in D\subseteq\mathbb{R}^2\]</div>
+    <div class="pills"><span class="pill">u, v — parameters (2 independent variables)</span><span class="pill">D — parameter domain (rectangle, disk, etc.)</span><span class="pill">r(u,v) — position vector of a point on the surface</span></div>
+    </div>
+
+    <h3>Common Parametrizations</h3>
+    <div class="def-card card-bracket"><div class="def-name">Sphere of Radius R</div>
+    <p>\[\mathbf{r}(u,v)=(R\cos v\cos u,\;R\cos v\sin u,\;R\sin v)\]</p>
+    <p>where \(u\in[0,2\pi]\) (longitude) and \(v\in[-\pi/2,\pi/2]\) (latitude).</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Graph Surface \(z=f(x,y)\)</div>
+    <p>Any surface given explicitly as \(z=f(x,y)\) has the trivial parametrization:</p>
+    <p>\[\mathbf{r}(u,v)=(u,\,v,\,f(u,v)),\quad (u,v)\in\mathscr{R}\]</p>
+    </div>
+
+    <div class="def-card card-bracket"><div class="def-name">Surface of Revolution</div>
+    <p>Rotating \(y=g(x)\geq 0\) around the \(x\)-axis gives:</p>
+    <p>\[\mathbf{r}(u,v)=(u,\;g(u)\cos v,\;g(u)\sin v),\quad a\leq u\leq b,\;0\leq v\leq 2\pi\]</p>
+    </div>
+
+    <div class="ex-card card-bracket"><div class="ex-label">Example 5.9 — Parametrizing a Cylinder (Ex. 282)</div>
+    <p>Find a parametric representation of the cylinder \(x^2+y^2=4\) for \(0\leq z\leq 3\).</p>
+    <div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Show Solution</div><div class="cc">
+    <p>The circle \(x^2+y^2=4\) in any fixed \(z\)-plane is parametrized as \(x=2\cos\theta,\;y=2\sin\theta\). Let \(z\) be the second parameter:</p>
+    <p>\(\mathbf{r}(\theta,z)=(2\cos\theta,\;2\sin\theta,\;z),\quad \theta\in[0,2\pi],\;z\in[0,3]\).</p>
+    </div></div>
 
     <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
     <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
     </div>
-
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 5 lecture notes or textbook pages to populate full notes.</div>
   </div>
