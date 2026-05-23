@@ -180,9 +180,25 @@ MATH2004-2008/
 **Examples:** 17 worked examples (line through points, intersecting lines, skew lines, plane through 3 points, line-plane intersection, two-plane intersection, active rotation, parametric tangent lines, H/V tangents, cycloid area, ellipse area, cycloid arc length, coordinate conversion, polar tangent, inner loop area, area between polar curves, cardioid length)
 **Diagrams:** 15 SVG figures + 3 inline table diagrams (line, segment, skew, plane+normal, two-plane intersection, rotation active/passive, parametric curve, conics, tangent types, cycloid, arc length element, polar coords, cardioid, polar area sector, limaçon) — ALL DIAGRAM LABELS VERIFIED CLEAR
 
-### Ch3 — Partial Derivatives & Vector Fields (§3.1–3.7) ⬜ OUTLINE ONLY
-**Sections:** limits, continuity, partial derivatives, directional derivatives, gradients, chain rule, implicit differentiation, tangent planes, normal lines, conservative fields, divergence, curl
-**Recommended problems:** Exercise Sets 23–25, 27, 29, 30, 31
+### Ch3 — Partial Derivatives & Vector Fields (§3.1–3.7) ✅ COMPLETE
+**Defined:** limit of f(x,y) (ε-δ), continuity, partial derivative (∂f/∂x, ∂f/∂y), higher-order partials, mixed partials, Clairaut's theorem, gradient (∇f), directional derivative (D_u f), steepest ascent/descent, level curves, chain rule (one/two parameters), tree diagram, implicit partial derivatives, tangent plane, normal line, vector field, conservative field, potential function, curl (∇×F), divergence (∇·F), irrotational, source/sink/incompressible
+**Key formulas:**
+- Partial derivative: ∂f/∂x = lim[f(x₀+h,y₀)−f(x₀,y₀)]/h
+- Clairaut: f_xy = f_yx (continuous mixed partials)
+- Gradient: ∇f = (f_x, f_y) [2D], (f_x, f_y, f_z) [3D]
+- Directional derivative: D_u f = ∇f · u = |∇f||u|cosθ
+- Max rate of change: |∇f| in direction ∇f/|∇f|
+- Chain rule (1 param): dz/dt = z_x·x' + z_y·y'
+- Implicit: ∂z/∂x = −f_x/f_z, ∂z/∂y = −f_y/f_z
+- Tangent plane: f_x(x−x₀)+f_y(y−y₀)+f_z(z−z₀)=0
+- Normal line: r(t) = P + t∇f
+- Curl: ∇×F = det[i,j,k; ∂_x,∂_y,∂_z; P,Q,R]
+- Conservative test: curl F = 0 (2D: Q_x = P_y)
+- Divergence: ∇·F = P_x + Q_y + R_z
+**Key identities:** curl(∇f) = 0, div(curl F) = 0
+**Key tests:** limit DNE ↔ two-path test gives different values; conservative ↔ curl F = 0
+**Examples:** 18 worked examples (ε-δ limit proof, two-path DNE, continuity proof, cannot-be-made-continuous, basic partials, 3-variable partials, Clairaut verification, max directional derivative, directional derivative in given direction, related rates cylinder, implicit differentiation, tangent plane to sphere, tangent plane to z=g(x,y), 2D conservative test, potential function, 3D conservative test, divergence computation, div(curl F)=0 proof)
+**Diagrams:** 2 SVG figures (partial derivative geometry — surface slice, gradient perpendicular to level curves)
 
 ### Ch7 — Maxima, Minima & Lagrange (§7.2–7.3) ⬜ OUTLINE ONLY
 **Sections:** critical points, second derivative test, saddle points, Lagrange multipliers
@@ -206,9 +222,9 @@ MATH2004-2008/
 
 | Section | Status | Contains |
 |---------|--------|----------|
-| Formula Sheet | Ch1 + Ch2 | 25 formula cards with variable popups, 3-view toggle, updated color legend |
-| Summary | Ch1 + Ch2 | Ch1: 7 concept clusters. Ch2: 3 clusters (Lines/Planes, Parametric, Polar). Quick ref table with 12 rows |
-| Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items |
+| Formula Sheet | Ch1 + Ch2 + Ch3 | 35 formula cards with variable popups, 3-view toggle. Ch3: partial deriv, Clairaut, directional deriv, gradient, chain rule, implicit, tangent plane, curl, conservative test, divergence |
+| Summary | Ch1 + Ch2 + Ch3 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters (limits/continuity, partials, gradient/directional, chain rule/implicit, tangent planes, conservative/curl/div). Quick ref table with 27 rows |
+| Progress | Full skeleton | All checkpoints and groups, Ch1–Ch7 items. Ch3 expanded to 9 items |
 | Test 1 Prep | Placeholder | — |
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
@@ -283,3 +299,23 @@ MATH2004-2008/
   - Quick Reference table: 12 → 20 rows (added skew test, plane angle, conic discriminant, param 2nd deriv, cycloid results, polar slope, polar between curves)
   - Cross-links section expanded
 - Files changed: shell-head.html, chapters/ch2-notes.html, chapters/formulas.html, chapters/summary.html, MATH2004-notes.html
+
+### Session 6 — May 23, 2026
+- **Chapter 3 notes written** (35KB, §3.1–3.7): 18 worked examples, 2 SVG diagrams
+  - §3.1 Limits & Continuity: ε-δ definition, two-path DNE test, continuity definition, 4 examples
+  - §3.2 Partial Derivatives: definitions, geometric meaning, notation, 2 examples
+  - §3.3 Higher-Order Partials: Clairaut's theorem, 1 example
+  - §3.5 Directional Derivatives & Gradients: gradient definition, D_u f formula, steepest ascent/descent, 2 examples
+  - §3.6 Chain Rule: one-parameter and two-parameter forms, tree diagram, 1 example
+  - §3.6.2 Implicit Differentiation: shortcut formula ∂z/∂x = −fₓ/f_z, 1 example
+  - §3.6.3 Tangent Planes & Normal Lines: surface form and z=g(x,y) special case, 2 examples
+  - §3.7 Conservative Fields, Curl, Divergence: definitions, tests, identities, 5 examples including div(curl F)=0 proof
+  - SVG diagrams: partial derivative geometry (surface slice), gradient perpendicular to level curves
+- **Formula sheet expanded** — 10 new Ch3 cards added (25→35 total):
+  - Partial derivative definition, Clairaut, directional derivative, gradient steepest ascent, chain rule, implicit partials, tangent plane, curl, conservative test, divergence
+- **Summary expanded** — 6 new Ch3 concept clusters + 8 new quick reference rows (20→27 total)
+  - Orange palette (#B33000/#CC4A00/#E06600/#F09000) for What/Why/How/Trap labels
+- **Progress tracker expanded** — Ch3 group: 2→9 items (notes + 6 example sub-groups + formulas)
+- **Shell-head updated** — --ch3-title set to #D35400, pending removed from Ch3 sidebar links
+- **Built MATH2004-notes.html** — 294KB, 22/22 fragments assembled
+- Files changed: shell-head.html, ch3-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
