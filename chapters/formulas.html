@@ -1,0 +1,92 @@
+<div class="page" id="formulas">
+    <div class="page-title">Reference</div><h1>Formula & Theorem Sheet</h1>
+    <p class="page-intro">Every variable explained. Click colored variables for details.</p>
+    <div class="fs-toggle"><button class="active" onclick="setView('full',this)">Full Detail</button><button onclick="setView('quick',this)">Quick Reference</button><button onclick="setView('eqonly',this)">Equations Only</button></div>
+    <div class="color-legend">
+      <span style="font-weight:600;color:var(--muted);margin-right:4px;">Click colored variables for info:</span>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v1)"></div><span>v (vector/components)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v2)"></div><span>w (vector/components)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v3)"></div><span>angles (θ, α, β, γ)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v4)"></div><span>scalars (a, b, c, u)</span></div>
+      <div class="cl-item"><div class="cl-dot" style="background:var(--v5)"></div><span>magnitudes (|v|, |w|)</span></div>
+    </div>
+    <div id="fs-content" data-view="full">
+    <h2 style="color:var(--ch1-title)">Chapter 1 — Vectors</h2>
+    <div class="fs-chapter" style="--fs-ch-title:var(--ch1-title)">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Magnitude</div></div><div class="fs-body">
+      <div class="fs-formula">\[|\vec{v}|=\sqrt{\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}^2+\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}^2+\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}^2}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The length of a vector. Always ≥ 0. The 3D Pythagorean theorem applied to components.</p><p class="fs-origin">Extends the distance formula to three dimensions.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Finding length, normalizing, comparing magnitudes.</div><div class="wb n"><strong>✗ Not for</strong>Finding direction. Don't confuse with v·v = |v|².</div></div></div>
+      <div class="fs-quick-summary">Length of a vector — always ≥ 0. Use for normalizing, distances.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Unit Vector</div></div><div class="fs-body">
+      <div class="fs-formula">\[\hat{u}=\frac{\htmlData{t=v — the vector being normalized}{\color{#D45D00}{\vec{v}}}}{\htmlData{t=|v| — magnitude of v (must be nonzero)}{\color{#2050A0}{|\vec{v}|}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Dividing by magnitude gives length 1, same direction. Strips magnitude, keeps direction.</p><p class="fs-origin">Scalar multiplication by 1/|v|.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>"Unit vector", "normalize", "direction of". Used in projections.</div><div class="wb n"><strong>✗ Not for</strong>Zero vector — undefined (division by 0).</div></div></div>
+      <div class="fs-quick-summary">Direction only, length 1. Undefined for the zero vector.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Dot Product</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}\htmlData{t=w₁ — x-component of w}{\color{#0B7D7D}{w_1}}+\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}\htmlData{t=w₂ — y-component of w}{\color{#0B7D7D}{w_2}}+\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}\htmlData{t=w₃ — z-component of w}{\color{#0B7D7D}{w_3}}=\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of w}{\color{#2050A0}{|\vec{w}|}}\cos\htmlData{t=θ — angle between v and w}{\color{#A82870}{\theta}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Measures alignment. Multiply matching components and add. Geometrically: magnitudes × cosθ. Result is a scalar.</p><p class="fs-origin">Expanding |v−w|² with cosine law connects algebraic and geometric forms.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Finding angles, checking perpendicularity, projections, work.</div><div class="wb n"><strong>✗ Not for</strong>Finding a ⊥ vector (use cross product). Gives a scalar, not a vector.</div></div></div>
+      <div class="fs-quick-summary">Scalar measuring alignment. Positive = same dir, zero = ⊥, negative = opposing.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Angle Between Vectors</div></div><div class="fs-body">
+      <div class="fs-formula">\[\cos\htmlData{t=θ — angle between v and w (0 to π)}{\color{#A82870}{\theta}}=\frac{\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}}{\htmlData{t=|v| — magnitude of first vector}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of second vector}{\color{#2050A0}{|\vec{w}|}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Rearranging the geometric dot product. Steps: (1) dot, (2) magnitudes, (3) divide, (4) arccos.</p><p class="fs-origin">Rearrangement of v·w = |v||w|cosθ.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Two known vectors, need the angle between them.</div><div class="wb n"><strong>✗ Not for</strong>Inclination of a single vector (use arctan(b/a)).</div></div></div>
+      <div class="fs-quick-summary">Isolate θ from the dot product. Three-step: dot → magnitudes → arccos.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Direction Cosines</div></div><div class="fs-body">
+      <div class="fs-formula">\[\cos\htmlData{t=α — angle v makes with x-axis}{\color{#A82870}{\alpha}}=\frac{\htmlData{t=a — x-component of v}{\color{#5D7A20}{a}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}},\;\cos\htmlData{t=β — angle v makes with y-axis}{\color{#A82870}{\beta}}=\frac{\htmlData{t=b — y-component of v}{\color{#5D7A20}{b}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}},\;\cos\htmlData{t=γ — angle v makes with z-axis}{\color{#A82870}{\gamma}}=\frac{\htmlData{t=c — z-component of v}{\color{#5D7A20}{c}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Cosines of the angles a vector makes with each axis. The identity cos²α+cos²β+cos²γ=1 always holds.</p><p class="fs-origin">Each is the dot product of the unit vector with the corresponding basis vector.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Reconstructing from angles: v = r(cosα,cosβ,cosγ).</div><div class="wb n"><strong>✗ Not for</strong>2D angles (use arctan).</div></div></div>
+      <div class="fs-quick-summary">Angles with axes. Reconstruct: v = r(cosα,cosβ,cosγ).</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Vector Projection</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{proj}_{\htmlData{t=v — the direction being projected onto}{\color{#0B7D7D}{\vec{v}}}}\,\htmlData{t=u — the vector being projected}{\color{#D45D00}{\vec{u}}}=\frac{\htmlData{t=u — vector being projected}{\color{#D45D00}{\vec{u}}}\cdot\htmlData{t=v — projection direction}{\color{#0B7D7D}{\vec{v}}}}{\htmlData{t=|v|² — squared magnitude of v}{\color{#2050A0}{|\vec{v}|^2}}}\;\htmlData{t=v — multiply by direction vector}{\color{#0B7D7D}{\vec{v}}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The component of u that lies along v. Gives a vector parallel to v. The scalar projection (component) is u·v/|v|.</p><p class="fs-origin">Derived by minimizing |u − tv|² over scalar t, or by trigonometry of the right triangle.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>"Project u onto v", "component of u along v", work problems, decomposing vectors.</div><div class="wb n"><strong>✗ Not for</strong>Finding perpendicular component (subtract: u − proj = ⊥ part).</div></div></div>
+      <div class="fs-quick-summary">Shadow of u onto v. Scalar version: u·v/|v|. Vector version: (u·v/|v|²)v.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Work</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=W — work done (scalar quantity)}{\color{#5D7A20}{W}}=\htmlData{t=F — force vector}{\color{#D45D00}{\vec{F}}}\cdot\htmlData{t=d — displacement vector}{\color{#0B7D7D}{\vec{d}}}=\htmlData{t=|F| — magnitude of force}{\color{#2050A0}{|\vec{F}|}}\,\htmlData{t=|d| — magnitude of displacement}{\color{#2050A0}{|\vec{d}|}}\cos\htmlData{t=θ — angle between force and displacement}{\color{#A82870}{\theta}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Work = force component along displacement × distance. Only the parallel component of force contributes.</p><p class="fs-origin">Physical application of dot product — projection of F onto d times |d|.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>"Work done by force F over displacement d", physics applications.</div><div class="wb n"><strong>✗ Not for</strong>Torque (that uses cross product).</div></div></div>
+      <div class="fs-quick-summary">Work = F·d. Only the component of force along displacement matters.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Cross Product</div></div><div class="fs-body">
+      <div class="fs-formula">\[\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}&\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}&\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}\\\htmlData{t=w₁ — x-component of w}{\color{#0B7D7D}{w_1}}&\htmlData{t=w₂ — y-component of w}{\color{#0B7D7D}{w_2}}&\htmlData{t=w₃ — z-component of w}{\color{#0B7D7D}{w_3}}\end{vmatrix}\]</div>
+      <div class="fs-detail"><p class="fs-explain">Produces a vector ⊥ to both. Magnitude = parallelogram area. Direction: right-hand rule. ℝ³ only.</p><p class="fs-origin">Determinant expansion along the first row.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Normal vector, parallelogram area, testing parallelism.</div><div class="wb n"><strong>✗ Not for</strong>Testing ⊥ (use dot=0). Not associative, order matters.</div></div></div>
+      <div class="fs-quick-summary">Vector ⊥ to both. |v×w| = parallelogram area. Right-hand rule for direction.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Cross Product — Magnitude</div></div><div class="fs-body">
+      <div class="fs-formula">\[|\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}|=\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of w}{\color{#2050A0}{|\vec{w}|}}\sin\htmlData{t=θ — angle between v and w}{\color{#A82870}{\theta}}\]</div>
+      <div class="fs-detail"><p class="fs-explain">The magnitude of the cross product equals the parallelogram area spanned by the two vectors.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Finding area or the length of the perpendicular vector.</div><div class="wb n"><strong>✗ Not for</strong>Finding the direction — this gives magnitude only.</div></div></div>
+      <div class="fs-quick-summary">|v×w| = parallelogram area = |v||w|sinθ.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Triangle Area</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{Area}=\tfrac{1}{2}\,|\htmlData{t=u — first edge from shared vertex}{\color{#5D7A20}{\vec{u}}}\times\htmlData{t=v — second edge from shared vertex}{\color{#D45D00}{\vec{v}}}|\]</div>
+      <div class="fs-detail"><p class="fs-explain">Triangle = half parallelogram. Cross two edges from same vertex, halve the magnitude.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>3 points or 2 edges → triangle area.</div><div class="wb n"><strong>✗ Not for</strong>2D where ½bh is simpler.</div></div></div>
+      <div class="fs-quick-summary">Half the parallelogram area: ½|u×v|.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Scalar Triple Product (Volume)</div></div><div class="fs-body">
+      <div class="fs-formula">\[V=|\htmlData{t=u — height direction vector}{\color{#5D7A20}{\vec{u}}}\cdot(\htmlData{t=v — first base edge}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second base edge}{\color{#0B7D7D}{\vec{w}}})|\]</div>
+      <div class="fs-detail"><p class="fs-explain">Absolute value = parallelepiped volume. Zero ↔ coplanar. Equals the absolute value of the 3×3 determinant.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>Volume or coplanarity test.</div><div class="wb n"><strong>✗ Not for</strong>Tetrahedron (that's ⅙ of this).</div></div></div>
+      <div class="fs-quick-summary">|u·(v×w)| = parallelepiped volume. = 0 ⟺ coplanar.</div>
+    </div></div>
+
+    <div class="fs-card"><div class="fs-top"><div class="fs-name">Quick Geometry Tests</div></div><div class="fs-body">
+      <div class="fs-formula">\[\text{Perp: }\htmlData{t=v — first vector (perp test)}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=0\quad\text{Parallel: }\htmlData{t=v — first vector (parallel test)}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\mathbf{0}\quad\text{Coplanar: }\htmlData{t=u — third vector (coplanar test)}{\color{#5D7A20}{\vec{u}}}\cdot(\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}})=0\]</div>
+      <div class="fs-detail"><p class="fs-explain">Dot=0 → ⊥. Cross=0 → ∥. Triple=0 → coplanar.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong>"Is it ⊥ / ∥ / coplanar?" — pick the right test.</div><div class="wb n"><strong>✗ Not for</strong>Mixing them up: ⊥ uses DOT, ∥ uses CROSS.</div></div></div>
+      <div class="fs-quick-summary">Three yes/no tests: dot=0 (⊥), cross=0 (∥), triple=0 (coplanar).</div>
+    </div></div>
+
+    </div><!-- end fs-chapter ch1 -->
+    <h2 style="color:var(--muted);margin-top:24px;">Chapters 2–7</h2>
+    <div class="empty-page" style="padding:24px;">Added as each chapter is completed.</div>
+    </div>
+  </div>
