@@ -9,12 +9,15 @@
 **NotebookLM notebook ID:** `6d79ff99-8491-49cf-9d6e-d707d634ac90`
 **Textbook source ID (in NotebookLM):** `df7898f7-ca93-4ebc-b44a-9a479f6a052c`
 
-## Textbook Page Ranges — READ ONLY THESE PAGES
+## Source Materials — PAGE RANGES PER CHAPTER
 
-When the user uploads the textbook PDF, read ONLY the pages for the chapter being written. Do NOT read the entire book.
+**Two source PDFs.** When the user uploads either PDF, read ONLY the pages for the chapter being written. Do NOT read the entire document.
 
-| Chapter | Sections | Pages |
-|---------|----------|-------|
+### Textbook: *The ABCs of Calculus, Vol 2* (Mingarelli)
+NotebookLM source ID: `df7898f7-ca93-4ebc-b44a-9a479f6a052c`
+
+| Chapter | Sections | Textbook Pages |
+|---------|----------|----------------|
 | Ch 1 — Vectors | §1.1–1.10 | 1–49 |
 | Ch 2 — Curves & Surfaces | §2.1–2.14 | 51–163 |
 | Ch 3 — Partial Derivatives | §3.1–3.7 | 165–257 |
@@ -22,6 +25,30 @@ When the user uploads the textbook PDF, read ONLY the pages for the chapter bein
 | Ch 5 — Double Integrals | §5.1–5.6 | 291–369 |
 | Ch 6 — Surface Int. & Theorems | §6.1–6.8 | 371–471 |
 | Ch 7 — Max/Min & Lagrange | §7.2–7.3 | 477–496 |
+
+### Lecture Notes: *Math2004 Notes* (Eric Hua, 77 pages)
+File: `Math2004_Notes.pdf` — uploaded by user. This is a condensed set of lecture notes with worked examples. It has its own TOC on page 1.
+
+| Chapter | Lecture Note Sections | Note Pages |
+|---------|----------------------|------------|
+| Pre-knowledge (trig/integration review) | Pre-knowledge | 2 |
+| Ch 1 — Vectors | §1.1–1.10 | 3–6 |
+| Ch 2 — Curves & Surfaces | §2.1–2.14 | 7–22 |
+| Ch 3 — Partial Derivatives | §3.1–3.7 | 22–33 |
+| Ch 4 — Line Integrals | §4.1–4.3 | 33–37 |
+| Ch 5 — Double Integrals | §5.1–5.6 | 38–50 |
+| Ch 6 — Surface Int. & Theorems | §6.1–6.8 | 51–66 |
+| Ch 7 — Max/Min & Lagrange | §6.11–6.12 (= §7.2–7.3) | 67–77 |
+
+**Ch 2 lecture notes detail (for scoped reading):**
+- §2.1–2.5 Lines & Planes: pages 7–9
+- §2.6 Rotations & Translations: pages 9–11
+- §2.7–2.8 Parametric Curves: pages 11–15
+- §2.9 Area Applications: pages 15–16
+- §2.10 Arc Length: pages 16–17
+- §2.11–2.14 Polar Coordinates: pages 17–22
+
+**How to use both sources:** The textbook has full theory, derivations, and exercise sets. The lecture notes have condensed definitions + worked examples from class. Use BOTH for a chapter — the textbook for depth and the notes for the professor's emphasis and example style. Read the lecture notes pages first (shorter), then the textbook pages for anything the notes don't cover.
 
 ---
 
