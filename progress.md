@@ -319,3 +319,17 @@ MATH2004-2008/
 - **Shell-head updated** — --ch3-title set to #D35400, pending removed from Ch3 sidebar links
 - **Built MATH2004-notes.html** — 294KB, 22/22 fragments assembled
 - Files changed: shell-head.html, ch3-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
+
+### Session 7 — May 23, 2026
+- **Ch3 formula sheet fixed** — removed commas from htmlData tooltips (commas break KaTeX parsing). All 42 tooltips now comma-free and clickable.
+- **Color legend converted to table** — 5-row table format (dot + category + variables), easy to extend per chapter
+- **Ch1/Ch2 formula details trimmed** — avg ~1010 → ~575 chars, matching Ch3's ~644 avg
+- **Quick reference table color-coded** — left border + label color per chapter (navy Ch1, green Ch2, orange Ch3)
+- **Progress tracker expanded** — Ch2: 2→15 items (6 sections + 8 examples + formulas). Ch3: 9→15 items (7 sections + 6 examples + formulas)
+- **5 SVG diagrams added to Ch3 notes** (47KB total):
+  - Fig 3.1: Two-path limit test (§3.1)
+  - Fig 3.3: Chain rule tree diagram (§3.6)
+  - Fig 3.4: Tangent plane with normal vector (§3.6.3)
+  - Fig 3.5: Source/sink/curl visualization (§3.7)
+  - Fig 3.6: Grad-curl-div triangle with identities (§3.7)
+- **Key learning: \htmlData tooltip text must NEVER contain commas** — zero of 110 working Ch1/Ch2 tooltips had commas; all Ch3 breaks were caused by commas in tooltip text
