@@ -1,26 +1,789 @@
 <div class="page" id="ch2">
-    <div class="page-title" style="color:var(--ch2-title)">Chapter 2</div><h1 style="color:var(--ch2-title)">Lines, Planes, and Parametric Curves</h1>
-    <p class="page-intro">Equations of lines and planes in space, parametric curves, conic sections, polar coordinates, and applications to area and arc length.</p>
+    <div class="page-title" style="color:var(--ch2-title)">Chapter 2</div><h1 style="color:var(--ch2-title)">Lines, Planes &amp; Parametric Curves</h1>
+    <p class="page-intro">From the vector toolkit of Chapter 1, we now describe geometric objects — lines, planes, and curves — in 2D and 3D space. This chapter also introduces parametric and polar representations, with applications to area and arc length.</p>
 
-    <h2>Course Outline — Sections Covered</h2>
+<!-- ═══════════ §2.1–2.5 LINES AND PLANES ═══════════ -->
+<h2>§2.1–2.5 &ensp; Lines and Planes</h2>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 2 — Lines & Planes</div>
-    <p><strong>§2.1, 2.5:</strong> Lines, Equations of Lines in Space</p>
-    <p><strong>§2.2–2.4, 2.6:</strong> Planes — equations of planes, relationships between planes, distance formulas</p>
-    <p><strong>§2.7:</strong> Parametric representation of curves. Conic sections</p>
-    </div>
+<p>In single-variable calculus, a line is \(y=mx+b\). In multivariable calculus, we need a more flexible description that works in 3D. The key idea: a line is fully determined by <em>any point on it</em> plus a <em>direction to move along</em>.</p>
 
-    <div class="def-card card-bracket"><div class="def-name">Week 3 — Parametric & Polar Curves</div>
-    <p><strong>§2.8:</strong> Sketching parametric curves</p>
-    <p><strong>§2.9–2.10:</strong> Applications to area and length of curves</p>
-    <p><strong>§2.11:</strong> Polar coordinates</p>
-    <p><strong>§2.12–2.13:</strong> Area of regions described in polar coordinates, Applications</p>
-    <p><strong>§2.14:</strong> Lengths of curves described in polar coordinates, Applications</p>
-    </div>
+<h3>Lines in Space</h3>
 
-    <div class="tip-card card-bracket"><div class="tip-label">★ Textbook</div>
-    <p>From <em>The ABCs of Calculus, Volume 2</em> by A. Mingarelli. Check your answers in the <a href="https://people.math.carleton.ca/~angelo/calculus/ABC2-Solutions-July-4-2023-book-Pandemic.pdf" target="_blank" style="color:var(--tip)">solutions manual</a>.</p>
-    </div>
+<div class="def-card card-bracket"><div class="def-name">Line (Parametric Equation)</div>
+<p>A <strong>line</strong> is determined by a point \(P\) and a <strong>direction vector</strong> \(\vec{v}\) parallel to the line. As the parameter \(t\) varies over all real numbers, the point \(\vec{r}(t)\) traces out every point on the line:</p>
+<div style="font-size:19px;margin:8px 0;overflow-x:auto;">\[\vec{r}(t) = P + t\,\vec{v},\quad t\in\mathbb{R}\]</div>
+<div class="pills"><span class="pill">P — any known point on the line (the "anchor")</span><span class="pill">v⃗ — direction vector (any vector parallel to the line)</span><span class="pill">t — parameter (t=0 gives point P, t=1 gives P+v⃗)</span><span class="pill">r⃗(t) — position vector of the point at parameter t</span></div>
+<p>In 2D this gives \(\vec{r}(t)=(x,y)\) with two component equations. In 3D: \(\vec{r}(t)=(x,y,z)\), which means \(x=p_1+tv_1,\;y=p_2+tv_2,\;z=p_3+tv_3\).</p>
+</div>
 
-    <div class="empty-page" style="padding:24px;"><div class="icon">📓</div>Upload Chapter 2 lecture notes or textbook pages to populate full notes.</div>
-  </div>
+<p>If you're given two points on the line instead of a direction, compute the direction as the difference: \(\vec{v}=Q-P\). The direction vector is not unique — any scalar multiple works.</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" style="max-width:460px;width:100%">
+  <defs><marker id="ah1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#8B1A1A"/></marker>
+  <marker id="ah2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2B6CB0"/></marker></defs>
+  <!-- Line -->
+  <line x1="40" y1="160" x2="420" y2="50" stroke="#2A2A2A" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Solid portion -->
+  <line x1="120" y1="130" x2="320" y2="60" stroke="#2A2A2A" stroke-width="2"/>
+  <!-- Point P -->
+  <circle cx="160" cy="116" r="5" fill="#8B1A1A"/>
+  <text x="145" y="142" font-family="Architects Daughter, cursive" font-size="16" fill="#8B1A1A" font-weight="700">P</text>
+  <!-- Direction vector v -->
+  <line x1="160" y1="116" x2="290" y2="70" stroke="#2B6CB0" stroke-width="2.5" marker-end="url(#ah2)"/>
+  <text x="235" y="78" font-family="Architects Daughter, cursive" font-size="15" fill="#2B6CB0" font-weight="700">v⃗</text>
+  <!-- Point at t=1 -->
+  <circle cx="295" cy="68" r="4" fill="#2B6CB0" opacity="0.5"/>
+  <text x="305" y="62" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">t=1</text>
+  <!-- t=0 label -->
+  <text x="168" y="112" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">t=0</text>
+  <!-- r(t) label -->
+  <text x="340" y="52" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A">r⃗(t) = P + tv⃗</text>
+</svg>
+<div class="figure-caption">A line through point P in direction v⃗. Dashed extends mean t goes to ±∞.</div>
+</div>
+
+<div class="tip-card card-bracket"><div class="tip-label">★ 2D Line Shortcut</div>
+<p>For a 2D line \(ax+by=c\), a direction vector is \((-b,\,a)\). This is perpendicular to the normal \((a,b)\).</p>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 8 — Line Through Two Points</div>
+<p><em>Find the equation of the line through \(P(1,2,3)\) and \(Q(3,1,1)\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> We have two points but no direction vector. To use the parametric form \(\vec{r}=P+t\vec{v}\), we need a direction — compute it as \(Q-P\).</p>
+<p><strong>Setup:</strong> Point: \(P(1,2,3)\). Direction: \(\vec{v}=Q-P\).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>Compute direction vector: \(\vec{v}=Q-P=(3-1,\;1-2,\;1-3)=(2,-1,-2)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Write parametric equation: \(\vec{r}(t)=(1,2,3)+t(2,-1,-2)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Component form: \(\boxed{x=1+2t,\quad y=2-t,\quad z=3-2t,\quad t\in\mathbb{R}}\)</div></div>
+<p><strong>★ Tips:</strong> Check your work: at \(t=0\) you should get \(P\), at \(t=1\) you should get \(Q\). Here: \(t=0\to(1,2,3)=P\) ✓, \(t=1\to(3,1,1)=Q\) ✓. Any scalar multiple of \(\vec{v}\) gives the same line — \((2,-1,-2)\) and \((-4,2,4)\) both work.</p>
+</div></div>
+
+<div class="def-card card-bracket"><div class="def-name">Line Segment</div>
+<p>To trace only the portion of a line between \(P\) and \(Q\), restrict \(t\) to \([0,1]\):</p>
+<div style="font-size:19px;margin:8px 0;overflow-x:auto;">\[\vec{r}(t) = (1-t)\,\vec{P}+t\,\vec{Q},\quad 0\le t\le 1\]</div>
+<div class="pills"><span class="pill">t=0 → at point P (start)</span><span class="pill">t=1 → at point Q (end)</span><span class="pill">t=½ → midpoint of PQ</span></div>
+<p>This is just the parametric line formula rearranged: \(P+t(Q-P)=(1-t)P+tQ\).</p>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 440 120" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;width:100%">
+  <line x1="60" y1="70" x2="380" y2="70" stroke="#2A2A2A" stroke-width="2.5"/>
+  <circle cx="60" cy="70" r="6" fill="#8B1A1A"/><text x="45" y="55" font-family="Architects Daughter, cursive" font-size="15" fill="#8B1A1A" font-weight="700">P</text>
+  <text x="42" y="100" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">t=0</text>
+  <circle cx="380" cy="70" r="6" fill="#6B3FA0"/><text x="365" y="55" font-family="Architects Daughter, cursive" font-size="15" fill="#6B3FA0" font-weight="700">Q</text>
+  <text x="367" y="100" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">t=1</text>
+  <circle cx="220" cy="70" r="4" fill="#C4883E"/><text x="200" y="55" font-family="Architects Daughter, cursive" font-size="13" fill="#C4883E">midpoint</text>
+  <text x="208" y="100" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">t=½</text>
+  <text x="130" y="35" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A">r⃗(t) = (1−t)P + tQ</text>
+</svg>
+<div class="figure-caption">Line segment from P to Q. Parameter t interpolates between endpoints.</div>
+</div>
+
+<h3>Relations Between Two Lines in 3D</h3>
+
+<p>In 2D, two distinct lines either intersect or are parallel. In 3D there's a third option: <em>skew</em> lines, which are neither parallel nor intersecting — they pass each other in space without touching.</p>
+
+<div class="def-card card-bracket"><div class="def-name">Classifying Two Lines</div>
+<p>Given lines \(L_1\) with direction \(\vec{v}_1\) and \(L_2\) with direction \(\vec{v}_2\):</p>
+<table class="ptbl"><tr><th>Relation</th><th style="width:60px"></th><th>How to Test</th></tr>
+<tr><td><strong>Parallel</strong></td><td><svg viewBox="0 0 50 36" xmlns="http://www.w3.org/2000/svg" style="width:50px;height:36px;vertical-align:middle"><line x1="5" y1="10" x2="45" y2="10" stroke="#8B1A1A" stroke-width="2"/><line x1="5" y1="26" x2="45" y2="26" stroke="#2B6CB0" stroke-width="2"/></svg></td><td>\(\vec{v}_1\) and \(\vec{v}_2\) are scalar multiples (or equivalently, \(\vec{v}_1\times\vec{v}_2=\vec{0}\))</td></tr>
+<tr><td><strong>Intersecting</strong></td><td><svg viewBox="0 0 50 36" xmlns="http://www.w3.org/2000/svg" style="width:50px;height:36px;vertical-align:middle"><line x1="5" y1="32" x2="45" y2="4" stroke="#8B1A1A" stroke-width="2"/><line x1="5" y1="4" x2="45" y2="32" stroke="#2B6CB0" stroke-width="2"/><circle cx="25" cy="18" r="3" fill="#C4883E"/></svg></td><td>Not parallel, AND solving the system for parameters gives consistent z-values</td></tr>
+<tr><td><strong>Skew</strong></td><td><svg viewBox="0 0 50 36" xmlns="http://www.w3.org/2000/svg" style="width:50px;height:36px;vertical-align:middle"><line x1="5" y1="10" x2="45" y2="22" stroke="#8B1A1A" stroke-width="2"/><line x1="10" y1="30" x2="40" y2="6" stroke="#2B6CB0" stroke-width="2" stroke-dasharray="3,2"/></svg></td><td>Not parallel AND no intersection (z-values disagree after solving x,y)</td></tr>
+</table>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="sk1" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#8B1A1A"/></marker>
+  <marker id="sk2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#2B6CB0"/></marker></defs>
+  <line x1="30" y1="60" x2="410" y2="120" stroke="#8B1A1A" stroke-width="2.5" marker-end="url(#sk1)"/>
+  <text x="350" y="108" font-family="Architects Daughter, cursive" font-size="14" fill="#8B1A1A" font-weight="700">L₁</text>
+  <line x1="80" y1="170" x2="350" y2="40" stroke="#2B6CB0" stroke-width="2.5" marker-end="url(#sk2)"/>
+  <text x="320" y="38" font-family="Architects Daughter, cursive" font-size="14" fill="#2B6CB0" font-weight="700">L₂</text>
+  <text x="120" y="22" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">Not parallel (different directions)</text>
+  <text x="100" y="192" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">Not intersecting (z-values disagree)</text>
+  <text x="310" y="160" font-family="Architects Daughter, cursive" font-size="16" fill="#C4883E" font-weight="700">SKEW</text>
+</svg>
+<div class="figure-caption">Skew lines: neither parallel nor intersecting. Only possible in 3D.</div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 9 — Showing Two Lines Intersect</div>
+<p><em>Show that \(L_1: x=2-t,\;y=-1-t,\;z=4-t\) and \(L_2: x=5-2s,\;y=-s,\;z=1+s\) intersect at \((1,-2,3)\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Different parameters (\(t\) for \(L_1\), \(s\) for \(L_2\)). Set the x-components equal and y-components equal to get two equations in two unknowns. Then CHECK if the z-components also agree — this is the critical step that distinguishes intersection from skew.</p>
+<p><strong>Setup:</strong> Set \(x_1=x_2\) and \(y_1=y_2\) to solve for \(t\) and \(s\). Then verify with z.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>From \(x=x\): \(2-t=5-2s \;\Rightarrow\; 2s-t=3\) — equation (i)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>From \(y=y\): \(-1-t=-s \;\Rightarrow\; s-t=1\) — equation (ii)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Subtract (ii) from (i): \(s=2\). Back-substitute: \(t=1\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div><strong>Verify z:</strong> \(L_1\): \(z=4-1=3\). \(L_2\): \(z=1+2=3\). Equal ✓</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">5</div><div>Point: \(L_1\) at \(t=1\): \((2-1,\;-1-1,\;4-1)=\boxed{(1,-2,3)}\) ✓</div></div>
+<p><strong>★ Tips:</strong> Always use <em>different parameter names</em> for different lines. The z-check is what makes this 3D — in 2D, two non-parallel lines always intersect.</p>
+</div></div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 10 — Showing Lines Are Skew</div>
+<p><em>Show that \(L_1: x=1+t,\;y=-2+3t,\;z=4-t\) and \(L_2: x=2s,\;y=3+s,\;z=-3+4s\) are skew.</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> First check if they're parallel (compare direction vectors). If not, try to find an intersection. If that fails, they're skew.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div><strong>Check parallel:</strong> \(\vec{v}_1=(1,3,-1)\), \(\vec{v}_2=(2,1,4)\). Not scalar multiples → not parallel.</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>From \(x=x\): \(1+t=2s\). From \(y=y\): \(-2+3t=3+s\). Solving: \(s=1.6,\;t=2.2\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div><strong>Verify z:</strong> \(L_1\): \(z=4-2.2=1.8\). \(L_2\): \(z=-3+4(1.6)=3.4\). <strong>Not equal</strong> → no intersection.</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>Not parallel + no intersection → \(\boxed{\text{skew lines}}\).</div></div>
+<p><strong>★ Tips:</strong> Skew lines only exist in 3D. If a problem says "in the plane" or you're working in 2D, the answer is never skew. The z-check failing is your proof of skewness.</p>
+</div></div>
+
+<h3>Planes in 3D</h3>
+
+<p>While a line is defined by a direction <em>along</em> it, a plane is defined by a direction <em>perpendicular</em> to it. This perpendicular direction is called the <strong>normal vector</strong>.</p>
+
+<div class="def-card card-bracket"><div class="def-name">Plane (General Equation)</div>
+<p>A plane \(\Pi\) is determined by a point \(P(p_1,p_2,p_3)\) and a <strong>normal vector</strong> \(\vec{n}=(a,b,c)\) perpendicular to the plane:</p>
+<div style="font-size:19px;margin:8px 0;overflow-x:auto;">\[ax+by+cz=d,\quad\text{where }d=ap_1+bp_2+cp_3\]</div>
+<div class="pills"><span class="pill">n⃗ = (a,b,c) — normal vector (perpendicular to the plane)</span><span class="pill">d — constant, found by substituting any known point</span><span class="pill">(a,b,c) are read directly from the normal vector</span></div>
+<p>Any vector perpendicular to the plane works as a normal. If you have <strong>three points</strong> on the plane, find two in-plane vectors (e.g. \(\vec{PQ}\) and \(\vec{PR}\)), then take their <strong>cross product</strong> (recall from §1.9) to get the normal: \(\vec{n}=\vec{PQ}\times\vec{PR}\).</p>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;width:100%">
+  <defs><marker id="ah3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#6B3FA0"/></marker>
+  <marker id="ah4" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#2D8B46"/></marker>
+  <marker id="ah5" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#C4883E"/></marker></defs>
+  <!-- Plane (parallelogram) -->
+  <polygon points="60,200 200,220 380,140 240,120" fill="rgba(107,63,160,0.06)" stroke="#6B3FA0" stroke-width="1.5"/>
+  <!-- Point P -->
+  <circle cx="180" cy="175" r="5" fill="#8B1A1A"/>
+  <text x="160" y="197" font-family="Architects Daughter, cursive" font-size="15" fill="#8B1A1A" font-weight="700">P</text>
+  <!-- PQ vector -->
+  <line x1="180" y1="175" x2="310" y2="150" stroke="#2D8B46" stroke-width="2" marker-end="url(#ah4)"/>
+  <text x="260" y="143" font-family="Architects Daughter, cursive" font-size="14" fill="#2D8B46">PQ</text>
+  <!-- PR vector -->
+  <line x1="180" y1="175" x2="130" y2="142" stroke="#C4883E" stroke-width="2" marker-end="url(#ah5)"/>
+  <text x="120" y="133" font-family="Architects Daughter, cursive" font-size="14" fill="#C4883E">PR</text>
+  <!-- Normal vector n -->
+  <line x1="220" y1="165" x2="220" y2="40" stroke="#6B3FA0" stroke-width="2.5" marker-end="url(#ah3)"/>
+  <text x="230" y="38" font-family="Architects Daughter, cursive" font-size="15" fill="#6B3FA0" font-weight="700">n⃗ = PQ × PR</text>
+  <!-- Plane label -->
+  <text x="310" y="200" font-family="Architects Daughter, cursive" font-size="14" fill="#7A7A7A">Plane</text>
+  <!-- Right angle marker -->
+  <rect x="215" y="155" width="10" height="10" fill="none" stroke="#6B3FA0" stroke-width="1"/>
+</svg>
+<div class="figure-caption">A plane defined by point P, with in-plane vectors PQ and PR. The normal n⃗ is perpendicular to the plane.</div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 12 — Plane Through Three Points</div>
+<p><em>Find the equation of the plane through \(P(1,2,3)\), \(Q(-3,2,1)\), and \(R(2,4,5)\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Three points → need normal vector. Get two in-plane vectors from the three points, then cross product gives the normal. Finally, substitute any point to find \(d\).</p>
+<p><strong>Setup:</strong> Find \(\vec{PQ}\) and \(\vec{PR}\), cross them, then use the plane equation \(ax+by+cz=d\).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>In-plane vectors: \(\vec{PQ}=Q-P=(-4,0,-2)\), \(\vec{PR}=R-P=(1,2,2)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Normal (cross product via determinant):
+\(\vec{n}=\vec{PQ}\times\vec{PR}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\-4&0&-2\\1&2&2\end{vmatrix}=(0\cdot2-(-2)\cdot2,\;(-2)\cdot1-(-4)\cdot2,\;(-4)\cdot2-0\cdot1)=(4,6,-8)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Simplify: \(\vec{n}=2(2,3,-4)\), so use \((2,3,-4)\). Plane: \(2x+3y-4z=d\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>Sub \(P(1,2,3)\): \(d=2(1)+3(2)-4(3)=2+6-12=-4\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">5</div><div>\(\boxed{2x+3y-4z=-4}\)</div></div>
+<p><strong>★ Tips:</strong> Verify by substituting all three points. The normal is not unique — \((4,6,-8)\) and \((2,3,-4)\) give the same plane. Always simplify to avoid large coefficients.</p>
+</div></div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 13 — Intersection of a Line and a Plane</div>
+<p><em>Find the intersection between \(L: x=1+t,\;y=-2+3t,\;z=4-t\) and the plane \(3x+5y+8z=5\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Substitute the parametric line equations into the plane equation. This gives one equation in one unknown (\(t\)). Solve for \(t\), then plug back into the line to find the point.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>Substitute into plane: \(3(1+t)+5(-2+3t)+8(4-t)=5\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Expand: \(3+3t-10+15t+32-8t=5\;\Rightarrow\;10t+25=5\;\Rightarrow\;t=-2\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Sub \(t=-2\) into line: \((1+(-2),\;-2+3(-2),\;4-(-2))=\boxed{(-1,-8,6)}\)</div></div>
+<p><strong>★ Tips:</strong> If \(t\) has no solution (contradiction like \(0=5\)), the line is parallel to the plane. If \(0=0\), the line lies entirely in the plane.</p>
+</div></div>
+
+<h3>Angle and Intersection of Two Planes</h3>
+
+<div class="eq-card card-bracket"><div class="eq-name">Angle Between Two Planes</div>
+<p>The angle between two planes equals the angle between their normal vectors:</p>
+<div class="eq-formula">\[\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1|\,|\vec{n}_2|}\]</div>
+<div class="pills"><span class="pill">n⃗₁, n⃗₂ — normal vectors of the two planes</span><span class="pill">θ — angle between the planes (same formula as angle between vectors, §1.7)</span></div>
+<p>Two planes are <strong>parallel</strong> if their normal vectors are parallel (\(\vec{n}_1\times\vec{n}_2=\vec{0}\)).</p>
+</div>
+
+<div class="def-card card-bracket"><div class="def-name">Intersection of Two Planes</div>
+<p>Two non-parallel planes intersect in a <strong>line</strong>. To find this line:</p>
+<p>1. The <strong>direction</strong> of the line is \(\vec{n}_1\times\vec{n}_2\) (perpendicular to both normals).</p>
+<p>2. To find <strong>one point</strong> on the line, set one variable to zero (e.g. \(z=0\)) and solve the two plane equations as a 2×2 system.</p>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="30,180 200,200 400,100 230,80" fill="rgba(139,26,26,0.08)" stroke="#8B1A1A" stroke-width="1.5"/>
+  <polygon points="80,50 200,200 400,100 280,10" fill="rgba(43,108,176,0.08)" stroke="#2B6CB0" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="400" y2="100" stroke="#2D8B46" stroke-width="3"/>
+  <text x="245" y="172" font-family="Architects Daughter, cursive" font-size="13" fill="#2D8B46" font-weight="700">line of intersection</text>
+  <text x="50" y="162" font-family="Architects Daughter, cursive" font-size="14" fill="#8B1A1A">Plane 1</text>
+  <text x="150" y="35" font-family="Architects Daughter, cursive" font-size="14" fill="#2B6CB0">Plane 2</text>
+  <text x="50" y="215" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">direction = n⃗₁ × n⃗₂</text>
+</svg>
+<div class="figure-caption">Two non-parallel planes intersect in a line. Direction from cross product of normals.</div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 16 — Intersection of Two Planes</div>
+<p><em>Find the intersection of \(x-3y-2z=2\) and \(2x+y+3z=1\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Two non-parallel planes → intersection is a line. Get direction from cross product of normals, then find one point by setting a variable to zero.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>Normals: \(\vec{n}_1=(1,-3,-2)\), \(\vec{n}_2=(2,1,3)\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Direction: \(\vec{n}_1\times\vec{n}_2=(-7,-7,-7+0)=(-7,7,7)=7(-1,1,1)\). Use \((-1,1,1)\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Find a point: set \(z=0\). System: \(x-3y=2,\;2x+y=1\). Multiply 2nd by 3: \(6x+3y=3\). Add to 1st: \(7x=5\Rightarrow x=5/7,\;y=-3/7\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(\boxed{x=\tfrac{5}{7}-t,\quad y=-\tfrac{3}{7}+t,\quad z=t}\)</div></div>
+<p><strong>★ Tips:</strong> Setting \(z=0\) is a convenience choice — any variable works. If it leads to no solution (rare), try a different variable. The direction vector can be simplified by removing common factors.</p>
+</div></div>
+
+<!-- ═══════════ §2.6 ROTATIONS AND TRANSLATIONS ═══════════ -->
+<h2>§2.6 &ensp; Rotations and Translations in the Plane</h2>
+
+<p>Rotations and translations are coordinate transformations — they change how we describe points. An <em>active</em> rotation physically moves the point while keeping the axes fixed. A <em>passive</em> rotation keeps the point fixed but rotates the coordinate axes. Translations shift the origin to a new location.</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 440 210" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;width:100%">
+  <defs><marker id="ahr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#7A7A7A"/></marker></defs>
+  <!-- LEFT: Active rotation -->
+  <text x="55" y="18" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A" font-weight="700">Active (rotate point)</text>
+  <!-- Axes -->
+  <line x1="30" y1="170" x2="190" y2="170" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahr)"/>
+  <line x1="30" y1="185" x2="30" y2="35" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahr)"/>
+  <text x="192" y="175" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">x</text>
+  <text x="22" y="30" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">y</text>
+  <!-- Original point -->
+  <circle cx="150" cy="130" r="5" fill="#8B1A1A"/>
+  <text x="157" y="128" font-family="Architects Daughter, cursive" font-size="13" fill="#8B1A1A">(x,y)</text>
+  <!-- Rotated point -->
+  <circle cx="80" cy="55" r="5" fill="#6B3FA0"/>
+  <text x="54" y="47" font-family="Architects Daughter, cursive" font-size="13" fill="#6B3FA0">(x',y')</text>
+  <!-- Rotation arc -->
+  <path d="M 130,130 A 90,90 0 0,0 80,70" fill="none" stroke="#C4883E" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="96" y="106" font-family="Architects Daughter, cursive" font-size="14" fill="#C4883E" font-weight="700">θ</text>
+  <!-- Lines to origin -->
+  <line x1="30" y1="170" x2="150" y2="130" stroke="#8B1A1A" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="30" y1="170" x2="80" y2="55" stroke="#6B3FA0" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- RIGHT: Passive rotation -->
+  <text x="290" y="18" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A" font-weight="700">Passive (rotate axes)</text>
+  <!-- Original axes -->
+  <line x1="250" y1="170" x2="410" y2="170" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahr)"/>
+  <line x1="250" y1="185" x2="250" y2="35" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahr)"/>
+  <text x="412" y="175" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">x</text>
+  <text x="242" y="30" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">y</text>
+  <!-- Rotated axes -->
+  <line x1="250" y1="170" x2="396" y2="128" stroke="#2D8B46" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ahr)"/>
+  <line x1="250" y1="170" x2="290" y2="32" stroke="#2D8B46" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ahr)"/>
+  <text x="395" y="120" font-family="Architects Daughter, cursive" font-size="12" fill="#2D8B46">x'</text>
+  <text x="292" y="28" font-family="Architects Daughter, cursive" font-size="12" fill="#2D8B46">y'</text>
+  <!-- Fixed point -->
+  <circle cx="360" cy="90" r="5" fill="#8B1A1A"/>
+  <text x="368" y="88" font-family="Architects Daughter, cursive" font-size="13" fill="#8B1A1A">P (fixed)</text>
+  <!-- θ arc -->
+  <path d="M 290,170 A 30,30 0 0,0 285,155" fill="none" stroke="#C4883E" stroke-width="1.5"/>
+  <text x="293" y="157" font-family="Architects Daughter, cursive" font-size="14" fill="#C4883E" font-weight="700">θ</text>
+</svg>
+<div class="figure-caption">Active rotation moves the point (uses A). Passive rotation rotates the axes (uses A⁻¹). Same θ, different matrices.</div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Active Rotation (Rotate the Point)</div>
+<p>Rotate point \((x,y)\) counterclockwise by angle \(\theta\) about the origin:</p>
+<div class="eq-formula">\[\begin{pmatrix}x'\\y'\end{pmatrix}=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\quad\begin{pmatrix}x\\y\end{pmatrix}\]</div>
+<div class="pills"><span class="pill">(x,y) — original point</span><span class="pill">(x',y') — image after rotation</span><span class="pill">θ — counterclockwise rotation angle</span><span class="pill">A — rotation matrix (det A = 1, orthogonal)</span></div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Passive Rotation (Rotate the Axes)</div>
+<p>Keep the point fixed, rotate the <em>coordinate axes</em> counterclockwise by \(\theta\). The point's coordinates in the new frame are:</p>
+<div class="eq-formula">\[\begin{pmatrix}x'\\y'\end{pmatrix}=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\quad\begin{pmatrix}x\\y\end{pmatrix}\]</div>
+<div class="pills"><span class="pill">A⁻¹ — inverse rotation matrix (transpose of A)</span><span class="pill">Signs on sin terms are flipped compared to active rotation</span></div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Translation of Origin</div>
+<p>Move the origin to a new point \((h,k)\). The point's coordinates in the new frame:</p>
+<div class="eq-formula">\[\begin{pmatrix}x'\\y'\end{pmatrix}=\begin{pmatrix}x-h\\y-k\end{pmatrix}\]</div>
+<div class="pills"><span class="pill">(h,k) — new origin location in the old frame</span><span class="pill">(x',y') — coordinates in the new frame</span></div>
+</div>
+
+<div class="tip-card card-bracket"><div class="tip-label">★ Combined Transformations</div>
+<p><strong>Translation + Active rotation:</strong> First translate, then rotate: \(\binom{x'}{y'}=A\binom{x-h}{y-k}\).</p>
+<p><strong>Translation + Passive rotation:</strong> First translate, then apply \(A^{-1}\): \(\binom{x'}{y'}=A^{-1}\binom{x-h}{y-k}\).</p>
+<p>Order matters! Translation is always applied first (subtract the new origin), then rotation.</p>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 17 — Active Rotation</div>
+<p><em>Find the image of \((-6,2)\) after a counterclockwise rotation by \(\theta=\pi/3\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Active rotation — use \(A\) (not \(A^{-1}\)). Plug \(\theta=\pi/3\) into the rotation matrix and multiply.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\cos(\pi/3)=1/2\), \(\sin(\pi/3)=\sqrt{3}/2\). Matrix: \(A=\begin{pmatrix}1/2&-\sqrt{3}/2\\\sqrt{3}/2&1/2\end{pmatrix}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(\begin{pmatrix}x'\\y'\end{pmatrix}=\begin{pmatrix}1/2&-\sqrt{3}/2\\\sqrt{3}/2&1/2\end{pmatrix}\begin{pmatrix}-6\\2\end{pmatrix}=\begin{pmatrix}-3-\sqrt{3}\\2\cdot\sqrt{3}/2+(-6)\cdot\sqrt{3}/2+1\end{pmatrix}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(x'=(-6)(1/2)+(2)(-\sqrt{3}/2)=-3-\sqrt{3}\). \(y'=(-6)(\sqrt{3}/2)+(2)(1/2)=-3\sqrt{3}+1\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(\boxed{(x',y')=(-3-\sqrt{3},\;-3\sqrt{3}+1)}\)</div></div>
+<p><strong>★ Tips:</strong> Active vs passive: if the <em>point</em> moves, use \(A\). If the <em>axes</em> rotate, use \(A^{-1}\). The only difference is the sign on the \(\sin\theta\) terms.</p>
+</div></div>
+
+<!-- ═══════════ §2.7–2.8 PARAMETRIC CURVES ═══════════ -->
+<h2>§2.7–2.8 &ensp; Parametric Curves</h2>
+
+<p>So far we've described curves as \(y=f(x)\). But many curves can't be written this way — a circle fails the vertical line test, and curves that cross themselves need multiple branches. Parametric equations solve this by describing both \(x\) and \(y\) as functions of a third variable (the <strong>parameter</strong>) \(t\).</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%">
+  <defs><marker id="ahc" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2D8B46"/></marker></defs>
+  <!-- Curve path -->
+  <path d="M 60,150 C 100,40 180,180 250,80 C 300,20 350,100 380,60" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+  <!-- Direction arrows along curve -->
+  <line x1="145" y1="105" x2="165" y2="110" stroke="#2D8B46" stroke-width="2" marker-end="url(#ahc)"/>
+  <line x1="275" y1="55" x2="295" y2="52" stroke="#2D8B46" stroke-width="2" marker-end="url(#ahc)"/>
+  <!-- Initial point -->
+  <circle cx="60" cy="150" r="6" fill="#8B1A1A"/>
+  <text x="30" y="172" font-family="Architects Daughter, cursive" font-size="14" fill="#8B1A1A" font-weight="700">t = a</text>
+  <text x="22" y="188" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">(initial)</text>
+  <!-- Terminal point -->
+  <circle cx="380" cy="60" r="6" fill="#6B3FA0"/>
+  <text x="355" y="48" font-family="Architects Daughter, cursive" font-size="14" fill="#6B3FA0" font-weight="700">t = b</text>
+  <text x="348" y="34" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">(terminal)</text>
+  <!-- Sample point -->
+  <circle cx="250" cy="80" r="4" fill="#C4883E"/>
+  <text x="218" y="72" font-family="Architects Daughter, cursive" font-size="13" fill="#C4883E">(f(t), g(t))</text>
+</svg>
+<div class="figure-caption">A parametric curve (x,y) = (f(t), g(t)). Green arrows show the direction of increasing t.</div>
+</div>
+
+<div class="def-card card-bracket"><div class="def-name">Parametric Curve (Plane Curve)</div>
+<p>The set of points \((x,y)=(f(t),\,g(t))\) for \(a\le t\le b\), where \(f\) and \(g\) are continuous functions. As \(t\) increases from \(a\) to \(b\), the point traces out the curve.</p>
+<div class="pills"><span class="pill">(f(a), g(a)) — initial point</span><span class="pill">(f(b), g(b)) — terminal point</span><span class="pill">t — parameter (often represents time)</span></div>
+</div>
+
+<h3>Conic Sections</h3>
+<p>The three classical conics — parabolas, ellipses, and hyperbolas — are important curves that appear throughout calculus. Each has a standard Cartesian equation and a natural parametrization.</p>
+
+<div class="def-card card-bracket"><div class="def-name">Standard Conics — Equations and Parametrizations</div>
+<table class="ptbl">
+<tr><th>Conic</th><th>Standard Form</th><th>Parametrization</th><th>Key Relation</th></tr>
+<tr><td><strong>Parabola</strong></td><td>\((x-x_0)^2=4p(y-y_0)\)</td><td>\(x=t,\; y=\tfrac{1}{4p}(t-x_0)^2+y_0\)</td><td>Focus at distance \(p\) from vertex</td></tr>
+<tr><td><strong>Ellipse</strong></td><td>\(\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}=1\)</td><td>\(x=x_0+a\cos t,\; y=y_0+b\sin t\)</td><td>\(c^2=a^2-b^2\), \(a\ge b>0\)</td></tr>
+<tr><td><strong>Hyperbola</strong></td><td>\(\frac{(x-x_0)^2}{a^2}-\frac{(y-y_0)^2}{b^2}=1\)</td><td>\(x=x_0+a\sec t,\; y=y_0+b\tan t\)</td><td>\(c^2=a^2+b^2\)</td></tr>
+</table>
+<p>The ellipse parametrization uses \(\cos^2 t+\sin^2 t=1\). The hyperbola alternatively uses \(x=x_0+a\cosh t,\;y=y_0+b\sinh t\) via the identity \(\cosh^2 t-\sinh^2 t=1\).</p>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 540 175" xmlns="http://www.w3.org/2000/svg" style="max-width:540px;width:100%">
+  <path d="M 25,150 Q 80,10 135,150" fill="none" stroke="#8B1A1A" stroke-width="2.5"/>
+  <text x="42" y="170" font-family="Architects Daughter, cursive" font-size="14" fill="#8B1A1A" font-weight="700">Parabola</text>
+  <circle cx="80" cy="55" r="3" fill="#C4883E"/><text x="88" y="52" font-family="Architects Daughter, cursive" font-size="11" fill="#C4883E">focus</text>
+  <line x1="30" y1="88" x2="130" y2="88" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="55" y="105" font-family="Architects Daughter, cursive" font-size="10" fill="#7A7A7A">directrix</text>
+  <ellipse cx="260" cy="85" rx="75" ry="50" fill="none" stroke="#6B3FA0" stroke-width="2.5"/>
+  <text x="225" y="170" font-family="Architects Daughter, cursive" font-size="14" fill="#6B3FA0" font-weight="700">Ellipse</text>
+  <circle cx="225" cy="85" r="3" fill="#C4883E"/><circle cx="295" cy="85" r="3" fill="#C4883E"/>
+  <text x="240" y="65" font-family="Architects Daughter, cursive" font-size="11" fill="#C4883E">foci</text>
+  <line x1="185" y1="85" x2="260" y2="85" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3,3"/><text x="215" y="100" font-family="Architects Daughter, cursive" font-size="11" fill="#7A7A7A">a</text>
+  <line x1="260" y1="85" x2="260" y2="35" stroke="#7A7A7A" stroke-width="1" stroke-dasharray="3,3"/><text x="265" y="58" font-family="Architects Daughter, cursive" font-size="11" fill="#7A7A7A">b</text>
+  <path d="M 395,15 Q 425,85 395,155" fill="none" stroke="#2B6CB0" stroke-width="2.5"/>
+  <path d="M 495,15 Q 465,85 495,155" fill="none" stroke="#2B6CB0" stroke-width="2.5"/>
+  <text x="405" y="170" font-family="Architects Daughter, cursive" font-size="14" fill="#2B6CB0" font-weight="700">Hyperbola</text>
+  <line x1="390" y1="15" x2="500" y2="155" stroke="#7A7A7A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="500" y1="15" x2="390" y2="155" stroke="#7A7A7A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="445" y="25" font-family="Architects Daughter, cursive" font-size="10" fill="#7A7A7A" text-anchor="middle">asymptotes</text>
+</svg>
+<div class="figure-caption">The three conic sections with key features: focus, directrix, foci, semi-axes, asymptotes.</div>
+</div>
+
+<div class="def-card card-bracket"><div class="def-name">General Conic Classification</div>
+<p>For the general second-degree equation \(Ax^2+Bxy+Cy^2+Dx+Ey+F=0\), the <strong>discriminant</strong> \(\Delta=B^2-4AC\) determines the type:</p>
+<table class="ptbl">
+<tr><th>\(B^2-4AC\)</th><th>Type</th></tr>
+<tr><td>\(=0\)</td><td>Parabola (or degenerate: two parallel lines, one line, or empty)</td></tr>
+<tr><td>\(>0\)</td><td>Hyperbola (or two intersecting lines)</td></tr>
+<tr><td>\(<0\)</td><td>Ellipse (or circle, a point, or empty)</td></tr>
+</table>
+</div>
+
+<h3>Calculus of Parametric Curves</h3>
+
+<p>To find slopes, tangent lines, and concavity of parametric curves, we use the chain rule. The key insight: \(dy/dx\) is the ratio of the rates \(dy/dt\) and \(dx/dt\).</p>
+
+<div class="eq-card card-bracket"><div class="eq-name">First Derivative — Tangent Slope</div>
+<div class="eq-formula">\[\frac{dy}{dx}=\frac{dy/dt}{dx/dt},\quad\text{provided }\frac{dx}{dt}\neq 0\]</div>
+<div class="pills"><span class="pill">dy/dt — rate of change of y with respect to the parameter t</span><span class="pill">dx/dt — rate of change of x with respect to the parameter t</span><span class="pill">dy/dx — slope of the tangent line to the curve at the point</span></div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Second Derivative — Concavity</div>
+<div class="eq-formula">\[\frac{d^2y}{dx^2}=\frac{\frac{d}{dt}\!\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}}\]</div>
+<div class="pills"><span class="pill">Numerator — differentiate the first derivative dy/dx with respect to t</span><span class="pill">Denominator — same dx/dt as before</span><span class="pill">d²y/dx² &gt; 0 → concave up; &lt; 0 → concave down</span></div>
+<p>Do <strong>NOT</strong> compute \(d^2y/dx^2\) as \((d^2y/dt^2)/(d^2x/dt^2)\) — this is a common error. The correct formula differentiates the <em>first derivative</em>, not the numerator/denominator separately.</p>
+</div>
+
+<div class="tip-card card-bracket"><div class="tip-label">★ Horizontal and Vertical Tangents</div>
+<p><strong>Horizontal tangent:</strong> \(dy/dt=0\) AND \(dx/dt\neq 0\) → slope is zero.</p>
+<p><strong>Vertical tangent:</strong> \(dx/dt=0\) AND \(dy/dt\neq 0\) → slope is undefined (vertical).</p>
+<p><strong>Both zero:</strong> If \(dy/dt=0\) and \(dx/dt=0\) simultaneously → the tangent is <em>indeterminate</em>. Need L'Hôpital's rule or further analysis (could be a cusp, corner, or smooth point).</p>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;width:100%">
+  <path d="M 30,120 C 80,180 130,30 200,100 C 250,150 300,50 370,40 C 420,30 470,70 490,90" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+  <line x1="80" y1="155" x2="190" y2="155" stroke="#2D8B46" stroke-width="2.5"/>
+  <circle cx="135" cy="155" r="5" fill="#2D8B46"/>
+  <text x="75" y="180" font-family="Architects Daughter, cursive" font-size="13" fill="#2D8B46" font-weight="700">horizontal tangent</text>
+  <text x="85" y="196" font-family="Architects Daughter, cursive" font-size="11" fill="#2D8B46">dy/dt = 0,  dx/dt ≠ 0</text>
+  <line x1="370" y1="10" x2="370" y2="100" stroke="#8B1A1A" stroke-width="2.5"/>
+  <circle cx="370" cy="40" r="5" fill="#8B1A1A"/>
+  <text x="385" y="32" font-family="Architects Daughter, cursive" font-size="13" fill="#8B1A1A" font-weight="700">vertical tangent</text>
+  <text x="385" y="50" font-family="Architects Daughter, cursive" font-size="11" fill="#8B1A1A">dx/dt = 0,  dy/dt ≠ 0</text>
+</svg>
+<div class="figure-caption">Horizontal tangent when numerator dy/dt vanishes. Vertical when denominator dx/dt vanishes.</div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 27 — Tangent Lines to a Parametric Curve</div>
+<p><em>Find the tangent line(s) to \(x=t^5-4t^3,\;y=t^2\) at the point \((0,4)\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> We need the slope at a specific point. First find which value(s) of \(t\) give \((0,4)\) — there may be more than one (the curve might pass through this point twice). Then compute \(dy/dx\) at each \(t\).</p>
+<p><strong>Setup:</strong> From \(y=t^2=4\Rightarrow t=\pm 2\). Check: \(x=(\pm 2)^5-4(\pm 2)^3=\pm 32\mp 32=0\) ✓. Both work.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(\frac{dy}{dx}=\frac{2t}{5t^4-12t^2}=\frac{2}{5t^3-12t}\) (after cancelling \(t\neq 0\))</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>At \(t=-2\): slope \(=\frac{2}{5(-8)-12(-2)}=\frac{2}{-40+24}=\frac{2}{-16}=-\frac{1}{8}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>At \(t=2\): slope \(=\frac{2}{5(8)-12(2)}=\frac{2}{40-24}=\frac{2}{16}=\frac{1}{8}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>Tangent at \(t=-2\): \(y-4=-\frac{1}{8}(x-0)\Rightarrow\boxed{y=4-x/8}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">5</div><div>Tangent at \(t=2\): \(\boxed{y=4+x/8}\)</div></div>
+<p><strong>★ Tips:</strong> A point on a parametric curve can correspond to <strong>multiple</strong> \(t\)-values — always check all of them. Each gives a different tangent line, creating a self-intersection.</p>
+</div></div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 28 — Horizontal and Vertical Tangents</div>
+<p><em>Find where \(x=t^3-3t,\;y=3t^2-9\) has horizontal or vertical tangents.</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Horizontal tangent: set \(dy/dt=0\) (numerator of slope). Vertical tangent: set \(dx/dt=0\) (denominator of slope). In each case verify the other derivative is nonzero.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(dy/dt=6t\), \(dx/dt=3t^2-3=3(t^2-1)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div><strong>Horizontal:</strong> \(6t=0\Rightarrow t=0\). Check: \(dx/dt|_{t=0}=-3\neq 0\) ✓. Point: \((0-0,\;0-9)=\boxed{(0,-9)}\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div><strong>Vertical:</strong> \(3(t^2-1)=0\Rightarrow t=\pm 1\). Check: \(dy/dt|_{t=1}=6\neq 0\) ✓, \(dy/dt|_{t=-1}=-6\neq 0\) ✓.</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>Points: \(t=1\to(1-3,\;3-9)=\boxed{(-2,-6)}\), \(t=-1\to(-1+3,\;3-9)=\boxed{(2,-6)}\).</div></div>
+<p><strong>★ Tips:</strong> At \(t=0\), \(dy/dt=0\) but \(dx/dt\neq 0\) → horizontal. At \(t=\pm 1\), \(dx/dt=0\) but \(dy/dt\neq 0\) → vertical. Always verify the "other" derivative isn't also zero.</p>
+</div></div>
+
+<!-- ═══════════ §2.9 AREA ═══════════ -->
+<h2>§2.9 &ensp; Applications to Area Problems</h2>
+
+<p>In Calculus I, the area under \(y=f(x)\) from \(a\) to \(b\) is \(\int_a^b f(x)\,dx\). When the curve is parametric, we substitute \(x=f(t)\) and \(dx=f'(t)\,dt\) to convert everything to the parameter \(t\).</p>
+
+<div class="eq-card card-bracket"><div class="eq-name">Area Under a Parametric Curve</div>
+<div class="eq-formula">\[A=\int_\alpha^\beta y(t)\,x'(t)\,dt\]</div>
+<div class="pills"><span class="pill">y(t) — height of the curve at parameter t</span><span class="pill">x'(t) dt — infinitesimal width element (replaces dx)</span><span class="pill">α, β — parameter values where x(α)=a and x(β)=b</span></div>
+<p>This comes directly from \(\int_a^b y\,dx\) with the substitution \(dx=x'(t)\,dt\).</p>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Area Enclosed by a Closed Parametric Curve</div>
+<p>For a closed curve \(C: x=f(t),\;y=g(t),\;\alpha\le t\le\beta\) with \(f(\alpha)=f(\beta),\;g(\alpha)=g(\beta)\):</p>
+<div class="eq-formula">\[A(R)=\left|\int_\alpha^\beta g(t)\,f'(t)\,dt\right|\]</div>
+<div class="pills"><span class="pill">g(t) — y-component of the curve</span><span class="pill">f'(t) — derivative of x-component</span><span class="pill">Absolute value ensures positive area regardless of orientation</span></div>
+</div>
+
+
+<div class="figure-box">
+<svg viewBox="0 0 460 160" xmlns="http://www.w3.org/2000/svg" style="max-width:460px;width:100%">
+  <line x1="10" y1="130" x2="450" y2="130" stroke="#7A7A7A" stroke-width="1"/>
+  <path d="M 20,130 C 20,80 60,10 100,10 C 140,10 180,80 180,130 C 180,80 220,10 260,10 C 300,10 340,80 340,130" fill="none" stroke="#8B1A1A" stroke-width="2.5"/>
+  <circle cx="100" cy="65" r="32" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="100" cy="65" r="3" fill="#2B6CB0"/>
+  <line x1="100" y1="65" x2="100" y2="33" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="104" y="48" font-family="Architects Daughter, cursive" font-size="12" fill="#2B6CB0">r</text>
+  <circle cx="100" cy="10" r="4" fill="#8B1A1A"/>
+  <text x="60" y="152" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">x = r(t − sin t)</text>
+  <text x="220" y="152" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">y = r(1 − cos t)</text>
+  <text x="345" y="50" font-family="Architects Daughter, cursive" font-size="13" fill="#2A2A2A">Area = 3πr²</text>
+  <text x="345" y="70" font-family="Architects Daughter, cursive" font-size="13" fill="#2A2A2A">Length = 8r</text>
+</svg>
+<div class="figure-caption">Cycloid: path traced by a point on a circle rolling along a line.</div>
+</div>
+<div class="ex-card card-bracket"><div class="ex-label">Example 30 — Area Under One Arch of a Cycloid</div>
+<p><em>Find the area under one arch of the cycloid: \(x=r(t-\sin t),\;y=r(1-\cos t)\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> The cycloid traces arches, each from \(y=0\) back to \(y=0\). One arch: \(t=0\) to \(t=2\pi\). Use the parametric area formula \(\int y\,x'\,dt\).</p>
+<p><strong>Setup:</strong> \(y=r(1-\cos t)\), \(x'=r(1-\cos t)\). Bounds: \(0\le t\le 2\pi\).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\int_0^{2\pi}r(1-\cos t)\cdot r(1-\cos t)\,dt=r^2\int_0^{2\pi}(1-\cos t)^2\,dt\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Expand: \((1-\cos t)^2=1-2\cos t+\cos^2 t=1-2\cos t+\frac{1+\cos 2t}{2}\) (half-angle identity from Pre-knowledge)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(=\frac{3}{2}-2\cos t+\frac{\cos 2t}{2}\). Integrate over \([0,2\pi]\): \(\int_0^{2\pi}\cos t\,dt=0\), \(\int_0^{2\pi}\cos 2t\,dt=0\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(A=r^2\cdot\frac{3}{2}\cdot 2\pi=\boxed{3\pi r^2}\)</div></div>
+<p><strong>★ Tips:</strong> The cycloid arch area equals <strong>three times</strong> the area of the generating circle (\(\pi r^2\)). Memorize this result — it's a classic. The key trick is expanding \((1-\cos t)^2\) using the half-angle formula.</p>
+</div></div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 31 — Area of an Ellipse</div>
+<p><em>Find the area of the ellipse \(x=a\cos t,\;y=b\sin t,\;0\le t\le 2\pi\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Closed curve → use \(|{\int g(t)f'(t)\,dt}|\). Here \(f'(t)=-a\sin t\).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\left|\int_0^{2\pi}(b\sin t)(-a\sin t)\,dt\right|=ab\int_0^{2\pi}\sin^2 t\,dt\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Half-angle: \(\sin^2 t=\frac{1-\cos 2t}{2}\). So \(\int_0^{2\pi}\sin^2 t\,dt=\pi\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(\boxed{A=\pi ab}\)</div></div>
+<p><strong>★ Tips:</strong> When \(a=b=r\), this gives \(\pi r^2\) — the familiar circle area. The half-angle identity \(\sin^2 t=(1-\cos 2t)/2\) is essential for parametric area problems.</p>
+</div></div>
+
+<!-- ═══════════ §2.10 ARC LENGTH ═══════════ -->
+<h2>§2.10 &ensp; Arc Length</h2>
+
+<p>The arc length formula comes from summing infinitesimal line segments: each tiny piece has length \(\sqrt{dx^2+dy^2}=\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt\).</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%">
+  <!-- Curve -->
+  <path d="M 40,140 C 100,30 200,150 350,50" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+  <!-- Zoomed segment -->
+  <line x1="180" y1="108" x2="220" y2="95" stroke="#8B1A1A" stroke-width="2.5"/>
+  <!-- dx component -->
+  <line x1="180" y1="108" x2="220" y2="108" stroke="#2B6CB0" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="192" y="124" font-family="Architects Daughter, cursive" font-size="13" fill="#2B6CB0">dx</text>
+  <!-- dy component -->
+  <line x1="220" y1="108" x2="220" y2="95" stroke="#2D8B46" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="226" y="105" font-family="Architects Daughter, cursive" font-size="13" fill="#2D8B46">dy</text>
+  <!-- ds label -->
+  <text x="184" y="92" font-family="Architects Daughter, cursive" font-size="15" fill="#8B1A1A" font-weight="700">ds</text>
+  <!-- Points -->
+  <circle cx="180" cy="108" r="3" fill="#2A2A2A"/>
+  <circle cx="220" cy="95" r="3" fill="#2A2A2A"/>
+  <!-- Formula -->
+  <text x="250" y="130" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A">ds = √(dx² + dy²)</text>
+</svg>
+<div class="figure-caption">Each infinitesimal piece ds forms a right triangle: ds² = dx² + dy² (Pythagorean theorem).</div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Arc Length of a Parametric Curve</div>
+<div class="eq-formula">\[L=\int_\alpha^\beta\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\;dt\]</div>
+<div class="pills"><span class="pill">dx/dt, dy/dt — component velocities</span><span class="pill">The integrand is the speed: √(x'²+y'²)</span><span class="pill">Curve must be traced exactly once over [α,β]</span></div>
+<p>For curves given as \(y=f(x)\): set \(x=t\), \(dx/dt=1\), giving \(L=\int_a^b\sqrt{1+[f'(x)]^2}\,dx\).</p>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 32 — Arc Length of One Cycloid Arch</div>
+<p><em>Find the length of one arch of the cycloid: \(x=r(t-\sin t),\;y=r(1-\cos t),\;0\le t\le 2\pi\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Compute \(x'(t)\) and \(y'(t)\), then simplify \(\sqrt{(x')^2+(y')^2}\) using trig identities before integrating.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(x'=r(1-\cos t),\quad y'=r\sin t\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>\((x')^2+(y')^2=r^2[(1-\cos t)^2+\sin^2 t]=r^2[1-2\cos t+\cos^2 t+\sin^2 t]=r^2(2-2\cos t)\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Use identity \(1-\cos t=2\sin^2(t/2)\): \(\sqrt{2-2\cos t}=2|\sin(t/2)|\). On \([0,2\pi]\), \(\sin(t/2)\ge 0\), so absolute value drops.</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(L=\int_0^{2\pi}2r\sin(t/2)\,dt=2r\left[-2\cos(t/2)\right]_0^{2\pi}=2r[-2(-1)-(-2)(1)]=2r\cdot 4=\boxed{8r}\)</div></div>
+<p><strong>★ Tips:</strong> Cycloid arch length is always \(8r\) — exactly 4 diameters. The key identity is \(1-\cos t=2\sin^2(t/2)\), which converts a square root of a trig expression into something integrable.</p>
+</div></div>
+
+<!-- ═══════════ §2.11–2.14 POLAR COORDINATES ═══════════ -->
+<h2>§2.11–2.14 &ensp; Polar Coordinates</h2>
+
+<p>Cartesian coordinates locate a point by how far right and how far up it is. Polar coordinates instead specify <em>how far from the origin</em> and <em>at what angle</em>. Curves with rotational symmetry (circles, spirals, roses) have much simpler equations in polar form.</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg" style="max-width:380px;width:100%">
+  <defs><marker id="ahx" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#7A7A7A"/></marker></defs>
+  <!-- Axes -->
+  <line x1="30" y1="210" x2="350" y2="210" stroke="#7A7A7A" stroke-width="1.5" marker-end="url(#ahx)"/>
+  <line x1="60" y1="250" x2="60" y2="30" stroke="#7A7A7A" stroke-width="1.5" marker-end="url(#ahx)"/>
+  <text x="355" y="215" font-family="Architects Daughter, cursive" font-size="15" fill="#7A7A7A">x</text>
+  <text x="52" y="22" font-family="Architects Daughter, cursive" font-size="15" fill="#7A7A7A">y</text>
+  <!-- Origin -->
+  <circle cx="60" cy="210" r="3" fill="#2A2A2A"/>
+  <text x="42" y="230" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">O</text>
+  <!-- Point P -->
+  <circle cx="270" cy="90" r="6" fill="#8B1A1A"/>
+  <text x="280" y="85" font-family="Architects Daughter, cursive" font-size="16" fill="#8B1A1A" font-weight="700">P(r, θ)</text>
+  <!-- Line from O to P (radius r) -->
+  <line x1="60" y1="210" x2="270" y2="90" stroke="#8B1A1A" stroke-width="2"/>
+  <text x="140" y="138" font-family="Architects Daughter, cursive" font-size="16" fill="#8B1A1A" font-weight="700">r</text>
+  <!-- Angle arc -->
+  <path d="M 110,210 A 50,50 0 0,0 93,180" fill="none" stroke="#6B3FA0" stroke-width="2"/>
+  <text x="108" y="190" font-family="Architects Daughter, cursive" font-size="16" fill="#6B3FA0" font-weight="700">θ</text>
+  <!-- Dashed projection lines -->
+  <line x1="270" y1="90" x2="270" y2="210" stroke="#2B6CB0" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="60" y1="90" x2="270" y2="90" stroke="#2B6CB0" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- x = r cos θ label -->
+  <text x="130" y="228" font-family="Architects Daughter, cursive" font-size="13" fill="#2B6CB0">x = r cos θ</text>
+  <!-- y = r sin θ label -->
+  <text x="278" y="160" font-family="Architects Daughter, cursive" font-size="13" fill="#2B6CB0">y = r sin θ</text>
+</svg>
+<div class="figure-caption">Polar coordinates (r, θ): r is the distance from the origin, θ is the angle from the positive x-axis.</div>
+</div>
+
+<h3>Converting Between Polar and Cartesian</h3>
+
+<div class="eq-card card-bracket"><div class="eq-name">Polar ↔ Cartesian Conversion</div>
+<div class="eq-formula">\[\underbrace{x=r\cos\theta,\quad y=r\sin\theta}_{\text{Polar}\to\text{Cartesian}}\qquad\underbrace{r=\sqrt{x^2+y^2},\quad\tan\theta=\frac{y}{x}}_{\text{Cartesian}\to\text{Polar}}\]</div>
+<div class="pills"><span class="pill">r — distance from origin to the point (can be negative)</span><span class="pill">θ — angle from the positive x-axis (counterclockwise positive)</span><span class="pill">Convention: (−r, θ) represents the same point as (r, θ+π)</span></div>
+</div>
+
+<div class="tip-card card-bracket"><div class="tip-label">★ Quadrant Check for θ</div>
+<p>When converting from Cartesian to polar, \(\tan\theta=y/x\) gives two possible angles (arctan only returns \((-\pi/2,\pi/2)\)). Always check which <strong>quadrant</strong> the point is in to pick the correct \(\theta\). For a point in Q3 like \((-1,-1)\): \(\tan\theta=1\) suggests \(\theta=\pi/4\), but the actual angle is \(\theta=\pi/4+\pi=5\pi/4\).</p>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 35 — Coordinate Conversion</div>
+<p><em>(a) Convert \((-4,2\pi/3)\) from polar to Cartesian. (b) Convert \((-1,-1)\) from Cartesian to polar.</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> (a) Apply \(x=r\cos\theta,\;y=r\sin\theta\) directly. (b) Compute \(r\) from the Pythagorean formula, then determine \(\theta\) using the quadrant.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>(a) \(x=-4\cos(2\pi/3)=-4(-1/2)=2\), \(y=-4\sin(2\pi/3)=-4(\sqrt{3}/2)=-2\sqrt{3}\). Answer: \(\boxed{(2,-2\sqrt{3})}\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>(b) \(r=\sqrt{(-1)^2+(-1)^2}=\sqrt{2}\). \(\tan\theta=(-1)/(-1)=1\). Since the point is in Q3: \(\theta=\pi/4+\pi=5\pi/4\). Answer: \(\boxed{(\sqrt{2},\;5\pi/4)}\).</div></div>
+<p><strong>★ Tips:</strong> Negative \(r\) in polar means "go in the opposite direction." The point \((-4,2\pi/3)\) is the same as \((4,2\pi/3+\pi)=(4,5\pi/3)\). Always verify by converting back.</p>
+</div></div>
+
+<h3>Common Polar Curves</h3>
+
+<div class="def-card card-bracket"><div class="def-name">Special Polar Curves</div>
+<table class="ptbl">
+<tr><th>Equation</th><th>Curve</th></tr>
+<tr><td>\(\theta=\alpha\)</td><td>Line through origin at angle \(\alpha\)</td></tr>
+<tr><td>\(r\cos\theta=a\)</td><td>Vertical line \(x=a\)</td></tr>
+<tr><td>\(r\sin\theta=b\)</td><td>Horizontal line \(y=b\)</td></tr>
+<tr><td>\(r=a\)</td><td>Circle of radius \(|a|\) centered at origin</td></tr>
+<tr><td>\(r=2a\cos\theta\)</td><td>Circle of radius \(|a|\), center \((a,0)\)</td></tr>
+<tr><td>\(r=2b\sin\theta\)</td><td>Circle of radius \(|b|\), center \((0,b)\)</td></tr>
+<tr><td>\(r=2a\cos\theta+2b\sin\theta\)</td><td>Circle, radius \(\sqrt{a^2+b^2}\), center \((a,b)\)</td></tr>
+</table>
+</div>
+
+<div class="figure-box">
+<svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" style="max-width:360px;width:100%">
+  <line x1="20" y1="180" x2="340" y2="180" stroke="#7A7A7A" stroke-width="0.8"/>
+  <line x1="170" y1="290" x2="170" y2="10" stroke="#7A7A7A" stroke-width="0.8"/>
+  <path d="M 225.0,180.0 L 226.7,178.2 L 228.3,176.3 L 229.9,174.3 L 231.4,172.2 L 232.8,170.1 L 234.1,167.8 L 235.4,165.4 L 236.5,162.9 L 237.6,160.4 L 238.5,157.8 L 239.3,155.1 L 240.0,152.3 L 240.5,149.5 L 241.0,146.6 L 241.3,143.7 L 241.4,140.7 L 241.4,137.8 L 241.3,134.7 L 241.1,131.7 L 240.6,128.7 L 240.1,125.6 L 239.4,122.6 L 238.5,119.6 L 237.5,116.6 L 236.4,113.6 L 235.1,110.7 L 233.7,107.8 L 232.1,105.0 L 230.3,102.2 L 228.5,99.5 L 226.5,96.9 L 224.4,94.4 L 222.1,91.9 L 219.7,89.6 L 217.2,87.3 L 214.6,85.2 L 211.9,83.2 L 209.1,81.3 L 206.2,79.6 L 203.2,77.9 L 200.1,76.5 L 196.9,75.1 L 193.7,73.9 L 190.4,72.9 L 187.1,72.0 L 183.7,71.3 L 180.3,70.7 L 176.9,70.3 L 173.5,70.1 L 170.0,70.0 L 166.5,70.1 L 163.1,70.3 L 159.7,70.7 L 156.3,71.3 L 152.9,72.0 L 149.6,72.9 L 146.3,73.9 L 143.1,75.1 L 139.9,76.5 L 136.8,77.9 L 133.8,79.6 L 130.9,81.3 L 128.1,83.2 L 125.4,85.2 L 122.8,87.3 L 120.3,89.6 L 117.9,91.9 L 115.6,94.4 L 113.5,96.9 L 111.5,99.5 L 109.7,102.2 L 107.9,105.0 L 106.3,107.8 L 104.9,110.7 L 103.6,113.6 L 102.5,116.6 L 101.5,119.6 L 100.6,122.6 L 99.9,125.6 L 99.4,128.7 L 98.9,131.7 L 98.7,134.7 L 98.6,137.8 L 98.6,140.7 L 98.7,143.7 L 99.0,146.6 L 99.5,149.5 L 100.0,152.3 L 100.7,155.1 L 101.5,157.8 L 102.4,160.4 L 103.5,162.9 L 104.6,165.4 L 105.9,167.8 L 107.2,170.1 L 108.6,172.2 L 110.1,174.3 L 111.7,176.3 L 113.3,178.2 L 115.0,180.0 L 116.8,181.7 L 118.6,183.2 L 120.4,184.7 L 122.3,186.0 L 124.2,187.3 L 126.1,188.4 L 128.0,189.4 L 130.0,190.3 L 131.9,191.1 L 133.9,191.7 L 135.8,192.3 L 137.7,192.8 L 139.6,193.2 L 141.4,193.4 L 143.2,193.6 L 145.0,193.7 L 146.8,193.7 L 148.4,193.7 L 150.1,193.5 L 151.7,193.3 L 153.2,193.0 L 154.6,192.7 L 156.0,192.3 L 157.4,191.9 L 158.6,191.4 L 159.8,190.9 L 160.9,190.3 L 162.0,189.7 L 162.9,189.1 L 163.8,188.5 L 164.7,187.9 L 165.4,187.2 L 166.1,186.6 L 166.7,186.0 L 167.3,185.3 L 167.8,184.7 L 168.2,184.2 L 168.6,183.6 L 168.9,183.1 L 169.2,182.6 L 169.4,182.1 L 169.6,181.7 L 169.7,181.3 L 169.8,181.0 L 169.9,180.7 L 169.9,180.4 L 170.0,180.2 L 170.0,180.1 L 170.0,180.0 L 170.0,180.0 L 170.0,180.0 L 170.0,180.1 L 170.0,180.2 L 170.1,180.4 L 170.1,180.7 L 170.2,181.0 L 170.3,181.3 L 170.4,181.7 L 170.6,182.1 L 170.8,182.6 L 171.1,183.1 L 171.4,183.6 L 171.8,184.2 L 172.2,184.7 L 172.7,185.3 L 173.3,186.0 L 173.9,186.6 L 174.6,187.2 L 175.3,187.9 L 176.2,188.5 L 177.1,189.1 L 178.0,189.7 L 179.1,190.3 L 180.2,190.9 L 181.4,191.4 L 182.6,191.9 L 184.0,192.3 L 185.4,192.7 L 186.8,193.0 L 188.3,193.3 L 189.9,193.5 L 191.6,193.7 L 193.2,193.7 L 195.0,193.7 L 196.8,193.6 L 198.6,193.4 L 200.4,193.2 L 202.3,192.8 L 204.2,192.3 L 206.1,191.7 L 208.1,191.1 L 210.0,190.3 L 212.0,189.4 L 213.9,188.4 L 215.8,187.3 L 217.7,186.0 L 219.6,184.7 L 221.4,183.2 L 223.2,181.7 L 225.0,180.0 Z" fill="rgba(139,26,26,0.06)" stroke="#8B1A1A" stroke-width="2.5"/>
+  <circle cx="170" cy="180" r="3" fill="#2A2A2A"/>
+  <text x="240" y="100" font-family="Architects Daughter, cursive" font-size="14" fill="#8B1A1A" font-weight="700">r = 1 + sin θ</text>
+  <text x="60" y="205" font-family="Architects Daughter, cursive" font-size="12" fill="#7A7A7A">length = 8</text>
+  <text x="185" y="58" font-family="Architects Daughter, cursive" font-size="11" fill="#6B3FA0">r=2 (top)</text>
+  <text x="185" y="205" font-family="Architects Daughter, cursive" font-size="11" fill="#6B3FA0">r=0 (cusp)</text>
+</svg>
+<div class="figure-caption">Cardioid r = 1 + sin θ. Heart-shaped curve with total perimeter = 8.</div>
+</div>
+
+<h3>Tangents to Polar Curves</h3>
+
+<p>Since \(x=r\cos\theta\) and \(y=r\sin\theta\) are parametric in \(\theta\), we can find the slope using the parametric derivative formula with \(\theta\) as the parameter.</p>
+
+<div class="eq-card card-bracket"><div class="eq-name">Slope of a Polar Curve</div>
+<div class="eq-formula">\[\frac{dy}{dx}=\frac{r'(\theta)\sin\theta+r\cos\theta}{r'(\theta)\cos\theta-r\sin\theta}\]</div>
+<div class="pills"><span class="pill">r = f(θ) — the polar function</span><span class="pill">r'(θ) — derivative dr/dθ</span><span class="pill">Derived from dy/dx = (dy/dθ)/(dx/dθ) with product rule on x=r cosθ, y=r sinθ</span></div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 37 — Tangent to a Polar Curve</div>
+<p><em>Find the tangent line to \(r=3+8\sin\theta\) at \(\theta=\pi/6\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Use the polar slope formula. First find \(r\) and \((x,y)\) at the given \(\theta\), then compute the slope, then write the tangent line equation.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>At \(\theta=\pi/6\): \(r=3+8\sin(\pi/6)=3+4=7\). Point: \((x,y)=(7\cos(\pi/6),\;7\sin(\pi/6))=(7\sqrt{3}/2,\;7/2)\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(r'(\theta)=8\cos\theta\). At \(\theta=\pi/6\): \(r'=8\cdot\sqrt{3}/2=4\sqrt{3}\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Slope: \(\frac{4\sqrt{3}\cdot 1/2+7\cdot\sqrt{3}/2}{4\sqrt{3}\cdot\sqrt{3}/2-7\cdot 1/2}=\frac{2\sqrt{3}+7\sqrt{3}/2}{6-7/2}=\frac{11\sqrt{3}/2}{5/2}=\frac{11\sqrt{3}}{5}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>Tangent line: \(y-7/2=\frac{11\sqrt{3}}{5}(x-7\sqrt{3}/2)\;\Rightarrow\;\boxed{y=\frac{11\sqrt{3}}{5}x-\frac{98}{5}}\)</div></div>
+<p><strong>★ Tips:</strong> Don't forget to convert \((r,\theta)\) to \((x,y)\) before writing the tangent line — tangent line equations are in Cartesian form.</p>
+</div></div>
+
+<h3>Area in Polar Coordinates</h3>
+
+<p>In polar coordinates, area elements are <em>sectors</em>, not rectangles. A thin sector at radius \(r\) spanning angle \(d\theta\) has area \(\frac{1}{2}r^2\,d\theta\).</p>
+
+<div class="figure-box">
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%">
+  <defs><marker id="ahp" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,0 7,2.5 0,5" fill="#7A7A7A"/></marker></defs>
+  <!-- Axes -->
+  <line x1="50" y1="220" x2="370" y2="220" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahp)"/>
+  <line x1="50" y1="240" x2="50" y2="20" stroke="#7A7A7A" stroke-width="1" marker-end="url(#ahp)"/>
+  <!-- Curve r=f(θ) -->
+  <path d="M 50,220 Q 180,60 250,70 Q 320,80 360,130" fill="none" stroke="#2A2A2A" stroke-width="2"/>
+  <text x="310" y="120" font-family="Architects Daughter, cursive" font-size="14" fill="#2A2A2A">r = f(θ)</text>
+  <!-- Full shaded region -->
+  <path d="M 50,220 Q 100,140 170,95 Q 230,72 230,72 L 50,220 Z" fill="rgba(45,139,70,0.08)" stroke="none"/>
+  <!-- Shaded sector element -->
+  <path d="M 50,220 L 160,100 A 5,5 0 0,1 195,82 L 50,220 Z" fill="rgba(139,26,26,0.18)" stroke="none"/>
+  <!-- Two radii bounding the sector -->
+  <line x1="50" y1="220" x2="160" y2="100" stroke="#8B1A1A" stroke-width="1.5"/>
+  <line x1="50" y1="220" x2="195" y2="82" stroke="#8B1A1A" stroke-width="1.5"/>
+  <!-- r label -->
+  <text x="82" y="148" font-family="Architects Daughter, cursive" font-size="16" fill="#8B1A1A" font-weight="700">r</text>
+  <!-- dθ arc - larger and clearer -->
+  <path d="M 110,175 A 65,65 0 0,0 125,164" fill="none" stroke="#6B3FA0" stroke-width="2.5"/>
+  <text x="130" y="172" font-family="Architects Daughter, cursive" font-size="15" fill="#6B3FA0" font-weight="700">dθ</text>
+  <!-- Area element label - in clear space -->
+  <text x="155" y="142" font-family="Architects Daughter, cursive" font-size="13" fill="#8B1A1A">dA = ½r²dθ</text>
+  <!-- α arc - along x-axis -->
+  <path d="M 110,220 A 60,60 0 0,0 100,200" fill="none" stroke="#7A7A7A" stroke-width="1.2"/>
+  <text x="118" y="213" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">α</text>
+  <!-- β arc - wider angle -->
+  <path d="M 130,220 A 80,80 0 0,0 110,185" fill="none" stroke="#7A7A7A" stroke-width="1.2"/>
+  <text x="138" y="197" font-family="Architects Daughter, cursive" font-size="13" fill="#7A7A7A">β</text>
+</svg>
+<div class="figure-caption">Polar area: each infinitesimal sector has area dA = ½r²dθ. Sum from α to β to get total area.</div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Area of a Polar Region</div>
+<div class="eq-formula">\[A=\int_\alpha^\beta\frac{1}{2}\,r^2\,d\theta\]</div>
+<div class="pills"><span class="pill">r = f(θ) — the polar curve bounding the region</span><span class="pill">α, β — bounding angles</span><span class="pill">Comes from sector area formula A = ½r²θ</span></div>
+</div>
+
+<div class="eq-card card-bracket"><div class="eq-name">Area Between Two Polar Curves</div>
+<div class="eq-formula">\[A=\int_\alpha^\beta\frac{1}{2}\left(r_{\text{out}}^2-r_{\text{in}}^2\right)d\theta\]</div>
+<div class="pills"><span class="pill">r_out — outer curve (farther from origin)</span><span class="pill">r_in — inner curve (closer to origin)</span><span class="pill">α, β — angles where the curves intersect (find these FIRST)</span></div>
+</div>
+
+
+<div class="figure-box">
+<svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%">
+  <line x1="20" y1="120" x2="400" y2="120" stroke="#7A7A7A" stroke-width="0.8"/>
+  <line x1="200" y1="250" x2="200" y2="10" stroke="#7A7A7A" stroke-width="0.8"/>
+  <path d="M 296.0,120.0 L 295.9,117.0 L 295.7,114.0 L 295.3,111.0 L 294.7,108.0 L 294.0,105.1 L 293.2,102.2 L 292.2,99.4 L 291.0,96.6 L 289.7,93.9 L 288.3,91.3 L 286.8,88.8 L 285.1,86.3 L 283.3,84.0 L 281.4,81.7 L 279.3,79.6 L 277.2,77.6 L 275.0,75.7 L 272.6,73.9 L 270.2,72.3 L 267.8,70.8 L 265.2,69.4 L 262.7,68.2 L 260.0,67.1 L 257.3,66.2 L 254.6,65.4 L 251.9,64.7 L 249.2,64.2 L 246.4,63.9 L 243.7,63.7 L 240.9,63.7 L 238.2,63.8 L 235.5,64.0 L 232.9,64.4 L 230.3,64.9 L 227.7,65.6 L 225.2,66.4 L 222.8,67.3 L 220.5,68.3 L 218.2,69.5 L 216.0,70.8 L 213.9,72.1 L 211.9,73.6 L 210.0,75.1 L 208.2,76.8 L 206.6,78.5 L 205.0,80.3 L 203.6,82.1 L 202.3,84.1 L 201.1,86.0 L 200.0,88.0 L 199.1,90.0 L 198.2,92.1 L 197.6,94.1 L 197.0,96.2 L 196.6,98.3 L 196.3,100.3 L 196.1,102.4 L 196.0,104.4 L 196.1,106.4 L 196.2,108.4 L 196.5,110.3 L 196.9,112.2 L 197.4,114.0 L 198.0,115.7 L 198.7,117.4 L 199.4,119.0 L 200.3,120.5 L 201.2,121.9 L 202.2,123.3 L 203.3,124.5 L 204.4,125.7 L 205.6,126.8 L 206.8,127.7 L 208.1,128.6 L 209.4,129.4 L 210.7,130.0 L 212.0,130.6 L 213.3,131.0 L 214.7,131.4 L 216.0,131.6 L 217.3,131.8 L 218.6,131.8 L 219.9,131.8 L 221.1,131.6 L 222.3,131.4 L 223.4,131.0 L 224.5,130.6 L 225.6,130.1 L 226.5,129.6 L 227.5,128.9 L 228.3,128.2 L 229.0,127.5 L 229.7,126.6 L 230.3,125.8 L 230.8,124.9 L 231.2,123.9 L 231.6,123.0 L 231.8,122.0 L 232.0,121.0 L 232.0,120.0 L 232.0,119.0 L 231.8,118.0 L 231.6,117.0 L 231.2,116.1 L 230.8,115.1 L 230.3,114.2 L 229.7,113.4 L 229.0,112.5 L 228.3,111.8 L 227.5,111.1 L 226.5,110.4 L 225.6,109.9 L 224.5,109.4 L 223.4,109.0 L 222.3,108.6 L 221.1,108.4 L 219.9,108.2 L 218.6,108.2 L 217.3,108.2 L 216.0,108.4 L 214.7,108.6 L 213.3,109.0 L 212.0,109.4 L 210.7,110.0 L 209.4,110.6 L 208.1,111.4 L 206.8,112.3 L 205.6,113.2 L 204.4,114.3 L 203.3,115.5 L 202.2,116.7 L 201.2,118.1 L 200.3,119.5 L 199.4,121.0 L 198.7,122.6 L 198.0,124.3 L 197.4,126.0 L 196.9,127.8 L 196.5,129.7 L 196.2,131.6 L 196.1,133.6 L 196.0,135.6 L 196.1,137.6 L 196.3,139.7 L 196.6,141.7 L 197.0,143.8 L 197.6,145.9 L 198.2,147.9 L 199.1,150.0 L 200.0,152.0 L 201.1,154.0 L 202.3,155.9 L 203.6,157.9 L 205.0,159.7 L 206.6,161.5 L 208.2,163.2 L 210.0,164.9 L 211.9,166.4 L 213.9,167.9 L 216.0,169.2 L 218.2,170.5 L 220.5,171.7 L 222.8,172.7 L 225.2,173.6 L 227.7,174.4 L 230.3,175.1 L 232.9,175.6 L 235.5,176.0 L 238.2,176.2 L 240.9,176.3 L 243.7,176.3 L 246.4,176.1 L 249.2,175.8 L 251.9,175.3 L 254.6,174.6 L 257.3,173.8 L 260.0,172.9 L 262.7,171.8 L 265.2,170.6 L 267.8,169.2 L 270.2,167.7 L 272.6,166.1 L 275.0,164.3 L 277.2,162.4 L 279.3,160.4 L 281.4,158.3 L 283.3,156.0 L 285.1,153.7 L 286.8,151.2 L 288.3,148.7 L 289.7,146.1 L 291.0,143.4 L 292.2,140.6 L 293.2,137.8 L 294.0,134.9 L 294.7,132.0 L 295.3,129.0 L 295.7,126.0 L 295.9,123.0 L 296.0,120.0 Z" fill="rgba(43,108,176,0.05)" stroke="#2B6CB0" stroke-width="2"/>
+  <circle cx="200" cy="120" r="3" fill="#2A2A2A"/>
+  <text x="300" y="50" font-family="Architects Daughter, cursive" font-size="14" fill="#2B6CB0" font-weight="700">r = 2 + 4cos θ</text>
+  <text x="130" y="112" font-family="Architects Daughter, cursive" font-size="12" fill="#8B1A1A" font-weight="700">inner loop</text>
+  <text x="60" y="242" font-family="Architects Daughter, cursive" font-size="11" fill="#7A7A7A">Set r=0: θ = 2π/3, 4π/3</text>
+</svg>
+<div class="figure-caption">Limaçon with inner loop: when |coefficient of cosθ| > constant, r goes negative creating a loop.</div>
+</div>
+<div class="ex-card card-bracket"><div class="ex-label">Example 39 — Area of an Inner Loop</div>
+<p><em>Find the area of the inner loop of \(r=2+4\cos\theta\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> A limaçon \(r=a+b\cos\theta\) with \(|b|>|a|\) has an inner loop. The loop occurs where \(r\) goes negative — find the boundary by setting \(r=0\).</p>
+<p><strong>Setup:</strong> Find where \(r=0\): \(2+4\cos\theta=0\Rightarrow\cos\theta=-1/2\Rightarrow\theta=2\pi/3,\;4\pi/3\).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\int_{2\pi/3}^{4\pi/3}\frac{1}{2}(2+4\cos\theta)^2\,d\theta\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Expand: \(\frac{1}{2}(4+16\cos\theta+16\cos^2\theta)=2+8\cos\theta+8\cdot\frac{1+\cos 2\theta}{2}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>\(=6+8\cos\theta+4\cos 2\theta\). Integrate: \(\left[6\theta+8\sin\theta+2\sin 2\theta\right]_{2\pi/3}^{4\pi/3}\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(\boxed{A=4\pi-6\sqrt{3}}\)</div></div>
+<p><strong>★ Tips:</strong> For inner loops, always find bounds by setting \(r=0\). The integrand \(r^2\) is always positive even when \(r\) itself is negative (that's why it works). For the half-angle substitution, recall \(\cos^2\theta=(1+\cos 2\theta)/2\) from Pre-knowledge.</p>
+</div></div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 40 — Area Between Polar Curves</div>
+<p><em>Find the area outside the cardioid \(r=1+\sin\theta\) and inside the circle \(r=3\sin\theta\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> "Outside A, inside B" → area between the curves with B as the outer curve. First find where they intersect to determine the bounds.</p>
+<p><strong>Setup:</strong> Intersections: \(1+\sin\theta=3\sin\theta\Rightarrow\sin\theta=1/2\Rightarrow\theta=\pi/6,\;5\pi/6\). On \([\pi/6,5\pi/6]\), verify \(3\sin\theta\ge 1+\sin\theta\) ✓ (the circle is outer).</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(A=\int_{\pi/6}^{5\pi/6}\frac{1}{2}\left[(3\sin\theta)^2-(1+\sin\theta)^2\right]d\theta\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>\(=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[9\sin^2\theta-1-2\sin\theta-\sin^2\theta]\,d\theta=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[8\sin^2\theta-2\sin\theta-1]\,d\theta\)</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Use \(\sin^2\theta=(1-\cos 2\theta)/2\): integrand becomes \(3-4\cos 2\theta-2\sin\theta\). Integrate and evaluate.</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(\boxed{A=\pi}\)</div></div>
+<p><strong>★ Tips:</strong> Always find intersections first — they give your integration bounds. Verify which curve is outer by testing a point between the bounds. The answer \(\pi\) is deceptively clean.</p>
+</div></div>
+
+<h3>Arc Length in Polar Coordinates</h3>
+
+<p>Since \(x=r\cos\theta\) and \(y=r\sin\theta\) are parametric in \(\theta\), we can derive that \((x'_\theta)^2+(y'_\theta)^2=(r'_\theta)^2+r^2\). This simplifies the arc length integral.</p>
+
+<div class="eq-card card-bracket"><div class="eq-name">Polar Arc Length</div>
+<div class="eq-formula">\[L=\int_\alpha^\beta\sqrt{\left(\frac{dr}{d\theta}\right)^2+r^2}\;d\theta\]</div>
+<div class="pills"><span class="pill">dr/dθ — rate of change of radius with angle</span><span class="pill">r — the polar radius function</span><span class="pill">Simpler than converting to Cartesian and using √(x'²+y'²)</span></div>
+</div>
+
+<div class="ex-card card-bracket"><div class="ex-label">Example 42 — Length of a Cardioid</div>
+<p><em>Find the length of the cardioid \(r=1+\sin\theta,\;0\le\theta\le 2\pi\).</em></p>
+<div class="coll" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">Solution</div>
+<div class="cc">
+<p><strong>Thought process:</strong> Use the polar arc length formula. The challenge is simplifying the integrand \(\sqrt{(r')^2+r^2}\) using trig identities.</p>
+<div class="step"><div class="sn" style="background:var(--example)">1</div><div>\(r'=\cos\theta\). Integrand: \(\sqrt{\cos^2\theta+(1+\sin\theta)^2}=\sqrt{2+2\sin\theta}\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">2</div><div>Use identity \(1+\sin\theta=(\sin(\theta/2)+\cos(\theta/2))^2\): \(\sqrt{2+2\sin\theta}=\sqrt{2}\,|\sin(\theta/2)+\cos(\theta/2)|\).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">3</div><div>Sub \(\varphi=\theta/2\): \(L=2\sqrt{2}\int_0^\pi|\sin\varphi+\cos\varphi|\,d\varphi\). Split at \(\varphi=3\pi/4\) (where integrand changes sign).</div></div>
+<div class="step"><div class="sn" style="background:var(--example)">4</div><div>\(=2\sqrt{2}\left[\int_0^{3\pi/4}(\sin\varphi+\cos\varphi)\,d\varphi-\int_{3\pi/4}^{\pi}(\sin\varphi+\cos\varphi)\,d\varphi\right]=\boxed{8}\)</div></div>
+<p><strong>★ Tips:</strong> The cardioid has length exactly \(8\) — a clean result worth memorizing. The tricky part is handling the absolute value by splitting the integral where \(\sin\varphi+\cos\varphi\) changes sign (at \(\varphi=3\pi/4\)).</p>
+</div></div>
+
+<div class="tip-card card-bracket"><div class="tip-label">★ Chapter 2 Big Picture</div>
+<p><strong>Lines:</strong> point + direction → parametric form. <strong>Planes:</strong> point + normal (from cross product) → equation. <strong>Parametric tangents:</strong> always \((dy/dt)/(dx/dt)\), never differentiate \(y\) w.r.t. \(x\) directly. <strong>Polar area:</strong> \(\frac{1}{2}\int r^2\,d\theta\) — always find intersections first for bounds. <strong>Arc length:</strong> \(\int\sqrt{(r')^2+r^2}\,d\theta\) in polar; \(\int\sqrt{(x')^2+(y')^2}\,dt\) in parametric.</p>
+</div>
+
+</div>
