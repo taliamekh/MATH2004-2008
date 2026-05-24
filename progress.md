@@ -279,7 +279,7 @@ MATH2004-2008/
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
 | Test 4 Prep | Placeholder | — |
-| Final Prep | Placeholder | — |
+| Final Prep | ✅ COMPLETE | W19 (18 Q), F14 (18 Q), F13 (18 Q), Practice (28 Q) — 76 fully worked solutions with Quick Guides |
 
 ---
 
@@ -513,3 +513,16 @@ MATH2004-2008/
 - Missing variables added to 11 equations: x/y/z on chain rules, r′(t) on line integrals, h₁/h₂ on double integrals, dS on surface integrals
 - Popup positioning improved (clamps to screen edges)
 - Files changed: chapters/formulas.html, chapters/exam-formulas.html, MATH2004-notes.html
+
+### Session 12 — May 23, 2026
+- **Final Exam Prep page written** — 76 fully worked solutions from 3 past finals + practice set
+  - **Winter 2019 Final**: A1–A12 (MC) + B1–B6 (long answer) — 18 questions
+  - **Fall 2014 Final**: A1–A12 (MC) + B1–B6 (long answer) — 18 questions
+  - **Fall 2013 Final**: A1–A12 (MC) + B1–B6 (long answer) — 18 questions
+  - **Practice Questions**: Q1–Q28 — 28 questions covering all chapters
+  - Every solution follows the 5-part structure: 🧠 What is this asking? → 📋 Formulas needed → 🔧 Setup → 📝 Full solution (every step) → ✅ Boxed answer
+  - Key questions include ⚡ Quick Guide checklists (5-8 mechanical steps for similar problems)
+  - Topics covered: planes, polar coords, ellipse area, chain rule, conservative fields, line integrals, Green's theorem, Stokes' theorem, Divergence theorem, surface integrals, Lagrange multipliers, critical points, potential functions, arc length, flux, triple integrals, change of variables
+- **Sidebar updated** — Final Prep link activated (pending removed), sub-link "W19 · F14 · F13" added
+- **Built MATH2004-notes.html** — 679KB, 23/23 fragments assembled
+- Files changed: shell-head.html, chapters/final.html (76 solutions), MATH2004-notes.html
