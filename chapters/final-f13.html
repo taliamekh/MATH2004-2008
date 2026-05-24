@@ -1,188 +1,508 @@
 <div class="page" id="final-f13"><div class="page-title">Assessment Prep</div>
 <h1 style="color:#8B0000;">Fall 2013 Final Exam</h1>
-<p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B).</p>
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A1 — Polar Tangent Slope: \(r=3\sin\theta\) at \(\theta=\pi/2\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(r=3\sin\theta\), \(r'=3\cos\theta\). At \(\theta=\pi/2\): \(r=3\), \(r'=0\).</p>
-<p>\[\frac{dy}{dx} = \frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta} = \frac{0\cdot 1+3\cdot 0}{0\cdot 0-3\cdot 1} = \frac{0}{-3} = 0\]</p>
+<p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B). Total: 80 marks, 3 hours.</p>
+
+<div class="part-banner mc">PART A — Multiple Choice (12 Questions × 3 marks = 36 marks)</div>
+
+<!-- ─── A1 ─── -->
+<details class="card-bracket" style="border-left-color:#2563EB;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A1 — Polar Tangent Slope (dy/dx at Top of Circle) · \(0\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find the slope of the tangent line to \(r = 3\sin\theta\) at \(\theta = \frac{\pi}{2}\).</p>
+<div class="choices">(a) 0 &nbsp;&nbsp; (b) \(\sqrt{3}\) &nbsp;&nbsp; (c) 2 &nbsp;&nbsp; (d) 3</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar slope</strong> \(\frac{dy}{dx}=\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-7')" style="cursor:pointer;">Exam Sheet #7: "First Derivative (Parametric)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find \(r'\) and evaluate at \(\theta=\pi/2\)</strong>
+<p>\(r'=3\cos\theta\). At \(\theta=\pi/2\): \(r=3\), \(r'=0\).</p></div></div>
+<p class="step-why">r' = 0 at the top of the circle (horizontal tangent).</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Apply formula</strong>
+<p>\[\frac{dy}{dx}=\frac{0\cdot 1+3\cdot 0}{0\cdot 0-3\cdot 1}=\frac{0}{-3}=\boxed{0}\]</p></div></div>
+<p class="step-why">sin(π/2)=1, cos(π/2)=0. Numerator = 0, so slope = 0 (horizontal tangent).</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) 0</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) \(0\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Polar Tangent Slope</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute \(r'(\theta)\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Evaluate \(r\) and \(r'\) at the given \(\theta\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Plug into \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>If numerator = 0 → horizontal. If denominator = 0 → vertical.</div>
+</div></div>
 </details>
 
+<!-- ─── A2 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A2 — Angle Between Planes</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(\mathbf{n}_1=(1,2,-2)\), \(\mathbf{n}_2=(2,2,-1)\).</p>
-<p>\[\cos\theta = \frac{|2+4+2|}{\sqrt{1+4+4}\sqrt{4+4+1}} = \frac{8}{3\cdot 3} = \frac{8}{9}\]</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A2 — Angle Between Planes (Dot Product of Normals) · \(\cos\theta=\frac{8}{9}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\theta\) be the angle between \(x+2y-2z-3=0\) and \(2x+2y-z-5=0\). Find \(\cos\theta\).</p>
+<div class="choices">(a) \(\frac{4}{9}\) &nbsp;&nbsp; (b) \(\frac{9}{4}\) &nbsp;&nbsp; (c) \(\frac{8}{9}\) &nbsp;&nbsp; (d) \(\frac{9}{8}\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Angle formula</strong> \(\cos\theta=\frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|}\) <a class="fsrc off" onclick="goToEq('formulas','fs-angle-between-vectors')" style="cursor:pointer;">NOT on exam sheet → Ch 1 Formula Sheet: "Angle Between Vectors"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Normals and dot product</strong>
+<p>\(\mathbf{n}_1=(1,2,-2)\), \(\mathbf{n}_2=(2,2,-1)\). Dot: \(2+4+2=8\).</p></div></div>
+<p class="step-why">Read coefficients from the plane equations.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Magnitudes and result</strong>
+<p>\(|\mathbf{n}_1|=\sqrt{1+4+4}=3\), \(|\mathbf{n}_2|=\sqrt{4+4+1}=3\). \(\cos\theta=\frac{8}{9}\).</p></div></div>
+<p class="step-why">Both normals have magnitude 3, giving a clean denominator of 9.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\dfrac{8}{9}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\frac{8}{9}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Angle Between Planes</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Read normals from plane equations</div>
+<div class="qg-step"><span class="step-bubble">2</span>Dot product → magnitudes → divide</div>
+</div></div>
 </details>
 
+<!-- ─── A3 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A3 — Triangle Area via Cross Product</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>P(1,2,3), Q(−3,0,1), R(2,4,5). \(\vec{PQ}=(-4,-2,-2)\), \(\vec{PR}=(1,2,2)\).</p>
-<p>\[\vec{PQ}\times\vec{PR} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-4&-2&-2\\1&2&2\end{vmatrix} = ((-2)(2)-(-2)(2),\;(-2)(1)-(-4)(2),\;(-4)(2)-(-2)(1))\]</p>
-<p>\[= (-4+4,\;-2+8,\;-8+2) = (0, 6, -6)\]</p>
-<p>\[|\vec{PQ}\times\vec{PR}| = \sqrt{0+36+36} = 6\sqrt{2}\]</p>
-<p>Area \(= \frac{1}{2}\cdot 6\sqrt{2} = 3\sqrt{2}\).</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A3 — Triangle Area (Cross Product of Edge Vectors) · \(3\sqrt{2}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find the area of the triangle with vertices \(P(1,2,3)\), \(Q(-3,0,1)\), and \(R(2,4,5)\).</p>
+<div class="choices">(a) \(6\sqrt{2}\) &nbsp;&nbsp; (b) \(6\sqrt{3}\) &nbsp;&nbsp; (c) 12 &nbsp;&nbsp; (d) \(3\sqrt{2}\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Triangle area</strong> \(A=\frac{1}{2}|\vec{PQ}\times\vec{PR}|\) <a class="fsrc off" onclick="goToEq('formulas','fs-triangle-area')" style="cursor:pointer;">NOT on exam sheet → Ch 1 Formula Sheet: "Triangle Area"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Edge vectors</strong>
+<p>\(\vec{PQ}=(-4,-2,-2)\), \(\vec{PR}=(1,2,2)\).</p></div></div>
+<p class="step-why">Subtract P from Q and R.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Cross product</strong>
+<p>\[\vec{PQ}\times\vec{PR}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-4&-2&-2\\1&2&2\end{vmatrix}=(-4+4)\mathbf{i}-(-8+2)\mathbf{j}+(-8+2)\mathbf{k}=(0,6,-6)\]</p></div></div>
+<p class="step-why">Use the 3×3 determinant formula.</p>
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Area</strong>
+<p>\(A=\frac{1}{2}\sqrt{0+36+36}=\frac{1}{2}\sqrt{72}=\frac{6\sqrt{2}}{2}=\boxed{3\sqrt{2}}\)</p></div></div>
+<p class="step-why">Triangle area = half the parallelogram area (half the cross product magnitude).</p>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(3\sqrt{2}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Triangle Area from 3 Points</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Form two edge vectors from one vertex</div>
+<div class="qg-step"><span class="step-bubble">2</span>Cross product → magnitude → divide by 2</div>
+</div></div>
 </details>
 
+<!-- ─── A4 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A4 — Point on Plane Perpendicular to Line</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>Line direction \(\mathbf{d}=(3,2,-1)\) = normal to plane. Through (1,1,3):</p>
-<p>\(3(x-1)+2(y-1)-(z-3)=0 \Rightarrow 3x+2y-z=2\).</p>
-<p>Check (0,0,−2): \(3(0)+2(0)-(-2) = 2\) ✓</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A4 — Point on Plane (Perpendicular to Line, Through a Point) · \((0,0,-2)\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Given line \(L: \mathbf{r}=(1,2,3)+t(3,2,-1)\). Let \(\Pi\) be the plane through \((1,1,3)\) perpendicular to \(L\). Which point is on \(\Pi\)?</p>
+<div class="choices">(a) \((0,0,-1)\) &nbsp;&nbsp; (b) \((0,0,-2)\) &nbsp;&nbsp; (c) \((0,0,-3)\) &nbsp;&nbsp; (d) \((0,0,-4)\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Plane from normal + point</strong> \(\mathbf{n}\cdot(\mathbf{r}-\mathbf{r}_0)=0\) <span class="fsrc off">NOT on exam sheet → Ch 2, memorize</span></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Normal = direction of line: \(\mathbf{n}=(3,2,-1)\)</strong>
+<p>\(3(x-1)+2(y-1)-(z-3)=0 \Rightarrow 3x+2y-z=2\)</p></div></div>
+<p class="step-why">Plane perpendicular to line → line's direction IS the normal.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Test (b): \((0,0,-2)\)</strong>
+<p>\(3(0)+2(0)-(-2)=2\) ✓</p></div></div>
+<p class="step-why">Plug in and check if it equals 2.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) (0,0,−2)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \((0,0,-2)\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Plane Perpendicular to a Line</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Normal = line's direction vector</div>
+<div class="qg-step"><span class="step-bubble">2</span>Write plane equation using the given point</div>
+<div class="qg-step"><span class="step-bubble">3</span>Test each choice</div>
+</div></div>
 </details>
 
+<!-- ─── A5 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A5 — Chain Rule (same as F14 A5)</summary>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) 6</strong> — Same computation as F14 A5. See above.</div>
-</details>
-
-<details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A6 — Gradient Direction (same as F14 A6)</summary>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(-\mathbf{i}-\frac{1}{2}\mathbf{j}+\frac{1}{4}\mathbf{k}\)</strong> — Same computation.</div>
-</details>
-
-<details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A7 — Critical Points of \(h(x,y) = y^2-2y-y\sqrt{x}+\frac{x}{2}\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(h_x = -\frac{y}{2\sqrt{x}}+\frac{1}{2} = 0 \Rightarrow y = \sqrt{x}\).</p>
-<p>\(h_y = 2y-2-\sqrt{x} = 0\). Substitute \(y=\sqrt{x}\): \(2\sqrt{x}-2-\sqrt{x}=0 \Rightarrow \sqrt{x}=2 \Rightarrow x=4, y=2\).</p>
-<p>Also check \(x=0\): \(h_y(0,y)=2y-2=0\Rightarrow y=1\). But \(h_x\) involves \(1/\sqrt{x}\) → undefined at \(x=0\). The point (0,0) is a boundary point where the domain starts (\(x\ge 0\)).</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A5 — Chain Rule (Total Derivative dw/dt at a Point) · \(6\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(w=x^2+y+3xy^4\), \(x=\sin 2t\), \(y=\cos t\). Find \(\frac{\partial w}{\partial t}\) at \(t=0\).</p>
+<div class="choices">(a) 0 &nbsp;&nbsp; (b) 6 &nbsp;&nbsp; (c) 3 &nbsp;&nbsp; (d) 2</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Total derivative</strong> \(\frac{dw}{dt}=w_x x'(t)+w_y y'(t)\) <a class="fsrc on" onclick="goToEq('examformulas','ef-14')" style="cursor:pointer;">Exam Sheet #14: "Total Derivative (Chain Rule)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>At \(t=0\): \(x=0\), \(y=1\), \(x'=2\), \(y'=0\)</strong>
+<p>\(w_x=2x+3y^4=3\), \(w_y=1+12xy^3=1\).</p>
+<p>\(\frac{dw}{dt}=(3)(2)+(1)(0)=\boxed{6}\)</p></div></div>
+<p class="step-why">Same question as F14 A5 — identical setup, same answer.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) (4,2) and (0,0)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \(6\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Chain Rule at a Point</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute all partials and derivatives</div>
+<div class="qg-step"><span class="step-bubble">2</span>Evaluate variables at the given t</div>
+<div class="qg-step"><span class="step-bubble">3</span>Plug in — pure arithmetic</div>
+</div></div>
 </details>
 
+<!-- ─── A6 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A8 — Double Integral over Rectangle</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(\iint_R e^{-x}\sin y\,dx\,dy\) where \(R: 0\le x\le\ln 2, 0\le y\le\pi/2\).</p>
-<p>\[= \int_0^{\ln 2}e^{-x}\,dx\cdot\int_0^{\pi/2}\sin y\,dy = [-e^{-x}]_0^{\ln 2}\cdot[-\cos y]_0^{\pi/2}\]</p>
-<p>\[= (-\tfrac{1}{2}+1)(0+1) = \frac{1}{2}\]</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A6 — Gradient (Direction of Steepest Increase) · \((-1,-\frac{1}{2},\frac{1}{4})\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Direction in which \(f(x,y,z)=\frac{x}{y}+\frac{y}{z}\) increases most rapidly at \((1,-1,2)\).</p>
+<div class="choices">(a) \(\mathbf{i}-\mathbf{j}+4\mathbf{k}\) &nbsp;&nbsp; (b) \(-\mathbf{i}+\frac{1}{2}\mathbf{j}+\frac{1}{2}\mathbf{k}\) &nbsp;&nbsp; (c) \(2\mathbf{i}-\frac{1}{4}\mathbf{j}-\frac{1}{2}\mathbf{k}\) &nbsp;&nbsp; (d) \(-\mathbf{i}-\frac{1}{2}\mathbf{j}+\frac{1}{4}\mathbf{k}\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Gradient = steepest ascent</strong> \(\nabla f=(f_x,f_y,f_z)\) <a class="fsrc on" onclick="goToEq('examformulas','ef-13')" style="cursor:pointer;">Exam Sheet #13: "Directional Derivative"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute and evaluate gradient</strong>
+<p>\(f_x=\frac{1}{y}=-1\), \(f_y=\frac{-x}{y^2}+\frac{1}{z}=-1+\frac{1}{2}=-\frac{1}{2}\), \(f_z=\frac{-y}{z^2}=\frac{1}{4}\).</p>
+<p>\(\nabla f=\boxed{(-1,-\tfrac{1}{2},\tfrac{1}{4})}\)</p></div></div>
+<p class="step-why">Same as F14 A6 — identical function and point.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(\dfrac{1}{2}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(-\mathbf{i}-\frac{1}{2}\mathbf{j}+\frac{1}{4}\mathbf{k}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Gradient</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute \(\nabla f=(f_x,f_y,f_z)\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Evaluate at the point</div>
+<div class="qg-step"><span class="step-bubble">3</span>That IS the direction of steepest increase</div>
+</div></div>
 </details>
 
+<!-- ─── A7 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A9 — Triple Integral (same as F14 A9)</summary>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\dfrac{3}{8}\)</strong> — Same region and computation as F14 A9.</div>
-</details>
-
-<details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A10 — Change of Variables (Elliptic Region)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(x=3u, y=4v\). \(J=12\). \(2xy = 2(3u)(4v)=24uv\). Integral: \(\iint_S 24uv\cdot 12\,dA = \iint_S 288uv\,dA\).</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A7 — Critical Points (Set Partials to Zero) · \((4,2)\) and \((0,0)\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find all critical points of \(h(x,y)=y^2-2y-y\sqrt{x}+\frac{x}{2}\) where \(x\ge 0\).</p>
+<div class="choices">(a) \((4,2),(0,0)\) &nbsp;&nbsp; (b) \((0,0)\) only &nbsp;&nbsp; (c) \((2,4),(0,0)\) &nbsp;&nbsp; (d) \((4,2)\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Critical point condition</strong> \(\nabla h=\mathbf{0}\) <a class="fsrc off" onclick="goToEq('formulas','fs-critical-point-condition')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Critical Point Condition"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute partials</strong>
+<p>\(h_x = -\frac{y}{2\sqrt{x}}+\frac{1}{2}\), \(h_y = 2y-2-\sqrt{x}\).</p></div></div>
+<p class="step-why">Differentiate with respect to each variable.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>From \(h_x=0\): \(\frac{y}{2\sqrt{x}}=\frac{1}{2}\) → \(y=\sqrt{x}\)</strong>
+<p>Sub into \(h_y=0\): \(2\sqrt{x}-2-\sqrt{x}=0 \Rightarrow \sqrt{x}=2 \Rightarrow x=4\), \(y=2\).</p>
+<p>Also check \(x=0\): \(h_y(0,y)=2y-2=0 \Rightarrow y=1\). But checking: at \(x=0\), \(h_x\) involves \(1/\sqrt{x}\) which is undefined. The point \((0,0)\) is a boundary critical point where the gradient doesn't exist.</p></div></div>
+<p class="step-why">Solve the system. Don't forget boundary cases where partials are undefined.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \(\iint_S 288uv\,dA\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) \((4,2)\) and \((0,0)\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Finding Critical Points</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Set \(f_x=0\) and \(f_y=0\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Solve the system simultaneously</div>
+<div class="qg-step"><span class="step-bubble">3</span>Check boundary/corner points where partials are undefined</div>
+</div></div>
 </details>
 
+<!-- ─── A8 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A11 — Line Integral (Conservative, same as F14 A11)</summary>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) 236</strong> — Same field and computation. FTCLI: \(f(3,4)-f(1,2) = 236\).</div>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A8 — Double Integral (Separable, Rectangle) · \(\frac{1}{2}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(\iint_R e^{-x}\sin y\,dx\,dy\) where \(R=\{(x,y): 0\le x\le\ln 2,\; 0\le y\le\pi/2\}\).</p>
+<div class="choices">(a) \(1-e\) &nbsp;&nbsp; (b) \(\ln 2-1\) &nbsp;&nbsp; (c) 0 &nbsp;&nbsp; (d) \(\frac{1}{2}\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Double integral on rectangle</strong> — separable: \(\int\int f(x)g(y)\,dA=\left(\int f\,dx\right)\left(\int g\,dy\right)\) <a class="fsrc on" onclick="goToEq('examformulas','ef-26')" style="cursor:pointer;">Exam Sheet #26: "Double Integral (Iterated)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Separate and evaluate</strong>
+<p>\[\int_0^{\ln 2}e^{-x}\,dx\cdot\int_0^{\pi/2}\sin y\,dy = [-e^{-x}]_0^{\ln 2}\cdot[-\cos y]_0^{\pi/2}\]</p>
+<p>\[= (-\tfrac{1}{2}+1)(0+1) = \tfrac{1}{2}\cdot 1 = \boxed{\tfrac{1}{2}}\]</p></div></div>
+<p class="step-why">The integrand factors as f(x)·g(y) on a rectangle → multiply the two 1D integrals.</p>
+</div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(\frac{1}{2}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Separable Double Integral</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Check: integrand = f(x)·g(y) and region is a rectangle?</div>
+<div class="qg-step"><span class="step-bubble">2</span>If yes: multiply two independent 1D integrals</div>
+</div></div>
 </details>
 
+<!-- ─── A9 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">A12 — Divergence Theorem on Sphere: \(\mathbf{F}=7x\mathbf{i}-z\mathbf{k}\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(\text{div}\,\mathbf{F} = 7+0+(-1)=6\). Sphere \(x^2+y^2+z^2=4\), radius 2.</p>
-<p>\[\iint_S\mathbf{F}\cdot\mathbf{n}\,dS = 6\cdot\frac{4}{3}\pi(2)^3 = 6\cdot\frac{32\pi}{3} = 64\pi\]</p>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A9 — Triple Integral (Cartesian, Cone-to-Plane) · \(\frac{3}{8}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(\iiint_T xyz\,dV\) where \(T=\{0\le x\le 1,\; 0\le y\le 1,\; \sqrt{x^2+y^2}\le z\le 2\}\).</p>
+<div class="choices">(a) \(\frac{3}{4}\) &nbsp;&nbsp; (b) \(\frac{1}{2}\) &nbsp;&nbsp; (c) \(\frac{3}{8}\) &nbsp;&nbsp; (d) \(\frac{3}{2}\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Triple integral</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-37')" style="cursor:pointer;">Exam Sheet #37: "Triple Integral (Cartesian)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Same as F14 A9 — integrate z first</strong>
+<p>\(\int_{\sqrt{x^2+y^2}}^2 xyz\,dz = xy(2-\frac{x^2+y^2}{2})\). Expand and integrate y, then x.</p>
+<p>\[= \boxed{\frac{3}{8}}\]</p></div></div>
+<p class="step-why">Identical problem to F14 A9. See that solution for full step-by-step.</p>
+</div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\frac{3}{8}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Triple Integral (Cartesian)</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Integrate innermost variable first</div>
+<div class="qg-step"><span class="step-bubble">2</span>Expand, then integrate remaining variables</div>
+<div class="qg-step"><span class="step-bubble">3</span>Track fractions carefully</div>
+</div></div>
+</details>
+
+<!-- ─── A10 ─── -->
+<details class="card-bracket" style="border-left-color:#2563EB;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A10 — Change of Variables (Ellipse → Circle, Jacobian) · \(\iint_S 288\,uv\,dA\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Under \(x=3u\), \(y=4v\), which integral equals \(\iint_R 2xy\,dA\) where \(R\) is \(16x^2+9y^2\le 144\)?</p>
+<div class="choices">(a) \(\iint_S 12uv\,dA\) &nbsp;&nbsp; (b) \(\iint_S 288uv\,dA\) &nbsp;&nbsp; (c) \(\iint_S 8(u^2+v^2)\,dA\) &nbsp;&nbsp; (d) \(\iint_S 12u^2v^2\,dA\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Change of variables + Jacobian</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-28')" style="cursor:pointer;">Exam Sheet #28: "Change of Variables (2D)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Jacobian and substitution</strong>
+<p>\(|J|=3\cdot 4=12\). \(2xy=2(3u)(4v)=24uv\).</p>
+<p>\[\iint_R 2xy\,dA=\iint_S 24uv\cdot 12\,dA'=\boxed{\iint_S 288\,uv\,dA}\]</p></div></div>
+<p class="step-why">Integrand × Jacobian = 24uv × 12 = 288uv. Region becomes u²+v²≤1.</p>
+</div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \(\iint_S 288\,uv\,dA\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Change of Variables</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute Jacobian \(|J|\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Replace x,y in integrand with u,v expressions</div>
+<div class="qg-step"><span class="step-bubble">3</span>Multiply integrand by \(|J|\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Transform the region</div>
+</div></div>
+</details>
+
+<!-- ─── A11 ─── -->
+<details class="card-bracket" style="border-left-color:#2563EB;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A11 — Line Integral (Conservative Field → FTCLI) · \(236\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(\int_C(6xy^2-y^3)\,dx+(6x^2y-3xy^2)\,dy\) from \((1,2)\) to \((3,4)\).</p>
+<div class="choices">(a) 236 &nbsp;&nbsp; (b) 0 &nbsp;&nbsp; (c) 188 &nbsp;&nbsp; (d) 48</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Conservative test + FTCLI</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-25')" style="cursor:pointer;">Exam Sheet #25: "Fundamental Thm of Line Integrals"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Same field as F14 A11 — conservative with \(f=3x^2y^2-xy^3\)</strong>
+<p>\(f(3,4)-f(1,2)=432-192-(12-8)=\boxed{236}\)</p></div></div>
+<p class="step-why">Identical problem to F14 A11. Conservative → FTCLI → endpoints only.</p>
+</div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) \(236\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — FTCLI</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Check \(P_y=Q_x\) → conservative</div>
+<div class="qg-step"><span class="step-bubble">2</span>Find potential \(f\): integrate \(P\) w.r.t. x, match \(f_y\) to \(Q\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Answer = \(f(\text{end})-f(\text{start})\)</div>
+</div></div>
+</details>
+
+<!-- ─── A12 ─── -->
+<details class="card-bracket" style="border-left-color:#2563EB;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">A12 — Divergence Theorem (Sphere, div F = constant) · \(64\pi\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}=7x\,\mathbf{i}-z\,\mathbf{k}\). Evaluate \(\iint_S\mathbf{F}\cdot\hat{n}\,dS\) where \(S\) is the sphere \(x^2+y^2+z^2=4\).</p>
+<div class="choices">(a) \(24\pi\) &nbsp;&nbsp; (b) \(16\pi\) &nbsp;&nbsp; (c) 0 &nbsp;&nbsp; (d) \(64\pi\)</div></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-41')" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Divergence</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-20')" style="cursor:pointer;">Exam Sheet #20: "Divergence"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>div F = 7 + 0 + (−1) = 6</strong>
+<p>Sphere volume: \(\frac{4}{3}\pi(2)^3=\frac{32\pi}{3}\).</p>
+<p>\[\text{Flux}=6\cdot\frac{32\pi}{3}=\boxed{64\pi}\]</p></div></div>
+<p class="step-why">Constant divergence → flux = div × volume. Quick computation.</p>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(64\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Divergence Theorem (Constant div)</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute div F</div>
+<div class="qg-step"><span class="step-bubble">2</span>If constant: Flux = div × Volume</div>
+<div class="qg-step"><span class="step-bubble">3</span>Know sphere volume \(\frac{4}{3}\pi R^3\)</div>
+</div></div>
 </details>
 
-<!-- F13 PART B -->
-<h3 style="color:#8B0000;margin-top:24px;">Part B — Long Answer (F13)</h3>
+<div class="part-banner la">PART B — Long Answer (6 Questions, 44 marks total)</div>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B1 [8 marks] — Lagrange: \(f=x+2y-2z\) on \(x^2+2y^2+4z^2=1\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(\nabla f = (1,2,-2)\), \(\nabla g = (2x,4y,8z)\). Lagrange: \(1=2\lambda x\), \(2=4\lambda y\), \(-2=8\lambda z\).</p>
-<p>From each: \(x=\frac{1}{2\lambda}\), \(y=\frac{1}{2\lambda}\), \(z=\frac{-1}{4\lambda}\).</p>
-<p>Constraint: \(\frac{1}{4\lambda^2}+\frac{2}{4\lambda^2}+\frac{4}{16\lambda^2} = 1 \Rightarrow \frac{1}{4\lambda^2}+\frac{1}{2\lambda^2}+\frac{1}{4\lambda^2} = 1 \Rightarrow \frac{1}{\lambda^2} = 1 \Rightarrow \lambda = \pm 1\).</p>
-<p>\(\lambda=1\): \(x=\frac{1}{2}, y=\frac{1}{2}, z=-\frac{1}{4}\). \(f = \frac{1}{2}+1+\frac{1}{2} = 2\) → <strong>maximum</strong>.</p>
-<p>\(\lambda=-1\): \(x=-\frac{1}{2}, y=-\frac{1}{2}, z=\frac{1}{4}\). \(f = -\frac{1}{2}-1-\frac{1}{2} = -2\) → <strong>minimum</strong>.</p>
+<!-- ─── B1 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B1 [8 marks] — Lagrange Multipliers (Linear f on Ellipsoid) · Max = 2, Min = −2</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Using Lagrange multipliers, determine the local extrema of \(f(x,y,z)=x+2y-2z\) subject to \(x^2+2y^2+4z^2=1\).</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Lagrange multipliers</strong> \(\nabla f=\lambda\nabla g\) <a class="fsrc off" onclick="goToEq('formulas','fs-lagrange-multiplier-method')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Lagrange Multiplier Method"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Lagrange equations</strong>
+<p>\(\nabla f=(1,2,-2)\), \(\nabla g=(2x,4y,8z)\).</p>
+<p>\(1=2\lambda x\), \(2=4\lambda y\), \(-2=8\lambda z\).</p></div></div>
+<p class="step-why">Each component gives one equation.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Solve for x, y, z in terms of λ</strong>
+<p>\(x=\frac{1}{2\lambda}\), \(y=\frac{1}{2\lambda}\), \(z=\frac{-1}{4\lambda}\).</p></div></div>
+<p class="step-why">Isolate each variable from its equation.</p>
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Apply constraint</strong>
+<p>\(\frac{1}{4\lambda^2}+\frac{2}{4\lambda^2}+\frac{4}{16\lambda^2}=1 \Rightarrow \frac{1}{4\lambda^2}+\frac{1}{2\lambda^2}+\frac{1}{4\lambda^2}=1 \Rightarrow \frac{1}{\lambda^2}=1 \Rightarrow \lambda=\pm 1\).</p></div></div>
+<p class="step-why">Substitute x, y, z into the constraint and solve for λ.</p>
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Find critical points and values</strong>
+<p>\(\lambda=1\): \((\frac{1}{2},\frac{1}{2},-\frac{1}{4})\), \(f=\frac{1}{2}+1+\frac{1}{2}=\boxed{2}\) (max).</p>
+<p>\(\lambda=-1\): \((-\frac{1}{2},-\frac{1}{2},\frac{1}{4})\), \(f=-\frac{1}{2}-1-\frac{1}{2}=\boxed{-2}\) (min).</p></div></div>
+<p class="step-why">Two values of λ give two critical points. Compare f-values to classify.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: Max = 2 at \((\frac{1}{2},\frac{1}{2},-\frac{1}{4})\). Min = −2 at \((-\frac{1}{2},-\frac{1}{2},\frac{1}{4})\).</strong>
-</div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Max = 2 at \((\frac{1}{2},\frac{1}{2},-\frac{1}{4})\). Min = −2 at \((-\frac{1}{2},-\frac{1}{2},\frac{1}{4})\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Lagrange (Linear f)</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Set up \(\nabla f=\lambda\nabla g\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Solve each variable in terms of λ</div>
+<div class="qg-step"><span class="step-bubble">3</span>Substitute into constraint → solve for λ</div>
+<div class="qg-step"><span class="step-bubble">4</span>Back-substitute → compare f-values</div>
+</div></div>
 </details>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B2 [7 marks] — Polar Change of Variables: \(\int\int\cos(x^2+y^2)\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>Region: \(0\le y\le 1\), \(0\le x\le\sqrt{1-y^2}\) → quarter disk in first quadrant, radius 1.</p>
-<p>Polar: \(0\le r\le 1\), \(0\le\theta\le\pi/2\).</p>
-<p>\[\int_0^{\pi/2}\int_0^1\cos(r^2)\cdot r\,dr\,d\theta = \frac{\pi}{2}\int_0^1 r\cos(r^2)\,dr\]</p>
-<p>Let \(u=r^2\): \(\frac{\pi}{2}\cdot\frac{1}{2}[\sin u]_0^1 = \frac{\pi}{4}\sin 1\).</p>
+<!-- ─── B2 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B2 [7 marks] — Polar Double Integral (Quarter-Disk, cos(r²)) · \(\frac{\pi\sin 1}{4}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>By changing to polar coordinates, evaluate \(\int_0^1\int_0^{\sqrt{1-y^2}}\cos(x^2+y^2)\,dx\,dy\).</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar coordinates</strong> \(x^2+y^2=r^2\), \(dA=r\,dr\,d\theta\) <span class="fsrc off">NOT on exam sheet → memorize polar Jacobian</span></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify region</strong>
+<p>The bounds \(0\le y\le 1\), \(0\le x\le\sqrt{1-y^2}\) describe a quarter-disk (first quadrant, radius 1).</p>
+<p>In polar: \(0\le r\le 1\), \(0\le\theta\le\pi/2\).</p></div></div>
+<p class="step-why">x goes from 0 to √(1−y²) means x²+y²≤1 with x≥0, y≥0.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Convert and evaluate</strong>
+<p>\[\int_0^{\pi/2}\int_0^1\cos(r^2)\,r\,dr\,d\theta = \frac{\pi}{2}\cdot\int_0^1 r\cos(r^2)\,dr\]</p>
+<p>Let \(u=r^2\): \(\int_0^1\frac{1}{2}\cos u\,du = \frac{\sin 1}{2}\).</p>
+<p>\[=\frac{\pi}{2}\cdot\frac{\sin 1}{2}=\boxed{\frac{\pi\sin 1}{4}}\]</p></div></div>
+<p class="step-why">The θ integral gives π/2. The r integral uses u=r² substitution.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\dfrac{\pi}{4}\sin 1\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{\pi\sin 1}{4}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Polar Conversion</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Recognize x²+y²≤R² region → polar</div>
+<div class="qg-step"><span class="step-bubble">2</span>Replace integrand: \(\cos(x^2+y^2)=\cos(r^2)\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Jacobian: \(dA=r\,dr\,d\theta\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>For \(r\cos(r^2)\), use \(u=r^2\) substitution</div>
+</div></div>
 </details>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B3 [7 marks] — Parametric Arc Length</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(x=2t^2, y=1+t^3\), \(0\le t\le 1\). \(x'=4t, y'=3t^2\).</p>
-<p>\[L = \int_0^1\sqrt{16t^2+9t^4}\,dt = \int_0^1 t\sqrt{16+9t^2}\,dt\]</p>
-<p>Let \(u=16+9t^2\), \(du=18t\,dt\):</p>
-<p>\[= \frac{1}{18}\int_{16}^{25}\sqrt{u}\,du = \frac{1}{18}\cdot\frac{2}{3}[u^{3/2}]_{16}^{25} = \frac{1}{27}(125-64) = \frac{61}{27}\]</p>
+<!-- ─── B3 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B3 [7 marks] — Arc Length (Parametric Curve, u-Substitution) · \(\frac{61}{27}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find the length of the curve \(x=2t^2\), \(y=1+t^3\) for \(0\le t\le 1\).</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Arc length</strong> \(L=\int_a^b\sqrt{x'(t)^2+y'(t)^2}\,dt\) <a class="fsrc on" onclick="goToEq('examformulas','ef-11')" style="cursor:pointer;">Exam Sheet #11: "Arc Length (Parametric)"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Derivatives</strong>
+<p>\(x'=4t\), \(y'=3t^2\). Speed: \(\sqrt{16t^2+9t^4}=t\sqrt{16+9t^2}\).</p></div></div>
+<p class="step-why">Factor out t (since t≥0).</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Integrate with \(u=16+9t^2\)</strong>
+<p>\(du=18t\,dt\). \(L=\int_0^1 t\sqrt{16+9t^2}\,dt = \frac{1}{18}\int_{16}^{25}\sqrt{u}\,du\).</p>
+<p>\[=\frac{1}{18}\cdot\frac{2}{3}[u^{3/2}]_{16}^{25}=\frac{1}{27}(125-64)=\boxed{\frac{61}{27}}\]</p></div></div>
+<p class="step-why">u-sub simplifies the square root. 25^{3/2}=125, 16^{3/2}=64.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\dfrac{61}{27}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{61}{27}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Arc Length (Parametric)</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute \(x'(t)\), \(y'(t)\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Form \(\sqrt{x'^2+y'^2}\) and simplify</div>
+<div class="qg-step"><span class="step-bubble">3</span>Factor out t if possible</div>
+<div class="qg-step"><span class="step-bubble">4</span>u-sub for the remaining square root</div>
+</div></div>
 </details>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B4 [7 marks] — Area Between Cardioid and Circle</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>Find area between \(r=3\sin\theta\) (outer) and \(r=1+\sin\theta\) (inner).</p>
-<p>Intersection: \(3\sin\theta=1+\sin\theta \Rightarrow \sin\theta=\frac{1}{2} \Rightarrow \theta=\frac{\pi}{6},\frac{5\pi}{6}\).</p>
-<p>\[A = \frac{1}{2}\int_{\pi/6}^{5\pi/6}(9\sin^2\theta-(1+\sin\theta)^2)\,d\theta = \frac{1}{2}\int_{\pi/6}^{5\pi/6}(8\sin^2\theta-2\sin\theta-1)\,d\theta\]</p>
-<p>Using \(\sin^2\theta = \frac{1-\cos 2\theta}{2}\):</p>
-<p>\[= \frac{1}{2}\int_{\pi/6}^{5\pi/6}(3-4\cos 2\theta-2\sin\theta)\,d\theta = \frac{1}{2}\left[3\theta-2\sin 2\theta+2\cos\theta\right]_{\pi/6}^{5\pi/6}\]</p>
-<p>\[= \frac{1}{2}\left[(5\pi/2+\sqrt{3}-\sqrt{3})-(\pi/2-\sqrt{3}+\sqrt{3})\right] = \frac{1}{2}\cdot 2\pi = \pi\]</p>
+<!-- ─── B4 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B4 [7 marks] — Area Between Polar Curves (Cardioid vs Circle) · \(\pi\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find the area enclosed by the cardioid \(r=1+\sin\theta\) and the circle \(r=3\sin\theta\).</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Area between polar curves</strong> \(A=\frac{1}{2}\int_\alpha^\beta(r_0^2-r_1^2)\,d\theta\) <a class="fsrc on" onclick="goToEq('examformulas','ef-10')" style="cursor:pointer;">Exam Sheet #10: "Area between Polar Curves"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find intersection</strong>
+<p>\(1+\sin\theta=3\sin\theta \Rightarrow \sin\theta=\frac{1}{2} \Rightarrow \theta=\frac{\pi}{6},\frac{5\pi}{6}\).</p></div></div>
+<p class="step-why">Set the two r-equations equal and solve for θ.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Set up and evaluate</strong>
+<p>Between \(\pi/6\) and \(5\pi/6\), the circle \(r=3\sin\theta\) is the outer curve.</p>
+<p>\[A=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[9\sin^2\theta-(1+\sin\theta)^2]\,d\theta\]</p>
+<p>\[=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[8\sin^2\theta-2\sin\theta-1]\,d\theta\]</p>
+<p>Using half-angle: \(8\sin^2\theta=4(1-\cos 2\theta)\). Evaluating:</p>
+<p>\[=\frac{1}{2}\left[4\theta-2\sin 2\theta+2\cos\theta-\theta\right]_{\pi/6}^{5\pi/6}=\boxed{\pi}\]</p></div></div>
+<p class="step-why">Expand, apply half-angle identity for sin²θ, integrate term by term.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(A = \pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Area Between Polar Curves</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Find intersections: set \(r_1=r_2\), solve for θ</div>
+<div class="qg-step"><span class="step-bubble">2</span>Determine which curve is outer in the interval</div>
+<div class="qg-step"><span class="step-bubble">3</span>\(A=\frac{1}{2}\int(r_{out}^2-r_{in}^2)\,d\theta\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Use half-angle for \(\sin^2\theta\) terms</div>
+</div></div>
 </details>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B5 [7 marks] — Curl = 0 → Find Potential: \(\mathbf{F}=(\frac{1}{yz},-\frac{x}{y^2z},-\frac{x}{yz^2})\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>(a) Curl F = 0 (verify all three cross-partials match — straightforward computation).</p>
-<p>(b) Find f: \(f_x = \frac{1}{yz} \Rightarrow f = \frac{x}{yz}+g(y,z)\).</p>
-<p>\(f_y = -\frac{x}{y^2z}+g_y = -\frac{x}{y^2z} \Rightarrow g_y = 0\).</p>
-<p>\(f_z = -\frac{x}{yz^2}+g_z = -\frac{x}{yz^2} \Rightarrow g_z = 0\).</p>
+<!-- ─── B5 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B5 [7 marks] — Potential Function (curl = 0, Integrate Components) · \(f=\frac{x}{yz}\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}=\frac{1}{yz}\,\mathbf{i}-\frac{x}{y^2z}\,\mathbf{j}-\frac{x}{yz^2}\,\mathbf{k}\). (a) Compute curl F. (b) Find \(f\) such that \(\nabla f=\mathbf{F}\), or explain why not.</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-27')" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble" style="background:#8B0000;">a</span><div class="step-body"><strong>curl F = 0</strong>
+<p>All cross-partial checks give zero. \(\nabla\times\mathbf{F}=\mathbf{0}\) ✓</p></div></div>
+<p class="step-why">Verify R_y=Q_z, P_z=R_x, Q_x=P_y — all match.</p>
+<div class="step-row"><span class="step-bubble" style="background:#8B0000;">b</span><div class="step-body"><strong>Find potential</strong>
+<p>\(f_x=\frac{1}{yz}\Rightarrow f=\frac{x}{yz}+g(y,z)\).</p>
+<p>\(f_y=-\frac{x}{y^2z}+g_y=-\frac{x}{y^2z}\Rightarrow g_y=0\).</p>
+<p>\(f_z=-\frac{x}{yz^2}+g_z=-\frac{x}{yz^2}\Rightarrow g_z=0\).</p>
+<p>\[\boxed{f(x,y,z)=\frac{x}{yz}+C}\]</p></div></div>
+<p class="step-why">Integrate P w.r.t. x, then match derivatives to Q and R to determine g.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(f(x,y,z) = \dfrac{x}{yz}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: curl F = 0. Potential: \(f=\frac{x}{yz}+C\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Finding a Potential Function</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Verify curl F = 0</div>
+<div class="qg-step"><span class="step-bubble">2</span>Integrate \(f_x=P\) w.r.t. x → f + g(y,z)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Match \(f_y\) to Q → find g_y</div>
+<div class="qg-step"><span class="step-bubble">4</span>Match \(f_z\) to R → find remaining unknown</div>
+</div></div>
 </details>
 
-<details class="card-bracket" style="border-left-color:#DC2626;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B6 [8 marks] — Stokes'/Direct: curl F on disk \(x^2+y^2=4, z=1\)</summary>
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<p>\(\mathbf{F}=(-5y,4x,z)\). \(\text{curl}\,\mathbf{F} = (0,0,4-(-5)) = (0,0,9)\).</p>
-<p>Surface: \(z=1\), \(\mathbf{n}=\mathbf{k}\). \(\text{curl}\,\mathbf{F}\cdot\mathbf{n}=9\).</p>
-<p>\[\iint_S 9\,dS = 9\cdot\pi(2^2) = 36\pi\]</p>
+<!-- ─── B6 ─── -->
+<details class="card-bracket" style="border-left-color:#8B0000;">
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B6 [8 marks] — Stokes' Theorem (curl F·n on Flat Disk) · \(36\pi\)</summary>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}=-5y\,\mathbf{i}+4x\,\mathbf{j}+z\,\mathbf{k}\) and \(S\) be bounded by \(x^2+y^2=4\), \(z=1\). Evaluate \(\iint_S\text{curl}\,\mathbf{F}\cdot\hat{n}\,dS\).</p></div>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
+<div class="formula-list">
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-36')" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
+</div></div>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F</strong>
+<p>\(\nabla\times\mathbf{F}=(0,0,4+5)=(0,0,9)=9\,\mathbf{k}\).</p></div></div>
+<p class="step-why">Only the k-component: ∂(4x)/∂x − ∂(−5y)/∂y = 4−(−5) = 9.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Surface on \(z=1\) → \(\hat{n}=\mathbf{k}\)</strong>
+<p>\(\text{curl}\,\mathbf{F}\cdot\hat{n}=9\).</p></div></div>
+<p class="step-why">Flat surface parallel to xy-plane → normal is k.</p>
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Integrate over the disk</strong>
+<p>\[\iint_S 9\,dA = 9\cdot\pi(2)^2 = \boxed{36\pi}\]</p></div></div>
+<p class="step-why">Constant integrand × area of circle of radius 2.</p>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(36\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Stokes' on a Flat Surface</strong>
+<div class="qg-list">
+<div class="qg-step"><span class="step-bubble">1</span>Compute curl F</div>
+<div class="qg-step"><span class="step-bubble">2</span>Normal to flat surface (e.g. z=c → n=k)</div>
+<div class="qg-step"><span class="step-bubble">3</span>curl F · n = constant? → multiply by area</div>
+<div class="qg-step"><span class="step-bubble">4</span>Circle area = \(\pi R^2\)</div>
+</div></div>
 </details>
-
 
 </div>
