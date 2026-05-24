@@ -203,6 +203,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 .formula-item{display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
 .formula-item>div{flex:1;}
 .formula-item .fsrc{display:block;margin:2px 0 0 0;}
+a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -4173,84 +4174,84 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div id="fs-content" data-view="full">
     <h2 style="color:var(--ch1-title)">Chapter 1 — Vectors</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch1-title)">
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Magnitude</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-magnitude"><div class="fs-top"><div class="fs-name">Magnitude</div></div><div class="fs-body">
       <div class="fs-formula">\[|\vec{v}|=\sqrt{\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}^2+\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}^2+\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}^2}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>magnitude</strong> (length) of a vector tells you how long the arrow is. For v = ⟨3, 4⟩, form a right triangle with legs 3 and 4: the hypotenuse is √(9+16) = 5. In 3D, add the third component squared. Magnitude is always non-negative; only the zero vector has magnitude zero.</p><p class="fs-origin"><strong>Where it comes from:</strong> Pythagorean theorem extended to 3D. Also, |v|² = v·v (dot product with itself).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to find length/magnitude, normalize a vector (step 1), or find distance between two points.</div><div class="wb n"><strong>✗ Not for</strong> finding direction — magnitude gives only size.</div></div></div>
       <div class="fs-quick-summary">Length of a vector — always ≥ 0. Use for normalizing, distances.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Unit Vector</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-unit-vector"><div class="fs-top"><div class="fs-name">Unit Vector</div></div><div class="fs-body">
       <div class="fs-formula">\[\hat{u}=\frac{\htmlData{t=v — the vector being normalized}{\color{#D45D00}{\vec{v}}}}{\htmlData{t=|v| — magnitude of v (must be nonzero)}{\color{#2050A0}{|\vec{v}|}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">A <strong>unit vector</strong> has length exactly 1 — it keeps the direction but discards the size. Divide any nonzero vector by its magnitude: û = v/|v|. The standard basis î, ĵ, k̂ are unit vectors along the axes. Any vector can be written as magnitude × direction: v = |v| · û.</p><p class="fs-origin"><strong>Where it comes from:</strong> Scalar multiplication by 1/|v| scales the arrow to length 1 without changing direction. Undefined for the zero vector (division by zero).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to "normalize" or "find the direction of." Essential for projections and directional derivatives.</div><div class="wb n"><strong>✗ Not for</strong> the zero vector. Don't confuse normalizing with making components positive.</div></div></div>
       <div class="fs-quick-summary">Direction only, length 1. Undefined for the zero vector.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Dot Product</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-dot-product"><div class="fs-top"><div class="fs-name">Dot Product</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}\htmlData{t=w₁ — x-component of w}{\color{#0B7D7D}{w_1}}+\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}\htmlData{t=w₂ — y-component of w}{\color{#0B7D7D}{w_2}}+\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}\htmlData{t=w₃ — z-component of w}{\color{#0B7D7D}{w_3}}=\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of w}{\color{#2050A0}{|\vec{w}|}}\cos\htmlData{t=θ — angle between v and w}{\color{#A82870}{\theta}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>dot product</strong> takes two vectors and produces a scalar (NOT a vector). Two equivalent forms: <strong>algebraic</strong> (v₁w₁ + v₂w₂ + v₃w₃) and <strong>geometric</strong> (|v||w|cosθ). The sign reveals alignment: positive = same direction (θ < 90°), zero = perpendicular, negative = opposing (θ > 90°).</p><p class="fs-origin"><strong>Where it comes from:</strong> Law of cosines: |v−w|² = |v|²+|w|²−2|v||w|cosθ. Expand the left side with components and the algebraic form emerges.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding angles between vectors, testing perpendicularity (dot = 0), computing projections, or calculating work (W = F·d).</div><div class="wb n"><strong>✗ Not for</strong> finding a vector ⊥ to two others — that's the cross product. Dot = scalar, cross = vector.</div></div></div>
       <div class="fs-quick-summary">Scalar measuring alignment. Positive = same dir, zero = ⊥, negative = opposing.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Angle Between Vectors</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-angle-between-vectors"><div class="fs-top"><div class="fs-name">Angle Between Vectors</div></div><div class="fs-body">
       <div class="fs-formula">\[\cos\htmlData{t=θ — angle between v and w (0 to π)}{\color{#A82870}{\theta}}=\frac{\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}}{\htmlData{t=|v| — magnitude of first vector}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of second vector}{\color{#2050A0}{|\vec{w}|}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">Rearrange the geometric dot product to isolate the angle: cosθ = (v·w)/(|v||w|). Steps: (1) compute v·w, (2) compute |v| and |w|, (3) divide, (4) take arccos. Result is always in [0, π]. cosθ = 0 → perpendicular, cosθ = 1 → parallel same direction, cosθ = −1 → parallel opposite.</p><p class="fs-origin"><strong>Where it comes from:</strong> From v·w = |v||w|cosθ, divide both sides by |v||w|.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> you have two vectors as components and need the angle. Standard 4-step method tested on most exams.</div><div class="wb n"><strong>✗ Not for</strong> inclination angles of a single vector with an axis — use direction cosines for that.</div></div></div>
       <div class="fs-quick-summary">Isolate θ from the dot product. Three-step: dot → magnitudes → arccos.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Direction Cosines</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-direction-cosines"><div class="fs-top"><div class="fs-name">Direction Cosines</div></div><div class="fs-body">
       <div class="fs-formula">\[\cos\htmlData{t=α — angle v makes with x-axis}{\color{#A82870}{\alpha}}=\frac{\htmlData{t=a — x-component of v}{\color{#5D7A20}{a}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}},\;\cos\htmlData{t=β — angle v makes with y-axis}{\color{#A82870}{\beta}}=\frac{\htmlData{t=b — y-component of v}{\color{#5D7A20}{b}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}},\;\cos\htmlData{t=γ — angle v makes with z-axis}{\color{#A82870}{\gamma}}=\frac{\htmlData{t=c — z-component of v}{\color{#5D7A20}{c}}}{\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Direction cosines</strong> are the cosines of the angles a vector makes with the x, y, z axes: cosα = a/|v|, cosβ = b/|v|, cosγ = c/|v|. These are simply the components of the unit vector. The identity cos²α + cos²β + cos²γ = 1 always holds. Reconstruct any vector: v = |v|·(cosα, cosβ, cosγ).</p><p class="fs-origin"><strong>Where it comes from:</strong> Each direction cosine is the dot product of û with the corresponding basis vector: cosα = û·î = a/|v|.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> given angles with axes and asked to find the vector, or asked what angle a vector makes with an axis.</div><div class="wb n"><strong>✗ Not for</strong> 2D angles — in 2D, just use θ = arctan(v₂/v₁).</div></div></div>
       <div class="fs-quick-summary">Angles with axes. Reconstruct: v = r(cosα,cosβ,cosγ).</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Vector Projection</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-vector-projection"><div class="fs-top"><div class="fs-name">Vector Projection</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{proj}_{\htmlData{t=v — the direction being projected onto}{\color{#0B7D7D}{\vec{v}}}}\,\htmlData{t=u — the vector being projected}{\color{#D45D00}{\vec{u}}}=\frac{\htmlData{t=u — vector being projected}{\color{#D45D00}{\vec{u}}}\cdot\htmlData{t=v — projection direction}{\color{#0B7D7D}{\vec{v}}}}{\htmlData{t=|v|² — squared magnitude of v}{\color{#2050A0}{|\vec{v}|^2}}}\;\htmlData{t=v — multiply by direction vector}{\color{#0B7D7D}{\vec{v}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Vector projection</strong> finds the piece of u that lies along v — like a shadow cast onto v. Two versions: <strong>scalar projection</strong> comp_v u = u·v/|v| (a number, positive if same direction), and <strong>vector projection</strong> proj_v u = (u·v/|v|²)v (a vector parallel to v). The leftover u − proj_v u is perpendicular to v.</p><p class="fs-origin"><strong>Where it comes from:</strong> We want the closest point on the line through v to the tip of u. Perpendicularity condition (u − tv) ⊥ v gives t = u·v/|v|².</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to project, find a component along a direction, or decompose a force into parallel and perpendicular parts.</div><div class="wb n"><strong>✗ Not for</strong> the perpendicular component directly — get it by subtracting: u_perp = u − proj_v u.</div></div></div>
       <div class="fs-quick-summary">Shadow of u onto v. Scalar version: u·v/|v|. Vector version: (u·v/|v|²)v.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Work</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-work"><div class="fs-top"><div class="fs-name">Work</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=W — work done (scalar quantity)}{\color{#5D7A20}{W}}=\htmlData{t=F — force vector}{\color{#D45D00}{\vec{F}}}\cdot\htmlData{t=d — displacement vector}{\color{#0B7D7D}{\vec{d}}}=\htmlData{t=|F| — magnitude of force}{\color{#2050A0}{|\vec{F}|}}\,\htmlData{t=|d| — magnitude of displacement}{\color{#2050A0}{|\vec{d}|}}\cos\htmlData{t=θ — angle between force and displacement}{\color{#A82870}{\theta}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Work</strong> measures energy transferred by a force over a displacement: W = F·d = |F||d|cosθ. Only the component of force along the direction of motion contributes. Pushing forward → max work. Pushing perpendicular → zero work. Pushing against motion → negative work (like friction).</p><p class="fs-origin"><strong>Where it comes from:</strong> Work = (force component along displacement) × distance = |F|cosθ · |d| = F·d.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing work done by a constant force over a displacement.</div><div class="wb n"><strong>✗ Not for</strong> torque — that uses the cross product: τ = r × F.</div></div></div>
       <div class="fs-quick-summary">Work = F·d. Only the component of force along displacement matters.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Cross Product</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-cross-product"><div class="fs-top"><div class="fs-name">Cross Product</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\htmlData{t=v₁ — x-component of v}{\color{#D45D00}{v_1}}&\htmlData{t=v₂ — y-component of v}{\color{#D45D00}{v_2}}&\htmlData{t=v₃ — z-component of v}{\color{#D45D00}{v_3}}\\\htmlData{t=w₁ — x-component of w}{\color{#0B7D7D}{w_1}}&\htmlData{t=w₂ — y-component of w}{\color{#0B7D7D}{w_2}}&\htmlData{t=w₃ — z-component of w}{\color{#0B7D7D}{w_3}}\end{vmatrix}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>cross product</strong> produces a vector perpendicular to both inputs. Compute via a 3×3 determinant with î, ĵ, k̂ in row 1, v's components in row 2, w's in row 3. The direction follows the right-hand rule. <strong>Order matters:</strong> v×w = −(w×v). Magnitude |v×w| = parallelogram area. v×w = 0 means v and w are parallel.</p><p class="fs-origin"><strong>Where it comes from:</strong> The determinant is constructed so the result is perpendicular to both input vectors (cofactor expansion along row 1).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> you need a normal vector to a plane, parallelogram area, or to test if vectors are parallel (cross = 0).</div><div class="wb n"><strong>✗ Not for</strong> testing perpendicularity (use dot = 0). Cross product only works in 3D and is NOT commutative.</div></div></div>
       <div class="fs-quick-summary">Vector ⊥ to both. |v×w| = parallelogram area. Right-hand rule for direction.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Cross Product — Magnitude</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-cross-product---magnitude"><div class="fs-top"><div class="fs-name">Cross Product — Magnitude</div></div><div class="fs-body">
       <div class="fs-formula">\[|\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}|=\htmlData{t=|v| — magnitude of v}{\color{#2050A0}{|\vec{v}|}}\,\htmlData{t=|w| — magnitude of w}{\color{#2050A0}{|\vec{w}|}}\sin\htmlData{t=θ — angle between v and w}{\color{#A82870}{\theta}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>magnitude of the cross product</strong> equals the area of the parallelogram spanned by the two vectors: |v×w| = |v||w|sinθ. When parallel (θ = 0), sinθ = 0 so the area collapses to zero. When perpendicular (θ = 90°), the area is maximized at |v||w|.</p><p class="fs-origin"><strong>Where it comes from:</strong> Parallelogram base = |v|, height = |w|sinθ. Area = base × height.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> you need the parallelogram area or the length of the cross product without computing the full determinant.</div><div class="wb n"><strong>✗ Not for</strong> finding the direction of v×w — this gives magnitude only.</div></div></div>
       <div class="fs-quick-summary">|v×w| = parallelogram area = |v||w|sinθ.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Triangle Area</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-triangle-area"><div class="fs-top"><div class="fs-name">Triangle Area</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{Area}=\tfrac{1}{2}\,|\htmlData{t=u — first edge from shared vertex}{\color{#5D7A20}{\vec{u}}}\times\htmlData{t=v — second edge from shared vertex}{\color{#D45D00}{\vec{v}}}|\]</div>
       
       <div class="fs-detail"><p class="fs-explain">A <strong>triangle</strong> formed by two vectors from a shared vertex is half the parallelogram they span: Area = ½|u×v|. Given three points A, B, C, form edge vectors AB = B−A and AC = C−A from one vertex, then compute ½|AB × AC|. Works in 2D and 3D without finding base and height separately.</p><p class="fs-origin"><strong>Where it comes from:</strong> A diagonal cuts a parallelogram into two congruent triangles, each with half the area.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> you have 3 points or two edge vectors and need the triangle area.</div><div class="wb n"><strong>✗ Not for</strong> simple 2D cases where ½|base × height| is faster. Both vectors must share a vertex.</div></div></div>
       <div class="fs-quick-summary">Half the parallelogram area: ½|u×v|.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Scalar Triple Product (Volume)</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-scalar-triple-product--volume"><div class="fs-top"><div class="fs-name">Scalar Triple Product (Volume)</div></div><div class="fs-body">
       <div class="fs-formula">\[V=|\htmlData{t=u — height direction vector}{\color{#5D7A20}{\vec{u}}}\cdot(\htmlData{t=v — first base edge}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second base edge}{\color{#0B7D7D}{\vec{w}}})|\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>scalar triple product</strong> u·(v×w) computes the volume of the parallelepiped (3D box) formed by three vectors. First v×w gives a vector with magnitude = base area, then dotting with u gives the height. Take absolute value for volume. If the triple product is zero, the vectors are coplanar (the box is flat). Equals the 3×3 determinant with u, v, w as rows.</p><p class="fs-origin"><strong>Where it comes from:</strong> Volume = base area × height = |v×w| × |projection of u onto v×w direction|.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding parallelepiped volume or testing coplanarity (triple product = 0). Tetrahedron volume = ⅙|u·(v×w)|.</div><div class="wb n"><strong>✗ Not for</strong> tetrahedra directly — divide by 6.</div></div></div>
       <div class="fs-quick-summary">|u·(v×w)| = parallelepiped volume. = 0 ⟺ coplanar.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Quick Geometry Tests</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-quick-geometry-tests"><div class="fs-top"><div class="fs-name">Quick Geometry Tests</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{Perp: }\htmlData{t=v — first vector (perp test)}{\color{#D45D00}{\vec{v}}}\cdot\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=0\quad\text{Parallel: }\htmlData{t=v — first vector (parallel test)}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}}=\mathbf{0}\quad\text{Coplanar: }\htmlData{t=u — third vector (coplanar test)}{\color{#5D7A20}{\vec{u}}}\cdot(\htmlData{t=v — first vector}{\color{#D45D00}{\vec{v}}}\times\htmlData{t=w — second vector}{\color{#0B7D7D}{\vec{w}}})=0\]</div>
       
       <div class="fs-detail"><p class="fs-explain">Three quick yes/no tests: <strong>(1) Perpendicular?</strong> v·w = 0 (dot product, since cos90° = 0). <strong>(2) Parallel?</strong> v×w = 0 (cross product, since sin0° = 0; equivalently, one is a scalar multiple of the other). <strong>(3) Coplanar?</strong> u·(v×w) = 0 (triple product = 0 means the box is flat). Memory trick: "⊥ uses DOT, ∥ uses CROSS" — counterintuitive but correct.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked "are these vectors perpendicular / parallel / coplanar?"</div><div class="wb n"><strong>✗ Not for</strong> mixing up the tests. ⊥ → dot = 0, ∥ → cross = 0, coplanar → triple = 0.</div></div></div>
@@ -4262,14 +4263,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <h2 style="color:var(--ch2-title);margin-top:24px;">Chapter 2 — Lines, Planes &amp; Parametric Curves</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch2-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line (Parametric)</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-line--parametric"><div class="fs-top"><div class="fs-name">Line (Parametric)</div></div><div class="fs-body">
       <div class="fs-formula">\[\vec{r}(t)=\htmlData{t=P — a known point on the line}{\color{#D45D00}{P}}+\htmlData{t=t — parameter (real number)}{\color{#5D7A20}{t}}\,\htmlData{t=v⃗ — direction vector parallel to the line}{\color{#0B7D7D}{\vec{v}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">A <strong>parametric line</strong> needs a point P and direction v. As t varies, r(t) = P + tv traces the line. At t=0 you're at P, at t=1 you're at P+v. In components: x = p₁+tv₁, y = p₂+tv₂, z = p₃+tv₃. Line through two points P, Q: direction = Q−P, giving r(t) = (1−t)P + tQ (at t=0 you're at P, at t=1 you're at Q).</p><p class="fs-origin"><strong>Where it comes from:</strong> "Start at P, go in direction v" — the parameter t scales how far.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> given a point + direction or two points. Restrict t ∈ [0,1] for a segment. Two lines → set r₁(t) = r₂(s) to find intersections.</div><div class="wb n"><strong>✗ Not for</strong> planes — planes use a normal vector, not a direction vector.</div></div></div>
       <div class="fs-quick-summary">Point + direction vector → parametric line. t ∈ ℝ for full line, [0,1] for segment.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Plane Equation</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-plane-equation"><div class="fs-top"><div class="fs-name">Plane Equation</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=a — x-component of normal}{\color{#D45D00}{a}}x+\htmlData{t=b — y-component of normal}{\color{#D45D00}{b}}y+\htmlData{t=c — z-component of normal}{\color{#D45D00}{c}}z=\htmlData{t=d — constant found by substituting a known point}{\color{#5D7A20}{d}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">A <strong>plane</strong> is defined by a normal vector n = (a,b,c) and a point. Equation: ax+by+cz = d, where d is found by substituting a known point. To find a plane through 3 points P, Q, R: (1) form PQ and PR, (2) cross them: n = PQ × PR, (3) use n's components and substitute one point to find d.</p><p class="fs-origin"><strong>Where it comes from:</strong> "Point X is on the plane" means n·(X−P) = 0. Expanding gives ax+by+cz = n·P = d.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> given 3 points or a point + normal. For two-plane intersection: cross normals → direction of line.</div><div class="wb n"><strong>✗ Not for</strong> lines — lines use direction vectors, not normal vectors.</div></div></div>
@@ -4304,21 +4305,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">√(r'²+r²) dθ. Simpler than converting to Cartesian.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line Segment</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-line-segment"><div class="fs-top"><div class="fs-name">Line Segment</div></div><div class="fs-body">
       <div class="fs-formula">\[\vec{r}(t)=(1-\htmlData{t=t — parameter from 0 to 1}{\color{#5D7A20}{t}})\,\htmlData{t=P — start point}{\color{#D45D00}{\vec{P}}}+\htmlData{t=t — parameter}{\color{#5D7A20}{t}}\,\htmlData{t=Q — end point}{\color{#0B7D7D}{\vec{Q}}},\quad 0\le t\le 1\]</div>
       
       <div class="fs-detail"><p class="fs-explain">A <strong>line segment</strong> from P to Q is the parametric line r(t) = (1−t)P + tQ restricted to t ∈ [0,1]. At t=0 you're at P, at t=1 you're at Q. Values outside [0,1] extend the line past the endpoints. This is a convex combination of P and Q — every point on the segment is a weighted average.</p><p class="fs-origin"><strong>Where it comes from:</strong> Rewrite P + t(Q−P) = (1−t)P + tQ. The parameter t gives the fraction of the way from P to Q.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> parameterizing a segment for line integrals (Ch 4) or finding midpoints (t=½).</div><div class="wb n"><strong>✗ Not for</strong> infinite lines — remove the t ∈ [0,1] restriction for those.</div></div></div>
       <div class="fs-quick-summary">Weighted average of two endpoints. t=½ gives midpoint.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Angle Between Planes</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-angle-between-planes"><div class="fs-top"><div class="fs-name">Angle Between Planes</div></div><div class="fs-body">
       <div class="fs-formula">\[\cos\htmlData{t=θ — angle between the planes}{\color{#A82870}{\theta}}=\frac{\htmlData{t=n⃗₁ — normal to first plane}{\color{#D45D00}{\vec{n}_1}}\cdot\htmlData{t=n⃗₂ — normal to second plane}{\color{#0B7D7D}{\vec{n}_2}}}{|\vec{n}_1|\,|\vec{n}_2|}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>angle between two planes</strong> is the angle between their normal vectors: cosθ = |n₁·n₂|/(|n₁||n₂|). Use absolute value in the numerator because plane normals can point either way — we want the acute angle between the planes. Parallel planes: n₁ × n₂ = 0. Perpendicular planes: n₁ · n₂ = 0.</p><p class="fs-origin"><strong>Where it comes from:</strong> The dihedral angle between two planes equals the angle between their normals (or its supplement — absolute value picks the acute one).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding the angle between two planes, or checking if planes are parallel/perpendicular.</div><div class="wb n"><strong>✗ Not for</strong> the angle between a line and a plane — that uses sinα = |v·n|/(|v||n|) instead.</div></div></div>
       <div class="fs-quick-summary">Angle between planes is the angle between their normal vectors.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Rotation Matrices</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-rotation-matrices"><div class="fs-top"><div class="fs-name">Rotation Matrices</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{Active: }A=\begin{pmatrix}\cos\htmlData{t=θ — CCW rotation angle}{\color{#A82870}{\theta}}&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\quad\text{Passive: }A^{-1}=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Active rotation</strong> rotates points by angle θ counterclockwise: A = [cosθ, −sinθ; sinθ, cosθ]. <strong>Passive rotation</strong> (rotating axes instead) uses the transpose: Aᵀ = [cosθ, sinθ; −sinθ, cosθ]. Combined with translation (x,y) → (x−h, y−k), you can handle rotated conics and coordinate changes.</p><p class="fs-origin"><strong>Where it comes from:</strong> Apply trigonometric addition formulas to the rotated coordinates. The columns of A are the images of î and ĵ.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> rotating points, eliminating the Bxy cross-term in a conic (rotate by cot2θ = (A−C)/B), or converting between rotated coordinate systems.</div><div class="wb n"><strong>✗ Not for</strong> 3D rotations — those require 3×3 matrices and rotation axis specification.</div></div></div>
@@ -4332,21 +4333,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">Replace dx → x'(t)dt. Cycloid arch gives 3πr². Ellipse gives πab.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar ↔ Cartesian</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-polar---cartesian"><div class="fs-top"><div class="fs-name">Polar ↔ Cartesian</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=x — Cartesian horizontal}{\color{#D45D00}{x}}=\htmlData{t=r — distance from origin}{\color{#5D7A20}{r}}\cos\htmlData{t=θ — angle from positive x-axis}{\color{#A82870}{\theta}},\quad \htmlData{t=y — Cartesian vertical}{\color{#0B7D7D}{y}}=r\sin\theta;\quad r=\sqrt{x^2+y^2}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Polar coordinates</strong> describe a point by distance r from the origin and angle θ from the positive x-axis. Convert: x = rcosθ, y = rsinθ. Reverse: r = √(x²+y²), θ = arctan(y/x) — but check the quadrant, since arctan only returns (−π/2, π/2). Convention: (−r, θ) = (r, θ+π).</p><p class="fs-origin"><strong>Where it comes from:</strong> Right triangle trigonometry: horizontal leg = rcosθ, vertical leg = rsinθ. Pythagoras gives r = √(x²+y²).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> converting between coordinate systems or simplifying equations with circular symmetry (x²+y² = r²).</div><div class="wb n"><strong>✗ Not for</strong> 3D — use cylindrical (r,θ,z) or spherical (ρ,θ,φ).</div></div></div>
       <div class="fs-quick-summary">Polar→Cart: x=rcosθ, y=rsinθ. Cart→Polar: r=√(x²+y²), check quadrant for θ.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Slope</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-polar-slope"><div class="fs-top"><div class="fs-name">Polar Slope</div></div><div class="fs-body">
       <div class="fs-formula">\[\frac{dy}{dx}=\frac{\htmlData{t=r' — derivative dr/dθ}{\color{#5D7A20}{r'}}\sin\htmlData{t=θ — polar angle}{\color{#A82870}{\theta}}+\htmlData{t=r — polar radius}{\color{#D45D00}{r}}\cos\theta}{\htmlData{t=r' — derivative dr/dθ}{\color{#5D7A20}{r'}}\cos\theta-\htmlData{t=r — polar radius}{\color{#D45D00}{r}}\sin\theta}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>slope of a polar curve</strong> r = f(θ) is NOT dr/dθ. Since x = rcosθ and y = rsinθ, use the parametric formula with θ as parameter: dy/dx = (r'sinθ + rcosθ)/(r'cosθ − rsinθ). After finding the slope, convert (r,θ) to Cartesian (x,y) for the tangent line equation.</p><p class="fs-origin"><strong>Where it comes from:</strong> Product rule on x = rcosθ and y = rsinθ, then (dy/dθ)/(dx/dθ).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding the tangent line to a polar curve. Always convert to Cartesian for the final line equation.</div><div class="wb n"><strong>✗ Not for</strong> parametric curves x(t), y(t) — use (dy/dt)/(dx/dt) directly.</div></div></div>
       <div class="fs-quick-summary">Slope of polar curve. Don't forget to convert (r,θ) → (x,y) for the line equation.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Conic Discriminant</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-conic-discriminant"><div class="fs-top"><div class="fs-name">Conic Discriminant</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=B² − 4AC — the conic discriminant}{\color{#D45D00}{B^2-4AC}}:\quad {\lt}0\;\text{ellipse},\quad {\gt}0\;\text{hyperbola},\quad {=}0\;\text{parabola}\]</div>
       
       <div class="fs-detail"><p class="fs-explain">The <strong>conic discriminant</strong> B²−4AC classifies the general second-degree equation Ax²+Bxy+Cy²+Dx+Ey+F = 0. Negative → ellipse (or circle if A=C, B=0). Zero → parabola. Positive → hyperbola. When B ≠ 0 (cross-term), the conic is rotated; eliminate it by rotating axes by θ where cot2θ = (A−C)/B.</p><p class="fs-origin"><strong>Where it comes from:</strong> B²−4AC is invariant under rotation — a deep result from linear algebra.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to classify a conic. Just compute B²−4AC and check the sign.</div><div class="wb n"><strong>✗ Not for</strong> finding the standard form — that requires completing the square or rotating axes.</div></div></div>
@@ -4359,12 +4360,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <h2 style="color:var(--ch3-title);margin-top:24px;">Ch 3 — Partial Derivatives &amp; Vector Fields</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch3-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Partial Derivative (Definition)</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-partial-derivative--definition"><div class="fs-top"><div class="fs-name">Partial Derivative (Definition)</div></div><div class="fs-body">
       <div class="fs-formula">\[\frac{\partial \htmlData{t=f — the multivariable function}{\color{#D45D00}{f}}}{\partial \htmlData{t=x — variable being differentiated}{\color{#D45D00}{x}}}(\htmlData{t=x₀ — x-coordinate of the point}{\color{#D45D00}{x_0}},\htmlData{t=y₀ — y-coordinate held constant}{\color{#5D7A20}{y_0}})=\lim_{\htmlData{t=h — small increment in x}{\color{#A82870}{h}}\to 0}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}\]</div><div class="fs-detail"><p class="fs-explain"><strong>Partial derivatives</strong> measure the rate of change of a multivariable function when you vary one variable and hold all others constant. For ∂f/∂x, treat y as a constant and differentiate with respect to x using all the usual single-variable rules. The geometric meaning: ∂f/∂x is the slope of the curve you get by slicing the surface z = f(x,y) with the plane y = y₀.</p><p class="fs-origin"><strong>Where it comes from:</strong> Same definition as the ordinary derivative, but applied to one variable at a time while freezing the others.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to find ∂f/∂x or fₓ of any function of two or more variables.</div><div class="wb n"><strong>✗ Not for</strong> implicit differentiation (§3.6.2) — that's a different procedure where z depends on x,y through an equation f(x,y,z)=0.</div></div></div>
       <div class="fs-quick-summary">Treat all other variables as constants and differentiate normally.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Clairaut's Theorem</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-clairaut-s-theorem"><div class="fs-top"><div class="fs-name">Clairaut's Theorem</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=fxy — diff w.r.t. x then y}{\color{#D45D00}{f_{xy}}}=\htmlData{t=fyx — diff w.r.t. y then x}{\color{#5D7A20}{f_{yx}}}\]</div><div class="fs-detail"><p class="fs-explain"><strong>Mixed partial derivatives are equal</strong> when f and its partials up to order 2 are continuous. The order of differentiation doesn't matter: differentiating first by x then y gives the same result as y then x.</p><p class="fs-origin"><strong>Where it comes from:</strong> Proved using the limit definition and the mean value theorem. The continuity requirement is essential — without it, counterexamples exist.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing mixed partials — you can choose the easier order. Also used to prove identities like curl(∇f) = 0.</div><div class="wb n"><strong>✗ Not for</strong> functions with discontinuous second partials — check continuity first.</div></div></div>
       <div class="fs-quick-summary">Order of mixed partials doesn't matter (when continuous).</div>
     </div></div>
@@ -4375,7 +4376,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">Rate of change in direction u. Dot the gradient with u.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Gradient — Direction of Steepest Ascent</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-gradient---direction-of-steepest-ascent"><div class="fs-top"><div class="fs-name">Gradient — Direction of Steepest Ascent</div></div><div class="fs-body">
       <div class="fs-formula">\[\max \htmlData{t=Dᵤf — directional derivative}{\color{#D45D00}{D_{\mathbf{u}}f}}=\htmlData{t=|∇f| — max rate of change}{\color{#5D7A20}{|\nabla f|}}\;\text{ in direction }\;\frac{\htmlData{t=∇f — gradient vector}{\color{#5D7A20}{\nabla f}}}{\htmlData{t=|∇f| — gradient magnitude}{\color{#5D7A20}{|\nabla f|}}}\]</div><div class="fs-detail"><p class="fs-explain">The function f increases <strong>fastest</strong> in the direction of the gradient ∇f, and the rate of that fastest increase equals the magnitude |∇f|. It decreases fastest in the direction −∇f. Perpendicular to the gradient (along level curves), the directional derivative is zero.</p><p class="fs-origin"><strong>Where it comes from:</strong> D_u f = |∇f|cosθ is maximized when cosθ = 1 (u parallel to ∇f) and minimized when cosθ = −1.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked "in which direction does f increase fastest?" or "what is the maximum rate of change?"</div><div class="wb n"><strong>✗ Not for</strong> finding where f itself is maximum — that's optimization (Ch 7). The gradient gives direction of increase, not the location of extrema.</div></div></div>
       <div class="fs-quick-summary">Max rate of change = |∇f|, in direction of ∇f. Zero along level curves.</div>
     </div></div>
@@ -4390,7 +4391,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">∂z/∂x = −fₓ/f_z. Requires f_z ≠ 0.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Tangent Plane</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-tangent-plane"><div class="fs-top"><div class="fs-name">Tangent Plane</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=fₓ — partial w.r.t. x at P}{\color{#D45D00}{f_x(P)}}(x-x_0)+\htmlData{t=fy — partial w.r.t. y at P}{\color{#5D7A20}{f_y(P)}}(y-y_0)+\htmlData{t=fz — partial w.r.t. z at P}{\color{#0B7D7D}{f_z(P)}}(z-z_0)=0\]</div><div class="fs-detail"><p class="fs-explain">The <strong>tangent plane</strong> to a surface f(x,y,z)=0 at a point P is the plane that best approximates the surface near P. The gradient ∇f(P) = (fₓ, f_y, f_z) is the normal vector to this plane. For z = g(x,y), rewrite as g(x,y)−z = 0, so f_z = −1 and the plane becomes z − z₀ = gₓ(x−x₀) + g_y(y−y₀).</p><p class="fs-origin"><strong>Where it comes from:</strong> Any curve on the surface through P has a tangent vector perpendicular to ∇f. The plane of all such tangent vectors is the tangent plane.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked to find the tangent plane or normal vector to a surface at a point.</div><div class="wb n"><strong>✗ Not for</strong> curves in 3D — those have tangent lines (using r'(t)), not tangent planes.</div></div></div>
       <div class="fs-quick-summary">Normal = ∇f. For z=g(x,y): z−z₀ = gₓ(x−x₀)+g_y(y−y₀).</div>
     </div></div>
@@ -4433,7 +4434,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">Conservative fields: integral = f(end) − f(start). Path-independent.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Potential via Line Integral</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-potential-via-line-integral"><div class="fs-top"><div class="fs-name">Potential via Line Integral</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=f — potential function to find}{\color{#5D7A20}{f}}(x{,}y{,}z)=\int_{\mathscr{C}}\htmlData{t=F — conservative vector field}{\color{#D45D00}{\mathbf{F}}}\cdot d\mathbf{r}\]</div>
       <div class="fs-detail"><p class="fs-explain">To find the potential function of a conservative field use a line segment from a fixed point P₀ to a general point (x-y-z). Parametrize as r(t) = (1−t)P₀ + t(x-y-z) for t ∈ [0-1]. During integration treat x-y-z as constants. Don't forget to add +C.</p><p class="fs-origin"><strong>Where it comes from:</strong> By FTCLI: f(P) − f(P₀) = ∫F·dr. Setting f(P₀) = 0 gives f(P) directly.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the component-integration method is messy (non-polynomial fields).</div><div class="wb n"><strong>✗ Not for</strong> non-conservative fields — verify curl = 0 first.</div></div></div>
       <div class="fs-quick-summary">Find f by integrating F along a segment from P₀ to (x-y-z). Treat coordinates as constants.</div>
@@ -4455,7 +4456,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">Vertical slices: outer x (constants) inner y (functions of x). R_yx → dy dx.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Double Integral</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-polar-double-integral"><div class="fs-top"><div class="fs-name">Polar Double Integral</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — function in Cartesian coords}{\color{#D45D00}{f}}(x{,}y)\,dA=\iint_{\mathscr{S}}\htmlData{t=f — rewritten in polar}{\color{#D45D00}{f}}(\htmlData{t=r — radial distance}{\color{#0B7D7D}{r}}\cos\htmlData{t=θ — angle from x-axis}{\color{#A82870}{\theta}},\;\htmlData{t=r — radial distance}{\color{#0B7D7D}{r}}\sin\htmlData{t=θ — angle}{\color{#A82870}{\theta}})\;\htmlData{t=r — Jacobian factor; don't forget!}{\color{#0B7D7D}{r}}\,d\htmlData{t=r — radial variable}{\color{#0B7D7D}{r}}\,d\htmlData{t=θ — angular variable}{\color{#A82870}{\theta}}\]</div>
       <div class="fs-detail"><p class="fs-explain">Converting a double integral to <strong>polar coordinates</strong>. The key: dA = r dr dθ (NOT just dr dθ). The extra factor of r is the Jacobian of the polar transformation. Replace x²+y² with r² and simplify. Best for circular regions and integrands containing x²+y².</p><p class="fs-origin"><strong>Where it comes from:</strong> Jacobian of (x-y) = (r cosθ - r sinθ) is det[cosθ sinθ; −r sinθ r cosθ] = r.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region involves circles (x²+y²=R²) or the integrand has x²+y². Converts nasty square roots to clean r.</div><div class="wb n"><strong>✗ Not for</strong> rectangular regions or integrands with no circular symmetry — rectangular coords are simpler.</div></div></div>
       <div class="fs-quick-summary">dA = r dr dθ. Replace x²+y² → r². Don't forget the extra r!</div>
@@ -4467,7 +4468,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">2D substitution rule. Multiply by |Jacobian|. Polar is the special case J = r.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Sphere Parametrization</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-sphere-parametrization"><div class="fs-top"><div class="fs-name">Sphere Parametrization</div></div><div class="fs-body">
       <div class="fs-formula">\[\mathbf{r}(\htmlData{t=u — longitude angle [0 to 2π]}{\color{#0B7D7D}{u}},\htmlData{t=v — latitude angle [−π/2 to π/2]}{\color{#A82870}{v}})=\big(\htmlData{t=R — radius}{\color{#2050A0}{R}}\cos\htmlData{t=v — latitude}{\color{#A82870}{v}}\cos\htmlData{t=u — longitude}{\color{#0B7D7D}{u}},\;\htmlData{t=R — radius}{\color{#2050A0}{R}}\cos\htmlData{t=v — latitude}{\color{#A82870}{v}}\sin\htmlData{t=u — longitude}{\color{#0B7D7D}{u}},\;\htmlData{t=R — radius}{\color{#2050A0}{R}}\sin\htmlData{t=v — latitude}{\color{#A82870}{v}}\big)\]</div>
       <div class="fs-detail"><p class="fs-explain">Parametrize a sphere of radius R centered at the origin using longitude u and latitude v. This is identical to the geographic coordinate system: u = longitude (around the equator) and v = latitude (above/below equator). Every point on the sphere corresponds to exactly one (u-v) pair (except the poles).</p><p class="fs-origin"><strong>Where it comes from:</strong> Project a point P on the sphere onto the xy-plane. The angle from the xy-plane is v (latitude) and the angle in the xy-plane is u (longitude). Use trig to recover x-y-z.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> parametrizing spheres for surface integrals or when converting to spherical coordinates.</div><div class="wb n"><strong>✗ Not for</strong> cylinders or cones — each has its own parametrization.</div></div></div>
       <div class="fs-quick-summary">Sphere: (R cos v cos u - R cos v sin u - R sin v). u = longitude - v = latitude.</div>
@@ -4501,7 +4502,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">Closed-curve line integral in 2D: ∮P dx + Q dy matches ∬(Q_x − P_y) dA over the interior.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Area via Green's Theorem</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-area-via-green-s-theorem"><div class="fs-top"><div class="fs-name">Area via Green's Theorem</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{Area of } \htmlData{t=ℛ — enclosed region}{\color{#4A8060}{\mathscr{R}}} = \frac{1}{2}\oint_{\mathscr{C}} \htmlData{t=x — horizontal coordinate}{\color{#2050A0}{x}}\,dy - \htmlData{t=y — vertical coordinate}{\color{#2050A0}{y}}\,dx\]</div>
       <div class="fs-detail"><p class="fs-explain">Computes the area of a region from a line integral around its boundary. Set P = −y and Q = x in Green's theorem: Q_x − P_y = 1+1 = 2. Especially useful when the boundary is easy to parametrize but the region is hard to describe for a double integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing areas of regions with parametrizable boundaries (ellipses and polar curves).</div><div class="wb n"><strong>✗ Not for</strong> regions where a direct double integral is simpler.</div></div></div>
       <div class="fs-quick-summary">Area as a boundary integral: ½∮(x dy − y dx) around the curve.</div>
@@ -4542,7 +4543,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <h2 style="color:var(--ch7-title);margin-top:24px;">Chapter 7 — Max/Min &amp; Lagrange</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch7-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Critical Point Condition</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-critical-point-condition"><div class="fs-top"><div class="fs-name">Critical Point Condition</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=f_x — partial derivative w.r.t. x}{\color{#D45D00}{f_x}}(\htmlData{t=a — x-coordinate of critical point}{\color{#4A8060}{a}},\htmlData{t=b — y-coordinate of critical point}{\color{#4A8060}{b}}) = 0 \quad \text{and} \quad \htmlData{t=f_y — partial derivative w.r.t. y}{\color{#D45D00}{f_y}}(\htmlData{t=a — x-coordinate}{\color{#4A8060}{a}},\htmlData{t=b — y-coordinate}{\color{#4A8060}{b}}) = 0\]</div>
       <div class="fs-detail"><p class="fs-explain">A point where both partial derivatives vanish simultaneously is a <strong>critical point</strong> (or stationary point). Every local max and min of a differentiable function occurs at a critical point. Solve the two-equation system f_x = 0 and f_y = 0 simultaneously. Factor and use case analysis when products arise.</p><p class="fs-origin"><strong>Where it comes from:</strong> At a max or min the surface is momentarily flat in every direction. Along the x-direction this forces f_x = 0 and along y it forces f_y = 0.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding extrema of f on an open domain (no boundary constraints).</div><div class="wb n"><strong>✗ Not for</strong> boundary points — use boundary analysis or Lagrange multipliers for those.</div></div></div>
       <div class="fs-quick-summary">Set f_x = 0 and f_y = 0 simultaneously. Every local extremum is a critical point.</div>
@@ -4554,13 +4555,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <div class="fs-quick-summary">D > 0 + f_xx > 0 → min. D > 0 + f_xx &lt; 0 → max. D &lt; 0 → saddle. D = 0 → inconclusive.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Closed-Region Extrema</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-closed-region-extrema"><div class="fs-top"><div class="fs-name">Closed-Region Extrema</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{Abs max/min of } \htmlData{t=f — the function to optimize}{\color{#D45D00}{f}} \text{ on closed } \htmlData{t=D — closed bounded region}{\color{#4A8060}{\mathscr{D}}} = \max/\min\bigl\{\text{interior CPs} \cup \text{boundary CPs} \cup \text{corners}\bigr\}\]</div>
       <div class="fs-detail"><p class="fs-explain">On a closed bounded region: (1) find interior critical points via SDT; (2) parametrize each boundary curve and find critical points via single-variable calculus; (3) evaluate at all corners/endpoints; (4) compare all values — largest is the absolute max and smallest is the absolute min.</p><p class="fs-origin"><strong>Where it comes from:</strong> The Extreme Value Theorem guarantees a continuous function on a closed bounded set attains its max and min. They occur either inside the region or on its boundary.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the domain is a closed bounded region (rectangle or disk or triangle).</div><div class="wb n"><strong>✗ Not for</strong> open or unbounded domains — there may be no global max/min.</div></div></div>
       <div class="fs-quick-summary">Check interior CPs + boundary CPs + corners. Compare all values.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Lagrange Multiplier Method</div></div><div class="fs-body">
+    <div class="fs-card" id="fs-lagrange-multiplier-method"><div class="fs-top"><div class="fs-name">Lagrange Multiplier Method</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=ℓ — the Lagrangian function}{\color{#B8336A}{\ell}}(\htmlData{t=x — first variable}{\color{#D45D00}{x}},\htmlData{t=y — second variable}{\color{#D45D00}{y}},\htmlData{t=λ — Lagrange multiplier}{\color{#2050A0}{\lambda}}) = \htmlData{t=f — function to optimize}{\color{#D45D00}{f}}(\htmlData{t=x — variable}{\color{#D45D00}{x}},\htmlData{t=y — variable}{\color{#D45D00}{y}}) - \htmlData{t=λ — multiplier scalar}{\color{#2050A0}{\lambda}}\,\htmlData{t=g — constraint function set to zero}{\color{#4A8060}{g}}(\htmlData{t=x — variable}{\color{#D45D00}{x}},\htmlData{t=y — variable}{\color{#D45D00}{y}})\]</div>
       <div class="fs-detail"><p class="fs-explain">To optimize f subject to g = 0: form ℓ = f − λg and set all partials ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0. This yields f_x = λg_x and f_y = λg_y plus the constraint g = 0. Solve the system and evaluate f at each solution. The method extends to 3+ variables.</p><p class="fs-origin"><strong>Where it comes from:</strong> At a constrained extremum ∇f must be parallel to ∇g (both perpendicular to the constraint curve). So ∇f = λ∇g for some scalar λ.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> optimizing f subject to a constraint g = 0 (especially nonlinear constraints like circles or spheres).</div><div class="wb n"><strong>✗ Not for</strong> unconstrained optimization — use ordinary critical points instead. Also Lagrange finds candidates only; compare values to classify.</div></div></div>
       <div class="fs-quick-summary">ℓ = f − λg. Set ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0. Evaluate f at solutions to classify.</div>
@@ -4749,7 +4750,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       <tbody id="ef-tbody">
 
 <!-- 1 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: cos²x" data-explain="Rewrites cos²x using a double-angle identity. Used for integrating even powers of cosine.">
+<tr class="ef-row" id="ef-1" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: cos²x" data-explain="Rewrites cos²x using a double-angle identity. Used for integrating even powers of cosine.">
   <td class="ef-num">1</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4758,7 +4759,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
 <!-- 2 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin²x" data-explain="Rewrites sin²x using a double-angle identity. Used for integrating even powers of sine.">
+<tr class="ef-row" id="ef-2" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin²x" data-explain="Rewrites sin²x using a double-angle identity. Used for integrating even powers of sine.">
   <td class="ef-num">2</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4767,7 +4768,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
 <!-- 3 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin 2x" data-explain="Expresses the product sin·cos as a single sine function at double the angle.">
+<tr class="ef-row" id="ef-3" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin 2x" data-explain="Expresses the product sin·cos as a single sine function at double the angle.">
   <td class="ef-num">3</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4776,7 +4777,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
 <!-- 4 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·sin" data-explain="Converts a product of sines into a sum/difference of cosines for easier integration.">
+<tr class="ef-row" id="ef-4" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·sin" data-explain="Converts a product of sines into a sum/difference of cosines for easier integration.">
   <td class="ef-num">4</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4785,7 +4786,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td><span class="ef-vchip" data-sym="a, b" data-desc="Angles, constants, interval endpoints, or critical-point coordinates depending on context."><span class="ef-vsym">a, b</span><span class="ef-vname">— angles / constants</span></span></td>
 </tr>
 <!-- 5 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: cos·cos" data-explain="Converts a product of cosines into a sum of cosines.">
+<tr class="ef-row" id="ef-5" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: cos·cos" data-explain="Converts a product of cosines into a sum of cosines.">
   <td class="ef-num">5</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4794,7 +4795,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td><span class="ef-vchip" data-sym="a, b" data-desc="Angles, constants, interval endpoints, or critical-point coordinates depending on context."><span class="ef-vsym">a, b</span><span class="ef-vname">— angles / constants</span></span></td>
 </tr>
 <!-- 6 -->
-<tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·cos" data-explain="Converts a mixed sin·cos product into a sum of sines.">
+<tr class="ef-row" id="ef-6" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·cos" data-explain="Converts a mixed sin·cos product into a sum of sines.">
   <td class="ef-num">6</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
@@ -4804,7 +4805,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 7 -->
-<tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="First Derivative (Parametric)" data-explain="Slope of a parametric curve at parameter t. Divide the rate of change of y by that of x.">
+<tr class="ef-row" id="ef-7" data-cat="Parametric Curves" data-ch="2" data-title="First Derivative (Parametric)" data-explain="Slope of a parametric curve at parameter t. Divide the rate of change of y by that of x.">
   <td class="ef-num">7</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">Parametric Curves</span></td>
@@ -4817,7 +4818,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 8 -->
-<tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Second Derivative (Parametric)" data-explain="Concavity of a parametric curve. Derived by differentiating dy/dx with respect to t then dividing by f′(t).">
+<tr class="ef-row" id="ef-8" data-cat="Parametric Curves" data-ch="2" data-title="Second Derivative (Parametric)" data-explain="Concavity of a parametric curve. Derived by differentiating dy/dx with respect to t then dividing by f′(t).">
   <td class="ef-num">8</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">Parametric Curves</span></td>
@@ -4830,7 +4831,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 9 -->
-<tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Area under Parametric Curve" data-explain="Area enclosed by a parametric curve. Absolute value ensures a positive result regardless of orientation.">
+<tr class="ef-row" id="ef-9" data-cat="Parametric Curves" data-ch="2" data-title="Area under Parametric Curve" data-explain="Area enclosed by a parametric curve. Absolute value ensures a positive result regardless of orientation.">
   <td class="ef-num">9</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">Parametric Curves</span></td>
@@ -4843,7 +4844,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 10 -->
-<tr class="ef-row" data-cat="Polar Curves" data-ch="2" data-title="Area between Polar Curves" data-explain="Area of the region between two polar curves r₀(θ) (outer) and r₁(θ) (inner).">
+<tr class="ef-row" id="ef-10" data-cat="Polar Curves" data-ch="2" data-title="Area between Polar Curves" data-explain="Area of the region between two polar curves r₀(θ) (outer) and r₁(θ) (inner).">
   <td class="ef-num">10</td>
   <td><span class="ef-ch-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">Polar Curves</span></td>
@@ -4856,7 +4857,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 11 -->
-<tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Arc Length (Parametric)" data-explain="Total length of a parametric curve by integrating the speed |r′(t)|.">
+<tr class="ef-row" id="ef-11" data-cat="Parametric Curves" data-ch="2" data-title="Arc Length (Parametric)" data-explain="Total length of a parametric curve by integrating the speed |r′(t)|.">
   <td class="ef-num">11</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">Parametric Curves</span></td>
@@ -4869,7 +4870,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 12 -->
-<tr class="ef-row" data-cat="Polar Curves" data-ch="2" data-title="Arc Length (Polar)" data-explain="Arc length of a polar curve. Combines radial and angular contributions.">
+<tr class="ef-row" id="ef-12" data-cat="Polar Curves" data-ch="2" data-title="Arc Length (Polar)" data-explain="Arc length of a polar curve. Combines radial and angular contributions.">
   <td class="ef-num">12</td>
   <td><span class="ef-ch-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">2</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">Polar Curves</span></td>
@@ -4883,7 +4884,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 13 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Directional Derivative" data-explain="Rate of change of f at point P in the direction of unit vector u. Equals the dot product ∇f · u.">
+<tr class="ef-row" id="ef-13" data-cat="Partial Derivatives" data-ch="3" data-title="Directional Derivative" data-explain="Rate of change of f at point P in the direction of unit vector u. Equals the dot product ∇f · u.">
   <td class="ef-num">13</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4896,7 +4897,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 14 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Total Derivative (Chain Rule)" data-explain="Chain rule for w(x,y,z) where each variable depends on t. Sums the contribution from each path.">
+<tr class="ef-row" id="ef-14" data-cat="Partial Derivatives" data-ch="3" data-title="Total Derivative (Chain Rule)" data-explain="Chain rule for w(x,y,z) where each variable depends on t. Sums the contribution from each path.">
   <td class="ef-num">14</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4911,7 +4912,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 15 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Partial Chain Rule (2 vars)" data-explain="Chain rule when z depends on x and y which in turn depend on parameter u.">
+<tr class="ef-row" id="ef-15" data-cat="Partial Derivatives" data-ch="3" data-title="Partial Chain Rule (2 vars)" data-explain="Chain rule when z depends on x and y which in turn depend on parameter u.">
   <td class="ef-num">15</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4925,7 +4926,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 16 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Partial Chain Rule (3 vars)" data-explain="Chain rule for w(x,y,z) where x y z each depend on parameter u.">
+<tr class="ef-row" id="ef-16" data-cat="Partial Derivatives" data-ch="3" data-title="Partial Chain Rule (3 vars)" data-explain="Chain rule for w(x,y,z) where x y z each depend on parameter u.">
   <td class="ef-num">16</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4940,7 +4941,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 17 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Implicit ∂z/∂x" data-explain="Finds ∂z/∂x from an implicit equation F(x,y,z)=0 using the implicit function theorem.">
+<tr class="ef-row" id="ef-17" data-cat="Partial Derivatives" data-ch="3" data-title="Implicit ∂z/∂x" data-explain="Finds ∂z/∂x from an implicit equation F(x,y,z)=0 using the implicit function theorem.">
   <td class="ef-num">17</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4953,7 +4954,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 18 -->
-<tr class="ef-row" data-cat="Partial Derivatives" data-ch="3" data-title="Implicit ∂z/∂y" data-explain="Finds ∂z/∂y from an implicit equation F(x,y,z)=0.">
+<tr class="ef-row" id="ef-18" data-cat="Partial Derivatives" data-ch="3" data-title="Implicit ∂z/∂y" data-explain="Finds ∂z/∂y from an implicit equation F(x,y,z)=0.">
   <td class="ef-num">18</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">Partial Derivatives</span></td>
@@ -4967,7 +4968,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 19 -->
-<tr class="ef-row" data-cat="Optimization" data-ch="7" data-title="Second Derivative Test" data-explain="Classifies critical points. D>0 with fₓₓ>0 → local min. D>0 with fₓₓ<0 → local max. D<0 → saddle point.">
+<tr class="ef-row" id="ef-19" data-cat="Optimization" data-ch="7" data-title="Second Derivative Test" data-explain="Classifies critical points. D>0 with fₓₓ>0 → local min. D>0 with fₓₓ<0 → local max. D<0 → saddle point.">
   <td class="ef-num">19</td>
   <td><span class="ef-ch-badge" style="background:rgba(230,198,25,.1);color:#b5a010;">7</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(230,198,25,.1);color:#b5a010;">Optimization</span></td>
@@ -4981,7 +4982,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 20 -->
-<tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Divergence" data-explain="Scalar measuring outward flux density of a vector field at a point.">
+<tr class="ef-row" id="ef-20" data-cat="Vector Calculus" data-ch="3" data-title="Divergence" data-explain="Scalar measuring outward flux density of a vector field at a point.">
   <td class="ef-num">20</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">Vector Calculus</span></td>
@@ -4994,7 +4995,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 21 -->
-<tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Curl" data-explain="Vector measuring rotational tendency of F. Perpendicular to the axis of rotation.">
+<tr class="ef-row" id="ef-21" data-cat="Vector Calculus" data-ch="3" data-title="Curl" data-explain="Vector measuring rotational tendency of F. Perpendicular to the axis of rotation.">
   <td class="ef-num">21</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">Vector Calculus</span></td>
@@ -5009,7 +5010,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 22 -->
-<tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (2D)" data-explain="Integrates a scalar function along a curve weighted by arc length. Think: summing f × (tiny length).">
+<tr class="ef-row" id="ef-22" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (2D)" data-explain="Integrates a scalar function along a curve weighted by arc length. Think: summing f × (tiny length).">
   <td class="ef-num">22</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">Line Integrals</span></td>
@@ -5023,7 +5024,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 23 -->
-<tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (3D)" data-explain="Same as 2D but extended to 3D curves.">
+<tr class="ef-row" id="ef-23" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (3D)" data-explain="Same as 2D but extended to 3D curves.">
   <td class="ef-num">23</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">Line Integrals</span></td>
@@ -5037,7 +5038,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 24 -->
-<tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Vector Line Integral (Work)" data-explain="Work done by force field F along curve C. The dot product picks out the tangential component.">
+<tr class="ef-row" id="ef-24" data-cat="Line Integrals" data-ch="4" data-title="Vector Line Integral (Work)" data-explain="Work done by force field F along curve C. The dot product picks out the tangential component.">
   <td class="ef-num">24</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">Line Integrals</span></td>
@@ -5052,7 +5053,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 25 -->
-<tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Fundamental Thm of Line Integrals" data-explain="If F=∇f (conservative) the line integral depends only on endpoints — path-independent.">
+<tr class="ef-row" id="ef-25" data-cat="Line Integrals" data-ch="4" data-title="Fundamental Thm of Line Integrals" data-explain="If F=∇f (conservative) the line integral depends only on endpoints — path-independent.">
   <td class="ef-num">25</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">Line Integrals</span></td>
@@ -5066,7 +5067,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 26 -->
-<tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Double Integral (Iterated)" data-explain="Volume under f over region R. Integrate inner variable first then outer.">
+<tr class="ef-row" id="ef-26" data-cat="Double Integrals" data-ch="5" data-title="Double Integral (Iterated)" data-explain="Volume under f over region R. Integrate inner variable first then outer.">
   <td class="ef-num">26</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">Double Integrals</span></td>
@@ -5079,7 +5080,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 27 -->
-<tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Potential Function Condition" data-explain="F is conservative iff it has a scalar potential f whose gradient equals F (curl F=0).">
+<tr class="ef-row" id="ef-27" data-cat="Vector Calculus" data-ch="3" data-title="Potential Function Condition" data-explain="F is conservative iff it has a scalar potential f whose gradient equals F (curl F=0).">
   <td class="ef-num">27</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">Vector Calculus</span></td>
@@ -5092,7 +5093,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 28 -->
-<tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Change of Variables (2D)" data-explain="Transforms a double integral to new coordinates (u,v). The Jacobian |J| scales area elements.">
+<tr class="ef-row" id="ef-28" data-cat="Double Integrals" data-ch="5" data-title="Change of Variables (2D)" data-explain="Transforms a double integral to new coordinates (u,v). The Jacobian |J| scales area elements.">
   <td class="ef-num">28</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">Double Integrals</span></td>
@@ -5105,7 +5106,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 29 -->
-<tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Jacobian (2D)" data-explain="The determinant of the 2×2 matrix of partial derivatives. Measures how areas scale under the transformation.">
+<tr class="ef-row" id="ef-29" data-cat="Double Integrals" data-ch="5" data-title="Jacobian (2D)" data-explain="The determinant of the 2×2 matrix of partial derivatives. Measures how areas scale under the transformation.">
   <td class="ef-num">29</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">Double Integrals</span></td>
@@ -5118,7 +5119,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 30 -->
-<tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Surface Area" data-explain="Area of a parameterized surface. |rᵤ×rᵥ| gives the area of each infinitesimal parallelogram.">
+<tr class="ef-row" id="ef-30" data-cat="Surface Integrals" data-ch="6" data-title="Surface Area" data-explain="Area of a parameterized surface. |rᵤ×rᵥ| gives the area of each infinitesimal parallelogram.">
   <td class="ef-num">30</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(227,100,20,.1);color:#e36414;">Surface Integrals</span></td>
@@ -5131,7 +5132,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 31 -->
-<tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (z=f)" data-explain="Integrates a scalar F over surface z=f(x,y). The square root is the area magnification factor.">
+<tr class="ef-row" id="ef-31" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (z=f)" data-explain="Integrates a scalar F over surface z=f(x,y). The square root is the area magnification factor.">
   <td class="ef-num">31</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(227,100,20,.1);color:#e36414;">Surface Integrals</span></td>
@@ -5143,7 +5144,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 32 -->
-<tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (param.)" data-explain="General form for a parameterized surface r(u,v).">
+<tr class="ef-row" id="ef-32" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (param.)" data-explain="General form for a parameterized surface r(u,v).">
   <td class="ef-num">32</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(227,100,20,.1);color:#e36414;">Surface Integrals</span></td>
@@ -5157,7 +5158,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 33 -->
-<tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (z=z(x,y))" data-explain="Flux through surface z=z(x,y). The vector (−zₓ, −zᵧ, 1) is the upward-pointing normal.">
+<tr class="ef-row" id="ef-33" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (z=z(x,y))" data-explain="Flux through surface z=z(x,y). The vector (−zₓ, −zᵧ, 1) is the upward-pointing normal.">
   <td class="ef-num">33</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(227,100,20,.1);color:#e36414;">Surface Integrals</span></td>
@@ -5170,7 +5171,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 34 -->
-<tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (parametric)" data-explain="General flux formula. The cross product gives the oriented surface normal.">
+<tr class="ef-row" id="ef-34" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (parametric)" data-explain="General flux formula. The cross product gives the oriented surface normal.">
   <td class="ef-num">34</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(227,100,20,.1);color:#e36414;">Surface Integrals</span></td>
@@ -5185,7 +5186,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 35 -->
-<tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Green's Theorem" data-explain="Relates a closed line integral to a double integral over the enclosed region. 2D version of Stokes'.">
+<tr class="ef-row" id="ef-35" data-cat="Fundamental Theorems" data-ch="6" data-title="Green's Theorem" data-explain="Relates a closed line integral to a double integral over the enclosed region. 2D version of Stokes'.">
   <td class="ef-num">35</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(217,4,41,.1);color:#d90429;">Fundamental Theorems</span></td>
@@ -5198,7 +5199,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 36 -->
-<tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Stokes' Theorem" data-explain="Circulation around boundary C equals the flux of curl F through surface S.">
+<tr class="ef-row" id="ef-36" data-cat="Fundamental Theorems" data-ch="6" data-title="Stokes' Theorem" data-explain="Circulation around boundary C equals the flux of curl F through surface S.">
   <td class="ef-num">36</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(217,4,41,.1);color:#d90429;">Fundamental Theorems</span></td>
@@ -5214,7 +5215,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 37 -->
-<tr class="ef-row" data-cat="Triple Integrals" data-ch="6" data-title="Triple Integral (Cartesian)" data-explain="Integrates over a 3D solid by slicing: for each (x,y) in R integrate z between bounding surfaces.">
+<tr class="ef-row" id="ef-37" data-cat="Triple Integrals" data-ch="6" data-title="Triple Integral (Cartesian)" data-explain="Integrates over a 3D solid by slicing: for each (x,y) in R integrate z between bounding surfaces.">
   <td class="ef-num">37</td>
   <td><span class="ef-ch-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">Triple Integrals</span></td>
@@ -5227,7 +5228,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 38 -->
-<tr class="ef-row" data-cat="Triple Integrals" data-ch="6" data-title="Change of Variables (3D)" data-explain="General 3D coordinate transform. The 3×3 Jacobian determinant scales volume elements.">
+<tr class="ef-row" id="ef-38" data-cat="Triple Integrals" data-ch="6" data-title="Change of Variables (3D)" data-explain="General 3D coordinate transform. The 3×3 Jacobian determinant scales volume elements.">
   <td class="ef-num">38</td>
   <td><span class="ef-ch-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">Triple Integrals</span></td>
@@ -5240,7 +5241,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 39 -->
-<tr class="ef-row" data-cat="Coordinate Systems" data-ch="6" data-title="Cylindrical Coordinates" data-explain="Polar coords in the xy-plane plus height z. Factor r in dV accounts for radial stretching.">
+<tr class="ef-row" id="ef-39" data-cat="Coordinate Systems" data-ch="6" data-title="Cylindrical Coordinates" data-explain="Polar coords in the xy-plane plus height z. Factor r in dV accounts for radial stretching.">
   <td class="ef-num">39</td>
   <td><span class="ef-ch-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">Coordinate Systems</span></td>
@@ -5254,7 +5255,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   </td>
 </tr>
 <!-- 40 -->
-<tr class="ef-row" data-cat="Coordinate Systems" data-ch="6" data-title="Spherical Coordinates" data-explain="Full 3D radial coords. ρ = distance from origin, φ = angle from z-axis, θ = azimuthal angle.">
+<tr class="ef-row" id="ef-40" data-cat="Coordinate Systems" data-ch="6" data-title="Spherical Coordinates" data-explain="Full 3D radial coords. ρ = distance from origin, φ = angle from z-axis, θ = azimuthal angle.">
   <td class="ef-num">40</td>
   <td><span class="ef-ch-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">Coordinate Systems</span></td>
@@ -5269,7 +5270,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 </tr>
 
 <!-- 41 -->
-<tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Divergence Theorem" data-explain="Total outward flux through closed surface S equals total divergence inside volume V.">
+<tr class="ef-row" id="ef-41" data-cat="Fundamental Theorems" data-ch="6" data-title="Divergence Theorem" data-explain="Total outward flux through closed surface S equals total divergence inside volume V.">
   <td class="ef-num">41</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(217,4,41,.1);color:#d90429;">Fundamental Theorems</span></td>
@@ -5528,9 +5529,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Cross product</strong> \(\mathbf{u}\times\mathbf{v} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}\) <span class="fsrc off">NOT on exam sheet → Ch 1 Formula Sheet: "Cross Product"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Cross product</strong> \(\mathbf{u}\times\mathbf{v} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}\) <a class="fsrc off" onclick="showPage('formulas');setTimeout(()=>document.getElementById('fs-cross-product').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">NOT on exam sheet → Ch 1 Formula Sheet: "Cross Product"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Plane equation</strong> \(a(x-x_0)+b(y-y_0)+c(z-z_0)=0\) where \(\mathbf{n}=(a,b,c)\) <span class="fsrc off">NOT on exam sheet → Ch 2 notes: plane from normal + point</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Perpendicular planes</strong> → their normals satisfy \(\mathbf{n}_1\cdot\mathbf{n}_2=0\) <span class="fsrc off">NOT on exam sheet → Ch 1 Formula Sheet: "Dot Product"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Perpendicular planes</strong> → their normals satisfy \(\mathbf{n}_1\cdot\mathbf{n}_2=0\) <a class="fsrc off" onclick="showPage('formulas');setTimeout(()=>document.getElementById('fs-dot-product').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">NOT on exam sheet → Ch 1 Formula Sheet: "Dot Product"</a></div></div>
 </div>
 </div>
 
@@ -5599,7 +5600,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar area</strong> \(A = \frac{1}{2}\int_\alpha^\beta r(\theta)^2\,d\theta\) <span class="fsrc on">Exam Sheet: "Area between Polar Curves"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar area</strong> \(A = \frac{1}{2}\int_\alpha^\beta r(\theta)^2\,d\theta\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-10').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #10: "Area between Polar Curves"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Polar Jacobian</strong> \(dA = r\,dr\,d\theta\) <span class="fsrc off">NOT on exam sheet → implicit in all polar integrals, memorize</span></div></div>
 </div>
 </div>
@@ -5742,7 +5743,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Chain rule (2 vars)</strong> \(\frac{\partial f}{\partial s} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}\) <span class="fsrc on">Exam Sheet: "Partial Chain Rule (2 vars)"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Chain rule (2 vars)</strong> \(\frac{\partial f}{\partial s} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-15').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #15: "Partial Chain Rule (2 vars)"</a></div></div>
 </div>
 </div>
 
@@ -5785,8 +5786,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl (3D)</strong> \(\nabla\times\mathbf{F} = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\mathbf{i} - \left(\frac{\partial R}{\partial x}-\frac{\partial P}{\partial z}\right)\mathbf{j} + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathbf{k}\) <span class="fsrc on">Exam Sheet: "Curl"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Conservative condition</strong> \(\mathbf{F} = \nabla f \iff \nabla\times\mathbf{F} = \mathbf{0}\) <span class="fsrc on">Exam Sheet: "Potential Function Condition"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl (3D)</strong> \(\nabla\times\mathbf{F} = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\mathbf{i} - \left(\frac{\partial R}{\partial x}-\frac{\partial P}{\partial z}\right)\mathbf{j} + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathbf{k}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-21').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Conservative condition</strong> \(\mathbf{F} = \nabla f \iff \nabla\times\mathbf{F} = \mathbf{0}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-27').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
 </div>
 </div>
 
@@ -5826,7 +5827,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Scalar line integral</strong> \(\int_C f\,ds = \int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\) <span class="fsrc on">Exam Sheet: "Scalar Line Integral (2D)"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Scalar line integral</strong> \(\int_C f\,ds = \int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-22').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #22: "Scalar Line Integral (2D)"</a></div></div>
 </div>
 </div>
 
@@ -5869,7 +5870,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Double integral (iterated)</strong> \(\iint_R f\,dA\) <span class="fsrc on">Exam Sheet: "Double Integral (Iterated)"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Double integral (iterated)</strong> \(\iint_R f\,dA\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-26').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #26: "Double Integral (Iterated)"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Reversing order technique</strong> — sketch the region, rewrite bounds <span class="fsrc off">NOT on exam sheet → Ch 5 technique, memorize</span></div></div>
 </div>
 </div>
@@ -5923,7 +5924,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Cylindrical coordinates</strong> \(x = r\cos\theta,\; y = r\sin\theta,\; dV = r\,dz\,dr\,d\theta\) <span class="fsrc on">Exam Sheet: "Cylindrical Coordinates"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Cylindrical coordinates</strong> \(x = r\cos\theta,\; y = r\sin\theta,\; dV = r\,dz\,dr\,d\theta\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-39').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #39: "Cylindrical Coordinates"</a></div></div>
 </div>
 </div>
 
@@ -6028,8 +6029,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Vector line integral</strong> \(\int_C P\,dx + Q\,dy = \int_a^b [P\,x'(t) + Q\,y'(t)]\,dt\) <span class="fsrc on">Exam Sheet: "Vector Line Integral (Work)"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Conservative test (2D)</strong> \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) <span class="fsrc on">Exam Sheet: "Potential Function Condition"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Vector line integral</strong> \(\int_C P\,dx + Q\,dy = \int_a^b [P\,x'(t) + Q\,y'(t)]\,dt\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-24').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #24: "Vector Line Integral (Work)"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Conservative test (2D)</strong> \(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-27').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
 </div>
 </div>
 
@@ -6074,7 +6075,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \text{div}\,\mathbf{F}\,dV\) <span class="fsrc on">Exam Sheet: "Divergence Theorem"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \text{div}\,\mathbf{F}\,dV\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-41').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
 </div>
 </div>
 
@@ -6116,7 +6117,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Green's Theorem</strong> \(\oint_C P\,dx + Q\,dy = \iint_R \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA\) <span class="fsrc on">Exam Sheet: "Green's Theorem"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Green's Theorem</strong> \(\oint_C P\,dx + Q\,dy = \iint_R \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-35').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #35: "Green's Theorem"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Ellipse area</strong> \(A = \pi ab\) <span class="fsrc off">NOT on exam sheet → memorize</span></div></div>
 </div>
 </div>
@@ -6180,7 +6181,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Scalar surface integral</strong> \(\iint_S f\,dS = \iint_R f(\mathbf{r}(u,v))\,|\mathbf{r}_u\times\mathbf{r}_v|\,dA\) <span class="fsrc on">Exam Sheet: "Scalar Surface Integral (param.)"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Scalar surface integral</strong> \(\iint_S f\,dS = \iint_R f(\mathbf{r}(u,v))\,|\mathbf{r}_u\times\mathbf{r}_v|\,dA\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-32').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #32: "Scalar Surface Integral (param.)"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Symmetry shortcut</strong>: odd integrand on symmetric domain → integral = 0 <span class="fsrc off">NOT on exam sheet → general principle, memorize</span></div></div>
 </div>
 </div>
@@ -6225,9 +6226,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) <span class="fsrc on">Exam Sheet: "Curl"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> \(\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = \oint_C \mathbf{F}\cdot d\mathbf{r}\) <span class="fsrc on">Exam Sheet: "Stokes' Theorem"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Flux integral (z=z(x,y))</strong> for the normal vector <span class="fsrc on">Exam Sheet: "Flux Integral (z=z(x,y))"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-21').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> \(\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = \oint_C \mathbf{F}\cdot d\mathbf{r}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-36').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Flux integral (z=z(x,y))</strong> for the normal vector <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-33').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #33: "Flux Integral (z=z(x,y))"</a></div></div>
 </div>
 </div>
 
@@ -6276,8 +6277,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \text{div}\,\mathbf{F}\,dV\) <span class="fsrc on">Exam Sheet: "Divergence Theorem"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Divergence</strong> \(\text{div}\,\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\) <span class="fsrc on">Exam Sheet: "Divergence"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \text{div}\,\mathbf{F}\,dV\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-41').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Divergence</strong> \(\text{div}\,\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-20').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #20: "Divergence"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Hemisphere volume</strong> \(V = \frac{2}{3}\pi R^3\) <span class="fsrc off">NOT on exam sheet → memorize (half of sphere volume)</span></div></div>
 </div>
 </div>
@@ -6331,8 +6332,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) — check if it equals \(\mathbf{0}\) <span class="fsrc on">Exam Sheet: "Curl"</span></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> \(\mathbf{F} = \nabla f \iff \nabla\times\mathbf{F} = \mathbf{0}\) <span class="fsrc on">Exam Sheet: "Potential Function Condition"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) — check if it equals \(\mathbf{0}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-21').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> \(\mathbf{F} = \nabla f \iff \nabla\times\mathbf{F} = \mathbf{0}\) <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-27').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Finding f by integration</strong> <span class="fsrc off">NOT on exam sheet → Ch 4 technique: integrate component by component</span></div></div>
 </div>
 </div>
@@ -6406,7 +6407,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 <div class="card-bracket" style="border-left-color:#059669;">
 <strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Second Derivative Test</strong> \(D = f_{xx}f_{yy} - f_{xy}^2\). If \(D > 0\) and \(f_{xx} > 0\) → local min. If \(D > 0\) and \(f_{xx} < 0\) → local max. If \(D < 0\) → saddle. <span class="fsrc on">Exam Sheet: "Second Derivative Test"</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Second Derivative Test</strong> \(D = f_{xx}f_{yy} - f_{xy}^2\). If \(D > 0\) and \(f_{xx} > 0\) → local min. If \(D > 0\) and \(f_{xx} < 0\) → local max. If \(D < 0\) → saddle. <a class="fsrc on" onclick="showPage('examformulas');setTimeout(()=>document.getElementById('ef-19').scrollIntoView({behavior:'smooth',block:'center'}),150)" style="cursor:pointer;">Exam Sheet #19: "Second Derivative Test"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Boundary optimization</strong> — substitute constraint into f, reduce to single-variable problem <span class="fsrc off">NOT on exam sheet → Ch 7 technique</span></div></div>
 </div>
 </div>
