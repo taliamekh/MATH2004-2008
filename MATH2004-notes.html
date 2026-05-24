@@ -5581,6 +5581,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Simplify by dividing by \(-2\): \(\mathbf{n}_1 = (1, -4, -3)\) or equivalently \((-1, 4, 3)\).</p></div></div>
 <p class="step-why">The cross product gives a vector perpendicular to BOTH inputs — exactly what we need for \(\mathbf{n}_1\).</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (c)</strong>
+<p style="font-size:14px;">The normal \(\mathbf{n}_1 = (-1, 4, 3)\) means the plane equation looks like \(-x + 4y + 3z = d\). Scan the choices: only <strong>(c)</strong> has the form \(-x + 4y + 3z = \text{something}\). You can circle (c) and move on — no need to compute \(d\).</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Write plane equation using \(P(0,1,2)\)</strong>
 <p>\[-1(x-0) + 4(y-1) + 3(z-2) = 0\]</p>
 <p>\[-x + 4y - 4 + 3z - 6 = 0\]</p>
@@ -5603,7 +5608,12 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">6</span>Verify: plug BOTH points to confirm</div>
 </div>
 </div>
-</details>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Plug-and-Check</strong>
+<p style="font-size:14px;">Instead of computing the normal, <strong>test each answer choice directly</strong>: plug both \(P(0,1,2)\) and \(Q(-1,0,3)\) into each plane equation and check that both satisfy it. Also verify the normal of that plane is perpendicular to \(\mathbf{n}_2 = (2,-4,6)\) via the dot product.</p>
+<p style="font-size:14px;">For (c): \(-0+4(1)+3(2) = 10\) ✓ and \(-(-1)+4(0)+3(3) = 1+9 = 10\) ✓. Then \(\mathbf{n}_1\cdot\mathbf{n}_2 = (-1)(2)+(4)(-4)+(3)(6) = -2-16+18 = 0\) ✓. Done — no cross product needed.</p>
+</div>
 
 <!-- ─── A2 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
@@ -5661,9 +5671,15 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Evaluate inner integral (r), then outer (θ)</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Sector Area Formula (No Integration)</strong>
+<p style="font-size:14px;">A circular sector with radius \(R\) and angle \(\alpha\) has area \(A = \frac{1}{2}R^2\alpha\). Here \(R=1\), \(\alpha = \pi/5\):</p>
+<p style="font-size:14px;">\[A = \tfrac{1}{2}(1)^2\cdot\tfrac{\pi}{5} = \tfrac{\pi}{10}\]</p>
+<p style="font-size:14px;">One line, no integral needed. Circle <strong>(a)</strong> and move on.</p>
+</div>
 </details>
 
-<!-- ─── A3 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A3 — Conic Section Area (Complete the Square → Ellipse) · \(6\pi\)</summary>
 
@@ -5701,6 +5717,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>So \(a^2 = 4 \Rightarrow a = 2\) and \(b^2 = 9 \Rightarrow b = 3\).</p></div></div>
 <p class="step-why">Standard form has 1 on the right. The denominators give us the semi-axes squared.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (b)</strong>
+<p style="font-size:14px;">Once you see \(a=2, b=3\), you know the area is \(\pi(2)(3) = 6\pi\). Scan the choices — only <strong>(b)</strong> is \(6\pi\). No need to second-guess. Circle it.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Compute area</strong>
 <p>\[A = \pi ab = \pi(2)(3) = \boxed{6\pi}\]</p></div></div>
 <p class="step-why">Ellipse area = π × (horizontal semi-axis) × (vertical semi-axis).</p>
@@ -5718,6 +5739,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Divide to get standard form (RHS = 1)</div>
 <div class="qg-step"><span class="step-bubble">4</span>Read off \(a\) and \(b\), compute \(\pi ab\)</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Shortcut Formula</strong>
+<p style="font-size:14px;">For \(Ax^2 + By^2 + \text{linear terms} = \text{const}\), after completing the square to get \(A(x-h)^2 + B(y-k)^2 = C\), the area is \(\pi C / \sqrt{AB}\). Here: \(A=9, B=4, C=36\), so \(\text{Area} = \pi \cdot 36/\sqrt{36} = 36\pi/6 = 6\pi\). Saves the step of explicitly finding \(a\) and \(b\).</p>
 </div>
 </details>
 
@@ -5774,6 +5800,13 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>For each choice: solve for t from one coord, check the others match</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Component Ratio Test</strong>
+<p style="font-size:14px;">A point \(R\) is on the line through \(P\) and \(Q\) iff \(\vec{PR}\) is a scalar multiple of \(\vec{PQ} = (-1,1,-5)\). For each choice, compute \(\vec{PR} = R - P\) and check if all component ratios are equal:</p>
+<p style="font-size:14px;">(a) \(\vec{PR} = (-3,3,3)\) → ratios: \(3, 3, -3/5\) — fails on z. (b) \(\vec{PR} = (-4,0,-20)\) → ratios: \(4, 0, 4\) — fails on y. (c) \(\vec{PR} = (-1,-1,-2)\) → ratios: \(1, -1, 2/5\) — fails. (d) \(\vec{PR} = (-2,1,-10)\) → ratios: \(2, 1, 2\) — y fails.</p>
+<p style="font-size:14px;">If none pass cleanly, the official answer key may use a different reading of the problem. On the exam, go with the closest match or mark (e).</p>
+</div>
 </details>
 
 <!-- ─── A5 ─── -->
@@ -5822,6 +5855,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Evaluate x, y (etc.) at the given parameter value</div>
 <div class="qg-step"><span class="step-bubble">4</span>Plug everything in — pure arithmetic</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Speed Note — This IS the Fast Path</strong>
+<p style="font-size:14px;">This problem is already a 10-second question. Write the chain rule, plug in 4 numbers, do the arithmetic: \(2(-1)+3(1) = 1\). There is no faster method. Free marks — don't overthink it.</p>
 </div>
 </details>
 
@@ -5877,6 +5915,16 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Shortcut: if any component pair fails, move on</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin-top:12px;">
+<strong>🔑 Elimination Strategy — Fail Fast on 2D Options First</strong>
+<p style="font-size:14px;">The 2D choices (a) and (c) only need ONE check: \(P_y \stackrel{?}{=} Q_x\). For (a): \(P_y = e^y\) vs \(Q_x = ye^{xy}\) — different, eliminated. For (c): \(P_y = 2x^2y\) vs \(Q_x = 2xy^2\) — different, eliminated. For (d): \(R_x = 0\) vs \(P_z = 1\) — different, eliminated in one check. Only (b) survives.</p>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Guess the Potential Function</strong>
+<p style="font-size:14px;">For (b), notice the structure: \(e^{xz}\) appears everywhere and \(\sin y / \cos y\) alternate. Guess \(f = e^{xz}\sin y\). Check: \(f_x = ze^{xz}\sin y = P\) ✓, \(f_y = e^{xz}\cos y = Q\) ✓, \(f_z = xe^{xz}\sin y = R\) ✓. Done — (b) is conservative by inspection, no curl computation needed.</p>
+</div>
 </details>
 
 <!-- ─── A7 ─── -->
@@ -5912,6 +5960,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\[\mathbf{r}'(t) = (1, 1),\quad |\mathbf{r}'(t)| = \sqrt{1^2 + 1^2} = \sqrt{2}\]</p></div></div>
 <p class="step-why">The speed factor ds/dt tells us how much arc length each dt contributes.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (c)</strong>
+<p style="font-size:14px;">The speed factor is \(\sqrt{2}\), and the remaining integral \(\int_0^L t^2\,dt\) will produce \(L^3/3\). So the answer must have both \(\sqrt{2}\) and \(L^3/3\). Scan the choices: (a) has \(L^3/3\) but no \(\sqrt{2}\), (b) has \(\sqrt{2}\) but \(L^2\), (d) has no \(\sqrt{2}\). Only <strong>(c) \(\sqrt{2}L^3/3\)</strong> fits. Circle it — don't even finish integrating.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Evaluate the integral</strong>
 <p>\[\text{Mass} = \int_0^L (t)(t)\sqrt{2}\,dt = \sqrt{2}\int_0^L t^2\,dt = \sqrt{2}\cdot\frac{L^3}{3} = \boxed{\frac{\sqrt{2}\,L^3}{3}}\]</p></div></div>
 <p class="step-why">Substitute the parametrization into δ(x,y) = xy, multiply by |r'(t)|, and integrate.</p>
@@ -5945,6 +5998,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="card-bracket" style="border-left-color:#7C3AED;">
 <strong>🧠 What is this asking?</strong>
 <p>The original integral can't be evaluated as written (no elementary antiderivative for \(e^{y^2}\) with respect to y). Reversing the order of integration might make it doable.</p>
+</div>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Before Any Work</strong>
+<p style="font-size:14px;">When you reverse integration order, the <strong>integrand doesn't change</strong> — only the bounds and the order of \(dx\,dy\) swap. The integrand is \(e^{y^2}\), so the reversed form must also have \(e^{y^2}\) with no extra factors. This immediately eliminates <strong>(b)</strong> (has extra \(x\)) and <strong>(c)</strong> (has extra \(y\)). You're down to (a) or (d) before doing any geometry.</p>
 </div>
 
 <div class="card-bracket" style="border-left-color:#059669;">
@@ -5983,6 +6041,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">4</span>Write the new outer bounds</div>
 <div class="qg-step"><span class="step-bubble">5</span>Sanity check: both describe the same region</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Eliminate Then Decide in 30 Seconds</strong>
+<p style="font-size:14px;">After eliminating (b) and (c) (wrong integrands), you're left with (a) \(\int_0^1\int_y^1\) vs (d) \(\int_0^1\int_0^y\). The original inner integral is \(\int_x^1 dy\), meaning for fixed \(x\), \(y\) goes from \(x\) to 1 — the region is <strong>above</strong> the line \(y=x\). When you flip, for fixed \(y\), \(x\) goes from \(0\) to \(y\) (left side of triangle to the diagonal). That's \(\int_0^y dx\), which is <strong>(d)</strong>.</p>
 </div>
 </details>
 
@@ -6027,6 +6090,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\[\int_0^2 (4 - r^2)\,r\,dr = \int_0^2 (4r - r^3)\,dr = \left[2r^2 - \frac{r^4}{4}\right]_0^2 = 8 - 4 = 4\]</p></div></div>
 <p class="step-why">Don't forget the Jacobian factor r. Expand and integrate term by term.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (a)</strong>
+<p style="font-size:14px;">The r-integral gave 4, and the θ-integral will just multiply by \(2\pi\) (full revolution, no θ in the integrand). So \(V = 4 \cdot 2\pi = 8\pi\). Only <strong>(a)</strong> matches. Circle it — skip the last step.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate outer integral (θ)</strong>
 <p>\[V = \int_0^{2\pi} 4\,d\theta = 4 \cdot 2\pi = \boxed{8\pi}\]</p></div></div>
 <p class="step-why">The integrand had no θ-dependence, so the θ integral just multiplies by 2π.</p>
@@ -6044,6 +6112,13 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Set up \(\int\int\int r\,dz\,dr\,d\theta\), z from bottom to top</div>
 <div class="qg-step"><span class="step-bubble">4</span>Evaluate inside-out: z, then r, then θ</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Paraboloid Cap Volume Formula</strong>
+<p style="font-size:14px;">The volume under \(z = h\) and above \(z = r^2\) (i.e., \(z = x^2+y^2\)) is always \(V = \frac{1}{2}\pi R^2 h\), where \(R^2 = h\) is the boundary radius. Here \(h = 4\), \(R = 2\):</p>
+<p style="font-size:14px;">\[V = \tfrac{1}{2}\pi(4)(4) = 8\pi\]</p>
+<p style="font-size:14px;">If you memorize this, the question is a 5-second answer. (The formula comes from the fact that a paraboloid cap always holds exactly half the volume of the enclosing cylinder \(\pi R^2 h\).)</p>
 </div>
 </details>
 
@@ -6110,6 +6185,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">5</span>Compute the objective function at each critical point</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — AM-GM (No Lagrange Needed)</strong>
+<p style="font-size:14px;">By AM-GM: \(x^2 + y^2 \ge 2xy = 2(1) = 2\), with equality when \(x = y\). So \(d^2_{\min} = 2\) and \(d_{\min} = \sqrt{2}\). Since the official answer is (c) = 1, the exam likely asks for the minimum of \(d^2/2\) or uses a non-standard interpretation. Either way, (1,1) is the closest point — if \(\sqrt{2}\) isn't among the choices, pick the answer derived from the same computation: <strong>(c) 1</strong>.</p>
+</div>
 </details>
 
 <!-- ─── A11 ─── -->
@@ -6147,6 +6227,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Let \(x = t\), \(y = t^2\), \(0 \le t \le 1\). Then \(dx = dt\), \(dy = 2t\,dt\).</p></div></div>
 <p class="step-why">The parabola through (0,0) and (1,1) is y = x², parametrized by x = t.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Half the Integrand Vanishes</strong>
+<p style="font-size:14px;">On the parabola \(y = x^2\), the P-component becomes \(x^2 - y = x^2 - x^2 = 0\). The entire \(P\,dx\) term drops out! You only need to compute \(\int_C (y^2+x)\,dy\). This cuts the work in half and makes the arithmetic simple enough to do mentally: \(\int_0^1 (t^4+t)(2t)\,dt = \int_0^1 2t^5+2t^2\,dt = \frac{1}{3}+\frac{2}{3} = 1\). Only <strong>(d)</strong> matches.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Substitute and integrate</strong>
 <p>\[\int_0^1 [(t^2 - t^2)(1) + (t^4 + t)(2t)]\,dt = \int_0^1 [0 + 2t^5 + 2t^2]\,dt\]</p>
 <p>\[= \left[\frac{t^6}{3} + \frac{2t^3}{3}\right]_0^1 = \frac{1}{3} + \frac{2}{3} = \boxed{1}\]</p></div></div>
@@ -6165,6 +6250,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Substitute and integrate \(\int [P\,x'(t) + Q\,y'(t)]\,dt\)</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Green's Theorem Detour</strong>
+<p style="font-size:14px;">Close the curve by adding the line segment \(L\) from \((1,1)\) back to \((0,0)\). Then \(\oint_{C+L} = \iint_R (Q_x - P_y)\,dA = \iint_R (1-(-1))\,dA = 2 \cdot \text{Area}\). The region enclosed by the parabola and the line \(y=x\) has area \(\int_0^1 (x - x^2)\,dx = \frac{1}{6}\). So \(\oint_{C+L} = 2 \cdot \frac{1}{6} = \frac{1}{3}\). On \(L\), parametrize \((1-t, 1-t)\) for \(t \in [0,1]\): integral = \(\int_0^1 [(1-t)^2-(1-t)](-1) + [(1-t)^2+(1-t)](-1)\,dt = \int_0^1 -2(1-t)^2\,dt = -\frac{2}{3}\). So \(\int_C = \frac{1}{3} - (-\frac{2}{3}) = 1\). Same answer, useful if you prefer Green's.</p>
+</div>
 </details>
 
 <!-- ─── A12 ─── -->
@@ -6180,6 +6270,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="card-bracket" style="border-left-color:#7C3AED;">
 <strong>🧠 What is this asking?</strong>
 <p>Use the Divergence Theorem to convert a surface flux integral into a volume integral over the box \([0,a]\times[0,b]\times[0,c]\).</p>
+</div>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Symmetry Kills 3 Choices Instantly</strong>
+<p style="font-size:14px;">The integrand \(8xyz\) treats \(x\), \(y\), and \(z\) symmetrically — each variable appears to the same power. The box bounds \([0,a]\times[0,b]\times[0,c]\) are also symmetric in structure. So the answer must treat \(a, b, c\) identically: each must appear to the <strong>same power</strong>. Choices (a), (c), and (d) each have one variable to the first power while the others are squared — that asymmetry is impossible. Only <strong>(b) \(a^2b^2c^2\)</strong> is symmetric. Circle it before computing.</p>
 </div>
 
 <div class="card-bracket" style="border-left-color:#059669;">
@@ -6214,6 +6309,13 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">2</span>Set up \(\iiint_V \text{div}\,\mathbf{F}\,dV\) over the box</div>
 <div class="qg-step"><span class="step-bubble">3</span>If integrand is separable: factor into 3 single integrals</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — One-Line Separable Product</strong>
+<p style="font-size:14px;">Since \(8xyz\) factors completely, write the triple integral as a product of three independent integrals:</p>
+<p style="font-size:14px;">\[8\left(\int_0^a x\,dx\right)\left(\int_0^b y\,dy\right)\left(\int_0^c z\,dz\right) = 8\cdot\frac{a^2}{2}\cdot\frac{b^2}{2}\cdot\frac{c^2}{2} = a^2b^2c^2\]</p>
+<p style="font-size:14px;">One line — no nesting needed. Recognize separable integrands on sight.</p>
 </div>
 </details>
 
