@@ -559,303 +559,366 @@
 </div>
 </details>
 
+
 <div class="part-banner la">PART B — Long Answer (6 Questions, 44 marks total)</div>
 
 <!-- ─── B1 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B1 [8 marks] — Lagrange Multipliers (Optimize on Linear Constraint): \(x^2y^2\) on \(x+y=1\) · Max \(\frac{1}{16}\) at \((\frac{1}{2},\frac{1}{2})\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Find and classify all the critical points of \(f(x,y)=x^2y^2\) subject to the constraint \(x+y=1\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find and classify all the critical points of \(f(x,y)=x^2y^2\) subject to the constraint \(x+y=1\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Lagrange multipliers</strong> \(\nabla f = \lambda\nabla g\) <a class="fsrc off" onclick="goToEq('formulas','fs-lagrange-multiplier-method')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Lagrange Multiplier Method"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Lagrange multipliers</strong> \(\nabla f = \lambda\nabla g\) where \(g = x+y-1 = 0\) <a class="fsrc off" onclick="goToEq('formulas','fs-lagrange-multiplier-method')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Lagrange Multiplier Method"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Since \(\nabla g = (1, 1)\) is constant and nonzero, the Lagrange equations simplify: both components of \(\nabla f\) equal the same \(\lambda\). This lets us eliminate \(\lambda\) by setting them equal to each other.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute the gradients</strong>
+<p>\[\nabla f = \left(\frac{\partial}{\partial x}(x^2y^2),\;\frac{\partial}{\partial y}(x^2y^2)\right) = (2xy^2,\; 2x^2y)\]</p>
+<p>\[\nabla g = (1,\; 1)\]</p></div></div>
+<p class="step-why">For f = x²y², use the product rule: f_x = 2xy² (treat y as constant), f_y = 2x²y (treat x as constant).</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Write the Lagrange equations</strong>
+<p>\[\text{(i)}\quad 2xy^2 = \lambda \cdot 1 = \lambda\]</p>
+<p>\[\text{(ii)}\quad 2x^2y = \lambda \cdot 1 = \lambda\]</p>
+<p>Since both equal \(\lambda\), set them equal to each other:</p>
+<p>\[2xy^2 = 2x^2y\]</p></div></div>
+<p class="step-why">Tip: when ∇g = (1,1), the Lagrange equations say f_x = f_y = λ. Eliminating λ by setting f_x = f_y is the fastest move.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Solve \(2xy^2 = 2x^2y\)</strong>
+<p>Rearrange: \(2xy^2 - 2x^2y = 0\).</p>
+<p>Factor: \(2xy(y - x) = 0\).</p>
+<p>Three cases: \(x = 0\), or \(y = 0\), or \(y = x\).</p></div></div>
+<p class="step-why">Tip: don't divide by xy — you'd lose the x=0 and y=0 solutions. Always factor instead of dividing by a variable that could be zero.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Apply the constraint \(x + y = 1\) to each case</strong>
+<p><strong>Case 1: \(x = 0\)</strong> → \(0 + y = 1\) → \(y = 1\). Point: \((0, 1)\).</p>
+<p>\[f(0, 1) = 0^2 \cdot 1^2 = 0\]</p>
+<p><strong>Case 2: \(y = 0\)</strong> → \(x + 0 = 1\) → \(x = 1\). Point: \((1, 0)\).</p>
+<p>\[f(1, 0) = 1^2 \cdot 0^2 = 0\]</p>
+<p><strong>Case 3: \(x = y\)</strong> → \(x + x = 1\) → \(x = \frac{1}{2}\), \(y = \frac{1}{2}\). Point: \((\frac{1}{2}, \frac{1}{2})\).</p>
+<p>\[f\!\left(\tfrac{1}{2}, \tfrac{1}{2}\right) = \left(\tfrac{1}{2}\right)^2\!\left(\tfrac{1}{2}\right)^2 = \tfrac{1}{4}\cdot\tfrac{1}{4} = \tfrac{1}{16}\]</p></div></div>
+<p class="step-why">Tip: always check ALL cases from the factoring. On exams, forgetting the x=0 or y=0 cases loses marks.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Classify by comparing f-values</strong>
+<p>The three critical values are: \(f = 0\) (at two points) and \(f = \frac{1}{16}\) (at one point).</p>
+<p>Since \(f = x^2y^2 \ge 0\) always, the smallest value 0 is a <strong>minimum</strong> and the largest value \(\frac{1}{16}\) is a <strong>maximum</strong>.</p></div></div>
+<p class="step-why">Since f = x²y² ≥ 0 for all (x,y), we know 0 is the global min on the constraint. The constraint x+y=1 is a line (unbounded), but f→∞ as we move far along it, so 1/16 is a local max.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Set up Lagrange equations</strong>
-<p>\(g = x+y-1\). \(\nabla f = (2xy^2, 2x^2y)\), \(\nabla g = (1,1)\).</p>
-<p>\(2xy^2 = \lambda\) and \(2x^2y = \lambda\). So \(2xy^2 = 2x^2y\).</p></div></div>
-<p class="step-why">Each component of ∇f equals λ times the corresponding component of ∇g.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Solve: \(2xy^2 = 2x^2y\)</strong>
-<p>\(2xy(y-x) = 0\), so \(x=0\), \(y=0\), or \(x=y\).</p></div></div>
-<p class="step-why">Factor out common terms to find all cases.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Apply constraint \(x+y=1\) to each case</strong>
-<p>Case \(x=0\): \(y=1\) → \(f(0,1)=0\) (minimum).</p>
-<p>Case \(y=0\): \(x=1\) → \(f(1,0)=0\) (minimum).</p>
-<p>Case \(x=y\): \(2x=1\), \(x=y=\frac{1}{2}\) → \(f(\frac{1}{2},\frac{1}{2})=\frac{1}{16}\) (maximum).</p></div></div>
-<p class="step-why">Substitute each case into the constraint to find the actual points.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: Min = 0 at \((0,1)\) and \((1,0)\). Max = \(\frac{1}{16}\) at \((\frac{1}{2},\frac{1}{2})\).</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Lagrange on a Linear Constraint</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Min = 0 at \((0,1)\) and \((1,0)\). Max = \(\frac{1}{16}\) at \((\frac{1}{2},\frac{1}{2})\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Lagrange on a Linear Constraint</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Set up \(\nabla f = \lambda\nabla g\) + constraint</div>
-<div class="qg-step"><span class="step-bubble">2</span>From the equations: eliminate λ or find variable relationships</div>
-<div class="qg-step"><span class="step-bubble">3</span>Consider ALL cases (including x=0 or y=0)</div>
-<div class="qg-step"><span class="step-bubble">4</span>Apply constraint to find actual points</div>
-<div class="qg-step"><span class="step-bubble">5</span>Compare \(f\) values to classify max/min</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute \(\nabla f\) and \(\nabla g\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>If \(\nabla g = (1,1)\): set \(f_x = f_y\) to eliminate λ</div>
+<div class="qg-step"><span class="step-bubble">3</span>FACTOR (never divide by variables) → list all cases</div>
+<div class="qg-step"><span class="step-bubble">4</span>Apply constraint to each case → find points</div>
+<div class="qg-step"><span class="step-bubble">5</span>Evaluate f at each point → compare to classify</div>
+</div></div>
 </details>
 
 <!-- ─── B2 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B2 [7 marks] — Polar Double Integral (Annulus in First Quadrant) · \(\frac{31}{10}\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Evaluate \(I = \iint_R xy\sqrt{x^2+y^2}\,dx\,dy\) by a suitable change of coordinates, where \(R = \{(x,y): 1\le x^2+y^2\le 4,\; x\ge 0,\; y\ge 0\}\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(I = \iint_R xy\sqrt{x^2+y^2}\,dx\,dy\) by a suitable change of coordinates, where \(R = \{(x,y): 1\le x^2+y^2\le 4,\; x\ge 0,\; y\ge 0\}\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar coordinates</strong> \(x=r\cos\theta\), \(y=r\sin\theta\), \(dA = r\,dr\,d\theta\) <span class="fsrc off">NOT on exam sheet → memorize polar Jacobian</span></div></div>
-</div>
-</div>
+</div></div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Convert to polar</strong>
-<p>Region: \(1 \le r \le 2\), \(0 \le \theta \le \pi/2\) (first quadrant annulus).</p>
-<p>\(xy\sqrt{x^2+y^2} = (r\cos\theta)(r\sin\theta)\cdot r = r^3\sin\theta\cos\theta\). With Jacobian \(r\):</p>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The region \(1 \le x^2+y^2 \le 4\) with \(x,y \ge 0\) is a quarter-annulus (donut slice) in the first quadrant. The integrand contains \(\sqrt{x^2+y^2} = r\) and \(xy = r^2\sin\theta\cos\theta\), both of which simplify beautifully in polar.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Convert the region to polar bounds</strong>
+<p>\(1 \le x^2+y^2 \le 4\) becomes \(1 \le r^2 \le 4\), i.e., \(1 \le r \le 2\).</p>
+<p>\(x \ge 0,\; y \ge 0\) means first quadrant: \(0 \le \theta \le \pi/2\).</p></div></div>
+<p class="step-why">Tip: x²+y² = r², so the annulus 1 ≤ x²+y² ≤ 4 becomes 1 ≤ r ≤ 2 (take square roots).</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Convert the integrand piece by piece</strong>
+<p>\(x = r\cos\theta\), \(y = r\sin\theta\), so \(xy = r^2\sin\theta\cos\theta\).</p>
+<p>\(\sqrt{x^2+y^2} = \sqrt{r^2} = r\).</p>
+<p>Therefore: \(xy\sqrt{x^2+y^2} = r^2\sin\theta\cos\theta \cdot r = r^3\sin\theta\cos\theta\).</p></div></div>
+<p class="step-why">Build the integrand step by step. Don't try to convert everything at once — substitute each factor separately.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Include the Jacobian and write the integral</strong>
+<p>\(dA = r\,dr\,d\theta\), so the full integrand is:</p>
+<p>\[r^3\sin\theta\cos\theta \cdot r\,dr\,d\theta = r^4\sin\theta\cos\theta\,dr\,d\theta\]</p>
 <p>\[I = \int_0^{\pi/2}\int_1^2 r^4\sin\theta\cos\theta\,dr\,d\theta\]</p></div></div>
-<p class="step-why">x²+y² = r², xy = r²sinθcosθ, and dA = r dr dθ.</p>
+<p class="step-why">The Jacobian r multiplies the converted integrand r³, giving r⁴ total. This is the most common mistake — forgetting the Jacobian.</p>
 
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Evaluate</strong>
-<p>\[\int_1^2 r^4\,dr = \frac{r^5}{5}\Big|_1^2 = \frac{32-1}{5} = \frac{31}{5}\]</p>
-<p>\[\int_0^{\pi/2}\sin\theta\cos\theta\,d\theta = \frac{1}{2}\]</p>
-<p>\[I = \frac{31}{5}\cdot\frac{1}{2} = \boxed{\frac{31}{10}}\]</p></div></div>
-<p class="step-why">The integral separates into an r-part and a θ-part. sin θ cos θ = ½ sin 2θ.</p>
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Separate (no mixed r-θ terms) and evaluate the r-integral</strong>
+<p>\[I = \left(\int_1^2 r^4\,dr\right)\left(\int_0^{\pi/2}\sin\theta\cos\theta\,d\theta\right)\]</p>
+<p>\[\int_1^2 r^4\,dr = \frac{r^5}{5}\Bigg|_1^2 = \frac{2^5}{5} - \frac{1^5}{5} = \frac{32}{5} - \frac{1}{5} = \frac{31}{5}\]</p></div></div>
+<p class="step-why">Power rule: ∫r⁴dr = r⁵/5. Then evaluate at bounds.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate the θ-integral</strong>
+<p>\[\int_0^{\pi/2}\sin\theta\cos\theta\,d\theta\]</p>
+<p>Method 1 (u-sub): Let \(u = \sin\theta\), \(du = \cos\theta\,d\theta\).</p>
+<p>\[= \int_0^1 u\,du = \frac{u^2}{2}\Bigg|_0^1 = \frac{1}{2}\]</p>
+<p>Method 2 (identity): \(\sin\theta\cos\theta = \frac{1}{2}\sin 2\theta\), so \(\int_0^{\pi/2}\frac{1}{2}\sin 2\theta\,d\theta = \frac{1}{2}\cdot\frac{1}{2}[-\cos 2\theta]_0^{\pi/2} = \frac{1}{4}(1+1) = \frac{1}{2}\).</p></div></div>
+<p class="step-why">Tip: ∫₀^{π/2} sinθ cosθ dθ = 1/2 comes up constantly in polar problems. Memorize it.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Multiply the two parts</strong>
+<p>\[I = \frac{31}{5} \cdot \frac{1}{2} = \boxed{\frac{31}{10}}\]</p></div></div>
+<p class="step-why">Clean multiplication of two fractions.</p>
 </div>
 
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(\frac{31}{10}\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Polar Double Integral</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{31}{10}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Polar Double Integral</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Convert region to polar: \(x^2+y^2=r^2\) bounds</div>
-<div class="qg-step"><span class="step-bubble">2</span>Convert integrand: replace x, y, \(\sqrt{x^2+y^2}\) with r, θ forms</div>
-<div class="qg-step"><span class="step-bubble">3</span>Don't forget Jacobian \(r\) in \(dA = r\,dr\,d\theta\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>If separable: split into r-integral × θ-integral</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Convert region bounds to r and θ</div>
+<div class="qg-step"><span class="step-bubble">2</span>Convert integrand: replace x, y, √(x²+y²) piece by piece</div>
+<div class="qg-step"><span class="step-bubble">3</span>Multiply by Jacobian r → total power of r in integrand</div>
+<div class="qg-step"><span class="step-bubble">4</span>If separable: split into (r-integral) × (θ-integral)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Memorize: ∫₀^{π/2} sinθcosθ dθ = 1/2</div>
+</div></div>
 </details>
 
 <!-- ─── B3 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B3 [7 marks] — Line Integral on Helix (Parametric, IBP Required) · \(3\pi\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Evaluate \(I = \int_C z\,dx + x\,dy + y\,dz\) over the helix \(x=\cos t\), \(y=\sin t\), \(z=t\) from \((1,0,0)\) to \((1,0,2\pi)\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(I = \int_C z\,dx + x\,dy + y\,dz\) over the helix \(x=\cos t\), \(y=\sin t\), \(z=t\) from \((1,0,0)\) to \((1,0,2\pi)\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Vector line integral</strong> \(\int_C P\,dx+Q\,dy+R\,dz = \int_a^b [Px'+Qy'+Rz']\,dt\) <a class="fsrc on" onclick="goToEq('examformulas','ef-24')" style="cursor:pointer;">Exam Sheet #24: "Vector Line Integral (Work)"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Integration by parts</strong> \(\int u\,dv = uv - \int v\,du\) <span class="fsrc off">NOT on exam sheet → memorize</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Half-angle</strong> \(\cos^2 t = \frac{1+\cos 2t}{2}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-1')" style="cursor:pointer;">Exam Sheet #1: "Double-Angle: cos²x"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify P, Q, R and compute derivatives</strong>
+<p>\(P = z = t\), \(Q = x = \cos t\), \(R = y = \sin t\).</p>
+<p>\(x'(t) = -\sin t\), \(y'(t) = \cos t\), \(z'(t) = 1\).</p>
+<p>Parameter range: \((1,0,0)\) at \(t = 0\), \((1,0,2\pi)\) at \(t = 2\pi\).</p></div></div>
+<p class="step-why">Replace each of P, Q, R with the helix parametrization. The z-component z = t is what makes this integral interesting.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Form the integrand \(Px' + Qy' + Rz'\)</strong>
+<p>\[= t(-\sin t) + \cos t(\cos t) + \sin t(1)\]</p>
+<p>\[= -t\sin t + \cos^2 t + \sin t\]</p></div></div>
+<p class="step-why">Multiply each P, Q, R by its corresponding derivative and sum. Three separate terms to integrate.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Split into three integrals</strong>
+<p>\[I = \underbrace{\int_0^{2\pi}(-t\sin t)\,dt}_{I_1} + \underbrace{\int_0^{2\pi}\cos^2 t\,dt}_{I_2} + \underbrace{\int_0^{2\pi}\sin t\,dt}_{I_3}\]</p></div></div>
+<p class="step-why">Each term requires a different technique: IBP, half-angle, and direct antiderivative.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Evaluate \(I_1 = \int_0^{2\pi}-t\sin t\,dt\) using integration by parts</strong>
+<p>Let \(u = t\), \(dv = -\sin t\,dt\). Then \(du = dt\), \(v = \cos t\).</p>
+<p>\[I_1 = \Big[t\cos t\Big]_0^{2\pi} - \int_0^{2\pi}\cos t\,dt\]</p>
+<p>\[= \Big[(2\pi)\cos(2\pi) - 0\cdot\cos 0\Big] - \Big[\sin t\Big]_0^{2\pi}\]</p>
+<p>\[= \Big[2\pi \cdot 1 - 0\Big] - \Big[\sin(2\pi) - \sin 0\Big]\]</p>
+<p>\[= 2\pi - 0 = 2\pi\]</p></div></div>
+<p class="step-why">Tip for IBP on t·trig: let u = t (the polynomial) and dv = trig part. The polynomial drops in degree after one IBP step.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate \(I_2 = \int_0^{2\pi}\cos^2 t\,dt\) using the half-angle identity</strong>
+<p>\[\cos^2 t = \frac{1 + \cos 2t}{2}\]</p>
+<p>\[I_2 = \int_0^{2\pi}\frac{1+\cos 2t}{2}\,dt = \frac{1}{2}\left[t + \frac{\sin 2t}{2}\right]_0^{2\pi}\]</p>
+<p>\[= \frac{1}{2}\left[\left(2\pi + 0\right) - \left(0 + 0\right)\right] = \frac{1}{2}\cdot 2\pi = \pi\]</p></div></div>
+<p class="step-why">Tip: ∫₀^{2π} cos²t dt = π always (over a full period, cos² averages to 1/2, times the period 2π = π). Same for sin²t.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Evaluate \(I_3 = \int_0^{2\pi}\sin t\,dt\)</strong>
+<p>\[I_3 = \Big[-\cos t\Big]_0^{2\pi} = -\cos(2\pi) + \cos(0) = -1 + 1 = 0\]</p></div></div>
+<p class="step-why">sin t over a full period always integrates to zero — the positive and negative halves cancel.</p>
+
+<div class="step-row"><span class="step-bubble">7</span><div class="step-body"><strong>Add the three parts</strong>
+<p>\[I = I_1 + I_2 + I_3 = 2\pi + \pi + 0 = \boxed{3\pi}\]</p></div></div>
+<p class="step-why">Clean addition. The sin t term contributes nothing; the main work comes from the IBP term and the cos² term.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Set up derivatives</strong>
-<p>\(x'=-\sin t\), \(y'=\cos t\), \(z'=1\). \(P=z=t\), \(Q=x=\cos t\), \(R=y=\sin t\).</p></div></div>
-<p class="step-why">Replace P, Q, R with their parametric expressions and compute dx/dt, dy/dt, dz/dt.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Substitute and integrate</strong>
-<p>\[I = \int_0^{2\pi}[t(-\sin t)+\cos t(\cos t)+\sin t(1)]\,dt = \int_0^{2\pi}(-t\sin t+\cos^2 t+\sin t)\,dt\]</p></div></div>
-<p class="step-why">Multiply each P,Q,R by its corresponding derivative and sum.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Evaluate each term</strong>
-<p>\(\int_0^{2\pi}-t\sin t\,dt = 2\pi\) (integration by parts: \([-t(-\cos t)]_0^{2\pi} - \int_0^{2\pi}\cos t\,dt = 2\pi - 0\))</p>
-<p>\(\int_0^{2\pi}\cos^2 t\,dt = \pi\) (half-angle formula)</p>
-<p>\(\int_0^{2\pi}\sin t\,dt = 0\) (full period)</p>
-<p>\[I = 2\pi + \pi + 0 = \boxed{3\pi}\]</p></div></div>
-<p class="step-why">Break into three separate integrals. Use IBP for t sin t, half-angle for cos²t.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(3\pi\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Line Integral on a Parametric Curve</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(3\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Line Integral on a Parametric Curve</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Compute \(x'(t)\), \(y'(t)\), \(z'(t)\)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Find t-values for start and end points</div>
-<div class="qg-step"><span class="step-bubble">3</span>Substitute: \(\int[Px'+Qy'+Rz']\,dt\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>Break into manageable terms (IBP for \(t\sin t\), half-angle for \(\cos^2 t\))</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Substitute P, Q, R and x', y', z' into \(\int[Px'+Qy'+Rz']\,dt\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Split into manageable terms</div>
+<div class="qg-step"><span class="step-bubble">3</span>\(t\sin t\) or \(t\cos t\) → integration by parts (u = t)</div>
+<div class="qg-step"><span class="step-bubble">4</span>\(\cos^2 t\) → half-angle identity</div>
+<div class="qg-step"><span class="step-bubble">5</span>\(\sin t\) or \(\cos t\) over full period → 0</div>
+</div></div>
 </details>
 
 <!-- ─── B4 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B4 [7 marks] — div(curl F) Identity (Existence Test) ≠ 0 Proof · No such F exists</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Determine whether there is a vector field \(\mathbf{F}(x,y,z)\) whose curl is \(\text{curl}\,\mathbf{F} = 2xy\,\mathbf{i} - 2yz\,\mathbf{j} + 2xy\,\mathbf{k}\). If not, show why not.</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Determine whether there is a vector field \(\mathbf{F}(x,y,z)\) whose curl is \(\text{curl}\,\mathbf{F} = 2xy\,\mathbf{i} - 2yz\,\mathbf{j} + 2xy\,\mathbf{k}\). If not, show why not. If so, find it.</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence</strong> \(\text{div}\,\mathbf{G} = \frac{\partial G_1}{\partial x}+\frac{\partial G_2}{\partial y}+\frac{\partial G_3}{\partial z}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-20')" style="cursor:pointer;">Exam Sheet #20: "Divergence"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Key identity</strong> \(\text{div}(\text{curl}\,\mathbf{F}) = 0\) for any smooth F <span class="fsrc off">NOT on exam sheet → memorize this identity</span></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Before trying to find F, check whether the given expression CAN be a curl. The identity div(curl F) = 0 is a necessary condition. If the divergence of the proposed curl is nonzero, no such F exists — saving you from a futile search.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>State the key identity</strong>
+<p>For any smooth vector field \(\mathbf{F}\), we have \(\text{div}(\text{curl}\,\mathbf{F}) = \nabla\cdot(\nabla\times\mathbf{F}) = 0\).</p>
+<p>This is because mixed partials are equal: \(\frac{\partial^2}{\partial x\partial y} = \frac{\partial^2}{\partial y\partial x}\), causing all terms to cancel in pairs.</p></div></div>
+<p class="step-why">This identity is the vector calculus analogue of "the boundary of a boundary is zero." It's a necessary (but not sufficient) condition for a field to be a curl.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Compute the divergence of the proposed curl</strong>
+<p>Let \(\mathbf{G} = 2xy\,\mathbf{i} - 2yz\,\mathbf{j} + 2xy\,\mathbf{k}\). Compute each partial:</p>
+<p>\[\frac{\partial}{\partial x}(2xy) = 2y\]</p>
+<p>\[\frac{\partial}{\partial y}(-2yz) = -2z\]</p>
+<p>\[\frac{\partial}{\partial z}(2xy) = 0\]</p>
+<p>\[\text{div}\,\mathbf{G} = 2y + (-2z) + 0 = 2y - 2z\]</p></div></div>
+<p class="step-why">Take the partial of each component with respect to its own variable (∂G₁/∂x, ∂G₂/∂y, ∂G₃/∂z) and sum.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Check: does it equal zero?</strong>
+<p>\(2y - 2z = 0\) only when \(y = z\), which is NOT true for all \((x,y,z)\).</p>
+<p>Since \(\text{div}\,\mathbf{G} \neq 0\) in general, \(\mathbf{G}\) <strong>cannot be the curl of any vector field</strong>.</p></div></div>
+<p class="step-why">Tip: "≠ 0 in general" means it's not identically zero (zero for all x, y, z). Even though 2y − 2z = 0 on the plane y = z, it's nonzero everywhere else.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Conclusion</strong>
+<p>Therefore, <strong>no such vector field \(\mathbf{F}\) exists</strong> whose curl equals \(2xy\,\mathbf{i} - 2yz\,\mathbf{j} + 2xy\,\mathbf{k}\).</p></div></div>
+<p class="step-why">Tip: if the divergence HAD been zero, you'd need to proceed to actually find F (a harder problem). The nonzero result here is the quick exit.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>If such F existed, then div(curl F) must equal 0</strong>
-<p>This is a fundamental vector calculus identity: the divergence of any curl is always zero.</p></div></div>
-<p class="step-why">This is a necessary condition. If div(curl F) ≠ 0, no such F can exist.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Compute div of the given "curl"</strong>
-<p>\[\text{div}(2xy\,\mathbf{i} - 2yz\,\mathbf{j} + 2xy\,\mathbf{k}) = \frac{\partial}{\partial x}(2xy) + \frac{\partial}{\partial y}(-2yz) + \frac{\partial}{\partial z}(2xy)\]</p>
-<p>\[= 2y + (-2z) + 0 = 2y - 2z\]</p></div></div>
-<p class="step-why">Take the divergence of the proposed curl expression.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Conclusion</strong>
-<p>\(2y - 2z \neq 0\) in general. Therefore, <strong>no such vector field F exists</strong>.</p></div></div>
-<p class="step-why">Since div(curl F) ≠ 0, the given expression cannot be the curl of any vector field.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: No such F exists, because \(\text{div}(\text{curl}\,\mathbf{F}) = 2y-2z \neq 0\).</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — "Does Such an F Exist?" (div-curl Identity)</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: No such F exists, because \(\text{div}(\text{curl}\,\mathbf{F}) = 2y-2z \neq 0\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — "Does Such an F Exist?"</strong>
 <div class="qg-list">
 <div class="qg-step"><span class="step-bubble">1</span>Key identity: \(\text{div}(\text{curl}\,\mathbf{F}) = 0\) always</div>
-<div class="qg-step"><span class="step-bubble">2</span>Compute div of the given "curl" expression</div>
-<div class="qg-step"><span class="step-bubble">3</span>If ≠ 0 → no such F exists. Done.</div>
-<div class="qg-step"><span class="step-bubble">4</span>If = 0 → F might exist, need to find it</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">2</span>Compute div of the proposed curl (3 partial derivatives)</div>
+<div class="qg-step"><span class="step-bubble">3</span>If result ≠ 0 anywhere → no such F. Done.</div>
+<div class="qg-step"><span class="step-bubble">4</span>If result = 0 everywhere → F might exist, find it</div>
+</div></div>
 </details>
 
 <!-- ─── B5 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B5 [7 marks] — Divergence Theorem (div = ρ², Spherical Coords) · \(\frac{2\pi}{5}\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Let \(\mathbf{F} = xz^2\,\mathbf{i}+(x^2y-z^3)\,\mathbf{j}+(2xy+y^2z)\,\mathbf{k}\) and \(S\) the surface of the solid hemisphere \(T\) bounded by \(z=\sqrt{1-x^2-y^2}\) and \(z=0\). Evaluate \(\iint_S \mathbf{F}\cdot\hat{n}\,dS\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F} = xz^2\,\mathbf{i}+(x^2y-z^3)\,\mathbf{j}+(2xy+y^2z)\,\mathbf{k}\) and \(S\) the surface of the solid hemisphere \(T\) bounded by \(z=\sqrt{1-x^2-y^2}\) and \(z=0\). Evaluate \(\iint_S \mathbf{F}\cdot\hat{n}\,dS\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-41')" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Spherical coordinates</strong> \(dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta\) <a class="fsrc on" onclick="goToEq('examformulas','ef-40')" style="cursor:pointer;">Exam Sheet #40: "Spherical Coordinates"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S\mathbf{F}\cdot\hat{n}\,dS = \iiint_V\text{div}\,\mathbf{F}\,dV\) <a class="fsrc on" onclick="goToEq('examformulas','ef-41')" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Spherical coordinates</strong> \(x^2+y^2+z^2=\rho^2\), \(dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta\) <a class="fsrc on" onclick="goToEq('examformulas','ef-40')" style="cursor:pointer;">Exam Sheet #40: "Spherical Coordinates"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The surface is closed (curved hemisphere + flat disk on z = 0). The Divergence Theorem converts the surface integral to a volume integral. The key insight: div F simplifies to x² + y² + z² = ρ², which is perfect for spherical coordinates.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute each partial derivative of div F</strong>
+<p>\(\frac{\partial}{\partial x}(xz^2) = z^2\)</p>
+<p>\(\frac{\partial}{\partial y}(x^2y - z^3) = x^2\)</p>
+<p>\(\frac{\partial}{\partial z}(2xy + y^2z) = y^2\)</p>
+<p>\[\text{div}\,\mathbf{F} = z^2 + x^2 + y^2 = x^2 + y^2 + z^2\]</p></div></div>
+<p class="step-why">Tip: notice that the "ugly" terms (xz², −z³, 2xy) all disappear under differentiation. Only the "nice" terms survive, giving the perfect form x² + y² + z².</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Recognize \(x^2+y^2+z^2 = \rho^2\) in spherical</strong>
+<p>This is the key simplification that makes spherical coordinates the right choice.</p></div></div>
+<p class="step-why">Whenever div F = x² + y² + z² (or any function of ρ), spherical coordinates will make the integral separable.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Set up the hemisphere bounds in spherical</strong>
+<p>The upper hemisphere of radius 1:</p>
+<p>\(0 \le \rho \le 1\) (radius from 0 to 1)</p>
+<p>\(0 \le \theta \le 2\pi\) (full revolution around z-axis)</p>
+<p>\(0 \le \phi \le \pi/2\) (from north pole down to equator — <strong>not</strong> to π)</p></div></div>
+<p class="step-why">Tip: φ goes from 0 to π/2 for a hemisphere (not 0 to π, which would be a full sphere). This is the most common bounds mistake in spherical.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Write the triple integral</strong>
+<p>\[\iiint_T \rho^2 \cdot \rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \int_0^{\pi/2}\int_0^{2\pi}\int_0^1 \rho^4\sin\phi\,d\rho\,d\theta\,d\phi\]</p></div></div>
+<p class="step-why">div F = ρ² times the spherical volume element ρ²sinφ gives ρ⁴sinφ. The integral separates because the integrand factors as (ρ⁴)(sinφ)(1).</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate each 1D integral separately</strong>
+<p>\[\int_0^1 \rho^4\,d\rho = \frac{\rho^5}{5}\Bigg|_0^1 = \frac{1}{5}\]</p>
+<p>\[\int_0^{2\pi} d\theta = 2\pi\]</p>
+<p>\[\int_0^{\pi/2}\sin\phi\,d\phi = \Big[-\cos\phi\Big]_0^{\pi/2} = -\cos\frac{\pi}{2}+\cos 0 = 0 + 1 = 1\]</p></div></div>
+<p class="step-why">Tip: ∫₀^{π/2} sinφ dφ = 1 (not 2!). If the upper bound were π (full sphere), you'd get 2. This is where the hemisphere vs sphere distinction matters.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Multiply</strong>
+<p>\[I = \frac{1}{5} \cdot 2\pi \cdot 1 = \boxed{\frac{2\pi}{5}}\]</p></div></div>
+<p class="step-why">Three clean fractions multiplied together.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute divergence</strong>
-<p>\(\text{div}\,\mathbf{F} = z^2 + x^2 + y^2 = x^2+y^2+z^2 = \rho^2\) in spherical.</p></div></div>
-<p class="step-why">Each partial derivative picks up one squared term. Together they give ρ².</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Set up in spherical</strong>
-<p>Hemisphere: \(0\le\rho\le 1\), \(0\le\theta\le 2\pi\), \(0\le\phi\le\pi/2\).</p>
-<p>\[\iiint_T \rho^2\cdot\rho^2\sin\phi\,d\rho\,d\theta\,d\phi = \int_0^{\pi/2}\int_0^{2\pi}\int_0^1 \rho^4\sin\phi\,d\rho\,d\theta\,d\phi\]</p></div></div>
-<p class="step-why">div F = ρ² and the spherical volume element contributes another ρ²sinφ.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Evaluate (separable)</strong>
-<p>\[\int_0^1 \rho^4\,d\rho = \frac{1}{5},\quad \int_0^{2\pi}d\theta = 2\pi,\quad \int_0^{\pi/2}\sin\phi\,d\phi = 1\]</p>
-<p>\[I = \frac{1}{5}\cdot 2\pi\cdot 1 = \boxed{\frac{2\pi}{5}}\]</p></div></div>
-<p class="step-why">The integral factors into three independent 1D integrals.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(\frac{2\pi}{5}\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Divergence Theorem in Spherical</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{2\pi}{5}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Divergence Theorem in Spherical</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Compute div F</div>
-<div class="qg-step"><span class="step-bubble">2</span>Recognize \(x^2+y^2+z^2 = \rho^2\) in spherical</div>
-<div class="qg-step"><span class="step-bubble">3</span>Set bounds: hemisphere = \(0\le\rho\le R\), \(0\le\phi\le\pi/2\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>\(dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi\)</div>
-<div class="qg-step"><span class="step-bubble">5</span>Evaluate separable integral</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute div F — look for x²+y²+z² = ρ²</div>
+<div class="qg-step"><span class="step-bubble">2</span>Hemisphere: φ from 0 to π/2 (not π!)</div>
+<div class="qg-step"><span class="step-bubble">3</span>\(dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Separable → multiply three 1D integrals</div>
+<div class="qg-step"><span class="step-bubble">5</span>∫₀^{π/2} sinφ dφ = 1, ∫₀^π sinφ dφ = 2</div>
+</div></div>
 </details>
 
 <!-- ─── B6 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B6 [8 marks] — Stokes' Theorem (curl F·n on Flat Ellipse) · \(4\pi\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Let \(\mathbf{F}=x^2\,\mathbf{i}+2x\,\mathbf{j}+z^2\,\mathbf{k}\) and \(S\) be the surface interior to the ellipse \(4x^2+y^2=4\) on \(z=0\). Evaluate \(\iint_S \text{curl}\,\mathbf{F}\cdot\hat{n}\,dS\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}=x^2\,\mathbf{i}+2x\,\mathbf{j}+z^2\,\mathbf{k}\) and \(S\) be the surface interior to the ellipse \(4x^2+y^2=4\) on \(z=0\). Evaluate \(\iint_S \text{curl}\,\mathbf{F}\cdot\hat{n}\,dS\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Stokes' Theorem</strong> \(\iint_S (\nabla\times\mathbf{F})\cdot\hat{n}\,dS = \oint_C \mathbf{F}\cdot d\mathbf{r}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-36')" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}=(R_y-Q_z)\mathbf{i}-(R_x-P_z)\mathbf{j}+(Q_x-P_y)\mathbf{k}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Two approaches work here. <strong>Direct method</strong>: compute curl F, dot with n, integrate over the flat elliptic region. <strong>Stokes' method</strong>: convert to a line integral around the ellipse boundary. The direct method is faster when curl F · n turns out to be a constant.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution — Direct Method</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F component by component</strong>
+<p>With \(P = x^2\), \(Q = 2x\), \(R = z^2\):</p>
+<p>\[\mathbf{i}\text{-component: } R_y - Q_z = \frac{\partial(z^2)}{\partial y} - \frac{\partial(2x)}{\partial z} = 0 - 0 = 0\]</p>
+<p>\[\mathbf{j}\text{-component: } -(R_x - P_z) = -\left(\frac{\partial(z^2)}{\partial x} - \frac{\partial(x^2)}{\partial z}\right) = -(0 - 0) = 0\]</p>
+<p>\[\mathbf{k}\text{-component: } Q_x - P_y = \frac{\partial(2x)}{\partial x} - \frac{\partial(x^2)}{\partial y} = 2 - 0 = 2\]</p>
+<p>\[\nabla\times\mathbf{F} = (0, 0, 2) = 2\,\mathbf{k}\]</p></div></div>
+<p class="step-why">Tip: for the k-component, it's Q_x − P_y (not P_y − Q_x). Getting this sign wrong flips the entire answer. Here: ∂(2x)/∂x = 2 and ∂(x²)/∂y = 0.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Identify the surface normal</strong>
+<p>The surface lies on \(z = 0\) (the xy-plane). For a flat horizontal surface, the outward unit normal is \(\hat{n} = \mathbf{k}\) (pointing upward).</p></div></div>
+<p class="step-why">Any surface on z = constant has normal ±k. "Outward" or "upward" means +k.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Dot product</strong>
+<p>\[(\nabla\times\mathbf{F})\cdot\hat{n} = (0, 0, 2)\cdot(0, 0, 1) = 2\]</p>
+<p>The integrand is a <strong>constant</strong> — no actual integration needed.</p></div></div>
+<p class="step-why">When curl F · n is constant, the surface integral equals (constant) × (area of surface). This is the best possible outcome.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Find the area of the elliptic region</strong>
+<p>The ellipse \(4x^2 + y^2 = 4\) in standard form:</p>
+<p>\[\frac{x^2}{1} + \frac{y^2}{4} = 1\]</p>
+<p>So \(a = 1\) (x-semi-axis) and \(b = 2\) (y-semi-axis).</p>
+<p>\[\text{Area} = \pi ab = \pi(1)(2) = 2\pi\]</p></div></div>
+<p class="step-why">Tip: divide the equation by the RHS to get standard form. The denominators are a² and b². Here: a² = 1 → a = 1, b² = 4 → b = 2.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Compute the surface integral</strong>
+<p>\[\iint_S \text{curl}\,\mathbf{F}\cdot\hat{n}\,dS = 2 \cdot 2\pi = \boxed{4\pi}\]</p></div></div>
+<p class="step-why">Constant × area. Clean and fast.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#D97706;">
-<strong>🔧 Setup</strong>
-<p>Two approaches: (a) Stokes' → line integral around the ellipse, or (b) Direct: compute curl F and integrate over the flat surface. Method (b) is cleaner here.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution — Direct Method</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F</strong>
-<p>\[\nabla\times\mathbf{F} = (0-0)\mathbf{i}-(0-0)\mathbf{j}+(2-0)\mathbf{k} = (0,0,2)\]</p></div></div>
-<p class="step-why">Only the k-component is nonzero: ∂(2x)/∂x − ∂(x²)/∂y = 2 − 0 = 2.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Surface is on \(z=0\), normal \(\hat{n}=\mathbf{k}\)</strong>
-<p>\(\text{curl}\,\mathbf{F}\cdot\hat{n} = (0,0,2)\cdot(0,0,1) = 2\).</p></div></div>
-<p class="step-why">Flat surface on z=0 has upward normal k. The dot product picks out the z-component.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Integrate over the ellipse</strong>
-<p>The ellipse \(4x^2+y^2=4\) has \(a=1\), \(b=2\). Area \(= \pi(1)(2) = 2\pi\).</p>
-<p>\[\iint_S 2\,dA = 2\cdot 2\pi = \boxed{4\pi}\]</p></div></div>
-<p class="step-why">Constant integrand × area. The ellipse x²/1 + y²/4 = 1 has semi-axes a=1, b=2.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(4\pi\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Stokes' Theorem (Direct Method)</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(4\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Stokes' (Direct Method on Flat Surface)</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Compute \(\nabla\times\mathbf{F}\)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Identify the surface normal \(\hat{n}\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Dot: \((\nabla\times\mathbf{F})\cdot\hat{n}\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>If constant → multiply by area of the surface</div>
-<div class="qg-step"><span class="step-bubble">5</span>Ellipse area = \(\pi ab\)</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute curl F (all 3 components, watch signs)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Flat surface → n = k. Dot product picks k-component</div>
+<div class="qg-step"><span class="step-bubble">3</span>If constant → integral = constant × area</div>
+<div class="qg-step"><span class="step-bubble">4</span>Ellipse: standard form → \(a, b\) → area = \(\pi ab\)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Tip: k-component is \(Q_x - P_y\), NOT \(P_y - Q_x\)</div>
+</div></div>
 </details>
 
 </div>
