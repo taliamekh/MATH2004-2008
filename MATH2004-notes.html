@@ -6833,6 +6833,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">4</span>\(\cos\alpha = \frac{\mathbf{n}_1\cdot\mathbf{n}_2}{|\mathbf{n}_1||\mathbf{n}_2|}\)</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Equal-Magnitude Shortcut</strong>
+<p style="font-size:14px;">Notice that both normals have the same three components rearranged: \((3,-1,2)\) and \((2,3,1)\). So \(|\mathbf{n}_1|^2 = |\mathbf{n}_2|^2 = 9+1+4 = 14\). The denominator is \(\sqrt{14}\cdot\sqrt{14} = 14\) — an integer. The numerator is the dot product \(6-3+2 = 5\). So \(\cos\alpha = 5/14\) in one mental step — no square roots in the final answer.</p>
+</div>
 </details>
 
 <!-- ─── A3 ─── -->
@@ -6854,6 +6859,12 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 
 <div class="card-bracket" style="border-left-color:#2563EB;">
 <strong>📝 Full Solution</strong>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Instant Mental Math</strong>
+<p style="font-size:14px;">The vectors are axis-aligned (each has only one nonzero component), so the volume is just the product of magnitudes: \(2 \times \sqrt{2} \times \sqrt{2} = 2 \times 2 = 4\). Only <strong>(a)</strong> is 4. Circle it before you even write anything down — this is a 3-second question.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Since the vectors are axis-aligned, the volume is just the product of their magnitudes</strong>
 <p>\[V = 2 \cdot \sqrt{2} \cdot \sqrt{2} = 2 \cdot 2 = \boxed{4}\]</p></div></div>
 <p class="step-why">Axis-aligned vectors form a rectangular box. Volume = length × width × height. No cross product needed.</p>
@@ -6979,6 +6990,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">4</span>Plug all values in — arithmetic only</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Direct Substitution (Skip Chain Rule)</strong>
+<p style="font-size:14px;">Substitute \(x = \sin 2t\), \(y = \cos t\) directly into \(w\): \(w(t) = \sin^2 2t + \cos t + 3\sin 2t \cdot \cos^4 t\). At \(t=0\): \(\sin 0 = 0\), \(\cos 0 = 1\), so \(w(0) = 0 + 1 + 0 = 1\). Differentiate: the only terms that survive at \(t=0\) are those with exactly one factor of \(\sin\). The \(3\sin 2t \cdot \cos^4 t\) term gives \(3 \cdot 2\cos 2t \cdot \cos^4 t\big|_{t=0} = 6\). This avoids the chain rule formula entirely — useful if you forget it under pressure.</p>
+</div>
 </details>
 
 <!-- ─── A6 ─── -->
@@ -7026,6 +7042,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">2</span>Evaluate at the given point</div>
 <div class="qg-step"><span class="step-bubble">3</span>The gradient IS the direction of steepest increase</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Proportionality Trap Detector</strong>
+<p style="font-size:14px;">Notice (b) = \((-1, -\frac{1}{2}, \frac{1}{4})\) and (d) = \((4, 2, -1)\). These are proportional: \((d) = -4 \times (b)\). So they point in <strong>opposite directions</strong> — one is steepest increase, the other steepest decrease. To decide, compute just \(f_x = 1/y = 1/(-1) = -1\). The i-component of ∇f is negative, matching (b). So (b) = steepest increase, (d) = steepest decrease. This is a common exam trap — always check the sign when two choices are scalar multiples of each other.</p>
 </div>
 </details>
 
@@ -7131,6 +7152,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Integrate outer variable (u-sub if needed)</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Recognize the Antiderivative by Sight</strong>
+<p style="font-size:14px;">After the inner integral: \(\int_0^2 \frac{x}{2}e^{-x^2}dx\). Recall that \(\frac{d}{dx}e^{-x^2} = -2xe^{-x^2}\), so \(xe^{-x^2} = -\frac{1}{2}\frac{d}{dx}e^{-x^2}\). Therefore \(\frac{x}{2}e^{-x^2} = -\frac{1}{4}\frac{d}{dx}e^{-x^2}\), meaning the antiderivative is \(-\frac{1}{4}e^{-x^2}\). Evaluate: \(-\frac{1}{4}(e^{-4} - e^0) = \frac{1}{4}(1-e^{-4}) = \frac{e^4-1}{4e^4}\). Skip the u-sub entirely — just pattern-match to \(e^{-x^2}\).</p>
+</div>
 </details>
 
 <!-- ─── A9 ─── -->
@@ -7155,6 +7181,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Integrate z first</strong>
 <p>\[\int_{\sqrt{x^2+y^2}}^2 xyz\,dz = xy\left[\frac{z^2}{2}\right]_{\sqrt{x^2+y^2}}^2 = xy\left(2 - \frac{x^2+y^2}{2}\right)\]</p></div></div>
 <p class="step-why">z is the only variable in the inner integral. Evaluate at the bounds.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Upper Bound Kills 4 Choices</strong>
+<p style="font-size:14px;">After the z-integral, the remaining double integral is \(\int_0^1\int_0^1 xy(2 - \frac{x^2+y^2}{2})\,dy\,dx\). If the \(\frac{x^2+y^2}{2}\) term weren't there, you'd get \(2\int_0^1\int_0^1 xy\,dy\,dx = 2 \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{2}\). But we <strong>subtract</strong> a positive quantity, so the answer is <strong>strictly less than \(\frac{1}{2}\)</strong>. This eliminates (a) \(\frac{3}{4}\), (b) \(\frac{1}{2}\), (c) \(\frac{3}{2}\), and (d) \(\frac{3}{4}\). Only <strong>(e) \(\frac{3}{8}\)</strong> is less than \(\frac{1}{2}\). Circle it.</p>
+</div>
 
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Integrate y, then x</strong>
 <p>\[\int_0^1\int_0^1 xy\left(2 - \frac{x^2+y^2}{2}\right)dy\,dx = \int_0^1\int_0^1 \left(2xy - \frac{x^3y}{2} - \frac{xy^3}{2}\right)dy\,dx\]</p>
@@ -7232,6 +7263,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Multiply by \(|J|\): new integrand = old × Jacobian</div>
 <div class="qg-step"><span class="step-bubble">4</span>Transform the region description</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Factor Tracking (No Matrix Needed)</strong>
+<p style="font-size:14px;">For a simple scaling \(x = au, y = bv\), the Jacobian is always \(|J| = ab\). Here: \(|J| = 5 \cdot 2 = 10\). The integrand transforms as \(xy = (5u)(2v) = 10uv\). Multiply: \(10uv \times 10 = 100uv\). No determinant computation — just multiply the scale factors twice (once for the integrand, once for the area element). This always works when the transformation is a pure axis scaling.</p>
 </div>
 </details>
 
