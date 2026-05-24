@@ -7777,6 +7777,7 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 </div></div>
 </details>
 
+
 <div class="part-banner la">PART B — Long Answer (6 Questions, 44 marks total)</div>
 
 <!-- ─── B1 ─── -->
@@ -7786,31 +7787,52 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Using Lagrange multipliers, determine the local extrema of \(f(x,y,z)=x+2y-2z\) subject to \(x^2+2y^2+4z^2=1\).</p></div>
 <div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Lagrange multipliers</strong> \(\nabla f=\lambda\nabla g\) <a class="fsrc off" onclick="goToEq('formulas','fs-lagrange-multiplier-method')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Lagrange Multiplier Method"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Lagrange multipliers</strong> \(\nabla f=\lambda\nabla g\) where \(g=0\) is the constraint <a class="fsrc off" onclick="goToEq('formulas','fs-lagrange-multiplier-method')" style="cursor:pointer;">NOT on exam sheet → Ch 7 Formula Sheet: "Lagrange Multiplier Method"</a></div></div>
 </div></div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Define \(g(x,y,z)=x^2+2y^2+4z^2-1\). We need \(\nabla f=\lambda\nabla g\) plus the constraint \(g=0\). Since \(f\) is linear, \(\nabla f\) is constant — this makes the algebra cleaner.</p></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Lagrange equations</strong>
-<p>\(\nabla f=(1,2,-2)\), \(\nabla g=(2x,4y,8z)\).</p>
-<p>\(1=2\lambda x\), \(2=4\lambda y\), \(-2=8\lambda z\).</p></div></div>
-<p class="step-why">Each component gives one equation.</p>
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Solve for x, y, z in terms of λ</strong>
-<p>\(x=\frac{1}{2\lambda}\), \(y=\frac{1}{2\lambda}\), \(z=\frac{-1}{4\lambda}\).</p></div></div>
-<p class="step-why">Isolate each variable from its equation.</p>
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Apply constraint</strong>
-<p>\(\frac{1}{4\lambda^2}+\frac{2}{4\lambda^2}+\frac{4}{16\lambda^2}=1 \Rightarrow \frac{1}{4\lambda^2}+\frac{1}{2\lambda^2}+\frac{1}{4\lambda^2}=1 \Rightarrow \frac{1}{\lambda^2}=1 \Rightarrow \lambda=\pm 1\).</p></div></div>
-<p class="step-why">Substitute x, y, z into the constraint and solve for λ.</p>
-<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Find critical points and values</strong>
-<p>\(\lambda=1\): \((\frac{1}{2},\frac{1}{2},-\frac{1}{4})\), \(f=\frac{1}{2}+1+\frac{1}{2}=\boxed{2}\) (max).</p>
-<p>\(\lambda=-1\): \((-\frac{1}{2},-\frac{1}{2},\frac{1}{4})\), \(f=-\frac{1}{2}-1-\frac{1}{2}=\boxed{-2}\) (min).</p></div></div>
-<p class="step-why">Two values of λ give two critical points. Compare f-values to classify.</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute the gradients</strong>
+<p>\[\nabla f = \left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right) = (1, 2, -2)\]</p>
+<p>\[\nabla g = \left(\frac{\partial g}{\partial x},\frac{\partial g}{\partial y},\frac{\partial g}{\partial z}\right) = (2x, 4y, 8z)\]</p></div></div>
+<p class="step-why">Differentiate f and g component by component. Since f is linear, ∇f has no variables.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Write the three Lagrange equations: \(\nabla f = \lambda\nabla g\)</strong>
+<p>\[\text{(i)}\quad 1 = \lambda\cdot 2x \qquad\Rightarrow\qquad x = \frac{1}{2\lambda}\]</p>
+<p>\[\text{(ii)}\quad 2 = \lambda\cdot 4y \qquad\Rightarrow\qquad y = \frac{2}{4\lambda} = \frac{1}{2\lambda}\]</p>
+<p>\[\text{(iii)}\quad -2 = \lambda\cdot 8z \qquad\Rightarrow\qquad z = \frac{-2}{8\lambda} = \frac{-1}{4\lambda}\]</p></div></div>
+<p class="step-why">Each component gives one equation. Isolate x, y, z in terms of λ. Note: λ ≠ 0 (if λ = 0, the left sides would be 0, but they're 1, 2, −2).</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Substitute into the constraint \(x^2 + 2y^2 + 4z^2 = 1\)</strong>
+<p>\[\left(\frac{1}{2\lambda}\right)^2 + 2\left(\frac{1}{2\lambda}\right)^2 + 4\left(\frac{-1}{4\lambda}\right)^2 = 1\]</p>
+<p>\[\frac{1}{4\lambda^2} + \frac{2}{4\lambda^2} + \frac{4}{16\lambda^2} = 1\]</p>
+<p>Find common denominator \(16\lambda^2\):</p>
+<p>\[\frac{4}{16\lambda^2} + \frac{8}{16\lambda^2} + \frac{4}{16\lambda^2} = 1\]</p>
+<p>\[\frac{16}{16\lambda^2} = 1 \qquad\Rightarrow\qquad \frac{1}{\lambda^2} = 1 \qquad\Rightarrow\qquad \lambda = \pm 1\]</p></div></div>
+<p class="step-why">Tip: when substituting fractions, find a common denominator before combining. Here everything reduces to 1/λ² = 1.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Back-substitute each λ to find the critical points</strong>
+<p><strong>Case λ = 1:</strong> \(x = \frac{1}{2}\), \(y = \frac{1}{2}\), \(z = \frac{-1}{4}\).</p>
+<p>\[f\!\left(\tfrac{1}{2},\tfrac{1}{2},-\tfrac{1}{4}\right) = \tfrac{1}{2} + 2\!\left(\tfrac{1}{2}\right) - 2\!\left(-\tfrac{1}{4}\right) = \tfrac{1}{2} + 1 + \tfrac{1}{2} = 2\]</p>
+<p><strong>Case λ = −1:</strong> \(x = -\frac{1}{2}\), \(y = -\frac{1}{2}\), \(z = \frac{1}{4}\).</p>
+<p>\[f\!\left(-\tfrac{1}{2},-\tfrac{1}{2},\tfrac{1}{4}\right) = -\tfrac{1}{2} + 2\!\left(-\tfrac{1}{2}\right) - 2\!\left(\tfrac{1}{4}\right) = -\tfrac{1}{2} - 1 - \tfrac{1}{2} = -2\]</p></div></div>
+<p class="step-why">Tip: always verify that each critical point satisfies the constraint. Here: (1/2)² + 2(1/2)² + 4(1/4)² = 1/4 + 1/2 + 1/4 = 1 ✓</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Classify</strong>
+<p>Since the ellipsoid is a closed bounded surface, f must attain a max and min on it. The larger value is the max, the smaller is the min.</p></div></div>
+<p class="step-why">On a closed bounded constraint surface, the Extreme Value Theorem guarantees both a max and a min exist.</p>
 </div>
+
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Max = 2 at \((\frac{1}{2},\frac{1}{2},-\frac{1}{4})\). Min = −2 at \((-\frac{1}{2},-\frac{1}{2},\frac{1}{4})\).</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Lagrange (Linear f)</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Set up \(\nabla f=\lambda\nabla g\)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Solve each variable in terms of λ</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute \(\nabla f\) and \(\nabla g\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Set up \(\nabla f=\lambda\nabla g\) → solve each variable for λ</div>
 <div class="qg-step"><span class="step-bubble">3</span>Substitute into constraint → solve for λ</div>
-<div class="qg-step"><span class="step-bubble">4</span>Back-substitute → compare f-values</div>
+<div class="qg-step"><span class="step-bubble">4</span>Back-substitute → evaluate f at each critical point</div>
+<div class="qg-step"><span class="step-bubble">5</span>Verify points satisfy constraint</div>
 </div></div>
 </details>
 
@@ -7823,24 +7845,48 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Polar coordinates</strong> \(x^2+y^2=r^2\), \(dA=r\,dr\,d\theta\) <span class="fsrc off">NOT on exam sheet → memorize polar Jacobian</span></div></div>
 </div></div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The integrand \(\cos(x^2+y^2)\) screams polar coordinates because \(x^2+y^2 = r^2\). The hard part is identifying the region from the Cartesian bounds and converting it.</p></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify region</strong>
-<p>The bounds \(0\le y\le 1\), \(0\le x\le\sqrt{1-y^2}\) describe a quarter-disk (first quadrant, radius 1).</p>
-<p>In polar: \(0\le r\le 1\), \(0\le\theta\le\pi/2\).</p></div></div>
-<p class="step-why">x goes from 0 to √(1−y²) means x²+y²≤1 with x≥0, y≥0.</p>
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Convert and evaluate</strong>
-<p>\[\int_0^{\pi/2}\int_0^1\cos(r^2)\,r\,dr\,d\theta = \frac{\pi}{2}\cdot\int_0^1 r\cos(r^2)\,dr\]</p>
-<p>Let \(u=r^2\): \(\int_0^1\frac{1}{2}\cos u\,du = \frac{\sin 1}{2}\).</p>
-<p>\[=\frac{\pi}{2}\cdot\frac{\sin 1}{2}=\boxed{\frac{\pi\sin 1}{4}}\]</p></div></div>
-<p class="step-why">The θ integral gives π/2. The r integral uses u=r² substitution.</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify the region from Cartesian bounds</strong>
+<p>Outer: \(0 \le y \le 1\). Inner: \(0 \le x \le \sqrt{1-y^2}\).</p>
+<p>The inner bound \(x = \sqrt{1-y^2}\) means \(x^2 + y^2 = 1\) with \(x \ge 0\).</p>
+<p>Combined with \(y \ge 0\): this is the <strong>quarter-disk</strong> in the first quadrant with radius 1.</p></div></div>
+<p class="step-why">Tip: whenever you see \(\sqrt{1-y^2}\) as an upper bound on x, that's the right half of the unit circle. Combined with y ≥ 0, you're in the first quadrant.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Convert to polar</strong>
+<p>Region in polar: \(0 \le r \le 1\), \(0 \le \theta \le \pi/2\).</p>
+<p>Integrand: \(\cos(x^2+y^2) = \cos(r^2)\).</p>
+<p>Area element: \(dx\,dy = r\,dr\,d\theta\).</p>
+<p>\[\int_0^1\int_0^{\sqrt{1-y^2}}\cos(x^2+y^2)\,dx\,dy = \int_0^{\pi/2}\int_0^1 \cos(r^2)\cdot r\,dr\,d\theta\]</p></div></div>
+<p class="step-why">The Jacobian factor r is crucial — without it you get the wrong answer. Always write dA = r dr dθ.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Separate the integrals (the integrand has no θ)</strong>
+<p>\[= \underbrace{\int_0^{\pi/2} d\theta}_{\text{θ part}} \cdot \underbrace{\int_0^1 r\cos(r^2)\,dr}_{\text{r part}}\]</p>
+<p>The θ integral: \(\int_0^{\pi/2}d\theta = \frac{\pi}{2}\).</p></div></div>
+<p class="step-why">Since the integrand doesn't depend on θ, the double integral separates into a product of two single integrals.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Evaluate the r integral using u-substitution</strong>
+<p>Let \(u = r^2\), then \(du = 2r\,dr\), so \(r\,dr = \frac{du}{2}\).</p>
+<p>When \(r = 0\): \(u = 0\). When \(r = 1\): \(u = 1\).</p>
+<p>\[\int_0^1 r\cos(r^2)\,dr = \int_0^1 \cos(u)\cdot\frac{du}{2} = \frac{1}{2}\Big[\sin u\Big]_0^1 = \frac{1}{2}(\sin 1 - \sin 0) = \frac{\sin 1}{2}\]</p></div></div>
+<p class="step-why">Tip: the factor of r in front of cos(r²) is exactly what makes the u-sub work. If it weren't there, this integral would have no elementary antiderivative.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Multiply the two parts</strong>
+<p>\[\frac{\pi}{2} \cdot \frac{\sin 1}{2} = \boxed{\frac{\pi\sin 1}{4}}\]</p></div></div>
+<p class="step-why">Note: sin 1 ≈ 0.841 (this is sin of 1 radian, not 1 degree).</p>
 </div>
+
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{\pi\sin 1}{4}\)</strong></div>
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Polar Conversion</strong>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Polar Conversion for ∫∫ f(x²+y²)</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Recognize x²+y²≤R² region → polar</div>
-<div class="qg-step"><span class="step-bubble">2</span>Replace integrand: \(\cos(x^2+y^2)=\cos(r^2)\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Jacobian: \(dA=r\,dr\,d\theta\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>For \(r\cos(r^2)\), use \(u=r^2\) substitution</div>
+<div class="qg-step"><span class="step-bubble">1</span>Recognize \(x^2+y^2\) in integrand or bounds → polar</div>
+<div class="qg-step"><span class="step-bubble">2</span>Sketch region, convert bounds to r and θ</div>
+<div class="qg-step"><span class="step-bubble">3</span>Replace \(x^2+y^2=r^2\), add Jacobian \(r\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>If no θ-dependence → separate into (θ-integral) × (r-integral)</div>
+<div class="qg-step"><span class="step-bubble">5</span>For \(r\cdot f(r^2)\): use \(u=r^2\)</div>
 </div></div>
 </details>
 
@@ -7853,22 +7899,45 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Arc length</strong> \(L=\int_a^b\sqrt{x'(t)^2+y'(t)^2}\,dt\) <a class="fsrc on" onclick="goToEq('examformulas','ef-11')" style="cursor:pointer;">Exam Sheet #11: "Arc Length (Parametric)"</a></div></div>
 </div></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Derivatives</strong>
-<p>\(x'=4t\), \(y'=3t^2\). Speed: \(\sqrt{16t^2+9t^4}=t\sqrt{16+9t^2}\).</p></div></div>
-<p class="step-why">Factor out t (since t≥0).</p>
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Integrate with \(u=16+9t^2\)</strong>
-<p>\(du=18t\,dt\). \(L=\int_0^1 t\sqrt{16+9t^2}\,dt = \frac{1}{18}\int_{16}^{25}\sqrt{u}\,du\).</p>
-<p>\[=\frac{1}{18}\cdot\frac{2}{3}[u^{3/2}]_{16}^{25}=\frac{1}{27}(125-64)=\boxed{\frac{61}{27}}\]</p></div></div>
-<p class="step-why">u-sub simplifies the square root. 25^{3/2}=125, 16^{3/2}=64.</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute derivatives</strong>
+<p>\[x'(t) = 4t, \qquad y'(t) = 3t^2\]</p></div></div>
+<p class="step-why">Straightforward power rule differentiation.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Form the speed (integrand)</strong>
+<p>\[\sqrt{x'^2+y'^2} = \sqrt{(4t)^2+(3t^2)^2} = \sqrt{16t^2+9t^4}\]</p>
+<p>Factor out \(t^2\) from under the radical (valid since \(t \ge 0\)):</p>
+<p>\[= \sqrt{t^2(16+9t^2)} = t\sqrt{16+9t^2}\]</p></div></div>
+<p class="step-why">Tip: always look to factor a perfect square out of the radical. Here t² comes out as t (positive since t ≥ 0). This is what makes the integral doable.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Set up the integral</strong>
+<p>\[L = \int_0^1 t\sqrt{16+9t^2}\,dt\]</p></div></div>
+<p class="step-why">The factor of t in front of the square root signals a u-substitution will work.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>u-substitution: let \(u = 16 + 9t^2\)</strong>
+<p>\[du = 18t\,dt \qquad\Rightarrow\qquad t\,dt = \frac{du}{18}\]</p>
+<p>Change bounds: when \(t = 0\), \(u = 16\). When \(t = 1\), \(u = 16 + 9 = 25\).</p>
+<p>\[L = \int_{16}^{25} \sqrt{u}\cdot\frac{du}{18} = \frac{1}{18}\int_{16}^{25} u^{1/2}\,du\]</p></div></div>
+<p class="step-why">Tip: the "t dt" piece is exactly what du gives us (up to a constant). That's why factoring out t in step 2 was essential.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate using the power rule</strong>
+<p>\[= \frac{1}{18}\cdot\frac{u^{3/2}}{3/2}\Bigg|_{16}^{25} = \frac{1}{18}\cdot\frac{2}{3}\Big[u^{3/2}\Big]_{16}^{25}\]</p>
+<p>\[= \frac{1}{27}\Big[25^{3/2} - 16^{3/2}\Big]\]</p>
+<p>Now compute the powers: \(25^{3/2} = (\sqrt{25})^3 = 5^3 = 125\). \(16^{3/2} = (\sqrt{16})^3 = 4^3 = 64\).</p>
+<p>\[= \frac{1}{27}(125 - 64) = \boxed{\frac{61}{27}}\]</p></div></div>
+<p class="step-why">Tip: \(n^{3/2} = (\sqrt{n})^3\). Take the square root first, then cube. Much easier than computing n^{1.5} directly.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{61}{27}\)</strong></div>
+
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{61}{27} \approx 2.26\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Arc Length (Parametric)</strong>
 <div class="qg-list">
 <div class="qg-step"><span class="step-bubble">1</span>Compute \(x'(t)\), \(y'(t)\)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Form \(\sqrt{x'^2+y'^2}\) and simplify</div>
-<div class="qg-step"><span class="step-bubble">3</span>Factor out t if possible</div>
-<div class="qg-step"><span class="step-bubble">4</span>u-sub for the remaining square root</div>
+<div class="qg-step"><span class="step-bubble">2</span>Form \(\sqrt{x'^2+y'^2}\) — factor out perfect squares</div>
+<div class="qg-step"><span class="step-bubble">3</span>Look for u-sub: if you see \(t\cdot f(t^2)\), let \(u = \text{stuff inside}\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Change bounds, evaluate with power rule</div>
+<div class="qg-step"><span class="step-bubble">5</span>For \(n^{3/2}\): take √ first, then cube</div>
 </div></div>
 </details>
 
@@ -7879,27 +7948,67 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Find the area enclosed by the cardioid \(r=1+\sin\theta\) and the circle \(r=3\sin\theta\).</p></div>
 <div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Area between polar curves</strong> \(A=\frac{1}{2}\int_\alpha^\beta(r_0^2-r_1^2)\,d\theta\) <a class="fsrc on" onclick="goToEq('examformulas','ef-10')" style="cursor:pointer;">Exam Sheet #10: "Area between Polar Curves"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Area between polar curves</strong> \(A=\frac{1}{2}\int_\alpha^\beta(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\) <a class="fsrc on" onclick="goToEq('examformulas','ef-10')" style="cursor:pointer;">Exam Sheet #10: "Area between Polar Curves"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Half-angle</strong> \(\sin^2\theta = \frac{1-\cos 2\theta}{2}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-2')" style="cursor:pointer;">Exam Sheet #2: "Double-Angle: sin²x"</a></div></div>
 </div></div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The circle \(r = 3\sin\theta\) is a circle of radius 3/2 centered at (0, 3/2). The cardioid \(r = 1+\sin\theta\) is a heart shape. We need the area of the region where the circle is outside the cardioid.</p></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find intersection</strong>
-<p>\(1+\sin\theta=3\sin\theta \Rightarrow \sin\theta=\frac{1}{2} \Rightarrow \theta=\frac{\pi}{6},\frac{5\pi}{6}\).</p></div></div>
-<p class="step-why">Set the two r-equations equal and solve for θ.</p>
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Set up and evaluate</strong>
-<p>Between \(\pi/6\) and \(5\pi/6\), the circle \(r=3\sin\theta\) is the outer curve.</p>
-<p>\[A=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[9\sin^2\theta-(1+\sin\theta)^2]\,d\theta\]</p>
-<p>\[=\frac{1}{2}\int_{\pi/6}^{5\pi/6}[8\sin^2\theta-2\sin\theta-1]\,d\theta\]</p>
-<p>Using half-angle: \(8\sin^2\theta=4(1-\cos 2\theta)\). Evaluating:</p>
-<p>\[=\frac{1}{2}\left[4\theta-2\sin 2\theta+2\cos\theta-\theta\right]_{\pi/6}^{5\pi/6}=\boxed{\pi}\]</p></div></div>
-<p class="step-why">Expand, apply half-angle identity for sin²θ, integrate term by term.</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find the intersection angles</strong>
+<p>\[1 + \sin\theta = 3\sin\theta \qquad\Rightarrow\qquad 1 = 2\sin\theta \qquad\Rightarrow\qquad \sin\theta = \frac{1}{2}\]</p>
+<p>\[\theta = \frac{\pi}{6} \quad\text{or}\quad \theta = \frac{5\pi}{6}\]</p></div></div>
+<p class="step-why">Set the two r-equations equal. The two solutions in [0, π] give the angular bounds.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Determine which is the outer curve</strong>
+<p>Test at \(\theta = \pi/2\) (midpoint): \(r_{\text{circle}} = 3\sin(\pi/2) = 3\), \(r_{\text{cardioid}} = 1+\sin(\pi/2) = 2\).</p>
+<p>So \(r_{\text{out}} = 3\sin\theta\) (circle) and \(r_{\text{in}} = 1+\sin\theta\) (cardioid) on \([\pi/6, 5\pi/6]\).</p></div></div>
+<p class="step-why">Tip: always check a sample θ between the intersection angles to determine which curve is farther from the origin.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Set up the area integral</strong>
+<p>\[A = \frac{1}{2}\int_{\pi/6}^{5\pi/6}\Big[(3\sin\theta)^2 - (1+\sin\theta)^2\Big]\,d\theta\]</p></div></div>
+<p class="step-why">Area between curves formula with the outer curve squared minus inner curve squared.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Expand each squared term</strong>
+<p>\((3\sin\theta)^2 = 9\sin^2\theta\)</p>
+<p>\((1+\sin\theta)^2 = 1 + 2\sin\theta + \sin^2\theta\)</p>
+<p>Subtract:</p>
+<p>\[9\sin^2\theta - 1 - 2\sin\theta - \sin^2\theta = 8\sin^2\theta - 2\sin\theta - 1\]</p></div></div>
+<p class="step-why">Tip: expand (1+sinθ)² carefully — the cross term 2sinθ is easy to forget.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Apply the half-angle identity to \(\sin^2\theta\)</strong>
+<p>\[8\sin^2\theta = 8\cdot\frac{1-\cos 2\theta}{2} = 4 - 4\cos 2\theta\]</p>
+<p>So the integrand becomes:</p>
+<p>\[4 - 4\cos 2\theta - 2\sin\theta - 1 = 3 - 4\cos 2\theta - 2\sin\theta\]</p></div></div>
+<p class="step-why">The half-angle identity converts sin²θ into something integrable. This is the most common trick for polar area problems.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Integrate term by term</strong>
+<p>\[\frac{1}{2}\int_{\pi/6}^{5\pi/6}(3 - 4\cos 2\theta - 2\sin\theta)\,d\theta\]</p>
+<p>\[= \frac{1}{2}\Big[3\theta - 2\sin 2\theta + 2\cos\theta\Big]_{\pi/6}^{5\pi/6}\]</p></div></div>
+<p class="step-why">\(\int \cos 2\theta\,d\theta = \frac{\sin 2\theta}{2}\) and \(\int -2\sin\theta\,d\theta = 2\cos\theta\).</p>
+
+<div class="step-row"><span class="step-bubble">7</span><div class="step-body"><strong>Evaluate at the bounds</strong>
+<p><strong>At \(\theta = 5\pi/6\):</strong></p>
+<p>\(3\cdot\frac{5\pi}{6} = \frac{5\pi}{2}\), \(\sin\frac{5\pi}{3} = -\frac{\sqrt{3}}{2}\), \(\cos\frac{5\pi}{6} = -\frac{\sqrt{3}}{2}\).</p>
+<p>Value: \(\frac{5\pi}{2} - 2(-\frac{\sqrt{3}}{2}) + 2(-\frac{\sqrt{3}}{2}) = \frac{5\pi}{2} + \sqrt{3} - \sqrt{3} = \frac{5\pi}{2}\).</p>
+<p><strong>At \(\theta = \pi/6\):</strong></p>
+<p>\(3\cdot\frac{\pi}{6} = \frac{\pi}{2}\), \(\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}\), \(\cos\frac{\pi}{6} = \frac{\sqrt{3}}{2}\).</p>
+<p>Value: \(\frac{\pi}{2} - 2(\frac{\sqrt{3}}{2}) + 2(\frac{\sqrt{3}}{2}) = \frac{\pi}{2} - \sqrt{3} + \sqrt{3} = \frac{\pi}{2}\).</p>
+<p><strong>Difference:</strong> \(\frac{5\pi}{2} - \frac{\pi}{2} = 2\pi\).</p>
+<p>\[A = \frac{1}{2}\cdot 2\pi = \boxed{\pi}\]</p></div></div>
+<p class="step-why">Tip: the √3 terms cancel beautifully at both bounds — a sign you're on the right track. If they didn't cancel, recheck your expansion.</p>
 </div>
+
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\pi\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Area Between Polar Curves</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Find intersections: set \(r_1=r_2\), solve for θ</div>
-<div class="qg-step"><span class="step-bubble">2</span>Determine which curve is outer in the interval</div>
-<div class="qg-step"><span class="step-bubble">3</span>\(A=\frac{1}{2}\int(r_{out}^2-r_{in}^2)\,d\theta\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>Use half-angle for \(\sin^2\theta\) terms</div>
+<div class="qg-step"><span class="step-bubble">1</span>Find intersections: set \(r_1 = r_2\)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Test a middle θ to determine outer/inner</div>
+<div class="qg-step"><span class="step-bubble">3</span>\(A = \frac{1}{2}\int(r_{out}^2 - r_{in}^2)\,d\theta\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Expand both squares, subtract, simplify</div>
+<div class="qg-step"><span class="step-bubble">5</span>Half-angle for sin²θ, integrate term by term</div>
+<div class="qg-step"><span class="step-bubble">6</span>Evaluate carefully at both bounds</div>
 </div></div>
 </details>
 
@@ -7910,27 +8019,61 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Let \(\mathbf{F}=\frac{1}{yz}\,\mathbf{i}-\frac{x}{y^2z}\,\mathbf{j}-\frac{x}{yz^2}\,\mathbf{k}\). (a) Compute curl F. (b) Find \(f\) such that \(\nabla f=\mathbf{F}\), or explain why not.</p></div>
 <div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-27')" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}=(R_y-Q_z)\mathbf{i}-(R_x-P_z)\mathbf{j}+(Q_x-P_y)\mathbf{k}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function</strong> — integrate component by component <a class="fsrc on" onclick="goToEq('examformulas','ef-27')" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
 </div></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble" style="background:#8B0000;">a</span><div class="step-body"><strong>curl F = 0</strong>
-<p>All cross-partial checks give zero. \(\nabla\times\mathbf{F}=\mathbf{0}\) ✓</p></div></div>
-<p class="step-why">Verify R_y=Q_z, P_z=R_x, Q_x=P_y — all match.</p>
-<div class="step-row"><span class="step-bubble" style="background:#8B0000;">b</span><div class="step-body"><strong>Find potential</strong>
-<p>\(f_x=\frac{1}{yz}\Rightarrow f=\frac{x}{yz}+g(y,z)\).</p>
-<p>\(f_y=-\frac{x}{y^2z}+g_y=-\frac{x}{y^2z}\Rightarrow g_y=0\).</p>
-<p>\(f_z=-\frac{x}{yz^2}+g_z=-\frac{x}{yz^2}\Rightarrow g_z=0\).</p>
-<p>\[\boxed{f(x,y,z)=\frac{x}{yz}+C}\]</p></div></div>
-<p class="step-why">Integrate P w.r.t. x, then match derivatives to Q and R to determine g.</p>
+
+<div class="step-row"><span class="step-bubble" style="background:#8B0000;">a</span><div class="step-body"><strong>Compute curl F (3 marks)</strong></div></div>
+<p>With \(P=\frac{1}{yz}\), \(Q=-\frac{x}{y^2z}\), \(R=-\frac{x}{yz^2}\):</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>\(\mathbf{i}\)-component: \(R_y - Q_z\)</strong>
+<p>\(R_y = \frac{\partial}{\partial y}\!\left(-\frac{x}{yz^2}\right) = \frac{x}{y^2z^2}\)</p>
+<p>\(Q_z = \frac{\partial}{\partial z}\!\left(-\frac{x}{y^2z}\right) = \frac{x}{y^2z^2}\)</p>
+<p>\(R_y - Q_z = \frac{x}{y^2z^2} - \frac{x}{y^2z^2} = 0\) ✓</p></div></div>
+<p class="step-why">Use the quotient rule: ∂/∂y(x/(yz²)) = −x/(y²z²). The negative signs cancel with the −R.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>\(\mathbf{j}\)-component: \(-(R_x - P_z)\)</strong>
+<p>\(R_x = -\frac{1}{yz^2}\), \(P_z = -\frac{1}{yz^2}\).</p>
+<p>\(R_x - P_z = 0\) ✓</p></div></div>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>\(\mathbf{k}\)-component: \(Q_x - P_y\)</strong>
+<p>\(Q_x = -\frac{1}{y^2z}\), \(P_y = -\frac{1}{y^2z}\).</p>
+<p>\(Q_x - P_y = 0\) ✓</p></div></div>
+<p class="step-why">All three components are zero → curl F = 0 → F is conservative.</p>
+
+<div class="step-row"><span class="step-bubble" style="background:#8B0000;">b</span><div class="step-body"><strong>Find the potential function (4 marks)</strong></div></div>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Integrate \(f_x = P = \frac{1}{yz}\) with respect to x</strong>
+<p>\[f = \int\frac{1}{yz}\,dx = \frac{x}{yz} + g(y,z)\]</p></div></div>
+<p class="step-why">When integrating with respect to x, treat y and z as constants. The "constant" g can depend on y and z.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Determine g by matching \(f_y = Q\)</strong>
+<p>\[f_y = \frac{\partial}{\partial y}\!\left(\frac{x}{yz}\right) + g_y = -\frac{x}{y^2z} + g_y\]</p>
+<p>But we need \(f_y = Q = -\frac{x}{y^2z}\). So \(g_y = 0\) → \(g\) doesn't depend on \(y\): \(g = h(z)\).</p></div></div>
+<p class="step-why">Tip: if g_y = 0, that means our initial integral already captured all the y-dependence.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Determine h by matching \(f_z = R\)</strong>
+<p>\[f_z = \frac{\partial}{\partial z}\!\left(\frac{x}{yz}\right) + h'(z) = -\frac{x}{yz^2} + h'(z)\]</p>
+<p>But we need \(f_z = R = -\frac{x}{yz^2}\). So \(h'(z) = 0\) → \(h(z) = C\).</p></div></div>
+<p class="step-why">Both unknowns turned out to be constants — the potential function is simply x/(yz).</p>
+
+<div class="step-row"><span class="step-bubble">7</span><div class="step-body"><strong>Final answer</strong>
+<p>\[\boxed{f(x,y,z) = \frac{x}{yz} + C}\]</p>
+<p><strong>Verification:</strong> \(\nabla f = \left(\frac{1}{yz},\; -\frac{x}{y^2z},\; -\frac{x}{yz^2}\right) = \mathbf{F}\) ✓</p></div></div>
+<p class="step-why">Tip: always verify by computing ∇f and checking it matches F. Quick sanity check that earns confidence marks.</p>
 </div>
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: curl F = 0. Potential: \(f=\frac{x}{yz}+C\).</strong></div>
+
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) curl F = 0. (b) \(f = \frac{x}{yz} + C\).</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Finding a Potential Function</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Verify curl F = 0</div>
-<div class="qg-step"><span class="step-bubble">2</span>Integrate \(f_x=P\) w.r.t. x → f + g(y,z)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Match \(f_y\) to Q → find g_y</div>
-<div class="qg-step"><span class="step-bubble">4</span>Match \(f_z\) to R → find remaining unknown</div>
+<div class="qg-step"><span class="step-bubble">1</span>Verify curl F = 0 (check all 3 components)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Integrate \(f_x = P\) w.r.t. x → \(f = \cdots + g(y,z)\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Differentiate f w.r.t. y, match to Q → find \(g_y\)</div>
+<div class="qg-step"><span class="step-bubble">4</span>Integrate \(g_y\) → \(g = \cdots + h(z)\)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Differentiate f w.r.t. z, match to R → find \(h'(z)\)</div>
+<div class="qg-step"><span class="step-bubble">6</span>Verify: \(\nabla f = \mathbf{F}\)?</div>
 </div></div>
 </details>
 
@@ -7941,27 +8084,44 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Let \(\mathbf{F}=-5y\,\mathbf{i}+4x\,\mathbf{j}+z\,\mathbf{k}\) and \(S\) be bounded by \(x^2+y^2=4\), \(z=1\). Evaluate \(\iint_S\text{curl}\,\mathbf{F}\cdot\hat{n}\,dS\).</p></div>
 <div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-36')" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}=(R_y-Q_z)\mathbf{i}-(R_x-P_z)\mathbf{j}+(Q_x-P_y)\mathbf{k}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> \(\iint_S(\nabla\times\mathbf{F})\cdot\hat{n}\,dS = \oint_C\mathbf{F}\cdot d\mathbf{r}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-36')" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
 </div></div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The surface is a flat disk on the plane \(z = 1\). For flat surfaces, direct computation of curl F · n is usually faster than converting to a line integral via Stokes'.</p></div>
+
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F</strong>
-<p>\(\nabla\times\mathbf{F}=(0,0,4+5)=(0,0,9)=9\,\mathbf{k}\).</p></div></div>
-<p class="step-why">Only the k-component: ∂(4x)/∂x − ∂(−5y)/∂y = 4−(−5) = 9.</p>
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Surface on \(z=1\) → \(\hat{n}=\mathbf{k}\)</strong>
-<p>\(\text{curl}\,\mathbf{F}\cdot\hat{n}=9\).</p></div></div>
-<p class="step-why">Flat surface parallel to xy-plane → normal is k.</p>
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Integrate over the disk</strong>
-<p>\[\iint_S 9\,dA = 9\cdot\pi(2)^2 = \boxed{36\pi}\]</p></div></div>
-<p class="step-why">Constant integrand × area of circle of radius 2.</p>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F component by component</strong>
+<p>With \(P = -5y\), \(Q = 4x\), \(R = z\):</p>
+<p>\[\mathbf{i}\text{-component: } R_y - Q_z = 0 - 0 = 0\]</p>
+<p>\[\mathbf{j}\text{-component: } -(R_x - P_z) = -(0 - 0) = 0\]</p>
+<p>\[\mathbf{k}\text{-component: } Q_x - P_y = 4 - (-5) = 4 + 5 = 9\]</p>
+<p>\[\nabla\times\mathbf{F} = (0, 0, 9) = 9\,\mathbf{k}\]</p></div></div>
+<p class="step-why">Tip: P_y = ∂(−5y)/∂y = −5. The negative of a negative gives +5 in the k-component: 4 − (−5) = 9. Watch signs carefully here.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Identify the normal vector</strong>
+<p>The surface lies on the plane \(z = 1\) (a horizontal flat surface). The outward unit normal is \(\hat{n} = \mathbf{k}\) (pointing upward).</p></div></div>
+<p class="step-why">For any surface on z = constant, the normal is simply k (upward) or −k (downward). "Outward" = upward here.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Dot product</strong>
+<p>\[(\nabla\times\mathbf{F})\cdot\hat{n} = (0,0,9)\cdot(0,0,1) = 9\]</p></div></div>
+<p class="step-why">Only the k-components survive the dot product. The result is a constant.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Integrate over the disk</strong>
+<p>Since the integrand is the constant 9, the integral equals 9 × (area of the disk).</p>
+<p>The disk has equation \(x^2 + y^2 \le 4\), so radius \(R = 2\).</p>
+<p>\[\iint_S 9\,dS = 9 \cdot \pi R^2 = 9 \cdot \pi(2)^2 = 9 \cdot 4\pi = \boxed{36\pi}\]</p></div></div>
+<p class="step-why">Tip: whenever curl F · n = constant on a flat surface, the integral is just (constant) × (area). No actual integration needed.</p>
 </div>
+
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(36\pi\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Stokes' on a Flat Surface</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Compute curl F</div>
-<div class="qg-step"><span class="step-bubble">2</span>Normal to flat surface (e.g. z=c → n=k)</div>
-<div class="qg-step"><span class="step-bubble">3</span>curl F · n = constant? → multiply by area</div>
-<div class="qg-step"><span class="step-bubble">4</span>Circle area = \(\pi R^2\)</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute curl F (all 3 components)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Flat surface → n = k (or −k). Watch sign: \(Q_x - P_y\) not \(P_y - Q_x\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Dot product picks out the k-component</div>
+<div class="qg-step"><span class="step-bubble">4</span>If constant → multiply by area. Circle: \(\pi R^2\)</div>
 </div></div>
 </details>
 
