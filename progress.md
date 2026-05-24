@@ -541,16 +541,16 @@ MATH2004-2008/
 - Files changed: chapters/final.html, MATH2004-notes.html, progress.md
 
 ### Session 14 — May 24, 2026
-- **Created Recommended Problems page** (`recommended.html`) — 99 problems curated from all 4 past finals + practice set
-  - Organized into 19 topic sections ranked by exam likelihood (🔴 High / 🟡 Medium / 🟢 Lower)
-  - 🔴 High Priority (45 problems): Stokes' Theorem (5), Divergence Theorem (7), Critical Points/SDT (5), Continuity (4 from ch3 notes), Conservative Fields/Potential (8), Line Integrals/FTCLI (6), Green's Theorem (3), Cross Products (2), Lagrange Multipliers (5)
-  - 🟡 Medium Priority (42 problems): Planes/Lines (10), Chain Rule (5), Gradient/D.D. (5), Double Integrals (11), Polar Coordinates (8), Surface Integrals (4), Change of Variables (4)
-  - 🟢 Lower Priority (12 problems): Tangent Planes (1), Triple Integrals (4), Misc MCQ (7)
-  - Every problem row is clickable → navigates to the full worked solution on the corresponding exam page
-  - Priority ranking based on W26 Exam Intel (confirmed long answer topics + student reports)
+- **Created Recommended Problems page** (`recommended.html`) — sidebar "🎯 Recommended" under Final Prep
+- **Rebuilt recommended page** (217KB) — full solutions embedded, organized by predicted exam topic (not by chapter)
+  - **Structure:** Long Answer sections first (Stokes', Divergence, SDT/CPs, Continuity, Lagrange), then MC topics (Conservative/Potential, Line Integrals, Green's, Planes/Cross Products, Chain Rule, Gradient, Double Integrals, Polar, Surface Integrals)
+  - **50 fully solved problems** copied in full from W19/F14/F13/F17/Practice — no clicking to other pages required
+  - Each question has: source pill (exam color-coded), chapter pill, full solution block, and a **🧩 Takeaway** box explaining what the question teaches and variations to watch for
+  - Topic-level intro boxes with pattern recognition tips (Stokes' skeleton, Divergence shortcut, SDT checklist, Continuity decision tree, Lagrange steps)
+  - Continuity section: no past exam MCQ existed, so references Ch3 Examples 3.1–3.4 with a comparison table of variation types
 - **Sidebar updated** — added "🎯 Recommended" sub-link under Final Prep
 - **build.py updated** — added `recommended.html` to FRAGMENTS list
-- **Built MATH2004-notes.html** — 1,041KB, 29/29 fragments assembled
+- **Built MATH2004-notes.html** — 1,252KB, 29/29 fragments assembled
 - Files changed: shell-head.html, build.py, chapters/recommended.html (NEW), MATH2004-notes.html
 
 ### Session 15 — May 24, 2026
