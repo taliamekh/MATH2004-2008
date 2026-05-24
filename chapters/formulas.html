@@ -153,28 +153,28 @@
       <div class="fs-quick-summary">Normal vector determines the plane. Cross product of two in-plane vectors gives it.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Parametric Derivatives</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="7,8">Parametric Derivatives</div></div><div class="fs-body">
       <div class="fs-formula">\[\frac{dy}{dx}=\frac{\htmlData{t=dy/dt — derivative of y(t) w.r.t. parameter}{\color{#0B7D7D}{dy/dt}}}{\htmlData{t=dx/dt — derivative of x(t) w.r.t. parameter}{\color{#D45D00}{dx/dt}}},\quad \frac{d^2y}{dx^2}=\frac{\frac{d}{dt}\!\left(\frac{dy}{dx}\right)}{\htmlData{t=dx/dt — must be nonzero}{\color{#D45D00}{dx/dt}}}\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Parametric slope:</strong> dy/dx = (dy/dt)/(dx/dt) via the chain rule. Three cases: <strong>horizontal tangent</strong> when dy/dt = 0 (dx/dt ≠ 0), <strong>vertical tangent</strong> when dx/dt = 0 (dy/dt ≠ 0), <strong>both zero</strong> → cusp or corner. Second derivative: d²y/dx² = [d/dt(dy/dx)]/(dx/dt). This is NOT (d²y/dt²)/(d²x/dt²) — the #1 exam mistake.</p><p class="fs-origin"><strong>Where it comes from:</strong> Chain rule: dy/dx = (dy/dt)·(dt/dx) = (dy/dt)/(dx/dt). Second derivative requires differentiating the first derivative w.r.t. t, then dividing by dx/dt again.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding slopes, tangent lines, or concavity for parametric curves.</div><div class="wb n"><strong>✗ Not for</strong> curves given as y = f(x) — just use regular differentiation.</div></div></div>
       <div class="fs-quick-summary">Slope = (dy/dt)/(dx/dt). Second derivative: differentiate slope w.r.t. t, then divide by dx/dt.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Arc Length (Parametric)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="11">Arc Length (Parametric)</div></div><div class="fs-body">
       <div class="fs-formula">\[L=\int_{\htmlData{t=α — start of parameter range}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — end of parameter range}{\color{#A82870}{\beta}}}\sqrt{\left[\htmlData{t=x'(t)}{\color{#D45D00}{x'(t)}}\right]^2+\left[\htmlData{t=y'(t)}{\color{#0B7D7D}{y'(t)}}\right]^2}\,dt\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Arc length</strong> measures distance along a curve. Chop into tiny pieces ds = √(dx²+dy²), substitute dx = x'dt, dy = y'dt, and integrate: L = ∫√((x')²+(y')²) dt. The integrand is the speed — how fast the point moves. For y = f(x), set x = t to get L = ∫√(1+(dy/dx)²) dx. Key results: cycloid arch = 8r, circle = 2πR.</p><p class="fs-origin"><strong>Where it comes from:</strong> Pythagorean theorem on each infinitesimal piece: ds² = dx² + dy². Factor out dt².</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked for curve length. Ensure the curve is traced exactly once (no backtracking).</div><div class="wb n"><strong>✗ Not for</strong> polar curves — use ∫√((r')²+r²) dθ instead.</div></div></div>
       <div class="fs-quick-summary">Length = ∫ speed dt. Cycloid arch = 8r.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Area</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="10">Polar Area</div></div><div class="fs-body">
       <div class="fs-formula">\[A=\int_{\htmlData{t=α — starting angle}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — ending angle}{\color{#A82870}{\beta}}}\frac{1}{2}\htmlData{t=r — polar radius function}{\color{#D45D00}{r}}^2\,d\theta\]</div>
       
       <div class="fs-detail"><p class="fs-explain">In polar coordinates, area uses <strong>sectors</strong> (pie slices), not rectangles. A thin sector at radius r spanning dθ has area dA = ½r²dθ. Integrate: A = ½∫r² dθ. Between two curves: ½∫(r_out² − r_in²) dθ. Always find intersections first for bounds — some only show up when r = 0 at different θ values.</p><p class="fs-origin"><strong>Where it comes from:</strong> Circular sector of radius r and angle Δθ has area ½r²Δθ. Sum infinitesimal sectors → integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding area enclosed by a polar curve or between two polar curves. Sketch first.</div><div class="wb n"><strong>✗ Not for</strong> Cartesian regions. Don't forget the ½ in front.</div></div></div>
       <div class="fs-quick-summary">½∫r² dθ. Between curves: ½∫(r_out² − r_in²) dθ.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Polar Arc Length</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="12">Polar Arc Length</div></div><div class="fs-body">
       <div class="fs-formula">\[L=\int_{\htmlData{t=α — starting angle}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — ending angle}{\color{#A82870}{\beta}}}\sqrt{\htmlData{t=r' — derivative dr/dθ}{\color{#0B7D7D}{(r'_\theta)}}^2+\htmlData{t=r — polar radius}{\color{#D45D00}{r}}^2}\;d\theta\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Polar arc length</strong> measures distance along a polar curve r = f(θ). The formula parallels the parametric version but uses r and r' = dr/dθ instead of x' and y'. The integrand √(r² + (r')²) represents the speed along the curve in polar coordinates. Cardioid r = 1+cosθ has total perimeter 8.</p><p class="fs-origin"><strong>Where it comes from:</strong> Start with x = rcosθ, y = rsinθ. Compute x'(θ) and y'(θ) via product rule, plug into √((x')²+(y')²), and simplify using cos²+sin² = 1.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding the length of a polar curve. The identity 1+cosθ = 2cos²(θ/2) often simplifies cardioid integrals.</div><div class="wb n"><strong>✗ Not for</strong> parametric curves — use ∫√((x')²+(y')²) dt directly.</div></div></div>
@@ -202,7 +202,7 @@
       <div class="fs-quick-summary">Active: rotate point. Passive: rotate axes (flip sin signs). Translation first, then rotate.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Parametric Area</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="9">Parametric Area</div></div><div class="fs-body">
       <div class="fs-formula">\[A=\int_{\htmlData{t=α — start parameter}{\color{#A82870}{\alpha}}}^{\htmlData{t=β — end parameter}{\color{#A82870}{\beta}}}\htmlData{t=y(t) — height function}{\color{#0B7D7D}{y(t)}}\,\htmlData{t=x'(t) — derivative of x-component}{\color{#D45D00}{x'(t)}}\,dt\]</div>
       
       <div class="fs-detail"><p class="fs-explain"><strong>Parametric area</strong> under (or enclosed by) a parametric curve comes from substituting dx = x'(t)dt into ∫y dx, giving A = ∫y(t)·x'(t) dt. For a closed curve, use |∫g(t)·f'(t) dt|. Key results: cycloid arch area = 3πr², ellipse area = πab.</p><p class="fs-origin"><strong>Where it comes from:</strong> Substitution in ∫y dx: replace dx with x'(t)dt, change bounds to t-values.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> finding area under or enclosed by a parametric curve. Watch bounds — they're in t, not x.</div><div class="wb n"><strong>✗ Not for</strong> polar curves — those use ½∫r² dθ. Don't mix the formulas.</div></div></div>
@@ -246,7 +246,7 @@
       <div class="fs-quick-summary">Order of mixed partials doesn't matter (when continuous).</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Directional Derivative</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="13">Directional Derivative</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=Dᵤf — directional derivative}{\color{#D45D00}{D_{\mathbf{u}}f(P)}}=\htmlData{t=∇f — gradient vector}{\color{#5D7A20}{\nabla f(P)}}\cdot\htmlData{t=u — direction vector}{\color{#0B7D7D}{\mathbf{u}}}=\htmlData{t=|∇f| — gradient magnitude}{\color{#5D7A20}{|\nabla f|}}\,\htmlData{t=|u| — length of u}{\color{#0B7D7D}{|\mathbf{u}|}}\cos\htmlData{t=θ — angle between ∇f and u}{\color{#A82870}{\theta}}\]</div>
       <div class="fs-detail"><p class="fs-explain">The <strong>directional derivative</strong> gives the rate of change of f in any direction, not just along the axes. Compute the gradient ∇f = (fₓ, f_y), then dot it with the direction vector u. When u is a unit vector, this gives the rate of change per unit distance. The formula D = ∇f · u = |∇f||u|cosθ shows the directional derivative depends on the angle between the gradient and the direction.</p><p class="fs-origin"><strong>Where it comes from:</strong> Expand the limit definition of D_u f using the linearity of derivatives. The result factors as the dot product of the gradient with u.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> asked for the rate of change in a specific direction, or finding the direction of maximum/minimum change.</div><div class="wb n"><strong>✗ Not for</strong> finding the derivative along a curved path — that needs the chain rule with parametric curves.</div></div></div>
       <div class="fs-quick-summary">Rate of change in direction u. Dot the gradient with u.</div>
@@ -257,12 +257,12 @@
       <div class="fs-quick-summary">Max rate of change = |∇f|, in direction of ∇f. Zero along level curves.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Chain Rule (One Parameter)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="14">Chain Rule (One Parameter)</div></div><div class="fs-body">
       <div class="fs-formula">\[\frac{d\htmlData{t=z — the output variable}{\color{#0B7D7D}{z}}}{d\htmlData{t=t — parameter that x and y depend on}{\color{#A82870}{t}}}=\frac{\partial z}{\partial \htmlData{t=x — first intermediate variable}{\color{#D45D00}{x}}}\frac{dx}{dt}+\frac{\partial z}{\partial \htmlData{t=y — second intermediate variable}{\color{#5D7A20}{y}}}\frac{dy}{dt}\]</div><div class="fs-detail"><p class="fs-explain">When z = f(x,y) and both x, y depend on a parameter t, the <strong>total derivative</strong> dz/dt combines both paths of influence. Each term is a product: the partial of z w.r.t. an intermediate variable times that variable's derivative w.r.t. t. Add all such terms. For three intermediate variables, add a third term (∂z/∂w · dw/dt).</p><p class="fs-origin"><strong>Where it comes from:</strong> The gradient form d/dt f(r(t)) = ∇f · r'(t), expanded into components.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> z depends on x,y which themselves depend on t. Also for related rates in multivariable settings.</div><div class="wb n"><strong>✗ Not for</strong> cases where x,y are independent — then just compute partial derivatives directly.</div></div></div>
       <div class="fs-quick-summary">Sum ∂z/∂(each var) × d(var)/dt over all intermediate variables.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Implicit Partial Derivatives</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="17,18">Implicit Partial Derivatives</div></div><div class="fs-body">
       <div class="fs-formula">\[\frac{\partial \htmlData{t=z — the dependent variable}{\color{#0B7D7D}{z}}}{\partial \htmlData{t=x — first independent variable}{\color{#D45D00}{x}}}=-\frac{\htmlData{t=fₓ — partial of f w.r.t. x}{\color{#D45D00}{f_x}}}{\htmlData{t=fz — partial of f w.r.t. z (nonzero)}{\color{#0B7D7D}{f_z}}},\qquad\frac{\partial z}{\partial \htmlData{t=y — second independent variable}{\color{#5D7A20}{y}}}=-\frac{\htmlData{t=fy — partial of f w.r.t. y}{\color{#5D7A20}{f_y}}}{f_z}\]</div><div class="fs-detail"><p class="fs-explain">When a surface is defined implicitly by f(x,y,z) = 0 and you can't solve for z explicitly, these formulas give the partial derivatives. Differentiate f = 0 with respect to x (treating z as a function of x,y), then solve for ∂z/∂x.</p><p class="fs-origin"><strong>Where it comes from:</strong> Apply the chain rule to f(x,y,z(x,y)) = 0: fₓ + f_z · ∂z/∂x = 0, then solve.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the surface equation f(x,y,z)=0 can't easily be solved for z. Quick shortcut: just compute the three partials of f and take ratios.</div><div class="wb n"><strong>✗ Not for</strong> cases where f_z = 0 at the point — the formula breaks down (z can't be expressed as a function of x,y near that point).</div></div></div>
       <div class="fs-quick-summary">∂z/∂x = −fₓ/f_z. Requires f_z ≠ 0.</div>
     </div></div>
@@ -272,17 +272,17 @@
       <div class="fs-quick-summary">Normal = ∇f. For z=g(x,y): z−z₀ = gₓ(x−x₀)+g_y(y−y₀).</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Curl (∇ × F)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="21">Curl (∇ × F)</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{curl}\;\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}=\nabla\times\mathbf{F}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\\htmlData{t=P — i-component of F}{\color{#D45D00}{P}}&\htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}&\htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}\end{vmatrix}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>curl</strong> measures the rotational tendency of a vector field at a point. Think of it as "how much the field swirls." It's computed as a 3×3 determinant (formal expansion along the first row). The result is a vector: curl points in the axis of rotation (by the right-hand rule), and its magnitude measures the rotation rate. In 2D: curl F = (Qₓ − P_y)k.</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ × F treats the del operator ∇ = (∂ₓ, ∂_y, ∂_z) as a vector and takes its cross product with F = (P,Q,R).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> testing if a field is conservative (curl = 0 ⟹ conservative), or computing rotation in fluid/EM applications.</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — curl only applies to vector fields. The result is a vector, not a scalar.</div></div></div>
       <div class="fs-quick-summary">Determinant with ∇ in row 2, F in row 3. curl = 0 ⟹ conservative.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Conservative Field Test</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="27">Conservative Field Test</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}\text{ conservative}\;\Longleftrightarrow\;\text{curl}\;\mathbf{F}=\mathbf{0}\;\Longleftrightarrow\;\htmlData{t=Qₓ — must equal Py}{\color{#5D7A20}{Q_x}}=\htmlData{t=Py — must equal Qₓ}{\color{#D45D00}{P_y}},\;\htmlData{t=Rₓ — must equal Pz}{\color{#0B7D7D}{R_x}}=P_z,\;R_y=Q_z\]</div><div class="fs-detail"><p class="fs-explain">A field F = (P,Q,R) is conservative if and only if its curl is zero everywhere. In 2D, this reduces to checking one condition: Qₓ = P_y. To find the potential function f, integrate fₓ = P w.r.t. x, then use f_y = Q to determine the unknown function g(y).</p><p class="fs-origin"><strong>Where it comes from:</strong> If F = ∇f, then P = fₓ, Q = f_y, R = f_z. Clairaut's theorem gives f_{xy} = f_{yx}, i.e., P_y = Qₓ. Similarly for the other pairs.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> determining if a vector field is conservative or finding a potential function.</div><div class="wb n"><strong>✗ Not for</strong> fields defined on regions with holes — curl = 0 doesn't guarantee a global potential in non-simply-connected domains.</div></div></div>
       <div class="fs-quick-summary">Check all mixed-partial equalities. If all match, F is conservative.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Divergence (∇ · F)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="20">Divergence (∇ · F)</div></div><div class="fs-body">
       <div class="fs-formula">\[\text{div}\;\htmlData{t=F — the vector field}{\color{#B8336A}{\mathbf{F}}}=\nabla\cdot\mathbf{F}=\frac{\partial \htmlData{t=P — i-component of F}{\color{#D45D00}{P}}}{\partial x}+\frac{\partial \htmlData{t=Q — j-component of F}{\color{#5D7A20}{Q}}}{\partial y}+\frac{\partial \htmlData{t=R — k-component of F}{\color{#0B7D7D}{R}}}{\partial z}\]</div><div class="fs-detail"><p class="fs-explain">The <strong>divergence</strong> measures the net outward flux of a vector field at a point. Positive divergence means the field is expanding outward (a source, like a garden hose nozzle). Negative means contracting inward (a sink, like a drain). Zero means incompressible (what flows in equals what flows out).</p><p class="fs-origin"><strong>Where it comes from:</strong> The notation ∇ · F treats del as a vector and dots it with F — sum of component-wise partial derivatives.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing sources/sinks in fluid flow or electromagnetic fields. Also needed for the Divergence Theorem (Ch 6).</div><div class="wb n"><strong>✗ Not for</strong> scalar fields — divergence applies to vector fields only. The result is a scalar, not a vector.</div></div></div>
       <div class="fs-quick-summary">Sum of each component's partial w.r.t. its own variable. Measures source/sink.</div>
     </div></div>
@@ -292,19 +292,19 @@
     <h2 style="color:var(--ch4-title)">Chapter 4 — Line Integrals</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch4-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Line Integral (Arc Length)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="22,23">Line Integral (Arc Length)</div></div><div class="fs-body">
       <div class="fs-formula">\[\int_{\mathscr{C}}\htmlData{t=f — scalar field on the curve}{\color{#D45D00}{f}}(x{,}y{,}z)\,ds=\int_{\htmlData{t=a — start of parameter interval}{\color{#A82870}{a}}}^{\htmlData{t=b — end of parameter interval}{\color{#A82870}{b}}}\htmlData{t=f — evaluated along the curve}{\color{#D45D00}{f}}(\mathbf{r}(t))\,\htmlData{t=|r'| — speed along the curve}{\color{#2050A0}{|\mathbf{r}'(t)|}}\,dt\]</div>
       <div class="fs-detail"><p class="fs-explain"><strong>Line integral w.r.t. arc length</strong> sums f along a curve weighted by ds. Think of f as density: the integral gives total mass. Parametrize the curve then multiply f(r(t)) by the speed |r'(t)|. Result is orientation-independent — reversing the curve gives the same answer.</p><p class="fs-origin"><strong>Where it comes from:</strong> Replace ds with |r'(t)| dt from the arc-length formula (recall from §2.10).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the integrand involves ds (arc length element) or when computing mass/charge along a wire.</div><div class="wb n"><strong>✗ Not for</strong> vector field integrals (∫F·dr) — those use the dot product instead of the speed.</div></div></div>
       <div class="fs-quick-summary">Sum f along a curve. Multiply by |r'(t)| dt. Orientation-independent.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Vector Field Line Integral</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="24">Vector Field Line Integral</div></div><div class="fs-body">
       <div class="fs-formula">\[\int_{\mathscr{C}}\htmlData{t=F — vector field}{\color{#D45D00}{\mathbf{F}}}\cdot d\htmlData{t=r — position vector along curve}{\color{#0B7D7D}{\mathbf{r}}}=\int_{\htmlData{t=a — start parameter}{\color{#A82870}{a}}}^{\htmlData{t=b — end parameter}{\color{#A82870}{b}}}\htmlData{t=F — field evaluated on curve}{\color{#D45D00}{\mathbf{F}}}(\mathbf{r}(t))\cdot\htmlData{t=r' — tangent vector}{\color{#0B7D7D}{\mathbf{r}'}}(t)\,dt\]</div>
       <div class="fs-detail"><p class="fs-explain"><strong>Line integral of a vector field</strong> measures how much F pushes along the curve. The dot product F·r' extracts only the tangential component. This gives the <strong>work</strong> done by force F on a particle moving along C. Unlike scalar line integrals this IS orientation-dependent: reversing C negates the answer.</p><p class="fs-origin"><strong>Where it comes from:</strong> Work = force × distance in the force direction. Infinitesimally: dW = F·dr = F·r'dt.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing work done by a force or circulation of a field around a closed curve.</div><div class="wb n"><strong>✗ Not for</strong> mass or charge computations — those use the scalar (ds) version above.</div></div></div>
       <div class="fs-quick-summary">Work integral. F·r' dt. Orientation-dependent (reversing negates).</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">FTCLI (Fundamental Theorem)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="25">FTCLI (Fundamental Theorem)</div></div><div class="fs-body">
       <div class="fs-formula">\[\int_{\mathscr{C}}\nabla\htmlData{t=f — potential function for field F}{\color{#5D7A20}{f}}\cdot d\mathbf{r}=\htmlData{t=f at endpoint — evaluate potential here}{\color{#5D7A20}{f}}(\mathbf{r}(\htmlData{t=b — end of parameter}{\color{#A82870}{b}}))-\htmlData{t=f at start — evaluate potential here}{\color{#5D7A20}{f}}(\mathbf{r}(\htmlData{t=a — start of parameter}{\color{#A82870}{a}}))\]</div>
       <div class="fs-detail"><p class="fs-explain">If F is conservative (F = ∇f) then the line integral depends ONLY on the endpoints — not on the path! Just evaluate the potential f at the start and end points and subtract. For a closed curve (start = end) the integral is always zero. This is the multivariable version of ∫f'dx = f(b)−f(a).</p><p class="fs-origin"><strong>Where it comes from:</strong> Chain rule: F(r(t))·r'(t) = (d/dt)f(r(t)). Integrate both sides from a to b.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> F is conservative. Saves enormous computation — just evaluate f at two points!</div><div class="wb n"><strong>✗ Not for</strong> non-conservative fields. Must verify curl F = 0 first.</div></div></div>
       <div class="fs-quick-summary">Conservative fields: integral = f(end) − f(start). Path-independent.</div>
@@ -320,13 +320,13 @@
     <h2 style="color:var(--ch5-title)">Chapter 5 — Double Integrals</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch5-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Fubini's Theorem (Rectangle)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="26">Fubini's Theorem (Rectangle)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — continuous function on R}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound}{\color{#D45D00}{b}}}\int_{\htmlData{t=c — bottom y-bound}{\color{#5D7A20}{c}}}^{\htmlData{t=d — top y-bound}{\color{#5D7A20}{d}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx=\int_{\htmlData{t=c — bottom y-bound}{\color{#5D7A20}{c}}}^{\htmlData{t=d — top y-bound}{\color{#5D7A20}{d}}}\int_{\htmlData{t=a — left x-bound}{\color{#D45D00}{a}}}^{\htmlData{t=b — right x-bound}{\color{#D45D00}{b}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dx\,dy\]</div>
       <div class="fs-detail"><p class="fs-explain"><strong>Fubini's theorem</strong> lets you compute a double integral as two nested single integrals — called an <strong>iterated integral</strong>. For a rectangle both orders (dy dx or dx dy) give the same answer. The inner integral is evaluated first while treating the outer variable as a constant.</p><p class="fs-origin"><strong>Where it comes from:</strong> The double Riemann sum factors into a product of single sums when the region is a rectangle and f is continuous.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region is a rectangle [a-b] × [c-d] with constant limits on both integrals.</div><div class="wb n"><strong>✗ Not for</strong> non-rectangular regions — use the general version with variable limits below.</div></div></div>
       <div class="fs-quick-summary">Rectangle: either order works. Inner integral first — hold outer variable constant.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Fubini (General Region)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="26">Fubini (General Region)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dA=\int_{\htmlData{t=a — left x-bound; constant}{\color{#4A8060}{a}}}^{\htmlData{t=b — right x-bound; constant}{\color{#4A8060}{b}}}\int_{\htmlData{t=f₁ — bottom boundary curve}{\color{#5D7A20}{f_1(x)}}}^{\htmlData{t=f₂ — top boundary curve}{\color{#5D7A20}{f_2(x)}}}\htmlData{t=f — integrand}{\color{#D45D00}{f}}\,dy\,dx\]</div>
       <div class="fs-detail"><p class="fs-explain">For non-rectangular regions describe R using vertical slices (x-simple): the outer x-limits are constants while the inner y-limits are functions of x. The subscript R_yx reminds you: y first then x → dy dx. To reverse the order: sketch the region and re-describe with horizontal slices.</p><p class="fs-origin"><strong>Where it comes from:</strong> Same as rectangular Fubini but with x-dependent limits on the inner integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region is x-simple (bounded above/below by curves in y).</div><div class="wb n"><strong>✗ Not for</strong> regions that aren't x-simple — try y-simple (dx dy) or split the region.</div></div></div>
       <div class="fs-quick-summary">Vertical slices: outer x (constants) inner y (functions of x). R_yx → dy dx.</div>
@@ -338,7 +338,7 @@
       <div class="fs-quick-summary">dA = r dr dθ. Replace x²+y² → r². Don't forget the extra r!</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Change of Variables (General)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="28,29">Change of Variables (General)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{R}}\htmlData{t=f — original integrand}{\color{#D45D00}{f}}\,dA=\iint_{\mathscr{S}}\htmlData{t=f — rewritten in new variables}{\color{#D45D00}{f}}\!\left|\frac{\partial(x{,}y)}{\partial(\htmlData{t=u — first new variable}{\color{#0B7D7D}{u}},\htmlData{t=v — second new variable}{\color{#A82870}{v}})}\right|\,d\htmlData{t=u — new variable 1}{\color{#0B7D7D}{u}}\,d\htmlData{t=v — new variable 2}{\color{#A82870}{v}}\]</div>
       <div class="fs-detail"><p class="fs-explain">The general change of variables formula for double integrals. The Jacobian determinant |∂(x-y)/∂(u-v)| scales the area element — it measures how much the transformation stretches or compresses area. Polar coordinates are a special case with Jacobian = r.</p><p class="fs-origin"><strong>Where it comes from:</strong> Analogous to single-variable substitution ∫f(g(t))g'(t)dt where g' plays the role of the Jacobian.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region or integrand simplifies under a specific substitution (polar - elliptic - rotational).</div><div class="wb n"><strong>✗ Not for</strong> problems already simple in rectangular coords. Don't over-complicate.</div></div></div>
       <div class="fs-quick-summary">2D substitution rule. Multiply by |Jacobian|. Polar is the special case J = r.</div>
@@ -354,25 +354,25 @@
     <h2 style="color:var(--ch6-title);margin-top:24px;">Chapter 6 — The Three Big Theorems</h2>
     <div class="fs-chapter" style="--fs-ch-title:var(--ch6-title)">
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Surface Integral (Graph Form)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="31">Surface Integral (Graph Form)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{S}} \htmlData{t=F — scalar function on the surface}{\color{#0B7D7D}{F}}\,dS = \iint_{\mathscr{R}} \htmlData{t=F evaluated on the surface}{\color{#0B7D7D}{F}}(x,y,\htmlData{t=f — surface equation z is a function of x and y}{\color{#2050A0}{f}}(x,y))\;\sqrt{1+\htmlData{t=f_x — partial derivative of surface w.r.t. x}{\color{#D45D00}{f_x}}^2+\htmlData{t=f_y — partial derivative of surface w.r.t. y}{\color{#D45D00}{f_y}}^2}\;\,dA\]</div>
       <div class="fs-detail"><p class="fs-explain">Reduces a surface integral to a double integral over the flat projection ℛ. The square root factor corrects for the tilt of the surface — steeper surface means larger factor.</p><p class="fs-origin"><strong>Where it comes from:</strong> Each small surface patch ΔS is the flat patch ΔA multiplied by the secant of the tilt angle: sec γ = √(1+f_x²+f_y²).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the surface is given explicitly as z equals some function of x and y.</div><div class="wb n"><strong>✗ Not for</strong> parametric surfaces — use the cross product form instead.</div></div></div>
       <div class="fs-quick-summary">Surface integral via projection: integrate F · √(1+f_x²+f_y²) over the flat region ℛ.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Surface Integral (Parametric Form)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="32">Surface Integral (Parametric Form)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{S}} \htmlData{t=F — scalar integrand}{\color{#0B7D7D}{F}}\,dS = \iint_{\mathscr{R}^*} \htmlData{t=F — evaluated at r of u and v}{\color{#0B7D7D}{F}}(\mathbf{r}(\htmlData{t=u — first parameter}{\color{#A82870}{u}},\htmlData{t=v — second parameter}{\color{#A82870}{v}}))\;|\htmlData{t=r_u — partial derivative w.r.t. u}{\color{#D45D00}{\mathbf{r}_u}} \times \htmlData{t=r_v — partial derivative w.r.t. v}{\color{#D45D00}{\mathbf{r}_v}}|\;\,dA\]</div>
       <div class="fs-detail"><p class="fs-explain">For surfaces described parametrically by r(u-v). The cross product |r_u × r_v| gives the area magnification factor — how much a small rectangle in parameter space stretches when mapped to the surface.</p><p class="fs-origin"><strong>Where it comes from:</strong> The tangent vectors r_u and r_v span the tangent plane. Their cross product is the normal and its magnitude is the area of the parallelogram they span.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the surface has a natural parametrization (sphere or cylinder or surface of revolution).</div><div class="wb n"><strong>✗ Not for</strong> surfaces given as z of x and y — use the graph form with √(1+f_x²+f_y²).</div></div></div>
       <div class="fs-quick-summary">Parametric surface integral: integrate F · |r_u × r_v| over the parameter region.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Flux Through a Surface</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="33,34">Flux Through a Surface</div></div><div class="fs-body">
       <div class="fs-formula">\[\iint_{\mathscr{S}} \htmlData{t=F — vector field}{\color{#0B7D7D}{\mathbf{F}}}\cdot d\mathbf{S} = \iint_{\mathscr{R}} \big(-\htmlData{t=P — x-component of F}{\color{#B8336A}{P}}\htmlData{t=f_x — partial of surface w.r.t. x}{\color{#D45D00}{f_x}} - \htmlData{t=Q — y-component of F}{\color{#B8336A}{Q}}\htmlData{t=f_y — partial of surface w.r.t. y}{\color{#D45D00}{f_y}} + \htmlData{t=R — z-component of F}{\color{#B8336A}{R}}\big)\,dA\]</div>
       <div class="fs-detail"><p class="fs-explain">Computes the net flow (flux) of a vector field F through a surface z equals f(x-y) with upward orientation. Positive flux means net outward flow. The formula comes from dotting F with the upward unit normal and cancelling the denominator with dS.</p><p class="fs-origin"><strong>Where it comes from:</strong> The outward normal is (−f_x − f_y − 1)/√(1+f_x²+f_y²). Dotting with F and multiplying by dS = √(1+f_x²+f_y²) dA — the square roots cancel.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing flux through a surface given as z equals some function — with upward normal.</div><div class="wb n"><strong>✗ Not for</strong> downward normal (negate the result) or parametric surfaces (use dot with r_u × r_v).</div></div></div>
       <div class="fs-quick-summary">Flux through z of x-y: integrate (−Pf_x − Qf_y + R) dA over the projection.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Green's Theorem</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="35">Green's Theorem</div></div><div class="fs-body">
       <div class="fs-formula">\[\oint_{\mathscr{C}} \htmlData{t=P — x-component of the field}{\color{#B8336A}{P}}\,dx + \htmlData{t=Q — y-component of the field}{\color{#B8336A}{Q}}\,dy = \iint_{\mathscr{R}}\left(\frac{\partial \htmlData{t=Q — y-component}{\color{#B8336A}{Q}}}{\partial x} - \frac{\partial \htmlData{t=P — x-component}{\color{#B8336A}{P}}}{\partial y}\right) dA\]</div>
       <div class="fs-detail"><p class="fs-explain">Converts a line integral around a closed curve in the plane into a double integral over the enclosed region (or vice versa). Q_x − P_y is the 2D scalar curl. The curve must be positively oriented (counterclockwise).</p><p class="fs-origin"><strong>Where it comes from:</strong> Apply the FTC separately to each component along vertical and horizontal slices of the region. The boundary contributions combine into the line integral.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> a line integral around a closed curve is hard but Q_x − P_y simplifies nicely.</div><div class="wb n"><strong>✗ Not for</strong> open curves or 3D problems — use FTCLI or Stokes' theorem instead.</div></div></div>
       <div class="fs-quick-summary">Closed-curve line integral in 2D: ∮P dx + Q dy matches ∬(Q_x − P_y) dA over the interior.</div>
@@ -384,31 +384,31 @@
       <div class="fs-quick-summary">Area as a boundary integral: ½∮(x dy − y dx) around the curve.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Stokes' Theorem</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="36">Stokes' Theorem</div></div><div class="fs-body">
       <div class="fs-formula">\[\oint_{\mathscr{C}} \htmlData{t=F — vector field in 3D}{\color{#B8336A}{\mathbf{F}}}\cdot d\mathbf{r} = \iint_{\mathscr{S}} (\htmlData{t=curl F — rotation of F}{\color{#0B7D7D}{\nabla \times \mathbf{F}}})\cdot\htmlData{t=n — outward unit normal to the surface}{\color{#D45D00}{\mathbf{n}}}\,dS\]</div>
       <div class="fs-detail"><p class="fs-explain">Relates the circulation of F around a boundary curve 𝒞 to the flux of curl F through any surface 𝒮 bounded by 𝒞. The right-hand rule determines the compatible orientation: curl your right-hand fingers in the direction of 𝒞 and your thumb points in the direction of n.</p><p class="fs-origin"><strong>Where it comes from:</strong> Green's theorem generalized to 3D. The proof uses Green's on the projection of 𝒮 and the chain rule to recover the curl components.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> an open surface has a boundary curve — convert between line and surface integrals.</div><div class="wb n"><strong>✗ Not for</strong> closed surfaces (no boundary curve) — use the Divergence Theorem instead.</div></div></div>
       <div class="fs-quick-summary">Line integral around boundary matches surface integral of curl through any spanning surface.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Triple Integral (Fubini)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="37">Triple Integral (Fubini)</div></div><div class="fs-body">
       <div class="fs-formula">\[\iiint_{\mathscr{T}} \htmlData{t=f — integrand function of three variables}{\color{#0B7D7D}{f}}\,dV = \int_{\htmlData{t=a — lower x-bound}{\color{#4A8060}{a}}}^{\htmlData{t=b — upper x-bound}{\color{#4A8060}{b}}}\int_{\htmlData{t=f_1 — lower y-bound as function of x}{\color{#4A8060}{f_1(x)}}}^{\htmlData{t=f_2 — upper y-bound as function of x}{\color{#4A8060}{f_2(x)}}}\int_{\htmlData{t=g — lower z-bound}{\color{#4A8060}{g}}}^{\htmlData{t=h — upper z-bound}{\color{#4A8060}{h}}} \htmlData{t=f — integrand}{\color{#0B7D7D}{f}}\,dz\,dy\,dx\]</div>
       <div class="fs-detail"><p class="fs-explain">Evaluate a triple integral as three nested single integrals. There are 6 possible orderings. The innermost bounds depend on both outer variables and the middle bounds on the outermost variable. Outer bounds are always constants. Always integrate from the inside out.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the solid region can be described with variable limits in rectangular coordinates.</div><div class="wb n"><strong>✗ Not for</strong> spherical or cylindrical regions — change coordinates first for simpler bounds.</div></div></div>
       <div class="fs-quick-summary">Triple integral via iterated integrals: 6 orderings — inner bounds vary and outer bounds are constant.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Cylindrical Coordinates</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="39">Cylindrical Coordinates</div></div><div class="fs-body">
       <div class="fs-formula">\[\iiint_{\mathscr{T}} \htmlData{t=f — integrand}{\color{#0B7D7D}{f}}\,dV = \iiint \htmlData{t=f — evaluated at cylindrical coords}{\color{#0B7D7D}{f}}(\htmlData{t=r — distance from z-axis}{\color{#2050A0}{r}}\cos\htmlData{t=θ — angle in xy-plane}{\color{#A82870}{\theta}},\;\htmlData{t=r — radial distance}{\color{#2050A0}{r}}\sin\htmlData{t=θ — angle}{\color{#A82870}{\theta}},\;\htmlData{t=z — height}{\color{#D45D00}{z}})\;\htmlData{t=r — Jacobian factor}{\color{#2050A0}{r}}\,d\htmlData{t=r — radial variable}{\color{#2050A0}{r}}\,d\htmlData{t=θ — angular variable}{\color{#A82870}{\theta}}\,d\htmlData{t=z — height variable}{\color{#D45D00}{z}}\]</div>
       <div class="fs-detail"><p class="fs-explain">Cylindrical coordinates extend polar coordinates to 3D. The Jacobian is r (same as polar). Use when the region involves circles around the z-axis: x²+y² appears naturally.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the solid has circular cross-sections perpendicular to the z-axis.</div><div class="wb n"><strong>✗ Not for</strong> spherical regions — use spherical coordinates instead.</div></div></div>
       <div class="fs-quick-summary">Cylindrical: x = r cos θ and y = r sin θ and z = z. Jacobian is r. Use for cylinders.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Spherical Coordinates</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="40">Spherical Coordinates</div></div><div class="fs-body">
       <div class="fs-formula">\[\iiint_{\mathscr{T}} \htmlData{t=f — integrand}{\color{#0B7D7D}{f}}\,dV = \iiint \htmlData{t=f — at spherical coords}{\color{#0B7D7D}{f}}\;\htmlData{t=ρ² — from Jacobian}{\color{#2050A0}{\rho^2}}\htmlData{t=sin φ — from Jacobian}{\color{#A82870}{\sin\varphi}}\,d\htmlData{t=ρ — radial distance from origin}{\color{#2050A0}{\rho}}\,d\htmlData{t=θ — azimuthal angle in xy-plane}{\color{#D45D00}{\theta}}\,d\htmlData{t=φ — polar angle from z-axis}{\color{#A82870}{\varphi}}\]</div>
       <div class="fs-detail"><p class="fs-explain">Spherical coordinates use distance from origin (ρ) and two angles (θ for longitude and φ for colatitude from the z-axis). The Jacobian ρ² sin φ accounts for the volume distortion. <strong>Conversion:</strong> x = ρ sin φ cos θ and y = ρ sin φ sin θ and z = ρ cos φ.</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> the region involves spheres or cones centered at the origin.</div><div class="wb n"><strong>✗ Not for</strong> cylindrical regions or off-center geometry.</div></div></div>
       <div class="fs-quick-summary">Spherical: Jacobian is ρ² sin φ. ρ from origin — θ around — φ down from z-axis.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Divergence Theorem</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="41">Divergence Theorem</div></div><div class="fs-body">
       <div class="fs-formula">\[\iiint_{\mathscr{T}} \htmlData{t=div F — divergence of the field}{\color{#0B7D7D}{\text{div}\,\mathbf{F}}}\,dV = \iint_{\mathscr{S}} \htmlData{t=F — vector field}{\color{#B8336A}{\mathbf{F}}}\cdot\htmlData{t=n — outward unit normal}{\color{#D45D00}{\mathbf{n}}}\,dS\]</div>
       <div class="fs-detail"><p class="fs-explain">The triple integral of divergence over a solid region equals the outward flux through its closed boundary surface. Think of div F as "source strength per unit volume" — the total source inside equals the net flow out through the boundary. Also known as Gauss's Theorem.</p><p class="fs-origin"><strong>Where it comes from:</strong> Apply the 2D divergence form of Green's theorem slice by slice in 3D then sum up (similar to how Fubini works).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> computing flux through a <em>closed</em> surface — especially multi-face surfaces like cubes or tetrahedra.</div><div class="wb n"><strong>✗ Not for</strong> open surfaces (those have boundary curves — use Stokes').</div></div></div>
       <div class="fs-quick-summary">Closed-surface flux matches the triple integral of divergence over the enclosed solid.</div>
@@ -425,7 +425,7 @@
       <div class="fs-quick-summary">Set f_x = 0 and f_y = 0 simultaneously. Every local extremum is a critical point.</div>
     </div></div>
 
-    <div class="fs-card"><div class="fs-top"><div class="fs-name">Second Derivative Test (Discriminant)</div></div><div class="fs-body">
+    <div class="fs-card"><div class="fs-top"><div class="fs-name" data-exam="19">Second Derivative Test (Discriminant)</div></div><div class="fs-body">
       <div class="fs-formula">\[\htmlData{t=D — discriminant of the Hessian}{\color{#B8336A}{D}} = \htmlData{t=f_xx — second partial w.r.t. x twice}{\color{#D45D00}{f_{xx}}} \cdot \htmlData{t=f_yy — second partial w.r.t. y twice}{\color{#D45D00}{f_{yy}}} - \left(\htmlData{t=f_xy — mixed second partial}{\color{#0B7D7D}{f_{xy}}}\right)^2\]</div>
       <div class="fs-detail"><p class="fs-explain">The discriminant D classifies a critical point P. <strong>D > 0 and f_xx > 0</strong> → local min. <strong>D > 0 and f_xx &lt; 0</strong> → local max. <strong>D &lt; 0</strong> → saddle point. <strong>D = 0</strong> → inconclusive. D is the determinant of the 2×2 Hessian matrix of second partials.</p><p class="fs-origin"><strong>Where it comes from:</strong> The Taylor expansion of f near P is a quadratic form h²f_xx + 2hkf_xy + k²f_yy. The discriminant determines whether this form is positive definite (min) or negative definite (max) or indefinite (saddle).</p><div class="wu"><div class="wb y"><strong>✓ Use when</strong> classifying interior critical points found from f_x = f_y = 0.</div><div class="wb n"><strong>✗ Not for</strong> boundary points or points where partials don't exist. Also fails when D = 0.</div></div></div>
       <div class="fs-quick-summary">D > 0 + f_xx > 0 → min. D > 0 + f_xx &lt; 0 → max. D &lt; 0 → saddle. D = 0 → inconclusive.</div>
@@ -467,6 +467,26 @@
     badge.textContent = '#' + num;
     badge.style.cssText = 'display:inline-block;font-size:11px;font-weight:700;color:var(--muted);background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:4px;padding:1px 6px;margin-right:8px;font-family:system-ui,sans-serif;vertical-align:middle;';
     nameEl.insertBefore(badge, nameEl.firstChild);
+    // Exam cross-reference pill
+    var examNums = nameEl.getAttribute('data-exam');
+    var topBar = card.querySelector('.fs-top');
+    if(topBar) topBar.style.cssText += 'display:flex;align-items:center;justify-content:space-between;gap:6px;';
+    if(examNums && topBar){
+      var pill = document.createElement('span');
+      pill.className = 'exam-ref-pill';
+      var labels = examNums.split(',').map(function(n){ return '#'+n.trim(); }).join(', ');
+      pill.innerHTML = '📋 Exam ' + labels;
+      pill.title = 'This formula appears on the official exam-provided sheet as equation ' + labels;
+      pill.style.cssText = 'display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:600;color:#2B6CB0;background:rgba(43,108,176,.07);border:1px solid rgba(43,108,176,.2);border-radius:10px;padding:2px 9px;white-space:nowrap;cursor:default;font-family:system-ui,sans-serif;flex-shrink:0;';
+      pill.addEventListener('click', function(e){ e.stopPropagation(); showPage("examformulas"); });
+      pill.style.cursor = 'pointer';
+      topBar.appendChild(pill);
+    } else if(topBar && !examNums){
+      var noExam = document.createElement('span');
+      noExam.style.cssText = 'font-size:10px;color:rgba(0,0,0,.25);font-family:system-ui,sans-serif;white-space:nowrap;flex-shrink:0;';
+      noExam.textContent = 'not on exam sheet';
+      topBar.appendChild(noExam);
+    }
     // Find chapter
     var ch = card.closest('.fs-chapter');
     var chTitle = '';
