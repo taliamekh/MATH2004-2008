@@ -503,3 +503,13 @@ MATH2004-2008/
 - **Built MATH2004-notes.html** — 642KB, 23/23 fragments assembled
 - Files changed: shell-head.html, build.py, chapters/exam-formulas.html (NEW), MATH2004-notes.html
 - **NO REGRESSION**: no existing fragment files were modified (only shell-head sidebar link added)
+
+### Session 11 (continued) — Cross-reference pills
+- **Cross-referenced formula sheet with exam-provided sheet** — 27 of 58 formula cards matched to exam equations
+- Each matching card now shows a blue pill on the right side of the title bar: `📋 Exam #N` (or `#N, #M` for multi-match)
+- Non-matching cards show a subtle `not on exam sheet` label
+- Clicking the exam pill navigates to the Exam Provided page
+- **Exam formula sheet variable chips updated** — every chip now shows `symbol — name` format (e.g. `dy/dx — slope`) with full popup descriptions on click
+- Missing variables added to 11 equations: x/y/z on chain rules, r′(t) on line integrals, h₁/h₂ on double integrals, dS on surface integrals
+- Popup positioning improved (clamps to screen edges)
+- Files changed: chapters/formulas.html, chapters/exam-formulas.html, MATH2004-notes.html
