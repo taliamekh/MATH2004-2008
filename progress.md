@@ -112,6 +112,7 @@ MATH2004-2008/
     ├── ch6-notes.html    ← Chapter 6 notes (outline only)
     ├── ch6-prob.html     ← Chapter 6 recommended problems
     ├── formulas.html     ← Formula sheet (Ch1 only so far)
+    ├── exam-formulas.html ← Official exam-provided formula sheet
     ├── summary.html      ← Course summary (Ch1 only so far)
     ├── progress.html     ← Progress tracker checkboxes
     ├── t1prep.html       ← Test 1 prep (placeholder)
@@ -487,3 +488,18 @@ MATH2004-2008/
 - **Built MATH2004-notes.html** — 580KB, 22/22 fragments assembled
 - **ALL CHAPTERS COMPLETE** — Ch1 through Ch7 now have full notes. Course content is 100% written.
 - Files changed: shell-head.html, ch6-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
+
+### Session 11 — May 23, 2026
+- **Added official exam-provided formula sheet** as new page `exam-formulas.html`
+  - Converted React/JSX component to static HTML+KaTeX matching Grid Paper (#8) theme
+  - 41 equations across 12 categories: Trig Identities, Parametric Curves, Polar Curves, Multivariable Calculus, Vector Calculus, Optimization, Line Integrals, Double Integrals, Surface Integrals, Triple Integrals, Coordinate Systems, Fundamental Theorems
+  - Category color badges matching the original React component colors
+  - Variable chips with click-to-popup definitions (body-level fixed positioning)
+  - Row click to expand/collapse explanation text
+  - Search bar + category dropdown filter with live count
+  - All formulas rendered via KaTeX (consistent with rest of notes)
+- **Sidebar updated** — added "└ Exam Provided" sub-link under "Formula Sheet"
+- **build.py updated** — added `exam-formulas.html` to FRAGMENTS list after `formulas.html`
+- **Built MATH2004-notes.html** — 642KB, 23/23 fragments assembled
+- Files changed: shell-head.html, build.py, chapters/exam-formulas.html (NEW), MATH2004-notes.html
+- **NO REGRESSION**: no existing fragment files were modified (only shell-head sidebar link added)
