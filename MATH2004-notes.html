@@ -4625,278 +4625,195 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <div class="page" id="final"><div class="page-title">Assessment Prep</div><h1>Final Exam Prep</h1><p class="page-intro">Cumulative + Ch 6.3–6.8</p><div class="empty-page"><div class="icon">📖</div>Upload past exams to populate.</div></div>
 
   <!-- ═══ summary.html ═══ -->
-  <div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Summary</h1><p class="page-intro">Auto-updated as chapters are completed.</p><div class="stat-grid"><div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Chapters</div></div><div class="stat-card"><div class="stat-num">29</div><div class="stat-label">Formulas</div></div><div class="stat-card"><div class="stat-num">26</div><div class="stat-label">Examples</div></div><div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Definitions</div></div></div><h2>Chapter-by-Chapter</h2><h3 style="color:var(--ch1-title)">Ch 1 — Vectors ✓</h3>
-<p class="ch-overview">Builds the vector toolkit in ℝ² and ℝ³ — definitions, operations, and geometric applications that underpin all of multivariable calculus.</p>
+  <div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Cheat Sheet</h1><p class="page-intro">Decision trees + per-chapter quick reference. Built for practice-problem lookup.</p>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Vector Basics</div><dl>
-<dt class="wh-what">What:</dt><dd>Vectors defined by magnitude and direction, represented as ordered components in ℝ² or ℝ³.</dd>
-<dt class="wh-why">Why:</dt><dd>The fundamental objects everything else builds on — displacements, forces, velocities.</dd>
-<dt class="wh-how">How:</dt><dd>\(\vec{v}=\langle v_1,v_2,v_3\rangle\), \(|\vec{v}|=\sqrt{v_1^2+v_2^2+v_3^2}\)</dd>
-<dt class="wh-trap">Trap:</dt><dd>Equality means same magnitude AND direction — position in space doesn't matter.</dd>
-</dl></div>
+<div class="stat-grid"><div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Chapters</div></div><div class="stat-card"><div class="stat-num">59</div><div class="stat-label">Formulas</div></div><div class="stat-card"><div class="stat-num">75</div><div class="stat-label">Examples</div></div><div class="stat-card"><div class="stat-num">46</div><div class="stat-label">Quick Refs</div></div></div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Vector Arithmetic</div><dl>
-<dt class="wh-what">What:</dt><dd>Addition, subtraction, and scalar multiplication — all component-wise.</dd>
-<dt class="wh-why">Why:</dt><dd>Combines forces, displacements, and velocities algebraically; parallelogram law gives geometric intuition.</dd>
-<dt class="wh-how">How:</dt><dd>\(\vec{v}+\vec{w}=\langle v_1+w_1,\,v_2+w_2,\,v_3+w_3\rangle\), \(c\vec{v}=\langle cv_1,cv_2,cv_3\rangle\)</dd>
-</dl></div>
+<!-- ============================================================ -->
+<!-- DECISION TREES -->
+<!-- ============================================================ -->
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Unit Vectors &amp; Direction</div><dl>
-<dt class="wh-what">What:</dt><dd>Normalization to length 1; standard basis î, ĵ, k̂; direction cosines and inclination angles.</dd>
-<dt class="wh-why">Why:</dt><dd>Separates direction from magnitude — essential for projections and coordinate decomposition.</dd>
-<dt class="wh-how">How:</dt><dd>\(\hat{v}=\vec{v}/|\vec{v}|\), direction cosines satisfy \(\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1\)</dd>
-<dt class="wh-trap">Trap:</dt><dd>The zero vector has no unit vector — can't normalize it.</dd>
-</dl></div>
+<h2>Which Tool Do I Use?</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:16px;">Start at the top. Follow the arrows based on what the problem gives you.</p>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Dot Product</div><dl>
-<dt class="wh-what">What:</dt><dd>Scalar product measuring how aligned two vectors are.</dd>
-<dt class="wh-why">Why:</dt><dd>Unlocks angles between vectors, orthogonality tests, and projections.</dd>
-<dt class="wh-how">How:</dt><dd>\(\vec{v}\cdot\vec{w}=v_1w_1+v_2w_2+v_3w_3=|\vec{v}||\vec{w}|\cos\theta\), angle: \(\theta=\arccos\!\bigl(\frac{\vec{v}\cdot\vec{w}}{|\vec{v}||\vec{w}|}\bigr)\)</dd>
-<dt class="wh-trap">Trap:</dt><dd>Result is a SCALAR, not a vector. Dot = 0 means perpendicular, not that a vector is zero.</dd>
-</dl></div>
+<div class="card-bracket drv-card" style="padding:8px 14px;">
+<div class="drv-name" style="color:var(--deriv)">Integral Type Selector</div>
+<div style="font-size:14px;line-height:1.8;">
+<p><strong>What are you integrating over?</strong></p>
+<p>→ A <strong>curve</strong> (1D path)?</p>
+<p style="padding-left:24px;">→ Scalar function \(f\) along curve? → <strong>∫f ds</strong> (scalar line integral, §4.1)</p>
+<p style="padding-left:24px;">→ Vector field \(\mathbf{F}\) along curve? → <strong>∫F·dr</strong> (work integral, §4.2)</p>
+<p style="padding-left:48px;">→ Is \(\mathbf{F}\) conservative (curl = 0)? → <strong>FTCLI</strong>: just evaluate the potential at endpoints (§4.3)</p>
+<p style="padding-left:48px;">→ Closed curve in 2D? → Consider <strong>Green's theorem</strong> (§6.3)</p>
+<p style="padding-left:48px;">→ Boundary of a surface in 3D? → Consider <strong>Stokes' theorem</strong> (§6.4)</p>
+<p>→ A <strong>flat region</strong> (2D)?</p>
+<p style="padding-left:24px;">→ Rectangle or simple region? → <strong>∬f dA</strong> via Fubini (§5.2)</p>
+<p style="padding-left:24px;">→ Circular region (\(x^2+y^2\) in bounds)? → <strong>Polar</strong>: \(dA = r\,dr\,d\theta\) (§5.4)</p>
+<p>→ A <strong>curved surface</strong> (2D in 3D)?</p>
+<p style="padding-left:24px;">→ Scalar function over surface? → <strong>∬F dS</strong> with \(\sqrt{1+f_x^2+f_y^2}\) (§6.1)</p>
+<p style="padding-left:24px;">→ Vector field through surface (flux)? → <strong>∬F·dS</strong> = \(\iint(-Pf_x-Qf_y+R)\,dA\) (§6.2)</p>
+<p style="padding-left:48px;">→ Closed surface? → Use <strong>Divergence theorem</strong> instead (§6.8)</p>
+<p>→ A <strong>solid region</strong> (3D)?</p>
+<p style="padding-left:24px;">→ Box / tetrahedron (flat faces)? → <strong>∭f dV</strong> in rectangular (§6.5)</p>
+<p style="padding-left:24px;">→ Cylinder (\(x^2+y^2\) in bounds)? → <strong>Cylindrical</strong>: \(dV = r\,dr\,d\theta\,dz\) (§6.6)</p>
+<p style="padding-left:24px;">→ Sphere / cone (\(x^2+y^2+z^2\) in bounds)? → <strong>Spherical</strong>: \(dV = \rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\) (§6.6)</p>
+</div>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Projections &amp; Work</div><dl>
-<dt class="wh-what">What:</dt><dd>Scalar and vector projection of one vector onto another; work as force dotted with displacement.</dd>
-<dt class="wh-why">Why:</dt><dd>Decomposes vectors into parallel/perpendicular parts — central to physics and later integration.</dd>
-<dt class="wh-how">How:</dt><dd>Scalar: \(\text{comp}_{\vec{v}}\vec{u}=\frac{\vec{u}\cdot\vec{v}}{|\vec{v}|}\), Vector: \(\text{proj}_{\vec{v}}\vec{u}=\frac{\vec{u}\cdot\vec{v}}{|\vec{v}|^2}\vec{v}\), Work: \(W=\vec{F}\cdot\vec{d}\)</dd>
-</dl></div>
+<div class="card-bracket drv-card" style="padding:8px 14px;margin-top:14px;">
+<div class="drv-name" style="color:var(--deriv)">The Big Three Theorems — Which One?</div>
+<div style="font-size:14px;line-height:1.8;">
+<p><strong>Is the boundary a closed curve in the <em>xy</em>-plane?</strong> → <strong>Green's</strong>: \(\oint P\,dx+Q\,dy = \iint(Q_x-P_y)\,dA\)</p>
+<p><strong>Is the boundary a curve on a surface in 3D?</strong> → <strong>Stokes'</strong>: \(\oint\mathbf{F}\cdot d\mathbf{r} = \iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</p>
+<p><strong>Is the boundary a closed surface enclosing a solid?</strong> → <strong>Divergence</strong>: \(\iiint\text{div}\,\mathbf{F}\,dV = \iint\mathbf{F}\cdot\mathbf{n}\,dS\)</p>
+<p style="color:var(--muted);font-size:13px;">Each theorem says: integral over the interior = integral over the boundary. Pick the side that's easier to compute.</p>
+</div>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Cross Product</div><dl>
-<dt class="wh-what">What:</dt><dd>A vector perpendicular to both inputs whose magnitude equals the parallelogram area.</dd>
-<dt class="wh-why">Why:</dt><dd>Produces normal vectors to planes, computes torque, and measures area.</dd>
-<dt class="wh-how">How:</dt><dd>\(\vec{v}\times\vec{w}\) via 3×3 determinant with î, ĵ, k̂ in the first row. Magnitude: \(|\vec{v}\times\vec{w}|=|\vec{v}||\vec{w}|\sin\theta\)</dd>
-<dt class="wh-trap">Trap:</dt><dd>NOT commutative — \(\vec{v}\times\vec{w}=-(\vec{w}\times\vec{v})\). Use the right-hand rule for direction.</dd>
-</dl></div>
+<div class="card-bracket drv-card" style="padding:8px 14px;margin-top:14px;">
+<div class="drv-name" style="color:var(--deriv)">Optimization — Which Method?</div>
+<div style="font-size:14px;line-height:1.8;">
+<p><strong>Open domain (no constraints)?</strong> → Find critical points: \(f_x = 0\) and \(f_y = 0\) → Classify with SDT (§7.2)</p>
+<p><strong>Closed bounded region?</strong> → Interior CPs + boundary CPs + corners → Compare all \(f\)-values (§7.2)</p>
+<p><strong>Constrained by \(g(x,y) = c\)?</strong> → <strong>Lagrange</strong>: \(\nabla f = \lambda\nabla g\) + constraint (§7.3)</p>
+</div>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch1-title)">Geometric Applications</div><dl>
-<dt class="wh-what">What:</dt><dd>Parallelogram area, triangle area, and parallelepiped volume from cross and triple products.</dd>
-<dt class="wh-why">Why:</dt><dd>Turns abstract vector algebra into measurable geometry — areas, volumes, coplanarity.</dd>
-<dt class="wh-how">How:</dt><dd>Area△ = \(\tfrac{1}{2}|\vec{u}\times\vec{v}|\), Volume = \(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</dd>
-<dt class="wh-trap">Trap:</dt><dd>Triple product = 0 means the vectors are coplanar, not that there is "no volume."</dd>
-</dl></div>
+<!-- ============================================================ -->
+<!-- CHAPTER CHEAT SHEETS -->
+<!-- ============================================================ -->
 
-<div class="cross-links"><strong>Connections →</strong> Dot product → scalar projections → work integrals (Ch 6) · Cross product → normal vectors → planes (Ch 2) → surface integrals (Ch 7) · Magnitude &amp; distance → arc length &amp; curvature (Ch 3)</div>
+<h2 style="margin-top:28px;">Chapter Cheat Sheets</h2>
 
-<h3 style="color:var(--ch2-title)">Ch 2 — Lines, Planes &amp; Parametric Curves ✓</h3>
-<p class="ch-overview">Extends vectors to describe lines, planes, and curves in space. Introduces rotations, conic sections, parametric and polar representations with their full calculus toolkit.</p>
+<!-- Ch1 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch1-title)">Ch 1 — Vectors</div>
+<p><strong>Key ideas:</strong> Vectors as magnitude + direction objects in ℝ² and ℝ³. Dot product measures alignment (angle, projection, work). Cross product produces perpendicular vectors (normals, area, volume). Everything in later chapters builds on these operations.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Angle between vectors → <strong>dot product</strong> · Perpendicularity test → \(\vec{v}\cdot\vec{w} = 0\) · Projection / component along a direction → <strong>proj formula</strong> · Normal to a plane → <strong>cross product</strong> of two in-plane vectors · Area of triangle/parallelogram → \(|\vec{u}\times\vec{v}|\) · Volume of parallelepiped → \(|\vec{u}\cdot(\vec{v}\times\vec{w})|\) · Coplanarity test → triple product = 0</p>
+<p><strong>⚠ Traps:</strong> Cross product is NOT commutative (\(\vec{v}\times\vec{w} = -\vec{w}\times\vec{v}\)). Dot product gives a scalar, cross product gives a vector — don't mix them up. Projection formula has \(|\vec{v}|^2\) in the denominator for the vector version but just \(|\vec{v}|\) for the scalar version.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Lines in Space</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>A line is defined by a point P and a direction vector v⃗. A line segment restricts the parameter to [0, 1]. Two lines in 3D can be parallel (same direction), intersecting (meet at a point), or skew (neither parallel nor meeting — only in 3D).</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Lines are the simplest curves and the foundation for parametric thinking — every more complex curve builds on this "point + direction" idea.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Line: \(\vec{r}(t)=P+t\vec{v}\). Segment: \(\vec{r}(t)=(1-t)P+tQ\), \(0\le t\le 1\). Midpoint at \(t=\tfrac{1}{2}\). Parallel test: \(\vec{v}_1\times\vec{v}_2=\vec{0}\). Skew test: not parallel AND z-values disagree after solving x, y.</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Skew ≠ "don't intersect." Non-parallel lines that don't meet are skew. Parallel lines that don't meet are just parallel. Always check BOTH conditions.</dd>
-</dl></div>
+<!-- Ch2 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch2-title)">Ch 2 — Lines, Planes &amp; Parametric Curves</div>
+<p><strong>Key ideas:</strong> Lines and planes in 3D via parametric and normal equations. Parametric curves separate the "shape" from the "traversal." Polar coordinates for curves with circular symmetry. Arc length and area from parametric/polar formulas.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Line through two points → \(\mathbf{r}(t) = P + t\vec{v}\) · Plane from 3 points → normal = \(\vec{PQ}\times\vec{PR}\) · Tangent slope of parametric curve → \(dy/dx = (dy/dt)/(dx/dt)\) · Area under parametric curve → \(\int y\,x'\,dt\) · Arc length → \(\int\sqrt{(x')^2+(y')^2}\,dt\) · Polar area → \(\frac{1}{2}\int r^2\,d\theta\) · Conic type → discriminant \(B^2-4AC\)</p>
+<p><strong>⚠ Traps:</strong> Second derivative is \(\frac{d/dt(dy/dx)}{dx/dt}\), <strong>NOT</strong> \(y''/x''\). Polar area between curves is \(\frac{1}{2}\int(r_{\text{out}}^2 - r_{\text{in}}^2)\,d\theta\), not the difference of two separate areas. Skew lines are not parallel AND don't intersect — check both.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Planes</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>A plane is a flat surface defined by a point and a normal vector (perpendicular arrow). Three non-collinear points determine a unique plane. Two planes can be parallel (same normal direction) or intersect in a line.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Planes describe surfaces in 3D. Their normals are essential for tangent planes (Ch 3), surface integrals (Ch 6), and flux calculations.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Equation: \(ax+by+cz=d\), normal \(\vec{n}=(a,b,c)\). From 3 points: \(\vec{n}=\overrightarrow{PQ}\times\overrightarrow{PR}\). Angle between planes: \(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\). Two-plane intersection: direction = \(\vec{n}_1\times\vec{n}_2\), find one point by setting a variable to 0.</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Lines use direction vectors (parallel to the line). Planes use normal vectors (perpendicular to the plane). Don't mix these up — they're fundamentally different.</dd>
-</dl></div>
+<!-- Ch3 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch3-title)">Ch 3 — Partial Derivatives &amp; Vector Fields</div>
+<p><strong>Key ideas:</strong> Partial derivatives extend single-variable calculus to functions of several variables. The gradient ∇f points in the direction of steepest ascent. Chain rule for multivariable compositions. Tangent planes via gradient. Conservative fields have curl = 0 and a potential function.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Rate of change in specific direction → \(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\) · Steepest ascent → direction of \(\nabla f\) with magnitude \(|\nabla f|\) · Related rates → <strong>chain rule</strong> · Implicit ∂z/∂x → \(-f_x/f_z\) · Tangent plane → \(\nabla f\) is the normal · Is F conservative? → check \(\text{curl}\,\mathbf{F} = \mathbf{0}\) · Potential function → integrate component by component</p>
+<p><strong>⚠ Traps:</strong> Limit exists only if ALL paths give the same value — showing two paths agree proves nothing. Clairaut (f<sub>xy</sub> = f<sub>yx</sub>) requires continuity of mixed partials. Conservative test: in 2D check Q<sub>x</sub> = P<sub>y</sub>; in 3D check full curl = 0. div(curl F) = 0 always — don't confuse with the test.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Rotations &amp; Translations</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Active rotation moves a point by angle θ (matrix A). Passive rotation rotates the axes instead (matrix A⁻¹ = Aᵀ). Translation shifts the origin to (h, k) by substituting (x−h, y−k). Combined: translate first, then rotate.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Used to eliminate cross-terms (Bxy) in conic equations, aligning a rotated conic with the coordinate axes for easier analysis.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Active: \(A=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\). Passive: flip sin signs. Translation: \((x',y')=(x-h,\,y-k)\). Combined: translate → rotate.</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Active vs passive differ only by the sign on sinθ — using the wrong one rotates in the opposite direction.</dd>
-</dl></div>
+<!-- Ch4 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch4-title)">Ch 4 — Line Integrals</div>
+<p><strong>Key ideas:</strong> Two types: scalar (∫f ds — weighted arc length) and vector (∫F·dr — work/circulation). The FTCLI shortcuts conservative field integrals to endpoint evaluation. Path independence ↔ conservative ↔ curl = 0 ↔ ∮F·dr = 0.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Mass of a wire → <strong>∫f ds</strong> (scalar line integral) · Work done by force → <strong>∫F·dr</strong> (vector line integral) · F is conservative? → <strong>FTCLI</strong>: find potential f, answer is f(end) − f(start) · Closed loop with conservative F → answer is <strong>0</strong> · Multiple paths → check conservative first before parametrizing</p>
+<p><strong>⚠ Traps:</strong> Scalar line integrals (ds) are orientation-independent. Vector line integrals (F·dr) reverse sign when you reverse direction. The FTCLI only works for conservative fields — always verify curl = 0 first. Piecewise curves: parametrize each segment separately and add.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Conic Sections</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>The three classical conics — parabola, ellipse, hyperbola — classified by the discriminant of the general second-degree equation \(Ax^2+Bxy+Cy^2+Dx+Ey+F=0\).</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Conics appear everywhere: planetary orbits (ellipses), projectile paths (parabolas), satellite dishes (paraboloids). The discriminant gives instant classification without completing the square.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Discriminant \(B^2-4AC\): negative → ellipse, zero → parabola, positive → hyperbola. Parametrizations: ellipse \((a\cos t,\,b\sin t)\), circle \((r\cos t,\,r\sin t)\).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Degenerate cases exist: the "ellipse" x²+y²=−1 is empty, and B²−4AC=0 could give two parallel lines instead of a parabola.</dd>
-</dl></div>
+<!-- Ch5 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch5-title)">Ch 5 — Double Integrals &amp; Surfaces</div>
+<p><strong>Key ideas:</strong> Double integrals compute area, volume, and mass over 2D regions. Fubini converts to iterated integrals (two orderings — pick the easier one). Polar coordinates for circular regions. Quadric surface catalog for 3D visualization. Parametric surfaces r(u,v).</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Integral over rectangle → Fubini, either order · Integral over general region → sketch it, pick vertical or horizontal slices · \(x^2+y^2\) in bounds or integrand → switch to <strong>polar</strong> (\(dA = r\,dr\,d\theta\)) · Non-standard coordinates → <strong>Jacobian</strong> change of variables · Identify a 3D surface → count squared terms + check signs (quadric catalog)</p>
+<p><strong>⚠ Traps:</strong> Don't forget the <strong>r</strong> in polar \(dA = r\,dr\,d\theta\). When reversing integration order, re-derive the limits from scratch — don't just swap. x-simple (vertical slices) → integrate dy first; y-simple (horizontal) → dx first.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Parametric Calculus</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Derivatives, tangent classification, area, and arc length for curves written as x(t), y(t). The chain rule adapts all standard calculus tools to parametric form.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Many curves (cycloids, epicycloids, Lissajous figures) can't be written as y=f(x). Parametric form handles self-intersections, loops, and multi-valued curves naturally.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Slope: \(dy/dx=(dy/dt)/(dx/dt)\). Second deriv: \(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\). H-tangent: dy/dt=0. V-tangent: dx/dt=0. Area: \(\int y\,x'\,dt\). Arc length: \(\int\sqrt{(x')^2+(y')^2}\,dt\).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>The second derivative is NOT (d²y/dt²)/(d²x/dt²) — this is the #1 exam mistake. You must differentiate dy/dx with respect to t, then divide by dx/dt again.</dd>
-</dl></div>
+<!-- Ch6 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch6-title)">Ch 6 — The Three Big Theorems</div>
+<p><strong>Key ideas:</strong> Surface integrals extend double integrals to curved surfaces. Flux measures net flow through a surface. Green's/Stokes'/Divergence connect boundary integrals to interior integrals at different dimensions. Triple integrals for 3D solids with cylindrical and spherical coordinate transforms.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Surface integral (scalar) → \(\iint F\sqrt{1+f_x^2+f_y^2}\,dA\) or parametric \(\iint F|\mathbf{r}_u\times\mathbf{r}_v|\,dA\) · Flux through surface → \(\iint(-Pf_x - Qf_y + R)\,dA\) · Closed curve in 2D → <strong>Green's</strong>: check if \(Q_x - P_y\) simplifies · Surface with boundary → <strong>Stokes'</strong>: swap hard surfaces for easy ones · Closed surface → <strong>Divergence</strong>: compute div F and triple-integrate · Triple integral over cylinder → <strong>cylindrical</strong> (J = r) · Over sphere/cone → <strong>spherical</strong> (J = ρ² sin φ)</p>
+<p><strong>⚠ Traps:</strong> Forgetting the Jacobian: <strong>r</strong> for cylindrical, <strong>ρ² sin φ</strong> for spherical. Green's requires CCW orientation; inner boundaries of holed regions go CW. Stokes' orientation: right-hand rule (curl fingers along 𝒞, thumb = n). Divergence theorem only works for <strong>closed</strong> surfaces — open surfaces need Stokes'. φ in spherical is measured from the z-axis (colatitude), NOT from the equator.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Key Parametric Results</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Named results for classic curves that appear repeatedly on exams and in later chapters.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Cycloid \(x=r(t-\sin t),\,y=r(1-\cos t)\): arch area = \(3\pi r^2\), arch length = \(8r\). Ellipse \(x=a\cos t,\,y=b\sin t\): area = \(\pi ab\). Key identity: \(1-\cos t=2\sin^2(t/2)\).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>Cycloid area = 3× the rolling circle (not 2×, not π×). The identity 1−cosθ = 2sin²(θ/2) is essential for simplifying cycloid integrals — memorize it.</dd>
-</dl></div>
+<!-- Ch7 -->
+<div class="card-bracket eq-card" style="margin-top:14px;">
+<div class="eq-name" style="color:var(--ch7-title)">Ch 7 — Max/Min &amp; Lagrange</div>
+<p><strong>Key ideas:</strong> Critical points where ∇f = 0 are candidates for local extrema. The Second Derivative Test classifies them via the discriminant D. Closed bounded regions guarantee global extrema exist — check interior CPs + boundary + corners. Lagrange multipliers handle constraints by requiring ∇f ∥ ∇g.</p>
+<p><strong>When to use what:</strong></p>
+<p style="padding-left:12px;">Unconstrained max/min → find CPs (\(f_x = f_y = 0\)) → classify with SDT (\(D = f_{xx}f_{yy} - f_{xy}^2\)) · D > 0 + f<sub>xx</sub> > 0 → <strong>min</strong> · D > 0 + f<sub>xx</sub> < 0 → <strong>max</strong> · D < 0 → <strong>saddle</strong> · D = 0 → <strong>inconclusive</strong> · Closed region → interior + boundary + corners, compare all values · Constraint g = c → <strong>Lagrange</strong>: ∇f = λ∇g + g = c</p>
+<p><strong>⚠ Traps:</strong> D = 0 is inconclusive — not "saddle" or "flat." On a closed region, global extrema might be at boundary points that are NOT critical points of f. In Lagrange, don't forget to solve for λ AND plug back into the constraint. Substitution and Lagrange should give the same answer — use substitution as a check when possible.</p>
+</div>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Polar Coordinates</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Points described by distance r and angle θ from the origin. Common curves: cardioids \(r=1+\sin\theta\), limaçons \(r=a+b\cos\theta\), roses \(r=\cos(n\theta)\) with n petals (or 2n if n is even).</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Curves with circular symmetry (spirals, petals, hearts) are simple in polar but nightmarish in Cartesian. Polar form also simplifies double integrals over circular regions (Ch 5).</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Conversion: \(x=r\cos\theta,\;y=r\sin\theta,\;r=\sqrt{x^2+y^2}\). Convention: \((-r,\theta)=(r,\theta+\pi)\). Quadrant check required for θ = arctan(y/x).</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>arctan(y/x) only returns (−π/2, π/2). A point in Q3 like (−1,−1) gives arctan(1)=π/4, but the correct angle is 5π/4. Always check the quadrant.</dd>
-</dl></div>
+<!-- ============================================================ -->
+<!-- QUICK REFERENCE TABLE -->
+<!-- ============================================================ -->
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch2-title)">Polar Calculus</div><dl>
-<dt class="wh-what" style="color:#18230F">What:</dt><dd>Slope, area, and arc length formulas adapted for polar curves r = f(θ). Area uses sectors (pie slices), not rectangles.</dd>
-<dt class="wh-why" style="color:#27391C">Why:</dt><dd>Computing area/length of polar curves directly — without converting to Cartesian — is usually much simpler.</dd>
-<dt class="wh-how" style="color:#255F38">How:</dt><dd>Slope: \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\). Area: \(\frac{1}{2}\int r^2\,d\theta\). Between curves: \(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\). Arc length: \(\int\sqrt{(r')^2+r^2}\,d\theta\). Cardioid perimeter = 8.</dd>
-<dt class="wh-trap" style="color:#1F7D53">Trap:</dt><dd>For area between polar curves, find ALL intersections first — some only show up as r=0 at different θ values (both curves pass through the origin but at different angles).</dd>
-</dl></div>
+<h2 style="margin-top:28px;">Quick Reference</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:8px;">Color = source chapter. Sorted by problem type.</p>
 
-<div class="cross-links"><strong>Connections →</strong> Lines/planes → tangent planes &amp; normal lines (Ch 3) · Rotations → eliminating cross-terms in conics · Parametric curves → line integrals (Ch 4) · Polar coordinates → double integrals in polar (Ch 5) · Arc length ds → line integral ds (Ch 4) · Conic sections → quadric surfaces (Ch 5)</div>
+<table class="ptbl">
+<tr><th>Problem Type</th><th>Formula</th><th>Key Detail</th></tr>
 
-<h3 style="color:var(--ch3-title)">Ch 3 — Partial Derivatives &amp; Vector Fields (§3.1–3.7)</h3>
-<p style="font-style:italic;color:var(--muted);">Extends calculus to functions of several variables, introduces the gradient as the unifying concept, and defines the three fundamental vector field operators.</p>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch1-title);font-size:13px;border-bottom:2px solid var(--ch1-title);">VECTORS &amp; GEOMETRY</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Perpendicular?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥ test</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥ test</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Angle</td><td>\(\cos\theta=\frac{\vec{v}\cdot\vec{w}}{|\vec{v}||\vec{w}|}\)</td><td>always 0 ≤ θ ≤ π</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Projection</td><td>\(\text{proj}_{\vec{v}}\vec{u}=\frac{\vec{u}\cdot\vec{v}}{|\vec{v}|^2}\vec{v}\)</td><td>vector; scalar uses |v| not |v|²</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Triangle area</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>half the parallelogram</td></tr>
+<tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped; = 0 ↔ coplanar</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Limits &amp; Continuity (Multivariable)</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>Limits of f(x,y) as (x,y) → (x₀,y₀). Continuity requires the limit to exist and equal the function value. Unlike 1D, approach can come from infinitely many directions.</dd>
-<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Foundation for all multivariable calculus. If a function isn't continuous, derivatives may not exist or behave as expected.</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>Limit exists: ε-δ proof (bound \(|f-L|\) using \(\sqrt{x^2+y^2}<\delta\)). Limit DNE: find two paths giving different values. Continuous: all polynomials in x,y.</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>Two paths agreeing does NOT prove the limit exists — there could be a third path that disagrees. ε-δ is the only way to prove existence.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch2-title);font-size:13px;border-bottom:2px solid var(--ch2-title);">LINES, PLANES &amp; CURVES</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric; segment: \(t\in[0,1]\)</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane</td><td>\(ax+by+cz=d\)</td><td>normal \(\vec{n}=(a,b,c)\)</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Parametric slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Parametric 2nd deriv</td><td>\(\frac{d/dt(dy/dx)}{dx/dt}\)</td><td><strong>NOT</strong> y″/x″</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Arc length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>parametric</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>between curves: \(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\)</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar arc length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar version</td></tr>
+<tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Conic type</td><td>\(B^2-4AC\)</td><td>&lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Partial Derivatives</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>The rate of change of f(x,y) when one variable changes and the others are held constant. Notation: ∂f/∂x, fₓ, f₍₁₎, Dₓf.</dd>
-<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Building block for everything in multivariable calculus — gradients, chain rules, tangent planes, and optimization all use partial derivatives.</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>For ∂f/∂x: treat y as a constant, differentiate w.r.t. x. Clairaut: \(f_{xy}=f_{yx}\) when second partials are continuous.</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>Partial derivatives existing does NOT guarantee continuity. A function can have both partials at a point yet be discontinuous there.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch3-title);font-size:13px;border-bottom:2px solid var(--ch3-title);">DERIVATIVES &amp; FIELDS</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Directional deriv.</td><td>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\)</td><td>max = |∇f| in direction ∇f/|∇f|</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Chain rule</td><td>\(dz/dt = z_x x' + z_y y'\)</td><td>total derivative</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Implicit ∂z/∂x</td><td>\(-f_x/f_z\)</td><td>from F(x,y,z) = 0</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Tangent plane</td><td>\(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\)</td><td>normal = ∇f</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Conservative?</td><td>\(\text{curl}\;\mathbf{F}=\mathbf{0}\) (2D: \(Q_x=P_y\))</td><td>then potential f exists</td></tr>
+<tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Divergence</td><td>\(\nabla\cdot\mathbf{F}=P_x+Q_y+R_z\)</td><td>&gt;0 source, &lt;0 sink</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Gradient &amp; Directional Derivatives</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>The gradient ∇f = (fₓ, f_y) is the vector of partials. The directional derivative D_u f = ∇f · u gives the rate of change in any direction u.</dd>
-<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>∇f points in the direction of steepest ascent, perpendicular to level curves. Max rate = |∇f|. Essential for optimization and physics.</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u} = |\nabla f||\mathbf{u}|\cos\theta\). Max when u ∥ ∇f. Zero along level curves.</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>D_u f requires u to be a unit vector for the "directional derivative." If u is not unit, normalize first — or use D_u f = |u| · D_v f.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch4-title);font-size:13px;border-bottom:2px solid var(--ch4-title);">LINE INTEGRALS</td></tr>
+<tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫f ds</td><td>\(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\)</td><td>scalar; orientation-independent</td></tr>
+<tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫F·dr</td><td>\(\int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\)</td><td>vector; sign reverses with direction</td></tr>
+<tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">FTCLI</td><td>\(\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\text{end})-f(\text{start})\)</td><td>conservative shortcut</td></tr>
+<tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">Closed loop</td><td>F conservative ⟹ ∮F·dr = 0</td><td>path independence</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Chain Rule &amp; Implicit Differentiation</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>Chain rule for z = f(x,y) where x,y depend on other variables. Implicit differentiation for surfaces f(x,y,z)=0.</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>One parameter: \(dz/dt = z_x\,x' + z_y\,y'\). Implicit: \(\partial z/\partial x = -f_x/f_z\). Tree diagrams help: multiply partials along each path, sum all paths to the target variable.</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>In the chain rule with two parameters, use ∂ (partial), not d (total). Don't forget the tree diagram has multiple paths.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch5-title);font-size:13px;border-bottom:2px solid var(--ch5-title);">DOUBLE INTEGRALS</td></tr>
+<tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Fubini (rect)</td><td>\(\int_a^b\int_c^d f\,dy\,dx\)</td><td>either order on rectangles</td></tr>
+<tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Polar dA</td><td>\(dA=r\,dr\,d\theta\)</td><td>DON'T forget the r!</td></tr>
+<tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Jacobian (2D)</td><td>\(\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\)</td><td>area scaling factor</td></tr>
+<tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Quadric ID</td><td>count squared terms + signs</td><td>classify surface type</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Tangent Planes &amp; Normal Lines</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>The tangent plane approximates a surface near a point. The normal line is perpendicular to it, in the direction of ∇f.</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>Plane: \(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\). Normal line: \(\mathbf{r}(t) = P + t\nabla f\). For z=g(x,y): \(z-z_0 = g_x(x-x_0)+g_y(y-y_0)\).</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>For z=g(x,y), rewrite as g−z=0, so f_z = −1. Don't forget the negative sign on the z term.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch6-title);font-size:13px;border-bottom:2px solid var(--ch6-title);">SURFACE &amp; TRIPLE INTEGRALS / THEOREMS</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Surface integral</td><td>\(\iint F\sqrt{1+f_x^2+f_y^2}\,dA\)</td><td>graph form</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Flux</td><td>\(\iint(-Pf_x-Qf_y+R)\,dA\)</td><td>upward normal; z = f(x,y)</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Green's</td><td>\(\oint P\,dx+Q\,dy=\iint(Q_x-P_y)\,dA\)</td><td>2D closed curve ↔ region</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Area (Green's)</td><td>\(\frac{1}{2}\oint x\,dy - y\,dx\)</td><td>boundary → area</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Stokes'</td><td>\(\oint\mathbf{F}\cdot d\mathbf{r}=\iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</td><td>boundary curve ↔ surface</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Divergence</td><td>\(\iiint\text{div}\,\mathbf{F}\,dV=\iint\mathbf{F}\cdot\mathbf{n}\,dS\)</td><td>solid ↔ closed surface</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Cylindrical dV</td><td>\(r\,dr\,d\theta\,dz\)</td><td>DON'T forget r!</td></tr>
+<tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Spherical dV</td><td>\(\rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\)</td><td>DON'T forget ρ² sin φ!</td></tr>
 
-<div class="cluster"><div class="cluster-title" style="color:var(--ch3-title)">Conservative Fields, Curl &amp; Divergence</div><dl>
-<dt class="wh-what" style="color:#B33000">What:</dt><dd>Vector fields F = (P,Q,R). Conservative: F = ∇f for some scalar f. Curl measures rotation. Divergence measures source/sink behavior.</dd>
-<dt class="wh-why" style="color:#CC4A00">Why:</dt><dd>Conservative fields simplify line integrals (Ch 4). Curl and div appear in Green's, Stokes', and Divergence theorems (Ch 6).</dd>
-<dt class="wh-how" style="color:#E06600">How:</dt><dd>Test: curl F = 0 ⟹ conservative. Curl = \(\nabla\times\mathbf{F}\) (determinant). Div = \(\nabla\cdot\mathbf{F} = P_x+Q_y+R_z\). Identities: curl(∇f)=0, div(curl F)=0.</dd>
-<dt class="wh-trap" style="color:#F09000">Trap:</dt><dd>To check if F is conservative, you DON'T take the gradient of F. You check if F IS someone's gradient by verifying curl F = 0.</dd>
-</dl></div>
+<tr><td colspan="3" style="font-weight:700;padding:8px 6px 4px;color:var(--ch7-title);font-size:13px;border-bottom:2px solid var(--ch7-title);">OPTIMIZATION</td></tr>
+<tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Critical points</td><td>\(f_x = 0\) and \(f_y = 0\)</td><td>solve simultaneously</td></tr>
+<tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">SDT</td><td>\(D = f_{xx}f_{yy} - f_{xy}^2\)</td><td>D>0: min/max; D&lt;0: saddle</td></tr>
+<tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Lagrange</td><td>\(\nabla f = \lambda\nabla g\) + constraint</td><td>constrained extrema</td></tr>
+<tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Closed region</td><td>interior CPs + boundary + corners</td><td>compare all f-values</td></tr>
+</table>
 
-<div class="cross-links"><strong>Connections →</strong> Partial derivatives → chain rule → implicit differentiation · Gradient → directional derivatives → steepest ascent (optimization, Ch 7) · Tangent planes ← recall plane equation from Ch 2 · Conservative fields → line integrals (Ch 4) · Curl/Div → Green's, Stokes', Divergence theorems (Ch 6)</div>
-
-<h3 style="color:var(--ch4-title)">Ch 4 — Line Integrals</h3>
-<div class="ch-overview">Integrating scalar and vector functions along curves. Work, circulation, and path independence via conservative fields.</div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Scalar Line Integrals (§4.1)</div><dl>
-<dt class="wh-what" style="color:#3A0519">What:</dt><dd>Integrate a scalar field f along a curve C weighted by arc length ds. Result: total mass, charge, or surface area of a curtain.</dd>
-<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Extends single-variable integration from intervals to curves. Mass of a wire = ∫f ds where f is density.</dd>
-<dt class="wh-how" style="color:#A53860">How:</dt><dd>Parametrize C: r(t), compute |r'(t)|, substitute, integrate: \(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\). For piecewise curves, use different parameter symbols per segment.</dd>
-<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>Don't confuse |r'(t)| (speed — for ds integrals) with r'(t) (tangent vector — for F·dr integrals). Scalar line integrals are orientation-independent.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Vector Line Integrals & Work (§4.2)</div><dl>
-<dt class="wh-what" style="color:#3A0519">What:</dt><dd>Integrate a vector field F along C via the dot product F·dr. Measures how much F pushes along C. Result: work done by a force.</dd>
-<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Work = ∫F·dr. Circulation = ∮F·dr (closed loop). Foundation for Green's and Stokes' theorems.</dd>
-<dt class="wh-how" style="color:#A53860">How:</dt><dd>Parametrize C, compute F(r(t))·r'(t), integrate: \(\int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\). Or use component form: \(\int P\,dx+Q\,dy+R\,dz\).</dd>
-<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>Unlike scalar integrals, these ARE orientation-dependent: reversing C negates the answer. Don't forget the sign!</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch4-title)">Fundamental Theorem & Path Independence (§4.3)</div><dl>
-<dt class="wh-what" style="color:#3A0519">What:</dt><dd>If F = ∇f (conservative), the line integral depends only on endpoints: ∫F·dr = f(end) − f(start). Closed loops give zero.</dd>
-<dt class="wh-why" style="color:#670D2F">Why:</dt><dd>Massive shortcut: skip parametrization entirely for conservative fields. Key to conservation of energy in physics.</dd>
-<dt class="wh-how" style="color:#A53860">How:</dt><dd>Verify curl F = 0 (from §3.7). Find f by component integration or line integral method. Then f(Q) − f(P) = answer.</dd>
-<dt class="wh-trap" style="color:#EF88AD">Trap:</dt><dd>FTCLI only works for conservative fields in simply connected regions. A region with a hole (like a disk minus its center) is NOT simply connected — the theorem may fail.</dd>
-</dl></div>
-
-<div class="cross-links"><strong>Connections →</strong> Conservative fields (§3.7) → FTCLI → path independence · Work integral → kinetic energy theorem · Circulation → Green's theorem (Ch 6) · Potential functions → electrostatic and gravitational potential</div>
-
-<h3 style="color:var(--ch5-title)">Ch 5 — Double Integrals & Surfaces</h3>
-<div class="ch-overview">Double integrals over planar regions via Fubini's theorem, polar coordinates, and sketching/parameterizing 3D surfaces.</div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Region Descriptions & Fubini's Theorem (§5.1–5.2)</div><dl>
-<dt class="wh-what" style="color:#280905">What:</dt><dd>Describe regions as x-simple (R_yx: vertical slices → dy dx) or y-simple (R_xy: horizontal slices → dx dy). Fubini reduces ∬f dA to iterated integrals.</dd>
-<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Converts intimidating 2D integrals into two nested 1D integrals you already know how to do.</dd>
-<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Sketch region. Choose slices (vertical or horizontal). Write inner limits as functions of outer variable and outer limits as constants. Integrate inside-out.</dd>
-<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>Inner limits must be functions of the outer variable only! If you write ∫₀¹∫₀ˣ f dy dx, the y-limits depend on x (outer). Never let inner limits depend on the inner variable.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Polar Double Integrals (§5.4)</div><dl>
-<dt class="wh-what" style="color:#280905">What:</dt><dd>Change of variables to polar: x = r cosθ, y = r sinθ, dA = r dr dθ. The Jacobian |∂(x,y)/∂(r,θ)| = r.</dd>
-<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Circular regions and x²+y² integrands become trivial in polar. Converts double square roots to clean polynomials in r.</dd>
-<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Replace x²+y² with r², describe R in polar (r-limits then θ-limits), multiply integrand by r, integrate ∬f(r cosθ, r sinθ) r dr dθ.</dd>
-<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>FORGETTING THE EXTRA r! dA = r dr dθ, NOT dr dθ. This is the #1 error on exams with polar double integrals.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch5-title)">Quadric Surfaces & Parametrization (§5.5–5.6)</div><dl>
-<dt class="wh-what" style="color:#280905">What:</dt><dd>Quadric surfaces (ellipsoid, paraboloid, hyperboloid, cone, cylinder) identified by traces. Surfaces parametrized by r(u,v) with two parameters.</dd>
-<dt class="wh-why" style="color:#740A03">Why:</dt><dd>Surface integrals (Ch 6) require parametrized surfaces. Quadric recognition is essential for setting up integrals.</dd>
-<dt class="wh-how" style="color:#C3110C">How:</dt><dd>Traces: set x=c, y=c, or z=c and identify the 2D curve. Count squared terms and signs to classify. Parametrize: sphere uses (u,v) = (longitude, latitude), cylinder uses (θ, z).</dd>
-<dt class="wh-trap" style="color:#E6501B">Trap:</dt><dd>Cone vs hyperboloid of one sheet: both have circular z-traces, but cone has RHS = 0 (vertex at origin) while hyperboloid has RHS = 1 (no vertex).</dd>
-</dl></div>
-
-<div class="cross-links"><strong>Connections →</strong> Region descriptions (§5.1) ← polar coords (§2.12) · Fubini ← single-variable FTC · Jacobian ← partial derivatives (§3.2) · Quadric surfaces → surface integrals (Ch 6) · Parametric surfaces → Stokes'/Divergence theorems (Ch 6)</div>
-
-<h3 style="color:var(--ch6-title);margin-top:20px;">Chapter 6 — The Three Big Theorems</h3>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch6-title)">Surface Integrals &amp; Flux (§6.1–6.2)</div><dl>
-<dt style="color:#0A5C64">What</dt><dd>Surface integrals extend double integrals to curved surfaces. Scalar: ∬F dS with area element dS. Flux: ∬F·dS = ∬F·n dS measures net flow through the surface.</dd>
-<dt style="color:#0B7D7D">Why</dt><dd>Surface area, mass of a shell, fluid flow through a membrane. Flux is central to all three big theorems.</dd>
-<dt style="color:#10A0AA">How</dt><dd>Graph form: replace dS with √(1+f_x²+f_y²) dA. Parametric: use |r_u × r_v| dA. Flux shortcut for z=f(x,y): ∬(−Pf_x − Qf_y + R) dA.</dd>
-<dt style="color:#D85050">Trap</dt><dd>Forgetting the square root factor. Choosing a projection plane where the surface isn't single-valued. Sign errors in flux from wrong normal direction.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch6-title)">Green's Theorem (§6.3)</div><dl>
-<dt style="color:#0A5C64">What</dt><dd>∮P dx + Q dy = ∬(Q_x − P_y) dA. Converts a closed-curve line integral in 2D to a double integral over the enclosed region.</dd>
-<dt style="color:#0B7D7D">Why</dt><dd>Turns impossible line integrals (with e^{y²}) into routine double integrals. Also gives area = ½∮(x dy − y dx).</dd>
-<dt style="color:#10A0AA">How</dt><dd>Compute Q_x − P_y. If it simplifies, use the double integral side. If the region is complex but the boundary is simple, use the line integral side.</dd>
-<dt style="color:#D85050">Trap</dt><dd>Wrong orientation (must be CCW for positive region). For regions with holes, inner boundary goes CW.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch6-title)">Stokes' Theorem (§6.4)</div><dl>
-<dt style="color:#0A5C64">What</dt><dd>∮F·dr = ∬(∇×F)·n dS. The circulation of F around a boundary curve equals the flux of curl F through any spanning surface.</dd>
-<dt style="color:#0B7D7D">Why</dt><dd>Generalizes Green's to 3D. Gives surface independence: swap hard surfaces for easy ones with the same boundary. Proves conservative ↔ curl-free.</dd>
-<dt style="color:#10A0AA">How</dt><dd>Check orientation via right-hand rule. Often easier to compute the line integral side for constant-curl fields.</dd>
-<dt style="color:#D85050">Trap</dt><dd>Incompatible orientation of 𝒞 and n (use right-hand rule). Only works for open surfaces with a boundary curve.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch6-title)">Triple Integrals &amp; Coordinate Transforms (§6.5–6.7)</div><dl>
-<dt style="color:#0A5C64">What</dt><dd>∭f dV extends integration to 3D solids. Cylindrical: dV = r dr dθ dz. Spherical: dV = ρ² sin φ dρ dθ dφ.</dd>
-<dt style="color:#0B7D7D">Why</dt><dd>Volume, mass, center of mass of solids. Coordinate transforms simplify integrals over symmetric regions.</dd>
-<dt style="color:#10A0AA">How</dt><dd>Fubini: 6 orderings, integrate inside-out. Match coordinates to geometry: cylinders → cylindrical, spheres → spherical.</dd>
-<dt style="color:#D85050">Trap</dt><dd>Forgetting the Jacobian (r for cylindrical, ρ² sin φ for spherical). Confusing φ (from z-axis) with latitude (from equator).</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch6-title)">Divergence Theorem (§6.8)</div><dl>
-<dt style="color:#0A5C64">What</dt><dd>∭ div F dV = ∬F·n dS. Total divergence inside a solid equals net outward flux through the closed boundary.</dd>
-<dt style="color:#0B7D7D">Why</dt><dd>Converts multi-face flux computations (cube = 6 faces) into a single triple integral of div F. Applications in fluid dynamics and electromagnetism.</dd>
-<dt style="color:#10A0AA">How</dt><dd>Compute div F = P_x + Q_y + R_z. Set up the triple integral over the solid. Use coordinate transforms if the region is spherical or cylindrical.</dd>
-<dt style="color:#D85050">Trap</dt><dd>Only for CLOSED surfaces (no boundary curve). Open surfaces need Stokes'. Curl flux through closed surface is always zero.</dd>
-</dl></div>
-
-<h3 style="color:var(--ch7-title);margin-top:20px;">Chapter 7 — Maxima, Minima &amp; Lagrange Multipliers</h3>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch7-title)">Critical Points &amp; Second Derivative Test (§7.2)</div><dl>
-<dt class="wh-what" style="color:#4A0404">What:</dt><dd>Critical points where ∇f = 0. Discriminant \(D = f_{xx}f_{yy} - f_{xy}^2\) classifies them: D > 0 with f_xx > 0 → min; D > 0 with f_xx &lt; 0 → max; D &lt; 0 → saddle.</dd>
-<dt class="wh-why" style="color:#7B0A0A">Why:</dt><dd>Extends single-variable optimization to surfaces. The discriminant captures whether the surface curves consistently (bowl) or inconsistently (saddle) at the critical point.</dd>
-<dt class="wh-how" style="color:#B91C1C">How:</dt><dd>Solve \(f_x = 0\) and \(f_y = 0\) simultaneously (factor and case-split). Then compute D at each CP and check sign of f_xx when D > 0.</dd>
-<dt class="wh-trap" style="color:#E53935">Trap:</dt><dd>Don't forget case analysis! Factored equations like y(2x+y−1)=0 give MULTIPLE branches. Check ALL of them or you'll miss critical points.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch7-title)">Closed-Region Extrema (§7.2)</div><dl>
-<dt class="wh-what" style="color:#4A0404">What:</dt><dd>On a closed bounded region 𝒟: find interior CPs (SDT) + boundary CPs (parametrize each edge) + corners. Compare all f-values.</dd>
-<dt class="wh-why" style="color:#7B0A0A">Why:</dt><dd>Extreme Value Theorem guarantees global max/min exist on closed bounded sets. They can occur on the boundary or at corners where derivatives don't exist.</dd>
-<dt class="wh-how" style="color:#B91C1C">How:</dt><dd>Interior: solve f_x = f_y = 0. Boundary: fix one variable on each edge → single-variable problem. Always check endpoints/corners by direct evaluation.</dd>
-<dt class="wh-trap" style="color:#E53935">Trap:</dt><dd>Forgetting corners/endpoints! On a rectangle, corners often give the global max — don't rely on critical points alone.</dd>
-</dl></div>
-
-<div class="cluster"><div class="cluster-title" style="color:var(--ch7-title)">Lagrange Multipliers (§7.3)</div><dl>
-<dt class="wh-what" style="color:#4A0404">What:</dt><dd>Optimize f subject to g = 0: form \(\ell = f - \lambda g\) and set all partials to zero. ∇f = λ∇g means the gradients are parallel at constrained extrema.</dd>
-<dt class="wh-why" style="color:#7B0A0A">Why:</dt><dd>Avoids messy substitution for nonlinear constraints (circles, ellipses, spheres). Systematic and symmetric — handles 2D and 3D the same way.</dd>
-<dt class="wh-how" style="color:#B91C1C">How:</dt><dd>Write ∂ℓ/∂x = ∂ℓ/∂y = ∂ℓ/∂λ = 0 (add ∂ℓ/∂z for 3D). Solve for all variables + λ. Evaluate f at all solutions — largest is max and smallest is min.</dd>
-<dt class="wh-trap" style="color:#E53935">Trap:</dt><dd>Lagrange finds CANDIDATES only — it does NOT classify! You must evaluate f at each candidate and compare values. Also: systematic case analysis (λ = 0 vs λ ≠ 0) is essential.</dd>
-</dl></div>
-
-<div class="cross-links"><strong>Connections →</strong> Critical points ← ∇f from Ch 3 · Hessian ← second partials from §3.3 · Lagrange ← gradient perpendicular to level curves from §3.5 · Constrained optimization on disk boundary → combines SDT (interior) with Lagrange (boundary) · Conic recognition in distance problems ← discriminant from §2.8</div>
-
-<h2>Quick Reference</h2><table class="ptbl"><tr><th>Test / Formula</th><th>Formula</th><th>Result</th></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Perp?</td><td>\(\vec{v}\cdot\vec{w}=0\)</td><td>⊥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Parallel?</td><td>\(\vec{v}\times\vec{w}=\mathbf{0}\)</td><td>∥</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Coplanar?</td><td>\(\vec{u}\cdot(\vec{v}\times\vec{w})=0\)</td><td>same plane</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Area △</td><td>\(\frac{1}{2}|\vec{u}\times\vec{v}|\)</td><td>triangle area</td></tr><tr style="border-left:3.5px solid var(--ch1-title)"><td style="color:var(--ch1-title)">Volume</td><td>\(|\vec{u}\cdot(\vec{v}\times\vec{w})|\)</td><td>parallelepiped vol.</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Line</td><td>\(\vec{r}(t)=P+t\vec{v}\)</td><td>parametric line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane</td><td>\(ax+by+cz=d\), \(\vec{n}=(a,b,c)\)</td><td>normal determines plane</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. slope</td><td>\(dy/dx=(dy/dt)/(dx/dt)\)</td><td>tangent slope</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. area</td><td>\(\int y\,x'\,dt\)</td><td>area under curve</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. length</td><td>\(\int\sqrt{(x')^2+(y')^2}\,dt\)</td><td>arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar area</td><td>\(\frac{1}{2}\int r^2\,d\theta\)</td><td>polar region area</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar length</td><td>\(\int\sqrt{(r')^2+r^2}\,d\theta\)</td><td>polar arc length</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Skew?</td><td>not parallel + z-check fails</td><td>lines are skew</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Plane angle</td><td>\(\cos\theta=\frac{\vec{n}_1\cdot\vec{n}_2}{|\vec{n}_1||\vec{n}_2|}\)</td><td>angle between planes</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Conic type</td><td>\(B^2-4AC\): &lt;0 ellipse, =0 parabola, &gt;0 hyperbola</td><td>classify conic</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Param. 2nd deriv</td><td>\(d^2y/dx^2=\frac{d/dt(dy/dx)}{dx/dt}\)</td><td>NOT y″/x″</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Cycloid arch</td><td>area = \(3\pi r^2\), length = \(8r\)</td><td>memorize these</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar slope</td><td>\(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</td><td>convert to (x,y) for line</td></tr><tr style="border-left:3.5px solid var(--ch2-title)"><td style="color:var(--ch2-title)">Polar between</td><td>\(\frac{1}{2}\int(r_{\text{out}}^2-r_{\text{in}}^2)\,d\theta\)</td><td>area between curves</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Dir. deriv.</td><td>\(D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}\)</td><td>rate of change in dir. u</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Steepest ascent</td><td>\(\max D_{\mathbf{u}}f = |\nabla f|\)</td><td>in direction ∇f/|∇f|</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Chain rule</td><td>\(dz/dt = z_x x' + z_y y'\)</td><td>total derivative</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Implicit ∂z/∂x</td><td>\(-f_x/f_z\)</td><td>from f(x,y,z)=0</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Tangent plane</td><td>\(f_x(x-x_0)+f_y(y-y_0)+f_z(z-z_0)=0\)</td><td>normal = ∇f</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Conservative?</td><td>\(\text{curl}\;\mathbf{F}=\mathbf{0}\) (2D: \(Q_x=P_y\))</td><td>then F = ∇f exists</td></tr><tr style="border-left:3.5px solid var(--ch3-title)"><td style="color:var(--ch3-title)">Divergence</td><td>\(\nabla\cdot\mathbf{F}=P_x+Q_y+R_z\)</td><td>&gt;0 source, &lt;0 sink</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫f ds</td><td>\(\int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt\)</td><td>scalar line integral</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">∫F·dr</td><td>\(\int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt\)</td><td>work / vector line int.</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">FTCLI</td><td>\(\int_{\mathscr{C}}\nabla f\cdot d\mathbf{r}=f(\text{end})-f(\text{start})\)</td><td>conservative shortcut</td></tr><tr style="border-left:3.5px solid var(--ch4-title)"><td style="color:var(--ch4-title)">Closed loop</td><td>F conservative + C closed ⟹ ∮F·dr = 0</td><td>path independence</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Fubini (rect)</td><td>\(\int_a^b\int_c^d f\,dy\,dx=\int_c^d\int_a^b f\,dx\,dy\)</td><td>either order on rectangles</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Polar dA</td><td>\(dA=r\,dr\,d\theta\)</td><td>DON'T forget the r!</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Jacobian</td><td>\(\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\) — area scaling factor</td><td>general change of vars</td></tr><tr style="border-left:3.5px solid var(--ch5-title)"><td style="color:var(--ch5-title)">Quadric ID</td><td>\(count squared terms + check signs\)</td><td>classify surface</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Surface int.</td><td>\(\iint F\sqrt{1+f_x^2+f_y^2}\,dA\)</td><td>graph form</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Flux</td><td>\(\iint(-Pf_x-Qf_y+R)\,dA\)</td><td>upward normal</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Green's</td><td>\(\oint P\,dx+Q\,dy=\iint(Q_x-P_y)\,dA\)</td><td>CCW closed curve</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Stokes'</td><td>\(\oint\mathbf{F}\cdot d\mathbf{r}=\iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</td><td>boundary ↔ surface</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Divergence</td><td>\(\iiint\text{div}\,\mathbf{F}\,dV=\iint\mathbf{F}\cdot\mathbf{n}\,dS\)</td><td>solid ↔ closed surface</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Cylindrical dV</td><td>\(dV=r\,dr\,d\theta\,dz\)</td><td>DON'T forget r!</td></tr><tr style="border-left:3.5px solid var(--ch6-title)"><td style="color:var(--ch6-title)">Spherical dV</td><td>\(dV=\rho^2\sin\varphi\,d\rho\,d\theta\,d\varphi\)</td><td>DON'T forget ρ² sin φ!</td></tr><tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Critical pts</td><td>\(f_x = 0\) and \(f_y = 0\)</td><td>solve simultaneously</td></tr><tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">SDT</td><td>\(D = f_{xx}f_{yy} - f_{xy}^2\)</td><td>D>0: min/max; D&lt;0: saddle</td></tr><tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Lagrange</td><td>\(\nabla f = \lambda\nabla g\) + constraint</td><td>constrained extrema</td></tr><tr style="border-left:3.5px solid var(--ch7-title)"><td style="color:var(--ch7-title)">Closed region</td><td>interior CPs + boundary + corners</td><td>compare all f-values</td></tr></table></div>
+</div>
 
   <!-- ═══ progress.html ═══ -->
   <div class="page" id="progress"><div class="page-title">Tracker</div><h1>Progress</h1><p class="page-intro">Check off items as you go. Saves automatically.</p><div class="progress-overall"><div style="display:flex;justify-content:space-between;align-items:center"><strong>Overall Progress</strong><span class="progress-pct" id="overall-pct">0%</span></div><div class="progress-bar-wrap"><div class="progress-bar-fill" id="overall-bar" style="width:0%"></div></div></div>
