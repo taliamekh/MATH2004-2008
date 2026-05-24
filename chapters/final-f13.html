@@ -21,6 +21,11 @@
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find \(r'\) and evaluate at \(\theta=\pi/2\)</strong>
 <p>\(r'=3\cos\theta\). At \(\theta=\pi/2\): \(r=3\), \(r'=0\).</p></div></div>
 <p class="step-why">r' = 0 at the top of the circle (horizontal tangent).</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Before the Formula</strong>
+<p style="font-size:14px;">At \(\theta = \pi/2\): \(\cos(\pi/2) = 0\). In the polar slope numerator \(r'\sin\theta + r\cos\theta\), the second term \(r \cdot 0 = 0\). And \(r' = 3\cos(\pi/2) = 0\). So the numerator is \(0 + 0 = 0\). Zero numerator → slope = 0. Circle <strong>(a)</strong> immediately — no fraction computation needed.</p>
+</div>
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Apply formula</strong>
 <p>\[\frac{dy}{dx}=\frac{0\cdot 1+3\cdot 0}{0\cdot 0-3\cdot 1}=\frac{0}{-3}=\boxed{0}\]</p></div></div>
 <p class="step-why">sin(π/2)=1, cos(π/2)=0. Numerator = 0, so slope = 0 (horizontal tangent).</p>
@@ -33,6 +38,11 @@
 <div class="qg-step"><span class="step-bubble">3</span>Plug into \(\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\)</div>
 <div class="qg-step"><span class="step-bubble">4</span>If numerator = 0 → horizontal. If denominator = 0 → vertical.</div>
 </div></div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Geometric Reasoning (No Formula)</strong>
+<p style="font-size:14px;">\(r = 3\sin\theta\) is a circle of diameter 3 centered at \((0, 3/2)\). At \(\theta = \pi/2\), the point is \((0, 3)\) — the <strong>top</strong> of the circle. The tangent at the top of any circle is horizontal → slope = 0. No computation needed at all.</p>
+</div>
 </details>
 
 <!-- ─── A2 ─── -->
@@ -52,6 +62,11 @@
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Magnitudes and result</strong>
 <p>\(|\mathbf{n}_1|=\sqrt{1+4+4}=3\), \(|\mathbf{n}_2|=\sqrt{4+4+1}=3\). \(\cos\theta=\frac{8}{9}\).</p></div></div>
 <p class="step-why">Both normals have magnitude 3, giving a clean denominator of 9.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Impossible Cosines</strong>
+<p style="font-size:14px;">\(\cos\theta\) must be in \([-1,1]\). Choice (b) \(9/4 = 2.25 > 1\) and (d) \(9/8 = 1.125 > 1\) — both impossible. Eliminated before any computation. You're down to (a) or (c). Compute: dot = 8, both magnitudes = 3, so \(\cos\theta = 8/9\). That's <strong>(c)</strong>.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\frac{8}{9}\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Angle Between Planes</strong>
@@ -59,9 +74,12 @@
 <div class="qg-step"><span class="step-bubble">1</span>Read normals from plane equations</div>
 <div class="qg-step"><span class="step-bubble">2</span>Dot product → magnitudes → divide</div>
 </div></div>
-</details>
 
-<!-- ─── A3 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Same-Magnitude Shortcut</strong>
+<p style="font-size:14px;">Both normals \((1,2,-2)\) and \((2,2,-1)\) have the same three components rearranged, so \(|\mathbf{n}_1| = |\mathbf{n}_2| = 3\). Denominator = \(3 \times 3 = 9\) (integer). Dot = \(2+4+2=8\). Answer = 8/9 — one mental step.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A3 — Triangle Area (Cross Product of Edge Vectors) · \(3\sqrt{2}\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -81,6 +99,11 @@
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Area</strong>
 <p>\(A=\frac{1}{2}\sqrt{0+36+36}=\frac{1}{2}\sqrt{72}=\frac{6\sqrt{2}}{2}=\boxed{3\sqrt{2}}\)</p></div></div>
 <p class="step-why">Triangle area = half the parallelogram area (half the cross product magnitude).</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Half the Parallelogram</strong>
+<p style="font-size:14px;">After computing \(|\vec{PQ}\times\vec{PR}| = \sqrt{72} = 6\sqrt{2}\), note that (a) IS \(6\sqrt{2}\) — that's the <strong>parallelogram</strong> area, not the triangle. The triangle is half: \(3\sqrt{2}\) = <strong>(d)</strong>. Classic trap: if you forget to divide by 2, you pick (a). Always halve.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(3\sqrt{2}\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Triangle Area from 3 Points</strong>
@@ -88,6 +111,11 @@
 <div class="qg-step"><span class="step-bubble">1</span>Form two edge vectors from one vertex</div>
 <div class="qg-step"><span class="step-bubble">2</span>Cross product → magnitude → divide by 2</div>
 </div></div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Spot the Factor-of-2 Trap</strong>
+<p style="font-size:14px;">Notice that \((d) = \frac{1}{2}(a)\). This is a telltale sign: one is the triangle area, the other is the parallelogram area. If you're ever choosing between two values where one is exactly half the other, the smaller one is the triangle. Pick <strong>(d)</strong>.</p>
+</div>
 </details>
 
 <!-- ─── A4 ─── -->
@@ -104,6 +132,11 @@
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Normal = direction of line: \(\mathbf{n}=(3,2,-1)\)</strong>
 <p>\(3(x-1)+2(y-1)-(z-3)=0 \Rightarrow 3x+2y-z=2\)</p></div></div>
 <p class="step-why">Plane perpendicular to line → line's direction IS the normal.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — All Choices Share x = y = 0</strong>
+<p style="font-size:14px;">Every choice has \(x=0, y=0\) — they only differ in \(z\). Once you have the plane \(3x+2y-z=2\), plug \(x=y=0\): \(-z=2 \Rightarrow z=-2\). Only <strong>(b) \((0,0,-2)\)</strong> works. You don't need to test all four — just solve for \(z\).</p>
+</div>
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Test (b): \((0,0,-2)\)</strong>
 <p>\(3(0)+2(0)-(-2)=2\) ✓</p></div></div>
 <p class="step-why">Plug in and check if it equals 2.</p>
@@ -115,9 +148,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Write plane equation using the given point</div>
 <div class="qg-step"><span class="step-bubble">3</span>Test each choice</div>
 </div></div>
-</details>
 
-<!-- ─── A5 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Skip the Plane Equation</strong>
+<p style="font-size:14px;">Use \(\mathbf{n}\cdot\vec{PR}=0\) directly. With \(P=(1,1,3)\), \(\mathbf{n}=(3,2,-1)\), and each \(R=(0,0,z)\): \(\vec{PR}=(-1,-1,z-3)\). Dot: \(-3-2-(z-3) = -2-z\). Set to 0: \(z=-2\). Done — never wrote the plane equation.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A5 — Chain Rule (Total Derivative dw/dt at a Point) · \(6\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -132,6 +168,11 @@
 <p>\(w_x=2x+3y^4=3\), \(w_y=1+12xy^3=1\).</p>
 <p>\(\frac{dw}{dt}=(3)(2)+(1)(0)=\boxed{6}\)</p></div></div>
 <p class="step-why">Same question as F14 A5 — identical setup, same answer.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Half the Formula Dies</strong>
+<p style="font-size:14px;">At \(t=0\): \(y'(0)=-\sin(0)=0\), so the \(w_y \cdot y'\) term vanishes. Only \(w_x \cdot x'\) survives: \(w_x(0,1) = 3\), \(x'(0) = 2\). Answer = \(3 \times 2 = 6\) = <strong>(b)</strong>. One multiplication.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \(6\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Chain Rule at a Point</strong>
@@ -140,9 +181,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Evaluate variables at the given t</div>
 <div class="qg-step"><span class="step-bubble">3</span>Plug in — pure arithmetic</div>
 </div></div>
-</details>
 
-<!-- ─── A6 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Speed Note — Repeated Exam Question</strong>
+<p style="font-size:14px;">This is identical to F14 A5 — same function, same parametrization, same answer. If you've practiced the F14 exam, you'll recognize it instantly and can write the answer in 10 seconds.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A6 — Gradient (Direction of Steepest Increase) · \((-1,-\frac{1}{2},\frac{1}{4})\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -157,6 +201,11 @@
 <p>\(f_x=\frac{1}{y}=-1\), \(f_y=\frac{-x}{y^2}+\frac{1}{z}=-1+\frac{1}{2}=-\frac{1}{2}\), \(f_z=\frac{-y}{z^2}=\frac{1}{4}\).</p>
 <p>\(\nabla f=\boxed{(-1,-\tfrac{1}{2},\tfrac{1}{4})}\)</p></div></div>
 <p class="step-why">Same as F14 A6 — identical function and point.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — One Component Decides It</strong>
+<p style="font-size:14px;">Compute just \(f_x = 1/y = 1/(-1) = -1\). Scan the i-components: (a) +1, (b) -1, (c) +2, (d) -1. Choices (b) and (d) both have i = -1. Now compute \(f_y = -x/y^2 + 1/z = -1 + 1/2 = -1/2\). Check j-components: (b) has +1/2, (d) has -1/2. Only <strong>(d)</strong> matches. Done after two partials — skip \(f_z\).</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(-\mathbf{i}-\frac{1}{2}\mathbf{j}+\frac{1}{4}\mathbf{k}\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Gradient</strong>
@@ -165,9 +214,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Evaluate at the point</div>
 <div class="qg-step"><span class="step-bubble">3</span>That IS the direction of steepest increase</div>
 </div></div>
-</details>
 
-<!-- ─── A7 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Speed Note — Repeated Exam Question</strong>
+<p style="font-size:14px;">Identical to F14 A6 — same function \(f = x/y + y/z\), same point \((1,-1,2)\), same gradient \((-1,-1/2,1/4)\). The choices are slightly rearranged but the answer is always the vector matching \(\nabla f\). If you've drilled this before, it's instant.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A7 — Critical Points (Set Partials to Zero) · \((4,2)\) and \((0,0)\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -185,6 +237,11 @@
 <p>Sub into \(h_y=0\): \(2\sqrt{x}-2-\sqrt{x}=0 \Rightarrow \sqrt{x}=2 \Rightarrow x=4\), \(y=2\).</p>
 <p>Also check \(x=0\): \(h_y(0,y)=2y-2=0 \Rightarrow y=1\). But checking: at \(x=0\), \(h_x\) involves \(1/\sqrt{x}\) which is undefined. The point \((0,0)\) is a boundary critical point where the gradient doesn't exist.</p></div></div>
 <p class="step-why">Solve the system. Don't forget boundary cases where partials are undefined.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — (4,2) Must Be Included</strong>
+<p style="font-size:14px;">From \(h_x = 0\): \(y = \sqrt{x}\). From \(h_y = 0\): \(\sqrt{x} = 2\), so \(x = 4, y = 2\). The CP \((4,2)\) definitely exists — eliminates (b) "\((0,0)\) only". Since \(h_x\) involves \(1/\sqrt{x}\), the gradient is undefined at \(x=0\), making \((0,0)\) a boundary critical point. That eliminates (d) "\((4,2)\) only". Between (a) and (c): \((4,2)\) vs \((2,4)\)? Our computation gave \((4,2)\) → <strong>(a)</strong>.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) \((4,2)\) and \((0,0)\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Finding Critical Points</strong>
@@ -193,9 +250,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Solve the system simultaneously</div>
 <div class="qg-step"><span class="step-bubble">3</span>Check boundary/corner points where partials are undefined</div>
 </div></div>
-</details>
 
-<!-- ─── A8 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Verify by Substitution</strong>
+<p style="font-size:14px;">Instead of solving the system, plug each answer's points into \(h_x\) and \(h_y\). For (a): at \((4,2)\): \(h_x = -2/(2\cdot2) + 1/2 = -1/2 + 1/2 = 0\) ✓ and \(h_y = 4-2-2 = 0\) ✓. At \((0,0)\): \(h_x\) is undefined (boundary CP). For (c): at \((2,4)\): \(h_x = -4/(2\sqrt{2}) + 1/2 = -\sqrt{2} + 1/2 \neq 0\) ✗. So (c) fails and <strong>(a)</strong> wins.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A8 — Double Integral (Separable, Rectangle) · \(\frac{1}{2}\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -210,6 +270,11 @@
 <p>\[\int_0^{\ln 2}e^{-x}\,dx\cdot\int_0^{\pi/2}\sin y\,dy = [-e^{-x}]_0^{\ln 2}\cdot[-\cos y]_0^{\pi/2}\]</p>
 <p>\[= (-\tfrac{1}{2}+1)(0+1) = \tfrac{1}{2}\cdot 1 = \boxed{\tfrac{1}{2}}\]</p></div></div>
 <p class="step-why">The integrand factors as f(x)·g(y) on a rectangle → multiply the two 1D integrals.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Sign Check Kills 3 Choices</strong>
+<p style="font-size:14px;">On the region \([0,\ln 2]\times[0,\pi/2]\), both \(e^{-x} > 0\) and \(\sin y \ge 0\). So the integrand is <strong>non-negative</strong> and the integral is <strong>strictly positive</strong>. (a) \(1-e \approx -1.72\) — negative, eliminated. (b) \(\ln 2-1 \approx -0.31\) — negative, eliminated. (c) 0 — impossible since integrand is strictly positive on the interior. Only <strong>(d) \(1/2\)</strong> survives. Circle it without computing.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(\frac{1}{2}\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Separable Double Integral</strong>
@@ -217,9 +282,12 @@
 <div class="qg-step"><span class="step-bubble">1</span>Check: integrand = f(x)·g(y) and region is a rectangle?</div>
 <div class="qg-step"><span class="step-bubble">2</span>If yes: multiply two independent 1D integrals</div>
 </div></div>
-</details>
 
-<!-- ─── A9 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Memorize Key 1D Integrals</strong>
+<p style="font-size:14px;">Two integrals to know by heart: \(\int_0^{\ln 2} e^{-x} dx = 1 - 1/2 = 1/2\) (since \(e^{-\ln 2} = 1/2\)). \(\int_0^{\pi/2}\sin y\,dy = 1\) (since \(-\cos(\pi/2)+\cos 0 = 0+1\)). Product: \(\frac{1}{2} \cdot 1 = \frac{1}{2}\). Both are exam staples — memorize them.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A9 — Triple Integral (Cartesian, Cone-to-Plane) · \(\frac{3}{8}\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -234,6 +302,11 @@
 <p>\(\int_{\sqrt{x^2+y^2}}^2 xyz\,dz = xy(2-\frac{x^2+y^2}{2})\). Expand and integrate y, then x.</p>
 <p>\[= \boxed{\frac{3}{8}}\]</p></div></div>
 <p class="step-why">Identical problem to F14 A9. See that solution for full step-by-step.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Upper Bound Kills 3 Choices</strong>
+<p style="font-size:14px;">After the z-integral, the remaining double integral is bounded above by \(2\int_0^1\int_0^1 xy\,dy\,dx = 2 \cdot \frac{1}{4} = \frac{1}{2}\). Since we subtract a positive quantity \(\frac{x^2+y^2}{2}\), the answer is <strong>strictly less than \(\frac{1}{2}\)</strong>. Eliminates (a) \(3/4\), (b) \(1/2\), and (d) \(3/2\). Only <strong>(c) \(3/8\)</strong> survives.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (c) \(\frac{3}{8}\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Triple Integral (Cartesian)</strong>
@@ -242,9 +315,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Expand, then integrate remaining variables</div>
 <div class="qg-step"><span class="step-bubble">3</span>Track fractions carefully</div>
 </div></div>
-</details>
 
-<!-- ─── A10 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Separable Terms After z-Integral</strong>
+<p style="font-size:14px;">After integrating z: remaining integrand = \(2xy - \frac{x^3y}{2} - \frac{xy^3}{2}\). Each term is separable on \([0,1]^2\): \(2 \cdot \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{4}\cdot\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{1}{4} = \frac{1}{2} - \frac{1}{16} - \frac{1}{16} = \frac{6}{16} = \frac{3}{8}\). Use \(\int_0^1 x^n dx = 1/(n+1)\) mentally.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A10 — Change of Variables (Ellipse → Circle, Jacobian) · \(\iint_S 288\,uv\,dA\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -259,6 +335,11 @@
 <p>\(|J|=3\cdot 4=12\). \(2xy=2(3u)(4v)=24uv\).</p>
 <p>\[\iint_R 2xy\,dA=\iint_S 24uv\cdot 12\,dA'=\boxed{\iint_S 288\,uv\,dA}\]</p></div></div>
 <p class="step-why">Integrand × Jacobian = 24uv × 12 = 288uv. Region becomes u²+v²≤1.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Integrand Shape Kills 2 Choices</strong>
+<p style="font-size:14px;">The original integrand \(2xy\) substitutes to \(2(3u)(4v) = 24uv\). After multiplying by the Jacobian, the result is still a multiple of \(uv\) — not \(u^2v^2\) and not \(u^2+v^2\). Eliminates (c) and (d) immediately. Between (a) \(12uv\) and (b) \(288uv\): the Jacobian is \(3\cdot4=12\), so \(24\cdot12 = 288\). Only <strong>(b)</strong>.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (b) \(\iint_S 288\,uv\,dA\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Change of Variables</strong>
@@ -268,9 +349,12 @@
 <div class="qg-step"><span class="step-bubble">3</span>Multiply integrand by \(|J|\)</div>
 <div class="qg-step"><span class="step-bubble">4</span>Transform the region</div>
 </div></div>
-</details>
 
-<!-- ─── A11 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — (a) Forgot the Jacobian</strong>
+<p style="font-size:14px;">A common trap: (a) \(12uv\) equals \(2 \cdot 3u \cdot 4v / 2 = 12uv\) — this is just the integrand substitution <strong>without</strong> multiplying by the Jacobian. If you see a choice that's the raw substitution without |J|, it's always wrong. The correct answer includes the extra factor of |J| = 12, giving \(12uv \cdot 12 = 288uv\) = <strong>(b)</strong>.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A11 — Line Integral (Conservative Field → FTCLI) · \(236\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -284,6 +368,11 @@
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Same field as F14 A11 — conservative with \(f=3x^2y^2-xy^3\)</strong>
 <p>\(f(3,4)-f(1,2)=432-192-(12-8)=\boxed{236}\)</p></div></div>
 <p class="step-why">Identical problem to F14 A11. Conservative → FTCLI → endpoints only.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Conservative → Path-Independent</strong>
+<p style="font-size:14px;">Check \(P_y = 12xy-3y^2\) vs \(Q_x = 12xy-3y^2\) — they match, so the field is conservative. This means the integral depends only on endpoints, not the path. You don't need to parametrize C at all — just find the potential function and evaluate \(f(3,4)-f(1,2)\).</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (a) \(236\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — FTCLI</strong>
@@ -292,9 +381,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>Find potential \(f\): integrate \(P\) w.r.t. x, match \(f_y\) to \(Q\)</div>
 <div class="qg-step"><span class="step-bubble">3</span>Answer = \(f(\text{end})-f(\text{start})\)</div>
 </div></div>
-</details>
 
-<!-- ─── A12 ─── -->
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Spot the Potential by Inspection</strong>
+<p style="font-size:14px;">\(6xy^2\) in P and \(6x^2y\) in Q both point to \(3x^2y^2\). And \(-y^3\) in P with \(-3xy^2\) in Q point to \(-xy^3\). So \(f = 3x^2y^2 - xy^3\) by inspection. Then \(f(3,4)-f(1,2) = (432-192)-(12-8) = 240-4 = 236\) = <strong>(a)</strong>. No formal integration — pattern recognition only.</p>
+</div>
+</details>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A12 — Divergence Theorem (Sphere, div F = constant) · \(64\pi\)</summary>
 <div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
@@ -310,6 +402,11 @@
 <p>Sphere volume: \(\frac{4}{3}\pi(2)^3=\frac{32\pi}{3}\).</p>
 <p>\[\text{Flux}=6\cdot\frac{32\pi}{3}=\boxed{64\pi}\]</p></div></div>
 <p class="step-why">Constant divergence → flux = div × volume. Quick computation.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Constant div → One Multiplication</strong>
+<p style="font-size:14px;">div F = \(7 + 0 + (-1) = 6\) (constant). Sphere radius = 2, volume = \(\frac{4}{3}\pi(8) = \frac{32\pi}{3}\). Flux = \(6 \cdot \frac{32\pi}{3} = 64\pi\). Only <strong>(d)</strong>. Done in 15 seconds.</p>
+</div>
 </div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: (d) \(64\pi\)</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Divergence Theorem (Constant div)</strong>
@@ -318,8 +415,12 @@
 <div class="qg-step"><span class="step-bubble">2</span>If constant: Flux = div × Volume</div>
 <div class="qg-step"><span class="step-bubble">3</span>Know sphere volume \(\frac{4}{3}\pi R^3\)</div>
 </div></div>
-</details>
 
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Eliminate (c) by Non-Zero Divergence</strong>
+<p style="font-size:14px;">Choice (c) = 0 would require div F = 0 (net flux zero through a closed surface only if the field is incompressible). But div F = 6 ≠ 0, so (c) is impossible. Then: (a) \(24\pi = 6 \cdot 4\pi\) would need sphere volume = \(4\pi\) (wrong — that's a sphere of radius \(\sqrt[3]{3}\)). (b) \(16\pi = 6 \cdot 8\pi/3\) — nope. (d) \(64\pi = 6 \cdot 32\pi/3\) ✓. Matching confirms <strong>(d)</strong>.</p>
+</div>
+</details>
 
 <div class="part-banner la">PART B — Long Answer (6 Questions, 44 marks total)</div>
 
