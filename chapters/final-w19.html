@@ -687,401 +687,387 @@
 </div>
 </details>
 
+
 <div class="part-banner la">PART B — Long Answer (6 Questions, 44 marks total)</div>
 
 <!-- ─── B1 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B1 [8 marks] — Green's Theorem (Closed Curve → Double Integral) · \(I = 12\pi\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Evaluate \(I = \int_C -y\,dx + x\,dy\) over the perimeter \(C\) of the closed curve \(4x^2 + 9y^2 = 36\) oriented counterclockwise.</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate \(I = \int_C -y\,dx + x\,dy\) over the perimeter \(C\) of the closed curve \(4x^2 + 9y^2 = 36\) oriented counterclockwise.</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Compute a closed line integral around an ellipse. Since the curve is closed and CCW, Green's Theorem converts this to a double integral over the interior.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Green's Theorem</strong> \(\oint_C P\,dx + Q\,dy = \iint_R \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA\) <a class="fsrc on" onclick="goToEq('examformulas','ef-35')" style="cursor:pointer;">Exam Sheet #35: "Green's Theorem"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Ellipse area</strong> \(A = \pi ab\) <span class="fsrc off">NOT on exam sheet → memorize</span></div></div>
-</div>
-</div>
+</div></div>
 
-<div class="card-bracket" style="border-left-color:#D97706;">
-<strong>🔧 Setup</strong>
-<p>Closed curve + line integral → Green's Theorem. Identify \(P = -y\), \(Q = x\). Compute the curl term \(Q_x - P_y\). Recognize the interior as an ellipse whose area you can compute directly.</p>
-</div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Green's Theorem applies because: (1) C is a <strong>closed</strong> curve, (2) oriented <strong>counterclockwise</strong> (positive orientation), and (3) the region R enclosed by the ellipse is <strong>simply connected</strong>. The pair P = −y, Q = x is special — it gives Q_x − P_y = 2, which is the "double the area" formula.</p></div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
 
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify P, Q and compute the integrand</strong>
-<p>\(P = -y\), \(Q = x\). So \(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1 - (-1) = 2\).</p></div></div>
-<p class="step-why">Green's Theorem converts the line integral to ∬(Qₓ − Pᵧ) dA.</p>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify P and Q from the line integral</strong>
+<p>\(\int_C P\,dx + Q\,dy\) with \(P = -y\), \(Q = x\).</p></div></div>
+<p class="step-why">Match the integrand to the form P dx + Q dy. Here: the coefficient of dx is P = −y, the coefficient of dy is Q = x.</p>
 
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Apply Green's Theorem</strong>
-<p>\[I = \iint_R 2\,dA = 2\cdot\text{Area}(R)\]</p></div></div>
-<p class="step-why">Since the integrand is a constant (2), the double integral equals 2 × area of the region.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Compute \(Q_x - P_y\)</strong>
+<p>\[\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(x) = 1\]</p>
+<p>\[\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(-y) = -1\]</p>
+<p>\[Q_x - P_y = 1 - (-1) = 1 + 1 = 2\]</p></div></div>
+<p class="step-why">Tip: P = −y, Q = x always gives Q_x − P_y = 2. This is worth memorizing — it turns any closed line integral of (−y dx + x dy) into 2 × Area.</p>
 
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Find the ellipse area</strong>
-<p>Standard form: \(\frac{x^2}{9} + \frac{y^2}{4} = 1\), so \(a = 3\), \(b = 2\).</p>
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Apply Green's Theorem</strong>
+<p>\[I = \iint_R (Q_x - P_y)\,dA = \iint_R 2\,dA = 2\cdot\text{Area}(R)\]</p></div></div>
+<p class="step-why">Since the integrand Q_x − P_y = 2 is a constant, the double integral equals that constant times the area of R.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Convert the ellipse to standard form and find its area</strong>
+<p>\[4x^2 + 9y^2 = 36 \qquad\Rightarrow\qquad \frac{x^2}{9} + \frac{y^2}{4} = 1\]</p>
+<p>Reading off: \(a^2 = 9 \Rightarrow a = 3\), \(b^2 = 4 \Rightarrow b = 2\).</p>
 <p>\[\text{Area} = \pi ab = \pi(3)(2) = 6\pi\]</p></div></div>
-<p class="step-why">Divide by 36 to get standard form. Read off a² and b² as the denominators.</p>
+<p class="step-why">Tip: divide both sides by the RHS (36) to get 1 on the right. The denominators under x² and y² are a² and b².</p>
 
-<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Final answer</strong>
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Final answer</strong>
 <p>\[I = 2 \cdot 6\pi = \boxed{12\pi}\]</p></div></div>
-<p class="step-why">Multiply the constant integrand by the area.</p>
+<p class="step-why">The line integral around the ellipse equals twice its area — an elegant result.</p>
 </div>
 
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(I = 12\pi\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Green's Theorem on a Closed Curve</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(I = 12\pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Green's Theorem on a Closed Curve</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Identify \(P\) and \(Q\) from the line integral</div>
-<div class="qg-step"><span class="step-bubble">2</span>Compute \(Q_x - P_y\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Set up \(\iint_R (Q_x - P_y)\,dA\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>If the integrand is constant → Area × constant</div>
-<div class="qg-step"><span class="step-bubble">5</span>For ellipse: \(\text{Area} = \pi ab\)</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Check: closed curve, CCW orientation, simply connected region</div>
+<div class="qg-step"><span class="step-bubble">2</span>Identify P and Q, compute \(Q_x - P_y\)</div>
+<div class="qg-step"><span class="step-bubble">3</span>If constant → integral = constant × Area</div>
+<div class="qg-step"><span class="step-bubble">4</span>For ellipse: standard form → \(\pi ab\)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Memorize: \(-y\,dx+x\,dy\) → \(Q_x-P_y = 2\) → twice the area</div>
+</div></div>
 </details>
 
 <!-- ─── B2 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B2 [7 marks] — Surface Integral (Odd Integrand on Symmetric Domain → 0) · \(I = 0\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Evaluate the surface integral \(I = \iint_S y\,dS\) where \(S\) is the hemisphere \(x^2 + y^2 + z^2 = R^2\), \(z > 0\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate the surface integral \(I = \iint_S y\,dS\) where \(S\) is the hemisphere \(x^2 + y^2 + z^2 = R^2\), \(z > 0\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Integrate the function \(f = y\) over the upper hemisphere. The key insight is that \(y\) is an odd function on a symmetric domain — the integral is zero by symmetry.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Scalar surface integral</strong> \(\iint_S f\,dS = \iint_R f(\mathbf{r}(u,v))\,|\mathbf{r}_u\times\mathbf{r}_v|\,dA\) <a class="fsrc on" onclick="goToEq('examformulas','ef-32')" style="cursor:pointer;">Exam Sheet #32: "Scalar Surface Integral (param.)"</a></div></div>
 <div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Symmetry shortcut</strong>: odd integrand on symmetric domain → integral = 0 <span class="fsrc off">NOT on exam sheet → general principle, memorize</span></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Before computing anything, check for symmetry. The hemisphere is symmetric about the xz-plane (y = 0), and the integrand f = y is an <strong>odd function</strong> of y: replacing y with −y flips the sign. This means the integral must be zero — the positive and negative contributions cancel exactly.</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify the symmetry</strong>
+<p>The hemisphere \(x^2+y^2+z^2 = R^2\), \(z > 0\) is symmetric about the xz-plane (\(y = 0\)). For every point \((x, y, z)\) on S, the point \((x, -y, z)\) is also on S.</p>
+<p>The integrand \(f = y\) is <strong>odd in y</strong>: \(f(x, -y, z) = -y = -f(x, y, z)\).</p></div></div>
+<p class="step-why">An odd function integrated over a symmetric domain always gives zero — the same reason ∫_{-a}^{a} x dx = 0.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Formal proof: split the hemisphere</strong>
+<p>Let \(S^+ = \{(x,y,z) \in S : y > 0\}\) and \(S^- = \{(x,y,z) \in S : y < 0\}\).</p>
+<p>\[I = \iint_{S^+} y\,dS + \iint_{S^-} y\,dS = I^+ + I^-\]</p></div></div>
+<p class="step-why">Split the domain along the symmetry plane y = 0. The set where y = 0 exactly has measure zero (it's a curve on the surface), so it doesn't contribute.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Compute \(I^+\) using projection onto the xz-plane</strong>
+<p>On \(S^+\): \(y > 0\), so \(y = \sqrt{R^2 - x^2 - z^2}\). Write \(y = g(x,z)\).</p>
+<p>The surface element: \(dS = \sqrt{1 + g_x^2 + g_z^2}\,dA\).</p>
+<p>\[g_x = \frac{-x}{\sqrt{R^2-x^2-z^2}}, \qquad g_z = \frac{-z}{\sqrt{R^2-x^2-z^2}}\]</p>
+<p>\[1 + g_x^2 + g_z^2 = 1 + \frac{x^2+z^2}{R^2-x^2-z^2} = \frac{R^2}{R^2-x^2-z^2}\]</p>
+<p>So \(dS = \frac{R}{\sqrt{R^2-x^2-z^2}}\,dA\).</p></div></div>
+<p class="step-why">Tip: for spheres, this surface element simplification always gives R/√(R²−x²−z²). It comes from the sphere's curvature stretching flat area elements.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>The y factors cancel</strong>
+<p>\[I^+ = \iint_{R^+} \underbrace{\sqrt{R^2-x^2-z^2}}_{y} \cdot \frac{R}{\sqrt{R^2-x^2-z^2}}\,dA = R\iint_{R^+} dA\]</p>
+<p>The projection \(R^+\) is the half-disk \(\{(x,z): x^2+z^2 \le R^2,\; x \in \mathbb{R}\}\) which has area \(\frac{\pi R^2}{2}\).</p>
+<p>\[I^+ = R\cdot\frac{\pi R^2}{2} = \frac{\pi R^3}{2}\]</p></div></div>
+<p class="step-why">The key cancellation: y in the integrand equals √(R²−x²−z²), which is exactly what appears in the denominator of dS. They cancel, leaving just R.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>By symmetry, \(I^- = -I^+\)</strong>
+<p>On \(S^-\): \(y = -\sqrt{R^2-x^2-z^2}\), so the same calculation gives \(I^- = -\frac{\pi R^3}{2}\).</p></div></div>
+<p class="step-why">The only difference is the sign of y. Everything else (dS, the projection region) is identical.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Add the two halves</strong>
+<p>\[I = I^+ + I^- = \frac{\pi R^3}{2} + \left(-\frac{\pi R^3}{2}\right) = \boxed{0}\]</p></div></div>
+<p class="step-why">Perfect cancellation due to the odd symmetry. On an exam, stating the symmetry argument clearly (odd function + symmetric domain) earns full marks without any computation.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Observe symmetry</strong>
-<p>The hemisphere is symmetric about the xz-plane (\(y = 0\)). The integrand \(f = y\) is odd in \(y\): replacing \(y\) with \(-y\) flips its sign, but the domain is unchanged.</p></div></div>
-<p class="step-why">An odd function integrated over a symmetric domain always gives zero.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Formal argument: split into \(S^+\) and \(S^-\)</strong>
-<p>Let \(S^+ = \{y > 0\}\) and \(S^- = \{y < 0\}\).</p>
-<p>On \(S^+\): project onto the xz-plane, \(y = \sqrt{R^2 - x^2 - z^2}\), so \(I^+ = R\cdot\frac{\pi R^2}{2} = \frac{\pi R^3}{2}\).</p>
-<p>On \(S^-\): \(y = -\sqrt{R^2 - x^2 - z^2}\), so \(I^- = -\frac{\pi R^3}{2}\).</p></div></div>
-<p class="step-why">The dS element is the same for both halves, but y has opposite signs → the integrals cancel exactly.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Add</strong>
-<p>\[I = I^+ + I^- = \frac{\pi R^3}{2} - \frac{\pi R^3}{2} = \boxed{0}\]</p></div></div>
-<p class="step-why">Perfect cancellation due to the odd symmetry of the integrand.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(I = 0\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Symmetry Shortcut for Surface Integrals</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(I = 0\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Symmetry Shortcut</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Check: is the integrand odd in one variable?</div>
-<div class="qg-step"><span class="step-bubble">2</span>Check: is the domain symmetric about that variable's zero plane?</div>
-<div class="qg-step"><span class="step-bubble">3</span>If both yes → integral = 0 (no computation needed)</div>
-<div class="qg-step"><span class="step-bubble">4</span>Otherwise: split into symmetric halves, show cancellation</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Is the integrand odd in x, y, or z?</div>
+<div class="qg-step"><span class="step-bubble">2</span>Is the domain symmetric about that variable's zero plane?</div>
+<div class="qg-step"><span class="step-bubble">3</span>Both yes → integral = 0 immediately</div>
+<div class="qg-step"><span class="step-bubble">4</span>On an exam: state it clearly, then optionally verify by splitting into halves</div>
+</div></div>
 </details>
 
 <!-- ─── B3 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B3 [7 marks] — Stokes' Theorem: Flux of Curl · \(I = \pi\)</summary>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B3 [7 marks] — Stokes' / Direct (Flux of Curl Through Tilted Disk) · \(I = \pi\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Let \(\mathbf{F}(x,y,z) = (-y^2, x, z^2)\) and let \(S\) be that part of the plane \(x + z = 2\) cut by the cylinder \(x^2 + y^2 = 1\). Use any method to evaluate \(I = \iint_S (\text{curl}\,\mathbf{F})\cdot\mathbf{n}\,dS\) where \(\mathbf{n}\) is an outward pointing unit normal to \(S\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}(x,y,z) = (-y^2, x, z^2)\) and \(S\) be part of the plane \(x+z=2\) cut by the cylinder \(x^2+y^2=1\). Evaluate \(I = \iint_S (\text{curl}\,\mathbf{F})\cdot\mathbf{n}\,dS\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Compute the flux of curl F through a tilted disk (plane cut by cylinder). We can either compute directly or use Stokes' Theorem to convert to a line integral — but here direct computation is actually clean.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Stokes' Theorem</strong> \(\iint_S (\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = \oint_C \mathbf{F}\cdot d\mathbf{r}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-36')" style="cursor:pointer;">Exam Sheet #36: "Stokes' Theorem"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Flux integral (z=z(x,y))</strong> for the normal vector <a class="fsrc on" onclick="goToEq('examformulas','ef-33')" style="cursor:pointer;">Exam Sheet #33: "Flux Integral (z=z(x,y))"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Flux integral (z=z(x,y))</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-33')" style="cursor:pointer;">Exam Sheet #33: "Flux Integral (z=z(x,y))"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F — all 6 partial derivatives</strong>
+<p>With \(P=-y^2\), \(Q=x\), \(R=z^2\):</p>
+<p>\[\mathbf{i}: R_y - Q_z = \frac{\partial(z^2)}{\partial y} - \frac{\partial(x)}{\partial z} = 0 - 0 = 0\]</p>
+<p>\[\mathbf{j}: -(R_x - P_z) = -\left(\frac{\partial(z^2)}{\partial x} - \frac{\partial(-y^2)}{\partial z}\right) = -(0-0) = 0\]</p>
+<p>\[\mathbf{k}: Q_x - P_y = \frac{\partial(x)}{\partial x} - \frac{\partial(-y^2)}{\partial y} = 1-(-2y) = 1+2y\]</p>
+<p>\[\nabla\times\mathbf{F} = (0, 0, 1+2y)\]</p></div></div>
+<p class="step-why">Tip: the k-component is Q_x − P_y. Here P_y = ∂(−y²)/∂y = −2y, so the subtraction gives 1 − (−2y) = 1 + 2y. Watch the double negative.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Find the normal vector for \(z = 2-x\)</strong>
+<p>Write the surface as \(G(x,y,z) = x+z-2 = 0\). Then \(\nabla G = (1, 0, 1)\).</p>
+<p>Unit normal: \(\hat{n} = \frac{(1,0,1)}{\sqrt{2}}\) (outward/upward).</p>
+<p>Surface element: for \(z = g(x,y) = 2-x\), we have \(g_x = -1\), \(g_y = 0\).</p>
+<p>\[dS = \sqrt{1+g_x^2+g_y^2}\,dA = \sqrt{1+1+0}\,dA = \sqrt{2}\,dA\]</p></div></div>
+<p class="step-why">For z = g(x,y), the normal is (−g_x, −g_y, 1)/|(−g_x, −g_y, 1)| and dS = √(1+g_x²+g_y²) dA. These formulas are on the exam sheet.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Combine: (curl F)·n dS — watch the √2 cancel</strong>
+<p>\[(\text{curl}\,\mathbf{F})\cdot\hat{n}\,dS = (0,0,1+2y)\cdot\frac{(1,0,1)}{\sqrt{2}}\cdot\sqrt{2}\,dA\]</p>
+<p>The dot product gives \(\frac{1+2y}{\sqrt{2}}\). Multiply by \(\sqrt{2}\,dA\):</p>
+<p>\[= \frac{1+2y}{\sqrt{2}}\cdot\sqrt{2}\,dA = (1+2y)\,dA\]</p></div></div>
+<p class="step-why">Tip: for any plane z = ax+by+c, the √(1+a²+b²) from dS and the same factor in the denominator of n always cancel. The result is just (curl F)·(−g_x, −g_y, 1) dA.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Project onto xy-plane — the disk \(x^2+y^2 \le 1\)</strong>
+<p>The cylinder \(x^2+y^2 = 1\) cuts the tilted plane, but its projection onto the xy-plane is just the unit disk.</p>
+<p>\[I = \iint_{\text{disk}} (1+2y)\,dA\]</p>
+<p>Convert to polar: \(y = r\sin\theta\), \(dA = r\,dr\,d\theta\).</p>
+<p>\[= \int_0^{2\pi}\int_0^1 (1+2r\sin\theta)\,r\,dr\,d\theta = \int_0^{2\pi}\int_0^1 (r+2r^2\sin\theta)\,dr\,d\theta\]</p></div></div>
+<p class="step-why">The projection is always a flat disk — the tilt of the plane doesn't affect what the shadow looks like.</p>
+
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Evaluate the r-integral</strong>
+<p>\[\int_0^1 r\,dr = \frac{1}{2}, \qquad \int_0^1 2r^2\,dr = \frac{2}{3}\]</p>
+<p>\[\int_0^1 (r+2r^2\sin\theta)\,dr = \frac{1}{2} + \frac{2}{3}\sin\theta\]</p></div></div>
+<p class="step-why">Integrate each term in r separately. The sin θ is a constant with respect to r.</p>
+
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Evaluate the θ-integral</strong>
+<p>\[\int_0^{2\pi}\left(\frac{1}{2}+\frac{2}{3}\sin\theta\right)d\theta = \frac{1}{2}\cdot 2\pi + \frac{2}{3}\underbrace{\int_0^{2\pi}\sin\theta\,d\theta}_{=\;0}\]</p>
+<p>\[= \pi + 0 = \boxed{\pi}\]</p></div></div>
+<p class="step-why">Tip: ∫₀^{2π} sin θ dθ = 0 always (full period of sine). Only the constant term 1/2 survives, giving ½ × 2π = π.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F</strong>
-<p>\[\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ -y^2&x&z^2\end{vmatrix} = (0 - 0)\mathbf{i} - (0 - 0)\mathbf{j} + (1 + 2y)\mathbf{k} = (0, 0, 1+2y)\]</p></div></div>
-<p class="step-why">Apply the curl formula component by component using the determinant expansion.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Find the normal and dS</strong>
-<p>The surface is \(z = 2 - x\), so the normal vector is \(\mathbf{n} = \frac{(1,0,1)}{\sqrt{2}}\) (outward) and \(dS = \sqrt{2}\,dA\).</p>
-<p>\[(\text{curl}\,\mathbf{F})\cdot\mathbf{n}\,dS = \frac{(0,0,1+2y)\cdot(1,0,1)}{\sqrt{2}}\cdot\sqrt{2}\,dA = (1+2y)\,dA\]</p></div></div>
-<p class="step-why">For z = g(x,y), the √2 from dS and the √2 in the denominator of n cancel — a common simplification.</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Project onto xy-plane and integrate</strong>
-<p>The projection is the disk \(x^2 + y^2 \le 1\). In polar:</p>
-<p>\[I = \int_0^{2\pi}\int_0^1 (1 + 2r\sin\theta)\,r\,dr\,d\theta\]</p></div></div>
-<p class="step-why">The cylinder x²+y²=1 projects to the unit disk in the xy-plane.</p>
-
-<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Evaluate</strong>
-<p>\[= \int_0^{2\pi}\int_0^1 (r + 2r^2\sin\theta)\,dr\,d\theta = \int_0^{2\pi}\left[\frac{1}{2} + \frac{2}{3}\sin\theta\right]d\theta\]</p>
-<p>\[= \frac{1}{2}\cdot 2\pi + \frac{2}{3}\underbrace{\int_0^{2\pi}\sin\theta\,d\theta}_{=\,0} = \boxed{\pi}\]</p></div></div>
-<p class="step-why">The sin θ term integrates to zero over a full period — only the constant term survives.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(I = \pi\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Flux of Curl (Stokes' or Direct)</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(I = \pi\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Flux of Curl Through a Tilted Surface</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Compute \(\nabla\times\mathbf{F}\)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Find \(\hat{n}\) and \(dS\) for the surface</div>
-<div class="qg-step"><span class="step-bubble">3</span>Dot: \((\nabla\times\mathbf{F})\cdot\hat{n}\,dS\) — simplify</div>
-<div class="qg-step"><span class="step-bubble">4</span>Project onto xy-plane and integrate in polar</div>
-<div class="qg-step"><span class="step-bubble">5</span>Watch for \(\sin\theta\) terms → integrate to 0 over full period</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Compute curl F (all 6 partials)</div>
+<div class="qg-step"><span class="step-bubble">2</span>For z=g(x,y): (curl F)·n dS simplifies to (curl F)·(−g_x, −g_y, 1) dA</div>
+<div class="qg-step"><span class="step-bubble">3</span>Project onto xy-plane → convert to polar</div>
+<div class="qg-step"><span class="step-bubble">4</span>∫sin θ over [0,2π] = 0 → only constant terms survive</div>
+</div></div>
 </details>
 
 <!-- ─── B4 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B4 [7 marks] — Divergence Theorem (div F = constant → Volume) · \(\frac{16\pi}{3}\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Use any method to evaluate the flux integral \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS\) of the vector field \(\mathbf{F}(x,y,z) = (x, z^2x, y^3x^2)\) over that part of the closed hemisphere \(x^2+y^2+z^2 = 4\), \(z \ge 0\).</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Evaluate the flux integral \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS\) of \(\mathbf{F}(x,y,z) = (x, z^2x, y^3x^2)\) over the closed hemisphere \(x^2+y^2+z^2=4\), \(z\ge 0\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Find the total flux through the closed hemisphere (curved top + flat bottom disk). The Divergence Theorem converts this to a volume integral.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \text{div}\,\mathbf{F}\,dV\) <a class="fsrc on" onclick="goToEq('examformulas','ef-41')" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Divergence</strong> \(\text{div}\,\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-20')" style="cursor:pointer;">Exam Sheet #20: "Divergence"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Hemisphere volume</strong> \(V = \frac{2}{3}\pi R^3\) <span class="fsrc off">NOT on exam sheet → memorize (half of sphere volume)</span></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Divergence Theorem</strong> \(\iint_S\mathbf{F}\cdot\hat{n}\,dS = \iiint_V\text{div}\,\mathbf{F}\,dV\) <a class="fsrc on" onclick="goToEq('examformulas','ef-41')" style="cursor:pointer;">Exam Sheet #41: "Divergence Theorem"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Divergence</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-20')" style="cursor:pointer;">Exam Sheet #20: "Divergence"</a></div></div>
+</div></div>
+
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>The surface is closed (curved hemisphere on top + flat disk on bottom at z = 0). The Divergence Theorem converts this to a volume integral. The strategy: compute div F and hope it's a constant — if so, the integral is just (constant) × (volume).</p></div>
+
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
+
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute divergence — each partial derivative</strong>
+<p>\[\frac{\partial}{\partial x}(x) = 1\]</p>
+<p>\[\frac{\partial}{\partial y}(z^2x) = 0 \qquad\text{(x and z are constants w.r.t. y)}\]</p>
+<p>\[\frac{\partial}{\partial z}(y^3x^2) = 0 \qquad\text{(x and y are constants w.r.t. z)}\]</p>
+<p>\[\text{div}\,\mathbf{F} = 1 + 0 + 0 = 1\]</p></div></div>
+<p class="step-why">Tip: the "complicated" terms z²x and y³x² both disappear because they don't depend on their own variable (y and z respectively). Only the simple first component x contributes.</p>
+
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Apply the Divergence Theorem</strong>
+<p>\[\iint_S \mathbf{F}\cdot\hat{n}\,dS = \iiint_V 1\,dV = \text{Volume of the solid hemisphere}\]</p></div></div>
+<p class="step-why">When div F is a constant, the triple integral is just that constant times the volume. This is the ideal scenario — no integration needed.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Compute the hemisphere volume</strong>
+<p>The hemisphere has radius \(R = 2\) (from \(x^2+y^2+z^2 = 4\)).</p>
+<p>\[V_{\text{hemisphere}} = \frac{1}{2}\cdot\frac{4}{3}\pi R^3 = \frac{2}{3}\pi R^3 = \frac{2}{3}\pi(2)^3 = \frac{2}{3}\pi\cdot 8 = \frac{16\pi}{3}\]</p></div></div>
+<p class="step-why">Hemisphere = half of a sphere. Sphere volume = (4/3)πR³, so hemisphere = (2/3)πR³. With R = 2: (2/3)π(8) = 16π/3.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Final answer</strong>
+<p>\[\iint_S \mathbf{F}\cdot\hat{n}\,dS = 1 \cdot \frac{16\pi}{3} = \boxed{\frac{16\pi}{3}}\]</p></div></div>
+<p class="step-why">Tip: know these standard volumes — sphere (4/3)πR³, hemisphere (2/3)πR³, cylinder πR²h, cone (1/3)πR²h. They come up constantly with the Divergence Theorem.</p>
 </div>
-</div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
-
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute divergence</strong>
-<p>\[\text{div}\,\mathbf{F} = \frac{\partial}{\partial x}(x) + \frac{\partial}{\partial y}(z^2x) + \frac{\partial}{\partial z}(y^3x^2) = 1 + 0 + 0 = 1\]</p></div></div>
-<p class="step-why">Each partial derivative is taken with respect to the matching variable. The y and z terms contribute 0.</p>
-
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Apply Divergence Theorem</strong>
-<p>\[\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V 1\,dV = \text{Volume of hemisphere}\]</p></div></div>
-<p class="step-why">When div F is constant, the triple integral equals (constant) × (volume).</p>
-
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Volume of hemisphere with \(R = 2\)</strong>
-<p>\[V = \frac{2}{3}\pi R^3 = \frac{2}{3}\pi(2)^3 = \boxed{\frac{16\pi}{3}}\]</p></div></div>
-<p class="step-why">Half the volume of a sphere of radius 2: ½ × (4/3)πR³ = (2/3)πR³.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(\frac{16\pi}{3}\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Divergence Theorem</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(\frac{16\pi}{3}\)</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Divergence Theorem</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Verify the surface is CLOSED (encloses a volume)</div>
-<div class="qg-step"><span class="step-bubble">2</span>Compute \(\text{div}\,\mathbf{F} = P_x + Q_y + R_z\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>If div F = constant → Flux = constant × Volume</div>
-<div class="qg-step"><span class="step-bubble">4</span>If not constant → set up triple integral in appropriate coords</div>
-<div class="qg-step"><span class="step-bubble">5</span>Know standard volumes: sphere \(\frac{4}{3}\pi R^3\), hemisphere \(\frac{2}{3}\pi R^3\), cylinder \(\pi R^2 h\)</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Verify surface is CLOSED</div>
+<div class="qg-step"><span class="step-bubble">2</span>Compute div F (each partial w.r.t. its own variable)</div>
+<div class="qg-step"><span class="step-bubble">3</span>div F = constant? → Flux = constant × Volume</div>
+<div class="qg-step"><span class="step-bubble">4</span>Know standard volumes: sphere, hemisphere, cylinder, cone</div>
+</div></div>
 </details>
 
 <!-- ─── B5 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">B5 [2+5 marks] — Conservative Test + Find Potential (Integrate Components) · \(f = xe^{y+z} + C\)</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Let \(\mathbf{F}(x,y,z) = e^{y+z}\,\mathbf{i} + xe^{y+z}\,\mathbf{j} + xe^{y+z}\,\mathbf{k}\). Determine whether \(\mathbf{F}\) is a gradient field and if so, find its potential function \(f(x,y,z)\). If no such function \(f\) exists, explain why not.</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Let \(\mathbf{F}(x,y,z) = e^{y+z}\,\mathbf{i} + xe^{y+z}\,\mathbf{j} + xe^{y+z}\,\mathbf{k}\). Determine whether F is a gradient field and if so, find its potential function \(f(x,y,z)\).</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Two parts: (1) Check if curl F = 0 (if yes, it's conservative). (2) If conservative, find a function \(f\) such that \(\nabla f = \mathbf{F}\).</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> \(\nabla\times\mathbf{F}\) — check if it equals \(\mathbf{0}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> \(\mathbf{F} = \nabla f \iff \nabla\times\mathbf{F} = \mathbf{0}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-27')" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">3</span><div><strong>Finding f by integration</strong> <span class="fsrc off">NOT on exam sheet → Ch 4 technique: integrate component by component</span></div></div>
-</div>
-</div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Curl</strong> — check if \(\nabla\times\mathbf{F} = \mathbf{0}\) <a class="fsrc on" onclick="goToEq('examformulas','ef-21')" style="cursor:pointer;">Exam Sheet #21: "Curl"</a></div></div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Potential function condition</strong> <a class="fsrc on" onclick="goToEq('examformulas','ef-27')" style="cursor:pointer;">Exam Sheet #27: "Potential Function Condition"</a></div></div>
+</div></div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
 
 <div class="step-row"><span class="step-bubble" style="background:#8B0000;">Part A</span><div class="step-body"><strong>Check if conservative (2 marks)</strong></div></div>
 
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute curl F</strong>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Identify components and compute curl</strong>
 <p>\(P = e^{y+z}\), \(Q = xe^{y+z}\), \(R = xe^{y+z}\).</p>
+<p><strong>i-component:</strong> \(R_y - Q_z\)</p>
+<p>\(R_y = \frac{\partial}{\partial y}(xe^{y+z}) = xe^{y+z}\)</p>
+<p>\(Q_z = \frac{\partial}{\partial z}(xe^{y+z}) = xe^{y+z}\)</p>
 <p>\(R_y - Q_z = xe^{y+z} - xe^{y+z} = 0\) ✓</p>
-<p>\(R_x - P_z = e^{y+z} - e^{y+z} = 0\) ✓</p>
-<p>\(Q_x - P_y = e^{y+z} - e^{y+z} = 0\) ✓</p>
-<p>Since \(\nabla\times\mathbf{F} = \mathbf{0}\), \(\mathbf{F}\) is conservative.</p></div></div>
-<p class="step-why">All three components of the curl are zero, confirming F = ∇f for some f.</p>
+<p><strong>j-component:</strong> \(-(R_x - P_z)\)</p>
+<p>\(R_x = e^{y+z}\), \(P_z = e^{y+z}\)</p>
+<p>\(R_x - P_z = 0\) ✓</p>
+<p><strong>k-component:</strong> \(Q_x - P_y\)</p>
+<p>\(Q_x = e^{y+z}\), \(P_y = e^{y+z}\)</p>
+<p>\(Q_x - P_y = 0\) ✓</p></div></div>
+<p class="step-why">All three components of curl F are zero. This confirms F is conservative (a gradient field). Tip: notice the pattern — all cross-partials match because the exponential e^{y+z} behaves the same under ∂/∂y and ∂/∂z.</p>
 
 <div class="step-row"><span class="step-bubble" style="background:#8B0000;">Part B</span><div class="step-body"><strong>Find the potential function (5 marks)</strong></div></div>
 
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Integrate \(f_x = e^{y+z}\) with respect to x</strong>
-<p>\[f = xe^{y+z} + g(y,z)\]</p></div></div>
-<p class="step-why">The "constant" of integration can depend on y and z (since we only integrated in x).</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Integrate \(f_x = P = e^{y+z}\) with respect to x</strong>
+<p>\[f = \int e^{y+z}\,dx = xe^{y+z} + g(y,z)\]</p></div></div>
+<p class="step-why">When integrating with respect to x, treat y and z as constants. The "constant of integration" g can depend on y and z — we don't know it yet.</p>
 
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Differentiate w.r.t. y and compare to \(Q\)</strong>
-<p>\(f_y = xe^{y+z} + g_y(y,z)\). But \(f_y = Q = xe^{y+z}\), so \(g_y = 0\).</p>
-<p>Therefore \(g = h(z)\) (function of z only).</p></div></div>
-<p class="step-why">Matching f_y to Q determines (or eliminates) the unknown function g.</p>
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Differentiate f with respect to y and match to Q</strong>
+<p>\[f_y = \frac{\partial}{\partial y}(xe^{y+z}) + g_y = xe^{y+z} + g_y\]</p>
+<p>We need \(f_y = Q = xe^{y+z}\). Comparing:</p>
+<p>\[xe^{y+z} + g_y = xe^{y+z} \qquad\Rightarrow\qquad g_y = 0\]</p>
+<p>So \(g\) does not depend on y: \(g(y,z) = h(z)\).</p></div></div>
+<p class="step-why">Tip: if g_y = 0, it means the x-integration in step 2 already captured ALL of the y-dependence. This is common when the original F has a clean structure.</p>
 
-<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Differentiate w.r.t. z and compare to \(R\)</strong>
-<p>\(f_z = xe^{y+z} + h'(z)\). But \(f_z = R = xe^{y+z}\), so \(h'(z) = 0\).</p>
-<p>Therefore \(h(z) = C\).</p></div></div>
-<p class="step-why">Matching f_z to R pins down the last unknown. Here h is just a constant.</p>
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Differentiate f with respect to z and match to R</strong>
+<p>\[f_z = \frac{\partial}{\partial z}(xe^{y+z}) + h'(z) = xe^{y+z} + h'(z)\]</p>
+<p>We need \(f_z = R = xe^{y+z}\). Comparing:</p>
+<p>\[xe^{y+z} + h'(z) = xe^{y+z} \qquad\Rightarrow\qquad h'(z) = 0\]</p>
+<p>So \(h(z) = C\) (a constant).</p></div></div>
+<p class="step-why">Both unknown functions (g and h) turned out to be constants — the potential is simply xe^{y+z}.</p>
 
-<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Assemble the potential function</strong>
-<p>\[\boxed{f(x,y,z) = xe^{y+z} + C}\]</p></div></div>
-<p class="step-why">Combine all pieces: the integral from step 2 plus the resolved unknowns from steps 3–4.</p>
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Assemble and verify</strong>
+<p>\[\boxed{f(x,y,z) = xe^{y+z} + C}\]</p>
+<p><strong>Verification:</strong></p>
+<p>\(\nabla f = (e^{y+z},\; xe^{y+z},\; xe^{y+z}) = \mathbf{F}\) ✓</p></div></div>
+<p class="step-why">Tip: always verify by computing ∇f and checking it matches F. This catches sign errors and earns confidence marks on exams.</p>
 </div>
 
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: \(\mathbf{F}\) is conservative with potential \(f(x,y,z) = xe^{y+z} + C\)</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Finding a Potential Function</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: F is conservative. Potential: \(f(x,y,z) = xe^{y+z} + C\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Finding a Potential Function</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Check: \(\nabla\times\mathbf{F} = \mathbf{0}\)? If not → NOT conservative, stop.</div>
-<div class="qg-step"><span class="step-bubble">2</span>Integrate \(f_x = P\) w.r.t. x → \(f = \int P\,dx + g(y,z)\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Differentiate f w.r.t. y, set equal to Q → solve for \(g_y\)</div>
-<div class="qg-step"><span class="step-bubble">4</span>Integrate \(g_y\) w.r.t. y → \(g = \cdots + h(z)\)</div>
-<div class="qg-step"><span class="step-bubble">5</span>Differentiate f w.r.t. z, set equal to R → solve for \(h'(z)\)</div>
-<div class="qg-step"><span class="step-bubble">6</span>Integrate → \(h(z) = \cdots + C\). Assemble f.</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Check: curl F = 0? (all 3 components)</div>
+<div class="qg-step"><span class="step-bubble">2</span>Integrate f_x = P w.r.t. x → f = ... + g(y,z)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Differentiate w.r.t. y, match to Q → find g_y</div>
+<div class="qg-step"><span class="step-bubble">4</span>Differentiate w.r.t. z, match to R → find h'(z)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Verify: \(\nabla f = \mathbf{F}\)?</div>
+</div></div>
 </details>
 
 <!-- ─── B6 ─── -->
 <details class="card-bracket" style="border-left-color:#8B0000;">
-<summary style="cursor:pointer;font-weight:700;font-size:16px;">B6 [8 marks] — Extrema on Closed Disk (Interior SDT + Boundary Substitution) · min = 4 at \((0,-\tfrac{1}{2})\), max = 14 at \((\pm\tfrac{\sqrt{3}}{2}, \tfrac{1}{2})\)</summary>
+<summary style="cursor:pointer;font-weight:700;font-size:16px;">B6 [8 marks] — Extrema on Closed Disk (Interior SDT + Boundary Substitution) · min = 4, max = 14</summary>
 
-<div class="card-bracket exam-q" style="margin-top:8px;">
-<strong>📄 Question</strong>
-<p>Find and classify the critical points of \(f(x,y) = 8x^2 + 4y^2 + 4y + 5\) for \((x,y) \in D\) where \(D = \{(x,y): x^2 + y^2 \le 1\}\).</p>
-<p style="font-size:13px;color:var(--muted);">(4 bonus marks for finding the absolute max and min of f on D with reasons.)</p>
-</div>
+<div class="card-bracket exam-q" style="margin-top:8px;"><strong>📄 Question</strong>
+<p>Find and classify the critical points of \(f(x,y) = 8x^2 + 4y^2 + 4y + 5\) on \(D = \{x^2+y^2 \le 1\}\).</p>
+<p style="font-size:13px;color:var(--muted);">(4 bonus marks for finding the absolute max and min on D with reasons.)</p></div>
 
-<div class="card-bracket" style="border-left-color:#7C3AED;">
-<strong>🧠 What is this asking?</strong>
-<p>Find all critical points of f inside the closed unit disk, classify them using the Second Derivative Test, then also check the boundary to find the absolute extrema.</p>
-</div>
-
-<div class="card-bracket" style="border-left-color:#059669;">
-<strong>📋 Formulas Needed</strong>
+<div class="card-bracket" style="border-left-color:#059669;"><strong>📋 Formulas Needed</strong>
 <div class="formula-list">
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Second Derivative Test</strong> \(D = f_{xx}f_{yy} - f_{xy}^2\). If \(D > 0\) and \(f_{xx} > 0\) → local min. If \(D > 0\) and \(f_{xx} < 0\) → local max. If \(D < 0\) → saddle. <a class="fsrc on" onclick="goToEq('examformulas','ef-19')" style="cursor:pointer;">Exam Sheet #19: "Second Derivative Test"</a></div></div>
-<div class="formula-item"><span class="step-bubble" style="background:#059669;">2</span><div><strong>Boundary optimization</strong> — substitute constraint into f, reduce to single-variable problem <span class="fsrc off">NOT on exam sheet → Ch 7 technique</span></div></div>
-</div>
-</div>
+<div class="formula-item"><span class="step-bubble" style="background:#059669;">1</span><div><strong>Second Derivative Test</strong> \(D = f_{xx}f_{yy} - f_{xy}^2\) <a class="fsrc on" onclick="goToEq('examformulas','ef-19')" style="cursor:pointer;">Exam Sheet #19: "Second Derivative Test"</a></div></div>
+</div></div>
 
-<div class="card-bracket" style="border-left-color:#D97706;">
-<strong>🔧 Setup</strong>
-<p>Two-phase problem: (1) Interior — find critical points using \(\nabla f = 0\) and classify with SDT. (2) Boundary — substitute \(x^2 = 1 - y^2\) into f to get a single-variable function, find its critical points.</p>
-</div>
+<div class="card-bracket" style="border-left-color:#D97706;"><strong>🔧 Setup</strong>
+<p>Two phases: (1) find interior critical points using ∇f = 0 and classify with SDT. (2) Find boundary extrema by substituting the constraint x² = 1 − y² into f, reducing to a single-variable problem. Compare all values to find the absolute max and min.</p></div>
 
-<div class="card-bracket" style="border-left-color:#2563EB;">
-<strong>📝 Full Solution</strong>
+<div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
 
 <div class="step-row"><span class="step-bubble" style="background:#8B0000;">I</span><div class="step-body"><strong>Interior critical points</strong></div></div>
 
-<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Set \(\nabla f = 0\)</strong>
-<p>\(f_x = 16x = 0 \Rightarrow x = 0\).</p>
-<p>\(f_y = 8y + 4 = 0 \Rightarrow y = -\frac{1}{2}\).</p>
-<p>Only interior critical point: \((0, -\frac{1}{2})\). This is inside D since \(0 + \frac{1}{4} < 1\). ✓</p></div></div>
-<p class="step-why">Set each partial derivative to zero and solve. Verify the point is inside the disk.</p>
+<div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute partial derivatives and set to zero</strong>
+<p>\[f_x = 16x = 0 \qquad\Rightarrow\qquad x = 0\]</p>
+<p>\[f_y = 8y + 4 = 0 \qquad\Rightarrow\qquad y = -\frac{1}{2}\]</p>
+<p>Critical point: \((0, -\frac{1}{2})\).</p></div></div>
+<p class="step-why">Set each partial to zero and solve. Here f_x gives x immediately; f_y is a simple linear equation.</p>
 
-<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Classify with SDT</strong>
-<p>\(f_{xx} = 16\), \(f_{yy} = 8\), \(f_{xy} = 0\).</p>
-<p>\[D = (16)(8) - 0^2 = 128 > 0,\quad f_{xx} = 16 > 0\]</p>
-<p>So \((0, -\frac{1}{2})\) is a <strong>local minimum</strong>. Value: \(f(0, -\frac{1}{2}) = 0 + 1 - 2 + 5 = 4\).</p></div></div>
-<p class="step-why">D > 0 and f_xx > 0 → concave up in both directions → local min.</p>
+<div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Verify the point is inside D</strong>
+<p>\(x^2 + y^2 = 0 + \frac{1}{4} = \frac{1}{4} < 1\) ✓ — the point is strictly inside the disk.</p></div></div>
+<p class="step-why">Tip: always verify interior points are actually interior. If x²+y² > 1, the point is outside D and doesn't count.</p>
+
+<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Classify with the Second Derivative Test</strong>
+<p>\[f_{xx} = 16, \qquad f_{yy} = 8, \qquad f_{xy} = 0\]</p>
+<p>\[D = f_{xx}\cdot f_{yy} - f_{xy}^2 = (16)(8) - 0^2 = 128\]</p>
+<p>\(D = 128 > 0\) and \(f_{xx} = 16 > 0\) → <strong>local minimum</strong>.</p></div></div>
+<p class="step-why">D > 0 means it's definitely an extremum (not a saddle). f_xx > 0 means concave up → minimum.</p>
+
+<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Compute the minimum value</strong>
+<p>\[f(0, -\tfrac{1}{2}) = 8(0) + 4(\tfrac{1}{4}) + 4(-\tfrac{1}{2}) + 5 = 0 + 1 - 2 + 5 = 4\]</p></div></div>
+<p class="step-why">Plug the critical point into f. Careful with the signs: 4y² = 4(1/4) = 1, and 4y = 4(−1/2) = −2.</p>
 
 <div class="step-row"><span class="step-bubble" style="background:#8B0000;">II</span><div class="step-body"><strong>Boundary critical points</strong></div></div>
 
-<div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Substitute \(x^2 = 1 - y^2\) into f</strong>
-<p>\[g(y) = 8(1-y^2) + 4y^2 + 4y + 5 = -4y^2 + 4y + 13\]</p></div></div>
-<p class="step-why">On the boundary circle x² + y² = 1, replace x² to reduce f to a function of y alone.</p>
+<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Substitute the constraint into f</strong>
+<p>On the boundary \(x^2 + y^2 = 1\), so \(x^2 = 1 - y^2\). Substitute:</p>
+<p>\[g(y) = 8(1-y^2) + 4y^2 + 4y + 5 = 8 - 8y^2 + 4y^2 + 4y + 5\]</p>
+<p>\[= -4y^2 + 4y + 13\]</p></div></div>
+<p class="step-why">Tip: on the boundary circle, replace x² with 1−y², turning f into a function of y alone. Now it's a single-variable optimization problem.</p>
 
-<div class="step-row"><span class="step-bubble">4</span><div class="step-body"><strong>Find critical points of g(y)</strong>
-<p>\(g'(y) = -8y + 4 = 0 \Rightarrow y = \frac{1}{2}\).</p>
-<p>Then \(x^2 = 1 - \frac{1}{4} = \frac{3}{4}\), so \(x = \pm\frac{\sqrt{3}}{2}\).</p></div></div>
-<p class="step-why">Differentiate the single-variable function and solve. Then recover x from the constraint.</p>
+<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Find critical points of g(y)</strong>
+<p>\[g'(y) = -8y + 4 = 0 \qquad\Rightarrow\qquad y = \frac{1}{2}\]</p>
+<p>Then \(x^2 = 1 - \frac{1}{4} = \frac{3}{4}\), so \(x = \pm\frac{\sqrt{3}}{2}\).</p>
+<p>Boundary critical points: \((\frac{\sqrt{3}}{2}, \frac{1}{2})\) and \((-\frac{\sqrt{3}}{2}, \frac{1}{2})\).</p></div></div>
+<p class="step-why">Differentiate the single-variable function g, set to zero. Then recover x from the constraint.</p>
 
-<div class="step-row"><span class="step-bubble">5</span><div class="step-body"><strong>Classify and find values</strong>
-<p>\(g''(y) = -8 < 0\), so these are <strong>local maxima</strong> on the boundary.</p>
-<p>\[g\left(\frac{1}{2}\right) = -4\cdot\frac{1}{4} + 4\cdot\frac{1}{2} + 13 = -1 + 2 + 13 = 14\]</p></div></div>
-<p class="step-why">g'' < 0 → concave down → boundary maximum.</p>
+<div class="step-row"><span class="step-bubble">7</span><div class="step-body"><strong>Classify and compute boundary values</strong>
+<p>\(g''(y) = -8 < 0\) → these are <strong>local maxima</strong> on the boundary.</p>
+<p>\[g(\tfrac{1}{2}) = -4(\tfrac{1}{4}) + 4(\tfrac{1}{2}) + 13 = -1 + 2 + 13 = 14\]</p></div></div>
+<p class="step-why">g'' < 0 means concave down → boundary maximum. Both ±√3/2 points give the same f-value by symmetry.</p>
 
-<div class="step-row"><span class="step-bubble">6</span><div class="step-body"><strong>Compare all values</strong>
-<p>Interior min: \(f = 4\) at \((0, -\frac{1}{2})\).</p>
-<p>Boundary max: \(f = 14\) at \((\pm\frac{\sqrt{3}}{2}, \frac{1}{2})\).</p>
-<p>Also check boundary endpoints (y = ±1): \(g(1) = -4+4+13 = 13\), \(g(-1) = -4-4+13 = 5\).</p></div></div>
-<p class="step-why">Compare interior critical values, boundary critical values, and boundary endpoint values to find absolute extrema.</p>
+<div class="step-row"><span class="step-bubble">8</span><div class="step-body"><strong>Check boundary endpoints (y = ±1)</strong>
+<p>At \(y = 1\): \(x = 0\), \(g(1) = -4+4+13 = 13\).</p>
+<p>At \(y = -1\): \(x = 0\), \(g(-1) = -4-4+13 = 5\).</p></div></div>
+<p class="step-why">Tip: the boundary is a closed curve, so g(y) on y ∈ [−1, 1] is a closed interval problem. Check endpoints AND critical points.</p>
+
+<div class="step-row"><span class="step-bubble">9</span><div class="step-body"><strong>Compare ALL values to find absolute extrema</strong>
+<p>Interior: \(f = 4\) at \((0, -\frac{1}{2})\).</p>
+<p>Boundary critical: \(f = 14\) at \((\pm\frac{\sqrt{3}}{2}, \frac{1}{2})\).</p>
+<p>Boundary endpoints: \(f = 13\) at \((0, 1)\), \(f = 5\) at \((0, -1)\).</p>
+<p><strong>Absolute minimum = 4</strong> (interior). <strong>Absolute maximum = 14</strong> (boundary).</p></div></div>
+<p class="step-why">The Extreme Value Theorem guarantees both exist on the closed bounded region D. Compare all candidates.</p>
 </div>
 
-<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
-<strong>✅ Answer: Local (and absolute) min = 4 at \((0, -\frac{1}{2})\). Local (and absolute) max = 14 at \((\pm\frac{\sqrt{3}}{2}, \frac{1}{2})\).</strong>
-</div>
-
-<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;">
-<strong>⚡ Quick Guide — Critical Points on a Closed Region</strong>
+<div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Abs min = 4 at \((0,-\frac{1}{2})\). Abs max = 14 at \((\pm\frac{\sqrt{3}}{2}, \frac{1}{2})\).</strong></div>
+<div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Extrema on a Closed Region</strong>
 <div class="qg-list">
-<div class="qg-step"><span class="step-bubble">1</span>Interior: solve \(\nabla f = 0\), check point is inside D</div>
-<div class="qg-step"><span class="step-bubble">2</span>Classify with SDT: \(D = f_{xx}f_{yy} - f_{xy}^2\)</div>
-<div class="qg-step"><span class="step-bubble">3</span>Boundary: substitute constraint into f → single-variable g</div>
-<div class="qg-step"><span class="step-bubble">4</span>Find critical points of g, classify with g''</div>
-<div class="qg-step"><span class="step-bubble">5</span>Also evaluate g at boundary endpoints</div>
-<div class="qg-step"><span class="step-bubble">6</span>Compare ALL values (interior + boundary) for absolute extrema</div>
-</div>
-</div>
+<div class="qg-step"><span class="step-bubble">1</span>Interior: ∇f = 0, verify point is inside, classify with SDT</div>
+<div class="qg-step"><span class="step-bubble">2</span>Boundary: substitute constraint (x²=1−y²) → single-variable g(y)</div>
+<div class="qg-step"><span class="step-bubble">3</span>Find g'=0, recover x from constraint</div>
+<div class="qg-step"><span class="step-bubble">4</span>Check boundary endpoints too (y = ±1)</div>
+<div class="qg-step"><span class="step-bubble">5</span>Compare ALL values → absolute max and min</div>
+</div></div>
 </details>
 
 </div>
