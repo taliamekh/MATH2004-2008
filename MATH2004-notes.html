@@ -212,7 +212,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <a onclick="showPage('t3prep')" class="pending" data-page="t3prep">Test 3 Prep</a>
     <a onclick="showPage('t4prep')" class="pending" data-page="t4prep">Test 4 Prep</a>
     <a onclick="showPage('final')" data-page="final">Final Prep</a>
-    <a onclick="showPage('final')" class="sub-link" data-page="final">W19 · F14 · F13</a>
+    <a onclick="showPage('final-w19')" class="sub-link" data-page="final-w19">❄️ Winter 2019</a>
+    <a onclick="showPage('final-f14')" class="sub-link" data-page="final-f14">🍂 Fall 2014</a>
+    <a onclick="showPage('final-f13')" class="sub-link" data-page="final-f13">🍁 Fall 2013</a>
+    <a onclick="showPage('final-prac')" class="sub-link" data-page="final-prac">📝 Practice Qs</a>
     <div class="sep"></div>
     <a onclick="showPage('summary')" data-page="summary">Summary</a>
     <a onclick="showPage('progress')" data-page="progress">Progress</a>
@@ -5352,18 +5355,61 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <!-- ═══ final.html ═══ -->
   <div class="page" id="final"><div class="page-title">Assessment Prep</div>
 <h1 style="color:#8B0000;">Final Exam Prep</h1>
-<p class="page-intro">Comprehensive solutions to 3 past finals + 28 practice questions. Every step from scratch.</p>
+<p class="page-intro">76 fully worked solutions from 3 past finals + 28 practice questions. Click any card to jump to that exam.</p>
 
-<div class="card-bracket" style="border-left-color:#8B0000;">
-<strong>📌 How to Use This Page</strong>
-<p style="font-size:14px;">Each solution follows a fixed format: <strong>🧠 What is this asking?</strong> (plain English) → <strong>📋 Formulas needed</strong> (with variable definitions + exam sheet refs) → <strong>🔧 Setup</strong> (how to recognize the problem type) → <strong>📝 Full solution</strong> (every line annotated) → <strong>✅ Answer</strong> (boxed) → <strong>⚡ Quick Guide</strong> (mechanical checklist for similar problems). Click any section header to expand/collapse.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0;">
+
+<div class="card-bracket" style="border-left-color:#2563EB;cursor:pointer;transition:transform .15s;" onclick="showPage('final-w19')" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<strong style="font-size:16px;">❄️ Winter 2019</strong>
+<p style="margin:6px 0 2px;font-size:14px;">A1–A12 (MC) + B1–B6 (Long Answer)</p>
+<p style="font-size:13px;color:var(--muted);">18 questions · planes, polar area, chain rule, Green's, Stokes', divergence theorem, Lagrange</p>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- WINTER 2019 FINAL EXAM -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2 id="w19" style="color:#8B0000;">Winter 2019 Final Exam</h2>
+<div class="card-bracket" style="border-left-color:#D97706;cursor:pointer;transition:transform .15s;" onclick="showPage('final-f14')" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<strong style="font-size:16px;">🍂 Fall 2014</strong>
+<p style="margin:6px 0 2px;font-size:14px;">A1–A12 (MC) + B1–B6 (Long Answer)</p>
+<p style="font-size:13px;color:var(--muted);">18 questions · polar tangent, angle between planes, SDT, conservative fields, Stokes'</p>
+</div>
 
+<div class="card-bracket" style="border-left-color:#059669;cursor:pointer;transition:transform .15s;" onclick="showPage('final-f13')" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<strong style="font-size:16px;">🍁 Fall 2013</strong>
+<p style="margin:6px 0 2px;font-size:14px;">A1–A12 (MC) + B1–B6 (Long Answer)</p>
+<p style="font-size:13px;color:var(--muted);">18 questions · Lagrange on ellipsoid, cardioid area, potential functions, Stokes'</p>
+</div>
+
+<div class="card-bracket" style="border-left-color:#7C3AED;cursor:pointer;transition:transform .15s;" onclick="showPage('final-prac')" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<strong style="font-size:16px;">📝 Practice Questions</strong>
+<p style="margin:6px 0 2px;font-size:14px;">Q1–Q28 (All Chapters)</p>
+<p style="font-size:13px;color:var(--muted);">28 problems · parametric lines, gradient, Jacobian, Green's, divergence theorem, Lagrange</p>
+</div>
+
+</div>
+
+<h2 id="strategy" style="color:#8B0000;">Exam Strategy Quick Reference</h2>
+
+<div class="card-bracket" style="border-left-color:#8B0000;">
+<strong>🎯 Problem Type → Theorem/Technique Decision Tree</strong>
+<table class="ptbl" style="font-size:13px;">
+<tr><th>If you see...</th><th>Use...</th><th>Key formula</th></tr>
+<tr><td>Closed curve integral in 2D</td><td>Green's Theorem</td><td>\(\oint P\,dx+Q\,dy = \iint(Q_x-P_y)\,dA\)</td></tr>
+<tr><td>\(\oint\mathbf{F}\cdot d\mathbf{r}\) with a surface given</td><td>Stokes' Theorem</td><td>\(\oint\mathbf{F}\cdot d\mathbf{r} = \iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</td></tr>
+<tr><td>Flux through closed surface</td><td>Divergence Theorem</td><td>\(\iint\mathbf{F}\cdot\mathbf{n}\,dS = \iiint\text{div}\,\mathbf{F}\,dV\)</td></tr>
+<tr><td>Conservative field \(+\) line integral</td><td>FTCLI</td><td>\(\int\nabla f\cdot d\mathbf{r} = f(B)-f(A)\)</td></tr>
+<tr><td>Circular/radial symmetry</td><td>Polar coordinates</td><td>\(dA = r\,dr\,d\theta\)</td></tr>
+<tr><td>Sphere symmetry</td><td>Spherical coordinates</td><td>\(dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta\)</td></tr>
+<tr><td>Optimize with constraint</td><td>Lagrange multipliers</td><td>\(\nabla f = \lambda\nabla g\)</td></tr>
+<tr><td>Classify critical points</td><td>Second Derivative Test</td><td>\(D=f_{xx}f_{yy}-f_{xy}^2\)</td></tr>
+<tr><td>Odd integrand + symmetric domain</td><td>Symmetry → 0</td><td>No computation needed!</td></tr>
+<tr><td>\(\text{div}\,\mathbf{F}=\) constant</td><td>Flux = constant × volume</td><td>Know volumes of spheres, hemispheres, cones</td></tr>
+</table>
+</div>
+
+</div>
+
+  <!-- ═══ final-w19.html ═══ -->
+  <div class="page" id="final-w19"><div class="page-title">Assessment Prep</div>
+<h1 style="color:#8B0000;">Winter 2019 Final Exam</h1>
+<p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B).</p>
 <!-- ─── A1 ─── -->
 <details class="card-bracket" style="border-left-color:#2563EB;" open>
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A1 — Equation of a Plane (Perpendicular + Two Points)</summary>
@@ -6193,12 +6239,12 @@ Absolute min = 4 at \((0,-\frac{1}{2})\). Absolute max = 14 at \((\pm\frac{\sqrt
 </div>
 </details>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- FALL 2014 FINAL EXAM -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2 id="f14" style="color:#8B0000;">Fall 2014 Final Exam</h2>
+</div>
 
-<!-- ─── F14 A1 ─── -->
+  <!-- ═══ final-f14.html ═══ -->
+  <div class="page" id="final-f14"><div class="page-title">Assessment Prep</div>
+<h1 style="color:#8B0000;">Fall 2014 Final Exam</h1>
+<p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B).</p>
 <details class="card-bracket" style="border-left-color:#2563EB;">
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A1 — Slope of Tangent to Polar Curve</summary>
 
@@ -6470,12 +6516,12 @@ Absolute min = 4 at \((0,-\frac{1}{2})\). Absolute max = 14 at \((\pm\frac{\sqrt
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: \(4\pi\)</strong></div>
 </details>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- FALL 2013 FINAL EXAM -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2 id="f13" style="color:#8B0000;">Fall 2013 Final Exam</h2>
+</div>
 
-<details class="card-bracket" style="border-left-color:#2563EB;">
+  <!-- ═══ final-f13.html ═══ -->
+  <div class="page" id="final-f13"><div class="page-title">Assessment Prep</div>
+<h1 style="color:#8B0000;">Fall 2013 Final Exam</h1>
+<p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B).</p>
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">A1 — Polar Tangent Slope: \(r=3\sin\theta\) at \(\theta=\pi/2\)</summary>
 <div class="card-bracket" style="border-left-color:#2563EB;">
 <strong>📝 Full Solution</strong>
@@ -6660,12 +6706,12 @@ Absolute min = 4 at \((0,-\frac{1}{2})\). Absolute max = 14 at \((\pm\frac{\sqrt
 </details>
 
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- PRACTICE QUESTIONS -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2 id="practice" style="color:#8B0000;">Practice Questions (28 Problems)</h2>
+</div>
 
-<details class="card-bracket" style="border-left-color:#7C3AED;">
+  <!-- ═══ final-practice.html ═══ -->
+  <div class="page" id="final-prac"><div class="page-title">Assessment Prep</div>
+<h1 style="color:#8B0000;">Practice Questions (28 Problems)</h1>
+<p class="page-intro">28 mixed-topic practice problems covering all chapters.</p>
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">Q1 — Parametric Line Through a Point</summary>
 <div class="card-bracket" style="border-left-color:#7C3AED;margin-top:8px;"><strong>🧠 What is this asking?</strong><p>Find parametric equations of the line through (1,2,3) parallel to \(\langle 4,-1,2\rangle\).</p></div>
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
@@ -6904,28 +6950,6 @@ Absolute min = 4 at \((0,-\frac{1}{2})\). Absolute max = 14 at \((\pm\frac{\sqrt
 <p>\(\lambda=-\frac{1}{2}\): \(y=-x\). Constraint: \(2x^2=1 \Rightarrow x=\pm\frac{1}{\sqrt{2}}\). \(f=-\frac{1}{2}\) → <strong>min</strong>.</p></div>
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Max = \(\frac{1}{2}\) at \((\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\) and \((-\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}})\). Min = \(-\frac{1}{2}\) at \((\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}})\) and \((-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\).</strong></div>
 </details>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- EXAM STRATEGY GUIDE -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2 id="strategy" style="color:#8B0000;">Exam Strategy Quick Reference</h2>
-
-<div class="card-bracket" style="border-left-color:#8B0000;">
-<strong>🎯 Problem Type → Theorem/Technique Decision Tree</strong>
-<table class="ptbl" style="font-size:13px;">
-<tr><th>If you see...</th><th>Use...</th><th>Key formula</th></tr>
-<tr><td>Closed curve integral in 2D</td><td>Green's Theorem</td><td>\(\oint P\,dx+Q\,dy = \iint(Q_x-P_y)\,dA\)</td></tr>
-<tr><td>\(\oint\mathbf{F}\cdot d\mathbf{r}\) with a surface given</td><td>Stokes' Theorem</td><td>\(\oint\mathbf{F}\cdot d\mathbf{r} = \iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\)</td></tr>
-<tr><td>Flux through closed surface</td><td>Divergence Theorem</td><td>\(\iint\mathbf{F}\cdot\mathbf{n}\,dS = \iiint\text{div}\,\mathbf{F}\,dV\)</td></tr>
-<tr><td>Conservative field \(+\) line integral</td><td>FTCLI</td><td>\(\int\nabla f\cdot d\mathbf{r} = f(B)-f(A)\)</td></tr>
-<tr><td>Circular/radial symmetry</td><td>Polar coordinates</td><td>\(dA = r\,dr\,d\theta\)</td></tr>
-<tr><td>Sphere symmetry</td><td>Spherical coordinates</td><td>\(dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta\)</td></tr>
-<tr><td>Optimize with constraint</td><td>Lagrange multipliers</td><td>\(\nabla f = \lambda\nabla g\)</td></tr>
-<tr><td>Classify critical points</td><td>Second Derivative Test</td><td>\(D=f_{xx}f_{yy}-f_{xy}^2\)</td></tr>
-<tr><td>Odd integrand + symmetric domain</td><td>Symmetry → 0</td><td>No computation needed!</td></tr>
-<tr><td>\(\text{div}\,\mathbf{F}=\) constant</td><td>Flux = constant × volume</td><td>Know volumes of spheres, hemispheres, cones</td></tr>
-</table>
-</div>
 
 </div>
 
