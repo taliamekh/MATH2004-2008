@@ -204,6 +204,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 .formula-item>div{flex:1;}
 .formula-item .fsrc{display:block;margin:2px 0 0 0;}
 a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
+/* ─── Quick Scroll Mode ─── */
+.qs-toggle{position:absolute;top:12px;right:16px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-family:system-ui,sans-serif;}
+.qs-toggle button{padding:4px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font-size:12px;cursor:pointer;font-family:system-ui;}
+.qs-toggle button.active{background:#2563EB;color:#fff;border-color:#2563EB;}
+.pdf-pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px;}
+.pdf-pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:3px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none;font-family:system-ui;cursor:pointer;}
+.pdf-pill:hover{background:rgba(37,99,235,.08);border-color:#2563EB;}
+.page.qs-mode>details.card-bracket{border:none !important;border-radius:0;background:none;padding:16px 0 20px;margin:0;border-bottom:1.5px solid var(--border) !important;}
+.page.qs-mode>details.card-bracket>summary{pointer-events:none;list-style:none;font-size:18px;}
+.page.qs-mode>details.card-bracket>summary::-webkit-details-marker{display:none;}
+.page.qs-mode>details.card-bracket>summary::marker{display:none;content:"";}
+.page.qs-mode .part-banner{border-radius:0;margin:32px -16px 16px;padding:14px 16px;}
 </style>
 </head>
 <body>
@@ -5510,6 +5522,9 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <h1 style="color:#8B0000;">Winter 2019 Final Exam</h1>
 <p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B). Total: 80 marks, 3 hours.</p>
 
+<div class="qs-toggle"><button onclick="toggleQS(this)">Quick Scroll</button></div>
+<div class="pdf-pills"><a class="pdf-pill" href="https://raw.githubusercontent.com/taliamekh/MATH2004-2008/main/pdfs/W19-Solutions.pdf" target="_blank">📄 W19 Exam PDF</a></div>
+
 <div class="part-banner mc">PART A — Multiple Choice (12 Questions × 3 marks = 36 marks)</div>
 
 <!-- ─── A1 ─── -->
@@ -6585,6 +6600,9 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <h1 style="color:#8B0000;">Fall 2014 Final Exam</h1>
 <p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B). Total: 80 marks, 3 hours.</p>
 
+<div class="qs-toggle"><button onclick="toggleQS(this)">Quick Scroll</button></div>
+<div class="pdf-pills"><a class="pdf-pill" href="https://raw.githubusercontent.com/taliamekh/MATH2004-2008/main/pdfs/F14-Solutions.pdf" target="_blank">📄 F14 Exam PDF</a></div>
+
 <div class="part-banner mc">PART A — Multiple Choice (12 Questions × 3 marks = 36 marks)</div>
 
 <!-- ─── A1 ─── -->
@@ -7511,6 +7529,9 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <h1 style="color:#8B0000;">Fall 2013 Final Exam</h1>
 <p class="page-intro">Full solutions — 12 multiple choice (Part A) + 6 long answer (Part B). Total: 80 marks, 3 hours.</p>
 
+<div class="qs-toggle"><button onclick="toggleQS(this)">Quick Scroll</button></div>
+<div class="pdf-pills"><a class="pdf-pill" href="https://raw.githubusercontent.com/taliamekh/MATH2004-2008/main/pdfs/F13-Solutions.pdf" target="_blank">📄 F13 Exam PDF</a></div>
+
 <div class="part-banner mc">PART A — Multiple Choice (12 Questions × 3 marks = 36 marks)</div>
 
 <!-- ─── A1 ─── -->
@@ -8180,6 +8201,8 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
   <div class="page" id="final-prac"><div class="page-title">Assessment Prep</div>
 <h1 style="color:#8B0000;">Practice Questions (28 Problems)</h1>
 <p class="page-intro">28 mixed-topic practice problems covering all chapters.</p>
+<div class="qs-toggle"><button onclick="toggleQS(this)">Quick Scroll</button></div>
+<div class="pdf-pills"><a class="pdf-pill" href="https://raw.githubusercontent.com/taliamekh/MATH2004-2008/main/pdfs/Practice-Questions.pdf" target="_blank">📄 Practice Questions PDF</a></div>
 <summary style="cursor:pointer;font-weight:700;font-size:16px;">Q1 — Parametric Line Through a Point</summary>
 <div class="card-bracket" style="border-left-color:#7C3AED;margin-top:8px;"><strong>🧠 What is this asking?</strong><p>Find parametric equations of the line through (1,2,3) parallel to \(\langle 4,-1,2\rangle\).</p></div>
 <div class="card-bracket" style="border-left-color:#2563EB;"><strong>📝 Full Solution</strong>
@@ -8730,6 +8753,7 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 function toggleSidebar(){var s=document.getElementById('sidebar'),o=document.getElementById('toggleOpen');s.classList.toggle('closed');o.style.display=s.classList.contains('closed')?'flex':'none';}
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.getElementById(id).classList.add('active');document.querySelectorAll('.sidebar a').forEach(function(a){a.classList.remove('active')});var l=document.querySelector('.sidebar a[data-page="'+id+'"]');if(l)l.classList.add('active');document.querySelector('.main-scroll').scrollTop=0;renderMathInElement(document.getElementById(id),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,trust:true,strict:false});if(id==='formulas'){setTimeout(initVarPopups,300);setTimeout(initVarPopups,800);}}
 function goToEq(page,eid){showPage(page);function _go(){var el=document.getElementById(eid);if(!el)return;if(page==='examformulas'){var si=document.getElementById('ef-search');if(si)si.value='';var cf=document.getElementById('ef-cat-filter');if(cf)cf.value='All';if(window.efFilter)efFilter();el.style.display='';}var ms=document.querySelector('.main-scroll');if(!ms)return;var top=0,cur=el;while(cur){top+=cur.offsetTop||0;cur=cur.offsetParent;if(cur===ms)break;}ms.scrollTop=Math.max(0,top-ms.clientHeight/3);el.style.background='rgba(37,99,235,.22)';el.style.outline='2px solid rgba(37,99,235,.5)';el.style.transition='background .5s, outline .5s';setTimeout(function(){el.style.background='';el.style.outline=''},2500);}requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(_go,200);setTimeout(_go,800)});});}
+function toggleQS(btn){var pg=btn.closest('.page');if(!pg)return;var on=pg.classList.toggle('qs-mode');btn.classList.toggle('active',on);btn.textContent=on?'Card View':'Quick Scroll';var details=pg.querySelectorAll('details');details.forEach(function(d){if(on)d.setAttribute('open','');else d.removeAttribute('open')});}
 function toggleGroup(h){h.querySelector('.chevron').classList.toggle('open');h.nextElementSibling.classList.toggle('show');}
 function setView(v,btn){document.getElementById('fs-content').dataset.view=v;document.querySelectorAll('.fs-toggle button').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');}
 var SK='math2004-progress';
