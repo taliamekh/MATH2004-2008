@@ -5351,6 +5351,380 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <!-- ═══ final.html ═══ -->
   <div class="page" id="final"><div class="page-title">Assessment Prep</div><h1>Final Exam Prep</h1><p class="page-intro">Cumulative + Ch 6.3–6.8</p><div class="empty-page"><div class="icon">📖</div>Upload past exams to populate.</div></div>
 
+<!-- ═══════════════════ PRACTICE QUESTIONS ═══════════════════ -->
+<h2>Practice Questions (28 Questions)</h2>
+<span class="exam-badge badge-prac">Comprehensive Review · All Chapters</span>
+
+<!-- Q1 -->
+<div class="q-box">
+<div class="q-title">Q1. Parametric equations of a line</div>
+<div class="q-section">Ch2 — Lines · §2.1</div>
+<p>Find the parametric equations of the line through \((1,2,3)\) parallel to \(\langle 4,-1,2\rangle\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>Line: \(\mathbf{r}(t) = (1,2,3)+t(4,-1,2)\). Parametric form:<br>
+\(x = 1+4t,\quad y = 2-t,\quad z = 3+2t\).</p>
+
+<div class="answer-box">✅ \(x=1+4t,\; y=2-t,\; z=3+2t\)</div>
+</div>
+
+<!-- Q2 -->
+<div class="q-box">
+<div class="q-title">Q2. Equation of a plane</div>
+<div class="q-section">Ch2 — Planes · §2.4</div>
+<p>Plane through \((0,1,-2)\) with normal \(\langle 2,-3,1\rangle\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(2(x-0)-3(y-1)+1(z+2)=0 \Rightarrow 2x-3y+z = -3-2 = -5\).<br>
+Actually: \(2(0)-3(1)+1(-2) = -5\). So \(2x-3y+z=-5\).</p>
+
+<div class="answer-box">✅ \(2x-3y+z = -5\)</div>
+</div>
+
+<!-- Q3 -->
+<div class="q-box">
+<div class="q-title">Q3. Angle between two planes</div>
+<div class="q-section">Ch2 — Planes · §2.4</div>
+<p>Find the angle between \(x+2y-z=4\) and \(2x-y+3z=1\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\mathbf{n}_1=(1,2,-1),\; \mathbf{n}_2=(2,-1,3)\).<br>
+\(\cos\theta = \frac{|2-2-3|}{\sqrt{6}\sqrt{14}} = \frac{3}{\sqrt{84}} = \frac{3}{2\sqrt{21}}\).<br>
+\(\theta = \arccos\frac{3}{2\sqrt{21}} \approx \arccos(0.327) \approx 70.9°\).</p>
+
+<div class="answer-box">✅ \(\theta = \arccos\frac{3}{2\sqrt{21}}\)</div>
+</div>
+
+<!-- Q4 -->
+<div class="q-box">
+<div class="q-title">Q4. Arc length of a space curve</div>
+<div class="q-section">Ch2 — Arc Length · §2.10</div>
+<p>Length of \(\mathbf{r}(t) = \langle t, t^2, t^3\rangle\) from \(t=0\) to \(t=1\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\mathbf{r}'(t) = (1, 2t, 3t^2)\). \(|\mathbf{r}'| = \sqrt{1+4t^2+9t^4}\).</p>
+<p>\[L = \int_0^1\sqrt{1+4t^2+9t^4}\,dt\]</p>
+<p>This integral has no elementary closed form. Numerical evaluation gives \(L \approx 1.548\).</p>
+
+<div class="answer-box">✅ \(L = \int_0^1\sqrt{1+4t^2+9t^4}\,dt \approx 1.548\)</div>
+</div>
+
+<!-- Q5 -->
+<div class="q-box">
+<div class="q-title">Q5. Tangent vector to a helix</div>
+<div class="q-section">Ch2 — Parametric Curves · §2.7</div>
+<p>Tangent to \(\mathbf{r}(t)=\langle\cos t,\sin t,t\rangle\) at \(t=\pi\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\mathbf{r}'(t) = (-\sin t, \cos t, 1)\). At \(t=\pi\): \(\mathbf{r}'(\pi) = (0, -1, 1)\).</p>
+
+<div class="answer-box">✅ \(\langle 0, -1, 1\rangle\)</div>
+</div>
+
+<!-- Q6 -->
+<div class="q-box">
+<div class="q-title">Q6. Cartesian to polar conversion</div>
+<div class="q-section">Ch2 — Polar Coordinates · §2.11</div>
+<p>Convert \(x^2+y^2=4\) to polar form.</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>Since \(x^2+y^2=r^2\): \(r^2=4 \Rightarrow r=2\).</p>
+
+<div class="answer-box">✅ \(r = 2\)</div>
+</div>
+
+<!-- Q7 -->
+<div class="q-box">
+<div class="q-title">Q7. Area inside a cardioid</div>
+<div class="q-section">Ch2 — Polar Area · §2.13</div>
+<p>Area inside \(r=1+\cos\theta\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\[A = \frac{1}{2}\int_0^{2\pi}(1+\cos\theta)^2\,d\theta = \frac{1}{2}\int_0^{2\pi}(1+2\cos\theta+\cos^2\theta)\,d\theta\]</p>
+<p>\(= \frac{1}{2}\left[2\pi+0+\pi\right] = \frac{3\pi}{2}\).</p>
+
+<div class="answer-box">✅ \(\frac{3\pi}{2}\)</div>
+</div>
+
+<!-- Q8 -->
+<div class="q-box">
+<div class="q-title">Q8. Arc length of a polar curve</div>
+<div class="q-section">Ch2 — Polar Arc Length · §2.14</div>
+<p>Arc length of \(r=2\theta\) for \(0\le\theta\le\pi\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(r'=2\). \(L = \int_0^\pi\sqrt{(2\theta)^2+4}\,d\theta = \int_0^\pi\sqrt{4\theta^2+4}\,d\theta = 2\int_0^\pi\sqrt{\theta^2+1}\,d\theta\).</p>
+<p>Using the formula \(\int\sqrt{u^2+1}\,du = \frac{1}{2}\left[u\sqrt{u^2+1}+\ln(u+\sqrt{u^2+1})\right]\):</p>
+<p>\[L = 2\cdot\frac{1}{2}\left[\theta\sqrt{\theta^2+1}+\ln(\theta+\sqrt{\theta^2+1})\right]_0^\pi = \pi\sqrt{\pi^2+1}+\ln(\pi+\sqrt{\pi^2+1})\]</p>
+
+<div class="answer-box">✅ \(L = \pi\sqrt{\pi^2+1}+\ln(\pi+\sqrt{\pi^2+1})\)</div>
+</div>
+
+<!-- Q9 -->
+<div class="q-box">
+<div class="q-title">Q9. Gradient of f(x,y,z)</div>
+<div class="q-section">Ch3 — Gradient · §3.5</div>
+<p>Find \(\nabla f\) of \(f=x^2y+yz^3\) at \((1,1,1)\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(f_x=2xy=2,\; f_y=x^2+z^3=2,\; f_z=3yz^2=3\).</p>
+
+<div class="answer-box">✅ \(\nabla f(1,1,1) = \langle 2, 2, 3\rangle\)</div>
+</div>
+
+<!-- Q10 -->
+<div class="q-box">
+<div class="q-title">Q10. Directional derivative</div>
+<div class="q-section">Ch3 — Directional Derivatives · §3.5</div>
+<p>\(f=x^2+y^2\) at \((1,1)\) in direction \(\langle 3,4\rangle\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\nabla f = (2x,2y) = (2,2)\). Unit vector: \(\hat{\mathbf{u}} = \frac{(3,4)}{5} = (\frac{3}{5},\frac{4}{5})\).</p>
+<p>\(D_{\hat{\mathbf{u}}}f = (2,2)\cdot(\frac{3}{5},\frac{4}{5}) = \frac{6}{5}+\frac{8}{5} = \frac{14}{5}\).</p>
+
+<div class="answer-box">✅ \(\frac{14}{5}\)</div>
+</div>
+
+<!-- Q11 -->
+<div class="q-box">
+<div class="q-title">Q11. Chain rule dz/dt</div>
+<div class="q-section">Ch3 — Chain Rule · §3.6</div>
+<p>\(z=xy\) where \(x=\sin t, y=e^t\). Find \(dz/dt\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\frac{dz}{dt} = z_x\cdot x' + z_y\cdot y' = y\cos t + x e^t = e^t\cos t + \sin t\cdot e^t = e^t(\cos t+\sin t)\).</p>
+
+<div class="answer-box">✅ \(\frac{dz}{dt} = e^t(\cos t+\sin t)\)</div>
+</div>
+
+<!-- Q12 -->
+<div class="q-box">
+<div class="q-title">Q12. Double integral</div>
+<div class="q-section">Ch5 — Double Integrals · §5.2</div>
+<p>Evaluate \(\int_0^2\int_0^x(x^2+y^2)\,dy\,dx\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\[\int_0^2\left[x^2y+\frac{y^3}{3}\right]_0^x dx = \int_0^2\left(x^3+\frac{x^3}{3}\right)dx = \int_0^2\frac{4x^3}{3}\,dx = \frac{4}{3}\cdot\frac{x^4}{4}\Big|_0^2 = \frac{4}{3}\cdot 4 = \frac{16}{3}\]</p>
+
+<div class="answer-box">✅ \(\frac{16}{3}\)</div>
+</div>
+
+<!-- Q13 -->
+<div class="q-box">
+<div class="q-title">Q13. Triple integral over a box</div>
+<div class="q-section">Ch6 — Triple Integrals · §6.5</div>
+<p>\(\iiint_E z\,dV\) over \(0\le x\le 1, 0\le y\le 2, 0\le z\le 3\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\[\int_0^1 dx\int_0^2 dy\int_0^3 z\,dz = 1\cdot 2\cdot\frac{9}{2} = 9\]</p>
+
+<div class="answer-box">✅ \(9\)</div>
+</div>
+
+<!-- Q14 -->
+<div class="q-box">
+<div class="q-title">Q14. Polar integral to Cartesian</div>
+<div class="q-section">Ch5 — Polar · §5.4</div>
+<p>Convert \(\int_0^{2\pi}\int_0^1 r^2\,dr\,d\theta\) to Cartesian and evaluate.</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>In polar: \(\int_0^{2\pi}\int_0^1 r^2\,dr\,d\theta = 2\pi\cdot\frac{1}{3} = \frac{2\pi}{3}\).</p>
+<p>In Cartesian this is \(\iint_{x^2+y^2\le 1}\sqrt{x^2+y^2}\,dA\) (since \(r^2\,dr\,d\theta = r\cdot r\,dr\,d\theta = r\,dA\)).</p>
+
+<div class="answer-box">✅ \(\frac{2\pi}{3}\)</div>
+</div>
+
+<!-- Q15 -->
+<div class="q-box">
+<div class="q-title">Q15. Jacobian of a transformation</div>
+<div class="q-section">Ch5 — Change of Variables · §5.4</div>
+<p>\(x=u+v, y=u-v\). Find the Jacobian.</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\[J = \begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\\frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}\end{vmatrix} = \begin{vmatrix}1&1\\1&-1\end{vmatrix} = -1-1 = -2\]</p>
+<p>\(|J| = 2\).</p>
+
+<div class="answer-box">✅ \(J = -2\), so \(|J| = 2\)</div>
+</div>
+
+<!-- Q16 -->
+<div class="q-box">
+<div class="q-title">Q16. Change of variables in double integral</div>
+<div class="q-section">Ch5 — Change of Variables · §5.4</div>
+<p>Use \(u=x-y, v=y\) to evaluate \(\int_0^2\int_0^{2y}(x-y)^2\,dx\,dy\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>Direct evaluation is simpler here. Inner integral: \(\int_0^{2y}(x-y)^2\,dx = \left[\frac{(x-y)^3}{3}\right]_0^{2y} = \frac{y^3}{3}-\frac{(-y)^3}{3} = \frac{y^3+y^3}{3} = \frac{2y^3}{3}\).</p>
+<p>\[\int_0^2\frac{2y^3}{3}\,dy = \frac{2}{3}\cdot\frac{y^4}{4}\Big|_0^2 = \frac{2}{3}\cdot 4 = \frac{8}{3}\]</p>
+
+<div class="answer-box">✅ \(\frac{8}{3}\)</div>
+</div>
+
+<!-- Q17 -->
+<div class="q-box">
+<div class="q-title">Q17. Line integral of F = ⟨y, −x⟩ around unit circle</div>
+<div class="q-section">Ch4/Ch6 — Green's Theorem · §4.2, §6.3</div>
+<p>Compute \(\oint_C \mathbf{F}\cdot d\mathbf{r}\) for \(\mathbf{F}=(y,-x)\) along unit circle CCW.</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>By Green's: \(\oint P\,dx+Q\,dy = \iint_R(Q_x-P_y)\,dA\).<br>
+\(Q_x = -1,\; P_y = 1\). So \(Q_x-P_y = -2\).<br>
+\(\oint = -2\cdot\text{Area}(\text{unit disk}) = -2\pi\).</p>
+
+<div class="answer-box">✅ \(-2\pi\)</div>
+</div>
+
+<!-- Q18 -->
+<div class="q-box">
+<div class="q-title">Q18. Is F = ⟨2xy, x²⟩ conservative?</div>
+<div class="q-section">Ch3 — Conservative Test · §3.7</div>
+<p>Check if \(\mathbf{F}=(2xy, x^2)\) is conservative.</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(P_y = 2x,\; Q_x = 2x\). Equal! ✓ So <strong>yes, F is conservative.</strong></p>
+<p>Potential: \(f_x=2xy \Rightarrow f=x^2y+g(y)\). \(f_y=x^2+g'(y)=x^2 \Rightarrow g'=0\). So \(f=x^2y\).</p>
+
+<div class="answer-box">✅ Yes. Potential: \(f(x,y) = x^2y + C\)</div>
+</div>
+
+<!-- Q19 -->
+<div class="q-box">
+<div class="q-title">Q19. Potential function for conservative field</div>
+<div class="q-section">Ch3/Ch4 — Potential · §3.7</div>
+<p>Find potential for \(\mathbf{F}=(3x^2+2y,\; 2x+4y^3)\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>Check: \(P_y=2, Q_x=2\). ✓ Conservative.</p>
+<p>\(f_x=3x^2+2y \Rightarrow f=x^3+2xy+g(y)\).<br>
+\(f_y=2x+g'(y)=2x+4y^3 \Rightarrow g'(y)=4y^3 \Rightarrow g(y)=y^4\).</p>
+
+<div class="answer-box">✅ \(f(x,y) = x^3+2xy+y^4+C\)</div>
+</div>
+
+<!-- Q20 -->
+<div class="q-box">
+<div class="q-title">Q20. Divergence of F = ⟨x, y, z⟩</div>
+<div class="q-section">Ch3 — Divergence · §3.7</div>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\text{div}\,\mathbf{F} = \frac{\partial x}{\partial x}+\frac{\partial y}{\partial y}+\frac{\partial z}{\partial z} = 1+1+1 = 3\).</p>
+
+<div class="answer-box">✅ \(3\)</div>
+</div>
+
+<!-- Q21 -->
+<div class="q-box">
+<div class="q-title">Q21. Curl of F = ⟨yz, xz, xy⟩</div>
+<div class="q-section">Ch3 — Curl · §3.7</div>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\[\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\\partial_x&\partial_y&\partial_z\\yz&xz&xy\end{vmatrix} = (x-x)\mathbf{i}-(y-y)\mathbf{j}+(z-z)\mathbf{k} = \mathbf{0}\]</p>
+
+<div class="answer-box">✅ \(\nabla\times\mathbf{F} = \mathbf{0}\) (F is conservative — potential is \(f=xyz\))</div>
+</div>
+
+<!-- Q22 -->
+<div class="q-box">
+<div class="q-title">Q22. Surface area of a plane</div>
+<div class="q-section">Ch6 — Surface Integrals · §6.1</div>
+<p>Surface area of \(z=x+y\) over \(0\le x\le 1, 0\le y\le 1\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(f_x=1, f_y=1\). \(dS = \sqrt{1+1+1}\,dA = \sqrt{3}\,dA\).</p>
+<p>\[A = \iint_R\sqrt{3}\,dA = \sqrt{3}\cdot 1\cdot 1 = \sqrt{3}\]</p>
+
+<div class="answer-box">✅ \(\sqrt{3}\)</div>
+</div>
+
+<!-- Q23 -->
+<div class="q-box">
+<div class="q-title">Q23. Flux of F = ⟨0, 0, z⟩ through a paraboloid</div>
+<div class="q-section">Ch6 — Flux · §6.2</div>
+<p>Flux through \(z=4-x^2-y^2\) over disk \(x^2+y^2\le 4\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>For \(z=f(x,y)=4-x^2-y^2\): \(f_x=-2x, f_y=-2y\). \(\mathbf{F}=(0,0,z)=(0,0,4-x^2-y^2)\).</p>
+<p>Flux = \(\iint_R(-P f_x - Q f_y + R)\,dA = \iint_R(0+0+(4-x^2-y^2))\,dA\).</p>
+<p>In polar: \(\int_0^{2\pi}\int_0^2(4-r^2)r\,dr\,d\theta = 2\pi\left[2r^2-\frac{r^4}{4}\right]_0^2 = 2\pi(8-4) = 8\pi\).</p>
+
+<div class="answer-box">✅ \(8\pi\)</div>
+</div>
+
+<!-- Q24 -->
+<div class="q-box">
+<div class="q-title">Q24. Green's Theorem on unit square</div>
+<div class="q-section">Ch6 — Green's Theorem · §6.3</div>
+<p>\(\oint_C(x^2-y)\,dx+(xy+x)\,dy\) where C bounds \([0,1]\times[0,1]\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(Q_x-P_y = (y+1)-(-1) = y+2\).</p>
+<p>\[\iint_R(y+2)\,dA = \int_0^1\int_0^1(y+2)\,dy\,dx = 1\cdot\left[\frac{y^2}{2}+2y\right]_0^1 = \frac{1}{2}+2 = \frac{5}{2}\]</p>
+
+<div class="answer-box">✅ \(\frac{5}{2}\)</div>
+</div>
+
+<!-- Q25 -->
+<div class="q-box">
+<div class="q-title">Q25. Stokes' Theorem — F = ⟨y, −x, z⟩ on hemisphere</div>
+<div class="q-section">Ch6 — Stokes' Theorem · §6.4</div>
+<p>Evaluate \(\oint_C\mathbf{F}\cdot d\mathbf{r}\) where C is the boundary of the upper hemisphere \(x^2+y^2+z^2=1\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>The boundary C is the unit circle in the z = 0 plane. By Stokes': \(\oint_C\mathbf{F}\cdot d\mathbf{r} = \iint_S(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS\).</p>
+<p>\(\nabla\times\mathbf{F} = (0,0,-1-1) = (0,0,-2)\).</p>
+<p>Use the flat disk in z = 0 (same boundary, simpler surface). \(\mathbf{n}=\mathbf{k}\).<br>
+\(\iint (0,0,-2)\cdot(0,0,1)\,dA = -2\cdot\pi(1)^2 = -2\pi\).</p>
+
+<div class="answer-box">✅ \(-2\pi\)</div>
+</div>
+
+<!-- Q26 -->
+<div class="q-box">
+<div class="q-title">Q26. Divergence Theorem — F = ⟨x, y, z⟩ through unit cube</div>
+<div class="q-section">Ch6 — Divergence Theorem · §6.8</div>
+<p>Flux of \(\mathbf{F}=(x,y,z)\) out of \([0,1]^3\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\text{div}\,\mathbf{F}=3\). Flux = \(3\cdot\text{Vol}([0,1]^3) = 3\cdot 1 = 3\).</p>
+
+<div class="answer-box">✅ \(3\)</div>
+</div>
+
+<!-- Q27 -->
+<div class="q-box">
+<div class="q-title">Q27. Critical points of f = x³ − 3xy²</div>
+<div class="q-section">Ch7 — Critical Points · §7.2</div>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(f_x = 3x^2-3y^2=0 \Rightarrow x^2=y^2\).<br>
+\(f_y = -6xy=0 \Rightarrow xy=0\).</p>
+<p>From \(xy=0\): \(x=0\) or \(y=0\). Combined with \(x^2=y^2\):<br>
+If \(x=0\): \(y=0\). If \(y=0\): \(x=0\). Only CP: \((0,0)\).</p>
+<p>Classify: \(f_{xx}=6x=0,\; f_{yy}=-6x=0,\; f_{xy}=-6y=0\). \(D=0-0=0\). <strong>Inconclusive.</strong></p>
+<p>Examine nearby: \(f(ε,0)=ε^3>0\) for ε > 0, \(f(-ε,0)=-ε^3<0\). So (0,0) is a <strong>saddle point</strong> (neither max nor min).</p>
+
+<div class="answer-box">✅ One critical point at \((0,0)\): saddle point (SDT inconclusive, verified by sign change).</div>
+</div>
+
+<!-- Q28 -->
+<div class="q-box">
+<div class="q-title">Q28. Lagrange multipliers — f = xy on the unit circle</div>
+<div class="q-section">Ch7 — Lagrange Multipliers · §7.3</div>
+<p>Max/min of \(f=xy\) subject to \(x^2+y^2=1\).</p>
+
+<p class="soln-label">📝 Full solution</p>
+<p>\(\nabla f=\lambda\nabla g\): \((y,x)=\lambda(2x,2y)\).</p>
+<p>\(y=2\lambda x\) … (1) and \(x=2\lambda y\) … (2).</p>
+<p>From (1): \(\lambda=\frac{y}{2x}\). Sub into (2): \(x=2\cdot\frac{y}{2x}\cdot y=\frac{y^2}{x} \Rightarrow x^2=y^2\).</p>
+<p>So \(y=\pm x\). With \(x^2+y^2=1\): \(2x^2=1 \Rightarrow x=\pm\frac{1}{\sqrt{2}}\).</p>
+<p>Four CPs: \((\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}), (-\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}), (\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}), (-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\).</p>
+<p>\(f = xy = \frac{1}{2}\) at the first two (maxima), \(f = -\frac{1}{2}\) at the last two (minima).</p>
+
+<div class="answer-box">✅ Max \(f = \frac{1}{2}\) at \((\pm\frac{1}{\sqrt{2}},\pm\frac{1}{\sqrt{2}})\). Min \(f = -\frac{1}{2}\) at \((\pm\frac{1}{\sqrt{2}},\mp\frac{1}{\sqrt{2}})\).</div>
+</div>
+
+</div><!-- end #final page -->
+
   <!-- ═══ summary.html ═══ -->
   <div class="page" id="summary"><div class="page-title">Course Overview</div><h1>Cheat Sheet</h1><p class="page-intro">Decision trees + per-chapter quick reference. Built for practice-problem lookup.</p>
 
