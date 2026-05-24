@@ -4638,7 +4638,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <div id="ef-count" style="font-size:12px;color:var(--muted);margin:0 0 10px;">41 of 41 equations</div>
 
     <!-- Variable popup (body-level fixed) -->
-    <div id="ef-varpop" style="display:none;position:fixed;background:var(--surface);border:1.5px solid var(--eq);border-radius:8px;padding:10px 14px;max-width:280px;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:9999;pointer-events:none;line-height:1.5;font-family:var(--font);">
+    <div id="ef-varpop" style="display:none;position:fixed;background:var(--surface);border:1.5px solid var(--eq);border-radius:8px;padding:10px 14px;max-width:300px;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:9999;pointer-events:none;line-height:1.5;font-family:var(--font);">
       <div id="ef-varpop-sym" style="font-family:'Cambria Math','STIX Two Math',serif;color:var(--eq);font-size:16px;font-weight:700;margin-bottom:3px;"></div>
       <div id="ef-varpop-desc" style="font-size:13px;color:var(--text);"></div>
     </div>
@@ -4648,7 +4648,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       .ef-cat-colors { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px; padding:10px 12px; background:rgba(255,255,255,.5); border:1px solid var(--border); border-radius:6px; font-size:11px; }
       .ef-cc { display:flex; align-items:center; gap:3px; }
       .ef-cd { width:9px; height:9px; border-radius:2px; flex-shrink:0; }
-
       .ef-tbl { width:100%; border-collapse:separate; border-spacing:0 4px; min-width:700px; }
       .ef-tbl th { text-align:left; padding:8px 10px; color:var(--muted); font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1.2px; border-bottom:1px solid var(--border); background:var(--bg); position:sticky; top:0; z-index:5; }
       .ef-row td { padding:12px 10px; background:rgba(255,255,255,.45); vertical-align:top; cursor:pointer; transition:background .15s; }
@@ -4662,16 +4661,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
       .ef-title { font-size:14px; font-weight:600; color:var(--text); }
       .ef-formula { font-size:18px; line-height:1.8; }
       .ef-formula .katex { color:var(--eq)!important; }
-
-      .ef-vchip { display:inline-block; padding:2px 10px; margin:2px 3px; border-radius:12px; border:1.5px solid var(--border); background:rgba(0,0,0,.02); color:var(--muted); cursor:pointer; font-size:12px; font-family:'Cambria Math','STIX Two Math',serif; transition:all .15s; white-space:nowrap; }
-      .ef-vchip:hover, .ef-vchip.active { border-color:var(--eq); background:rgba(139,26,26,.06); color:var(--eq); }
-
+      .ef-vchip { display:inline-flex; align-items:center; gap:4px; padding:3px 10px; margin:2px 3px; border-radius:12px; border:1.5px solid var(--border); background:rgba(0,0,0,.02); color:var(--text); cursor:pointer; font-size:12px; font-family:var(--font); transition:all .15s; white-space:nowrap; line-height:1.4; }
+      .ef-vchip .ef-vsym { font-family:'Cambria Math','STIX Two Math',serif; font-weight:600; color:var(--eq); }
+      .ef-vchip .ef-vname { color:var(--muted); font-size:11px; }
+      .ef-vchip:hover, .ef-vchip.active { border-color:var(--eq); background:rgba(139,26,26,.06); }
+      .ef-vchip:hover .ef-vname, .ef-vchip.active .ef-vname { color:var(--text); }
       .ef-explain { padding:10px 16px; border-radius:6px; background:rgba(255,255,255,.45); border:1px solid var(--border); font-size:13.5px; color:var(--text); line-height:1.65; margin-top:-2px; }
-
       @media(max-width:700px){
         .ef-tbl { min-width:500px; font-size:14px; }
         .ef-formula { font-size:15px; }
         .ef-cat-colors { font-size:10px; }
+        .ef-vchip { font-size:11px; padding:2px 7px; }
+        .ef-vchip .ef-vname { font-size:10px; }
       }
     </style>
 
@@ -4697,67 +4698,67 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
         <th style="width:36px;">Ch</th>
         <th>Category</th>
         <th>Name</th>
-        <th style="width:38%;">Formula</th>
+        <th style="width:34%;">Formula</th>
         <th>Variables</th>
       </tr></thead>
       <tbody id="ef-tbody">
 
-<!-- 1 Trig: cos²x -->
+<!-- 1 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: cos²x" data-explain="Rewrites cos²x using a double-angle identity. Used for integrating even powers of cosine.">
   <td class="ef-num">1</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Double-Angle: cos²x</td>
   <td class="ef-formula">\( \cos^{2}x = \dfrac{1 + \cos 2x}{2} \)</td>
-  <td><span class="ef-vchip" data-var="x" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates.">x</span></td>
+  <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
-<!-- 2 Trig: sin²x -->
+<!-- 2 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin²x" data-explain="Rewrites sin²x using a double-angle identity. Used for integrating even powers of sine.">
   <td class="ef-num">2</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Double-Angle: sin²x</td>
   <td class="ef-formula">\( \sin^{2}x = \dfrac{1 - \cos 2x}{2} \)</td>
-  <td><span class="ef-vchip" data-var="x" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates.">x</span></td>
+  <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
-<!-- 3 Trig: sin 2x -->
+<!-- 3 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Double-Angle: sin 2x" data-explain="Expresses the product sin·cos as a single sine function at double the angle.">
   <td class="ef-num">3</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Double-Angle: sin 2x</td>
   <td class="ef-formula">\( 2\sin x\cos x = \sin 2x \)</td>
-  <td><span class="ef-vchip" data-var="x" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates.">x</span></td>
+  <td><span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— variable</span></span></td>
 </tr>
-<!-- 4 Trig: sin·sin -->
+<!-- 4 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·sin" data-explain="Converts a product of sines into a sum/difference of cosines for easier integration.">
   <td class="ef-num">4</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Product-to-Sum: sin·sin</td>
   <td class="ef-formula">\( \sin a\,\sin b = \dfrac{\cos(a-b)-\cos(a+b)}{2} \)</td>
-  <td><span class="ef-vchip" data-var="ab" data-sym="a, b" data-desc="Angles or constants depending on context.">a, b</span></td>
+  <td><span class="ef-vchip" data-sym="a, b" data-desc="Angles, constants, interval endpoints, or critical-point coordinates depending on context."><span class="ef-vsym">a, b</span><span class="ef-vname">— angles / constants</span></span></td>
 </tr>
-<!-- 5 Trig: cos·cos -->
+<!-- 5 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: cos·cos" data-explain="Converts a product of cosines into a sum of cosines.">
   <td class="ef-num">5</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Product-to-Sum: cos·cos</td>
   <td class="ef-formula">\( \cos a\,\cos b = \dfrac{\cos(a+b)+\cos(a-b)}{2} \)</td>
-  <td><span class="ef-vchip" data-var="ab" data-sym="a, b" data-desc="Angles or constants depending on context.">a, b</span></td>
+  <td><span class="ef-vchip" data-sym="a, b" data-desc="Angles, constants, interval endpoints, or critical-point coordinates depending on context."><span class="ef-vsym">a, b</span><span class="ef-vname">— angles / constants</span></span></td>
 </tr>
-<!-- 6 Trig: sin·cos -->
+<!-- 6 -->
 <tr class="ef-row" data-cat="Trig Identities" data-ch="—" data-title="Product-to-Sum: sin·cos" data-explain="Converts a mixed sin·cos product into a sum of sines.">
   <td class="ef-num">6</td>
   <td><span class="ef-ch-badge" style="background:rgba(0,0,0,.03);color:var(--muted);">Ref</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(224,122,95,.1);color:#e07a5f;">Trig Identities</span></td>
   <td class="ef-title">Product-to-Sum: sin·cos</td>
   <td class="ef-formula">\( \sin a\,\cos b = \dfrac{\sin(a+b)+\sin(a-b)}{2} \)</td>
-  <td><span class="ef-vchip" data-var="ab" data-sym="a, b" data-desc="Angles or constants depending on context.">a, b</span></td>
+  <td><span class="ef-vchip" data-sym="a, b" data-desc="Angles, constants, interval endpoints, or critical-point coordinates depending on context."><span class="ef-vsym">a, b</span><span class="ef-vname">— angles / constants</span></span></td>
 </tr>
 
-<!-- 7 Parametric: dy/dx -->
+<!-- 7 -->
 <tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="First Derivative (Parametric)" data-explain="Slope of a parametric curve at parameter t. Divide the rate of change of y by that of x.">
   <td class="ef-num">7</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
@@ -4765,12 +4766,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">First Derivative (Parametric)</td>
   <td class="ef-formula">\( \dfrac{dy}{dx} = \dfrac{g'(t)}{f'(t)} \)</td>
   <td>
-    <span class="ef-vchip" data-var="dydx" data-sym="dy/dx" data-desc="First derivative — the slope of the curve.">dy/dx</span>
-    <span class="ef-vchip" data-var="fg" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve: x=f(t) and y=g(t).">f, g</span>
-    <span class="ef-vchip" data-var="t" data-sym="t" data-desc="Parameter variable — often representing time.">t</span>
+    <span class="ef-vchip" data-sym="dy/dx" data-desc="First derivative of y with respect to x — the slope of the curve."><span class="ef-vsym">dy/dx</span><span class="ef-vname">— slope</span></span>
+    <span class="ef-vchip" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve: x = f(t), y = g(t)."><span class="ef-vsym">f(t), g(t)</span><span class="ef-vname">— component functions</span></span>
+    <span class="ef-vchip" data-sym="t" data-desc="Parameter variable, often representing time."><span class="ef-vsym">t</span><span class="ef-vname">— parameter</span></span>
   </td>
 </tr>
-<!-- 8 Parametric: d²y/dx² -->
+<!-- 8 -->
 <tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Second Derivative (Parametric)" data-explain="Concavity of a parametric curve. Derived by differentiating dy/dx with respect to t then dividing by f′(t).">
   <td class="ef-num">8</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
@@ -4778,12 +4779,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Second Derivative (Parametric)</td>
   <td class="ef-formula">\( \dfrac{d^{2}y}{dx^{2}} = \dfrac{g''f' - f''g'}{(f')^{3}} \)</td>
   <td>
-    <span class="ef-vchip" data-var="d2ydx2" data-sym="d²y/dx²" data-desc="Second derivative — measures concavity / curvature.">d²y/dx²</span>
-    <span class="ef-vchip" data-var="fg" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve.">f, g</span>
-    <span class="ef-vchip" data-var="t" data-sym="t" data-desc="Parameter variable.">t</span>
+    <span class="ef-vchip" data-sym="d²y/dx²" data-desc="Second derivative — measures concavity and curvature of the curve."><span class="ef-vsym">d²y/dx²</span><span class="ef-vname">— concavity</span></span>
+    <span class="ef-vchip" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve: x = f(t), y = g(t)."><span class="ef-vsym">f(t), g(t)</span><span class="ef-vname">— component functions</span></span>
+    <span class="ef-vchip" data-sym="t" data-desc="Parameter variable, often representing time."><span class="ef-vsym">t</span><span class="ef-vname">— parameter</span></span>
   </td>
 </tr>
-<!-- 9 Parametric: Area -->
+<!-- 9 -->
 <tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Area under Parametric Curve" data-explain="Area enclosed by a parametric curve. Absolute value ensures a positive result regardless of orientation.">
   <td class="ef-num">9</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
@@ -4791,12 +4792,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Area under Parametric Curve</td>
   <td class="ef-formula">\( A = \left|\int_{a}^{b} g(t)\,f'(t)\,dt\right| \)</td>
   <td>
-    <span class="ef-vchip" data-var="A" data-sym="A" data-desc="Area enclosed by a curve.">A</span>
-    <span class="ef-vchip" data-var="fg" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve.">f, g</span>
-    <span class="ef-vchip" data-var="t" data-sym="t" data-desc="Parameter variable.">t</span>
+    <span class="ef-vchip" data-sym="A" data-desc="Area enclosed by a curve (parametric or polar)."><span class="ef-vsym">A</span><span class="ef-vname">— area</span></span>
+    <span class="ef-vchip" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve: x = f(t), y = g(t)."><span class="ef-vsym">f(t), g(t)</span><span class="ef-vname">— component functions</span></span>
+    <span class="ef-vchip" data-sym="t" data-desc="Parameter variable, often representing time."><span class="ef-vsym">t</span><span class="ef-vname">— parameter</span></span>
   </td>
 </tr>
-<!-- 10 Polar: Area between curves -->
+<!-- 10 -->
 <tr class="ef-row" data-cat="Polar Curves" data-ch="2" data-title="Area between Polar Curves" data-explain="Area of the region between two polar curves r₀(θ) (outer) and r₁(θ) (inner).">
   <td class="ef-num">10</td>
   <td><span class="ef-ch-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">2</span></td>
@@ -4804,12 +4805,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Area between Polar Curves</td>
   <td class="ef-formula">\( A = \int_{a}^{b}\tfrac{1}{2}(r_{0}^{2} - r_{1}^{2})\,d\theta \)</td>
   <td>
-    <span class="ef-vchip" data-var="A" data-sym="A" data-desc="Area enclosed by a curve.">A</span>
-    <span class="ef-vchip" data-var="r01" data-sym="r₀, r₁" data-desc="Outer and inner polar curves bounding a region.">r₀, r₁</span>
-    <span class="ef-vchip" data-var="th" data-sym="θ" data-desc="Angle parameter in polar coordinates.">θ</span>
+    <span class="ef-vchip" data-sym="A" data-desc="Area enclosed by a curve (parametric or polar)."><span class="ef-vsym">A</span><span class="ef-vname">— area</span></span>
+    <span class="ef-vchip" data-sym="r₀, r₁" data-desc="Outer and inner polar curves bounding a region."><span class="ef-vsym">r₀, r₁</span><span class="ef-vname">— outer / inner curves</span></span>
+    <span class="ef-vchip" data-sym="θ" data-desc="Angle parameter in polar, cylindrical, or spherical coordinates."><span class="ef-vsym">θ</span><span class="ef-vname">— angle</span></span>
   </td>
 </tr>
-<!-- 11 Parametric: Arc Length -->
+<!-- 11 -->
 <tr class="ef-row" data-cat="Parametric Curves" data-ch="2" data-title="Arc Length (Parametric)" data-explain="Total length of a parametric curve by integrating the speed |r′(t)|.">
   <td class="ef-num">11</td>
   <td><span class="ef-ch-badge" style="background:rgba(61,133,198,.1);color:#3d85c6;">2</span></td>
@@ -4817,12 +4818,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Arc Length (Parametric)</td>
   <td class="ef-formula">\( L = \int_{a}^{b}\sqrt{x'(t)^{2}+y'(t)^{2}}\,dt \)</td>
   <td>
-    <span class="ef-vchip" data-var="L" data-sym="L" data-desc="Arc length of a curve.">L</span>
-    <span class="ef-vchip" data-var="fg" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve.">f, g</span>
-    <span class="ef-vchip" data-var="t" data-sym="t" data-desc="Parameter variable.">t</span>
+    <span class="ef-vchip" data-sym="L" data-desc="Arc length of a curve."><span class="ef-vsym">L</span><span class="ef-vname">— arc length</span></span>
+    <span class="ef-vchip" data-sym="f(t), g(t)" data-desc="Component functions of a parametric curve: x = f(t), y = g(t)."><span class="ef-vsym">f(t), g(t)</span><span class="ef-vname">— component functions</span></span>
+    <span class="ef-vchip" data-sym="t" data-desc="Parameter variable, often representing time."><span class="ef-vsym">t</span><span class="ef-vname">— parameter</span></span>
   </td>
 </tr>
-<!-- 12 Polar: Arc Length -->
+<!-- 12 -->
 <tr class="ef-row" data-cat="Polar Curves" data-ch="2" data-title="Arc Length (Polar)" data-explain="Arc length of a polar curve. Combines radial and angular contributions.">
   <td class="ef-num">12</td>
   <td><span class="ef-ch-badge" style="background:rgba(106,76,147,.1);color:#6a4c93;">2</span></td>
@@ -4830,13 +4831,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Arc Length (Polar)</td>
   <td class="ef-formula">\( L = \int_{a}^{b}\sqrt{r'(\theta)^{2}+r(\theta)^{2}}\,d\theta \)</td>
   <td>
-    <span class="ef-vchip" data-var="L" data-sym="L" data-desc="Arc length of a curve.">L</span>
-    <span class="ef-vchip" data-var="r" data-sym="r" data-desc="Radial distance from origin (polar) or z-axis (cylindrical).">r</span>
-    <span class="ef-vchip" data-var="th" data-sym="θ" data-desc="Angle parameter in polar coordinates.">θ</span>
+    <span class="ef-vchip" data-sym="L" data-desc="Arc length of a curve."><span class="ef-vsym">L</span><span class="ef-vname">— arc length</span></span>
+    <span class="ef-vchip" data-sym="r" data-desc="Radial distance from the origin (polar) or from the z-axis (cylindrical)."><span class="ef-vsym">r</span><span class="ef-vname">— radial distance</span></span>
+    <span class="ef-vchip" data-sym="θ" data-desc="Angle parameter in polar, cylindrical, or spherical coordinates."><span class="ef-vsym">θ</span><span class="ef-vname">— angle</span></span>
   </td>
 </tr>
 
-<!-- 13 MV: Directional Derivative -->
+<!-- 13 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Directional Derivative" data-explain="Rate of change of f at point P in the direction of unit vector u. Equals the dot product ∇f · u.">
   <td class="ef-num">13</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4844,12 +4845,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Directional Derivative</td>
   <td class="ef-formula">\( D_{\mathbf{u}}f(P) = f_{x}\,u_{1} + f_{y}\,u_{2} + f_{z}\,u_{3} \)</td>
   <td>
-    <span class="ef-vchip" data-var="Duf" data-sym="D_u f" data-desc="Directional derivative of f in direction u.">D_u f</span>
-    <span class="ef-vchip" data-var="uvec" data-sym="u = (u₁,u₂,u₃)" data-desc="Unit direction vector.">u</span>
-    <span class="ef-vchip" data-var="fxyz" data-sym="fₓ, fᵧ, f_z" data-desc="Partial derivatives of f w.r.t. x/y/z.">fₓ, fᵧ, f_z</span>
+    <span class="ef-vchip" data-sym="D_u f" data-desc="Directional derivative of f in the direction of unit vector u."><span class="ef-vsym">D_u f</span><span class="ef-vname">— directional deriv.</span></span>
+    <span class="ef-vchip" data-sym="u = (u₁,u₂,u₃)" data-desc="Unit direction vector for the directional derivative."><span class="ef-vsym">u</span><span class="ef-vname">— unit direction</span></span>
+    <span class="ef-vchip" data-sym="fₓ, fᵧ, f_z" data-desc="Partial derivatives of f with respect to x, y, and z."><span class="ef-vsym">fₓ, fᵧ, f_z</span><span class="ef-vname">— partial derivs.</span></span>
   </td>
 </tr>
-<!-- 14 MV: Total Chain Rule -->
+<!-- 14 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Total Derivative (Chain Rule)" data-explain="Chain rule for w(x,y,z) where each variable depends on t. Sums the contribution from each path.">
   <td class="ef-num">14</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4857,11 +4858,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Total Derivative (Chain Rule)</td>
   <td class="ef-formula">\( \dfrac{dw}{dt} = \dfrac{\partial w}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial w}{\partial y}\dfrac{dy}{dt} + \dfrac{\partial w}{\partial z}\dfrac{dz}{dt} \)</td>
   <td>
-    <span class="ef-vchip" data-var="w" data-sym="w" data-desc="A function of multiple variables.">w</span>
-    <span class="ef-vchip" data-var="t" data-sym="t" data-desc="Parameter variable.">t</span>
+    <span class="ef-vchip" data-sym="w" data-desc="A function of multiple variables, e.g. w = w(x, y, z)."><span class="ef-vsym">w</span><span class="ef-vname">— multivariable fn</span></span>
+    <span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— x-coord</span></span>
+    <span class="ef-vchip" data-sym="y" data-desc="Dependent variable or y-coordinate in Cartesian coordinates."><span class="ef-vsym">y</span><span class="ef-vname">— y-coord</span></span>
+    <span class="ef-vchip" data-sym="z" data-desc="Third coordinate in 3D Cartesian space, or height in cylindrical coordinates."><span class="ef-vsym">z</span><span class="ef-vname">— z-coord</span></span>
+    <span class="ef-vchip" data-sym="t" data-desc="Parameter variable, often representing time."><span class="ef-vsym">t</span><span class="ef-vname">— parameter</span></span>
   </td>
 </tr>
-<!-- 15 MV: Partial Chain Rule (2 vars) -->
+<!-- 15 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Partial Chain Rule (2 vars)" data-explain="Chain rule when z depends on x and y which in turn depend on parameter u.">
   <td class="ef-num">15</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4869,11 +4873,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Partial Chain Rule (2 vars)</td>
   <td class="ef-formula">\( \dfrac{\partial z}{\partial u} = \dfrac{\partial z}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial z}{\partial y}\dfrac{\partial y}{\partial u} \)</td>
   <td>
-    <span class="ef-vchip" data-var="z" data-sym="z" data-desc="Third coordinate or height.">z</span>
-    <span class="ef-vchip" data-var="uv" data-sym="u, v" data-desc="New coordinate variables in a change of variables.">u, v</span>
+    <span class="ef-vchip" data-sym="z" data-desc="Third coordinate in 3D Cartesian space, or height in cylindrical coordinates."><span class="ef-vsym">z</span><span class="ef-vname">— dependent var</span></span>
+    <span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate in Cartesian coordinates."><span class="ef-vsym">x</span><span class="ef-vname">— x-coord</span></span>
+    <span class="ef-vchip" data-sym="y" data-desc="Dependent variable or y-coordinate in Cartesian coordinates."><span class="ef-vsym">y</span><span class="ef-vname">— y-coord</span></span>
+    <span class="ef-vchip" data-sym="u, v" data-desc="New coordinate variables in a change of variables or surface parameterization."><span class="ef-vsym">u, v</span><span class="ef-vname">— new coordinates</span></span>
   </td>
 </tr>
-<!-- 16 MV: Partial Chain Rule (3 vars) -->
+<!-- 16 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Partial Chain Rule (3 vars)" data-explain="Chain rule for w(x,y,z) where x y z each depend on parameter u.">
   <td class="ef-num">16</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4881,11 +4887,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Partial Chain Rule (3 vars)</td>
   <td class="ef-formula">\( \dfrac{\partial w}{\partial u} = \dfrac{\partial w}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial w}{\partial y}\dfrac{\partial y}{\partial u} + \dfrac{\partial w}{\partial z}\dfrac{\partial z}{\partial u} \)</td>
   <td>
-    <span class="ef-vchip" data-var="w" data-sym="w" data-desc="A function of multiple variables.">w</span>
-    <span class="ef-vchip" data-var="uv" data-sym="u, v" data-desc="New coordinate variables.">u, v</span>
+    <span class="ef-vchip" data-sym="w" data-desc="A function of multiple variables, e.g. w = w(x, y, z)."><span class="ef-vsym">w</span><span class="ef-vname">— multivariable fn</span></span>
+    <span class="ef-vchip" data-sym="x" data-desc="Independent variable or x-coordinate."><span class="ef-vsym">x</span><span class="ef-vname">— x-coord</span></span>
+    <span class="ef-vchip" data-sym="y" data-desc="Dependent variable or y-coordinate."><span class="ef-vsym">y</span><span class="ef-vname">— y-coord</span></span>
+    <span class="ef-vchip" data-sym="z" data-desc="Third coordinate in 3D space."><span class="ef-vsym">z</span><span class="ef-vname">— z-coord</span></span>
+    <span class="ef-vchip" data-sym="u, v" data-desc="New coordinate variables in a change of variables."><span class="ef-vsym">u, v</span><span class="ef-vname">— new coordinates</span></span>
   </td>
 </tr>
-<!-- 17 MV: Implicit ∂z/∂x -->
+<!-- 17 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Implicit ∂z/∂x" data-explain="Finds ∂z/∂x from an implicit equation F(x,y,z)=0 using the implicit function theorem.">
   <td class="ef-num">17</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4893,12 +4902,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Implicit ∂z/∂x</td>
   <td class="ef-formula">\( \dfrac{\partial z}{\partial x} = -\dfrac{F_{x}}{F_{z}} \)</td>
   <td>
-    <span class="ef-vchip" data-var="z" data-sym="z" data-desc="Third coordinate.">z</span>
-    <span class="ef-vchip" data-var="Fimpl" data-sym="F(x,y,z)" data-desc="Implicit function defining a surface F(x,y,z)=0.">F</span>
-    <span class="ef-vchip" data-var="Fxyz" data-sym="Fₓ, Fᵧ, F_z" data-desc="Partial derivatives of the implicit function F.">Fₓ, F_z</span>
+    <span class="ef-vchip" data-sym="z" data-desc="Third coordinate in 3D Cartesian space."><span class="ef-vsym">z</span><span class="ef-vname">— dependent var</span></span>
+    <span class="ef-vchip" data-sym="F(x,y,z)" data-desc="An implicit function defining a surface F(x,y,z) = 0."><span class="ef-vsym">F</span><span class="ef-vname">— implicit function</span></span>
+    <span class="ef-vchip" data-sym="Fₓ, Fᵧ, F_z" data-desc="Partial derivatives of the implicit function F with respect to x, y, and z."><span class="ef-vsym">Fₓ, F_z</span><span class="ef-vname">— partials of F</span></span>
   </td>
 </tr>
-<!-- 18 MV: Implicit ∂z/∂y -->
+<!-- 18 -->
 <tr class="ef-row" data-cat="Multivariable Calculus" data-ch="3" data-title="Implicit ∂z/∂y" data-explain="Finds ∂z/∂y from an implicit equation F(x,y,z)=0.">
   <td class="ef-num">18</td>
   <td><span class="ef-ch-badge" style="background:rgba(27,153,139,.1);color:#1b998b;">3</span></td>
@@ -4906,13 +4915,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Implicit ∂z/∂y</td>
   <td class="ef-formula">\( \dfrac{\partial z}{\partial y} = -\dfrac{F_{y}}{F_{z}} \)</td>
   <td>
-    <span class="ef-vchip" data-var="z" data-sym="z" data-desc="Third coordinate.">z</span>
-    <span class="ef-vchip" data-var="Fimpl" data-sym="F(x,y,z)" data-desc="Implicit function defining a surface F(x,y,z)=0.">F</span>
-    <span class="ef-vchip" data-var="Fxyz" data-sym="Fᵧ, F_z" data-desc="Partial derivatives of the implicit function F.">Fᵧ, F_z</span>
+    <span class="ef-vchip" data-sym="z" data-desc="Third coordinate in 3D Cartesian space."><span class="ef-vsym">z</span><span class="ef-vname">— dependent var</span></span>
+    <span class="ef-vchip" data-sym="F(x,y,z)" data-desc="An implicit function defining a surface F(x,y,z) = 0."><span class="ef-vsym">F</span><span class="ef-vname">— implicit function</span></span>
+    <span class="ef-vchip" data-sym="Fₓ, Fᵧ, F_z" data-desc="Partial derivatives of the implicit function F with respect to x, y, and z."><span class="ef-vsym">Fᵧ, F_z</span><span class="ef-vname">— partials of F</span></span>
   </td>
 </tr>
 
-<!-- 19 Optimization: SDT -->
+<!-- 19 -->
 <tr class="ef-row" data-cat="Optimization" data-ch="7" data-title="Second Derivative Test" data-explain="Classifies critical points. D>0 with fₓₓ>0 → local min. D>0 with fₓₓ<0 → local max. D<0 → saddle point.">
   <td class="ef-num">19</td>
   <td><span class="ef-ch-badge" style="background:rgba(230,198,25,.1);color:#b5a010;">7</span></td>
@@ -4920,13 +4929,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Second Derivative Test</td>
   <td class="ef-formula">\( D(a,b) = f_{xx}(a,b)\cdot f_{yy}(a,b) - [f_{xy}(a,b)]^{2} \)</td>
   <td>
-    <span class="ef-vchip" data-var="D" data-sym="D(a,b)" data-desc="Discriminant for the second derivative test: fₓₓfᵧᵧ − (fₓᵧ)².">D</span>
-    <span class="ef-vchip" data-var="fxx" data-sym="fₓₓ, fᵧᵧ, fₓᵧ" data-desc="Second-order partial derivatives of f.">fₓₓ, fᵧᵧ, fₓᵧ</span>
-    <span class="ef-vchip" data-var="ab" data-sym="a, b" data-desc="Critical-point coordinates.">a, b</span>
+    <span class="ef-vchip" data-sym="D(a,b)" data-desc="Discriminant for the second derivative test: fₓₓfᵧᵧ − (fₓᵧ)²."><span class="ef-vsym">D</span><span class="ef-vname">— discriminant</span></span>
+    <span class="ef-vchip" data-sym="fₓₓ, fᵧᵧ, fₓᵧ" data-desc="Second-order partial derivatives of f."><span class="ef-vsym">fₓₓ, fᵧᵧ, fₓᵧ</span><span class="ef-vname">— 2nd partials</span></span>
+    <span class="ef-vchip" data-sym="a, b" data-desc="Critical-point coordinates being classified."><span class="ef-vsym">a, b</span><span class="ef-vname">— critical point</span></span>
   </td>
 </tr>
 
-<!-- 20 Vector Cal: Divergence -->
+<!-- 20 -->
 <tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Divergence" data-explain="Scalar measuring outward flux density of a vector field at a point.">
   <td class="ef-num">20</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
@@ -4934,12 +4943,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Divergence</td>
   <td class="ef-formula">\( \text{div}\,\mathbf{F} = \dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y} + \dfrac{\partial R}{\partial z} \)</td>
   <td>
-    <span class="ef-vchip" data-var="divF" data-sym="div F" data-desc="Divergence — scalar measuring outward flux density.">div F</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P Q R.">F</span>
-    <span class="ef-vchip" data-var="PQR" data-sym="P, Q, R" data-desc="Component scalar functions of a vector field.">P, Q, R</span>
+    <span class="ef-vchip" data-sym="div F" data-desc="Divergence — scalar measuring outward flux density: ∂P/∂x + ∂Q/∂y + ∂R/∂z."><span class="ef-vsym">div F</span><span class="ef-vname">— divergence</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="P, Q, R" data-desc="Component scalar functions of a vector field F = (P, Q, R)."><span class="ef-vsym">P, Q, R</span><span class="ef-vname">— field components</span></span>
   </td>
 </tr>
-<!-- 21 Vector Cal: Curl -->
+<!-- 21 -->
 <tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Curl" data-explain="Vector measuring rotational tendency of F. Perpendicular to the axis of rotation.">
   <td class="ef-num">21</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
@@ -4947,14 +4956,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Curl</td>
   <td class="ef-formula">\( \text{curl}\,\mathbf{F} = \nabla\times\mathbf{F} = (R_{y}-Q_{z},\; P_{z}-R_{x},\; Q_{x}-P_{y}) \)</td>
   <td>
-    <span class="ef-vchip" data-var="curlF" data-sym="curl F" data-desc="Curl — vector measuring rotational tendency: ∇ × F.">curl F</span>
-    <span class="ef-vchip" data-var="nabla" data-sym="∇" data-desc="Del (nabla) operator: (∂/∂x, ∂/∂y, ∂/∂z).">∇</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F = (P, Q, R)" data-desc="Vector field.">F</span>
-    <span class="ef-vchip" data-var="PQR" data-sym="P, Q, R" data-desc="Component scalar functions.">P, Q, R</span>
+    <span class="ef-vchip" data-sym="curl F" data-desc="Curl — vector measuring rotational tendency: ∇ × F."><span class="ef-vsym">curl F</span><span class="ef-vname">— rotation</span></span>
+    <span class="ef-vchip" data-sym="∇" data-desc="Del (nabla) operator: (∂/∂x, ∂/∂y, ∂/∂z)."><span class="ef-vsym">∇</span><span class="ef-vname">— del operator</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="P, Q, R" data-desc="Component scalar functions of a vector field F = (P, Q, R)."><span class="ef-vsym">P, Q, R</span><span class="ef-vname">— field components</span></span>
   </td>
 </tr>
 
-<!-- 22 Line Int: Scalar 2D -->
+<!-- 22 -->
 <tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (2D)" data-explain="Integrates a scalar function along a curve weighted by arc length. Think: summing f × (tiny length).">
   <td class="ef-num">22</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
@@ -4962,12 +4971,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Scalar Line Integral (2D)</td>
   <td class="ef-formula">\( \int_{C}f(x,y)\,ds = \int_{a}^{b}f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="A curve in 2D or 3D space.">C</span>
-    <span class="ef-vchip" data-var="ds" data-sym="ds" data-desc="Arc length element along the curve.">ds</span>
-    <span class="ef-vchip" data-var="rt" data-sym="r(t)" data-desc="Position vector parameterizing a curve.">r(t)</span>
+    <span class="ef-vchip" data-sym="C" data-desc="A curve in 2D or 3D space, typically parameterized by r(t)."><span class="ef-vsym">C</span><span class="ef-vname">— curve</span></span>
+    <span class="ef-vchip" data-sym="ds" data-desc="Arc length element along the curve."><span class="ef-vsym">ds</span><span class="ef-vname">— arc length element</span></span>
+    <span class="ef-vchip" data-sym="r(t)" data-desc="Position vector parameterizing a curve."><span class="ef-vsym">r(t)</span><span class="ef-vname">— position vector</span></span>
+    <span class="ef-vchip" data-sym="r′(t)" data-desc="Velocity vector — derivative of position, tangent to the curve."><span class="ef-vsym">r′(t)</span><span class="ef-vname">— velocity vector</span></span>
   </td>
 </tr>
-<!-- 23 Line Int: Scalar 3D -->
+<!-- 23 -->
 <tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Scalar Line Integral (3D)" data-explain="Same as 2D but extended to 3D curves.">
   <td class="ef-num">23</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
@@ -4975,12 +4985,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Scalar Line Integral (3D)</td>
   <td class="ef-formula">\( \int_{C}f(x,y,z)\,ds = \int_{a}^{b}f(\mathbf{r}(t))\sqrt{x'^{2}+y'^{2}+z'^{2}}\,dt \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="A curve in 3D space.">C</span>
-    <span class="ef-vchip" data-var="ds" data-sym="ds" data-desc="Arc length element.">ds</span>
-    <span class="ef-vchip" data-var="rt" data-sym="r(t)" data-desc="Position vector.">r(t)</span>
+    <span class="ef-vchip" data-sym="C" data-desc="A curve in 3D space."><span class="ef-vsym">C</span><span class="ef-vname">— curve</span></span>
+    <span class="ef-vchip" data-sym="ds" data-desc="Arc length element along the curve."><span class="ef-vsym">ds</span><span class="ef-vname">— arc length element</span></span>
+    <span class="ef-vchip" data-sym="r(t)" data-desc="Position vector parameterizing a curve."><span class="ef-vsym">r(t)</span><span class="ef-vname">— position vector</span></span>
+    <span class="ef-vchip" data-sym="r′(t)" data-desc="Velocity vector — derivative of position, tangent to the curve."><span class="ef-vsym">r′(t)</span><span class="ef-vname">— velocity vector</span></span>
   </td>
 </tr>
-<!-- 24 Line Int: Work -->
+<!-- 24 -->
 <tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Vector Line Integral (Work)" data-explain="Work done by force field F along curve C. The dot product picks out the tangential component.">
   <td class="ef-num">24</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
@@ -4988,13 +4999,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Vector Line Integral (Work)</td>
   <td class="ef-formula">\( \int_{C}\mathbf{F}\cdot d\mathbf{r} = \int_{a}^{b}\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="A curve.">C</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
-    <span class="ef-vchip" data-var="dr" data-sym="dr" data-desc="Differential displacement vector along the curve.">dr</span>
-    <span class="ef-vchip" data-var="rt" data-sym="r(t)" data-desc="Position vector.">r(t)</span>
+    <span class="ef-vchip" data-sym="C" data-desc="A curve in 2D or 3D space."><span class="ef-vsym">C</span><span class="ef-vname">— curve</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="dr" data-desc="Differential displacement vector along the curve: r′(t) dt."><span class="ef-vsym">dr</span><span class="ef-vname">— displacement</span></span>
+    <span class="ef-vchip" data-sym="r(t)" data-desc="Position vector parameterizing a curve."><span class="ef-vsym">r(t)</span><span class="ef-vname">— position vector</span></span>
+    <span class="ef-vchip" data-sym="r′(t)" data-desc="Velocity vector — derivative of position, tangent to the curve."><span class="ef-vsym">r′(t)</span><span class="ef-vname">— velocity vector</span></span>
   </td>
 </tr>
-<!-- 25 Line Int: FTCLI -->
+<!-- 25 -->
 <tr class="ef-row" data-cat="Line Integrals" data-ch="4" data-title="Fundamental Thm of Line Integrals" data-explain="If F=∇f (conservative) the line integral depends only on endpoints — path-independent.">
   <td class="ef-num">25</td>
   <td><span class="ef-ch-badge" style="background:rgba(199,125,255,.1);color:#c77dff;">4</span></td>
@@ -5002,13 +5014,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Fund. Thm of Line Integrals</td>
   <td class="ef-formula">\( \int_{C}\mathbf{F}\cdot d\mathbf{r} = f(\mathbf{r}(b)) - f(\mathbf{r}(a)) \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="A curve.">C</span>
-    <span class="ef-vchip" data-var="pot" data-sym="f (potential)" data-desc="Scalar potential function such that ∇f=F.">f</span>
-    <span class="ef-vchip" data-var="rt" data-sym="r(t)" data-desc="Position vector.">r(t)</span>
+    <span class="ef-vchip" data-sym="C" data-desc="A curve in 2D or 3D space."><span class="ef-vsym">C</span><span class="ef-vname">— curve</span></span>
+    <span class="ef-vchip" data-sym="f (potential)" data-desc="Scalar potential function such that ∇f = F."><span class="ef-vsym">f</span><span class="ef-vname">— potential function</span></span>
+    <span class="ef-vchip" data-sym="r(t)" data-desc="Position vector parameterizing a curve."><span class="ef-vsym">r(t)</span><span class="ef-vname">— position vector</span></span>
   </td>
 </tr>
 
-<!-- 26 Double Int: Iterated -->
+<!-- 26 -->
 <tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Double Integral (Iterated)" data-explain="Volume under f over region R. Integrate inner variable first then outer.">
   <td class="ef-num">26</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
@@ -5016,11 +5028,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Double Integral (Iterated)</td>
   <td class="ef-formula">\( \iint_{R}f(x,y)\,dA = \int_{a}^{b}\!\int_{g_{1}(x)}^{g_{2}(x)}f(x,y)\,dy\,dx \)</td>
   <td>
-    <span class="ef-vchip" data-var="R" data-sym="R" data-desc="A 2D region of integration in the xy-plane.">R</span>
-    <span class="ef-vchip" data-var="g12" data-sym="g₁(x), g₂(x)" data-desc="Lower and upper boundary curves.">g₁, g₂</span>
+    <span class="ef-vchip" data-sym="R" data-desc="A 2D region of integration in the xy-plane."><span class="ef-vsym">R</span><span class="ef-vname">— region</span></span>
+    <span class="ef-vchip" data-sym="g₁(x), g₂(x)" data-desc="Lower and upper boundary curves of a region R as functions of x."><span class="ef-vsym">g₁, g₂</span><span class="ef-vname">— lower / upper bounds</span></span>
+    <span class="ef-vchip" data-sym="h₁(y), h₂(y)" data-desc="Left and right boundary curves of a region R as functions of y."><span class="ef-vsym">h₁, h₂</span><span class="ef-vname">— left / right bounds</span></span>
   </td>
 </tr>
-<!-- 27 Vector Cal: Potential -->
+<!-- 27 -->
 <tr class="ef-row" data-cat="Vector Calculus" data-ch="3" data-title="Potential Function Condition" data-explain="F is conservative iff it has a scalar potential f whose gradient equals F (curl F=0).">
   <td class="ef-num">27</td>
   <td><span class="ef-ch-badge" style="background:rgba(244,132,95,.1);color:#f4845f;">3</span></td>
@@ -5028,12 +5041,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Potential Function Condition</td>
   <td class="ef-formula">\( f \text{ is a potential of } \mathbf{F} \text{ if } \nabla f = \mathbf{F} \)</td>
   <td>
-    <span class="ef-vchip" data-var="pot" data-sym="f (potential)" data-desc="Scalar potential function.">f</span>
-    <span class="ef-vchip" data-var="nabla" data-sym="∇" data-desc="Del operator.">∇</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
+    <span class="ef-vchip" data-sym="f (potential)" data-desc="Scalar potential function such that ∇f = F."><span class="ef-vsym">f</span><span class="ef-vname">— potential function</span></span>
+    <span class="ef-vchip" data-sym="∇" data-desc="Del (nabla) operator: (∂/∂x, ∂/∂y, ∂/∂z)."><span class="ef-vsym">∇</span><span class="ef-vname">— del operator</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
   </td>
 </tr>
-<!-- 28 Double Int: Change of Variables -->
+<!-- 28 -->
 <tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Change of Variables (2D)" data-explain="Transforms a double integral to new coordinates (u,v). The Jacobian |J| scales area elements.">
   <td class="ef-num">28</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
@@ -5041,12 +5054,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Change of Variables (2D)</td>
   <td class="ef-formula">\( \iint_{R}f\,dA = \iint_{D}f(x(u,v),y(u,v))\,|J(u,v)|\,du\,dv \)</td>
   <td>
-    <span class="ef-vchip" data-var="R" data-sym="R" data-desc="Region in xy-plane.">R</span>
-    <span class="ef-vchip" data-var="J2d" data-sym="J(u,v)" data-desc="2D Jacobian determinant |∂(x,y)/∂(u,v)|.">J</span>
-    <span class="ef-vchip" data-var="uv" data-sym="u, v" data-desc="New coordinate variables.">u, v</span>
+    <span class="ef-vchip" data-sym="R" data-desc="A 2D region of integration in the xy-plane."><span class="ef-vsym">R</span><span class="ef-vname">— region</span></span>
+    <span class="ef-vchip" data-sym="J(u,v)" data-desc="2D Jacobian determinant |∂(x,y)/∂(u,v)| — the area scaling factor for a change of variables."><span class="ef-vsym">J</span><span class="ef-vname">— Jacobian</span></span>
+    <span class="ef-vchip" data-sym="u, v" data-desc="New coordinate variables in a change of variables or surface parameterization."><span class="ef-vsym">u, v</span><span class="ef-vname">— new coordinates</span></span>
   </td>
 </tr>
-<!-- 29 Double Int: Jacobian -->
+<!-- 29 -->
 <tr class="ef-row" data-cat="Double Integrals" data-ch="5" data-title="Jacobian (2D)" data-explain="The determinant of the 2×2 matrix of partial derivatives. Measures how areas scale under the transformation.">
   <td class="ef-num">29</td>
   <td><span class="ef-ch-badge" style="background:rgba(46,196,182,.1);color:#2ec4b6;">5</span></td>
@@ -5054,12 +5067,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Jacobian (2D)</td>
   <td class="ef-formula">\( J(u,v) = \dfrac{\partial(x,y)}{\partial(u,v)} = \dfrac{\partial x}{\partial u}\dfrac{\partial y}{\partial v} - \dfrac{\partial y}{\partial u}\dfrac{\partial x}{\partial v} \)</td>
   <td>
-    <span class="ef-vchip" data-var="J2d" data-sym="J(u,v)" data-desc="2D Jacobian determinant.">J</span>
-    <span class="ef-vchip" data-var="uv" data-sym="u, v" data-desc="New coordinate variables.">u, v</span>
+    <span class="ef-vchip" data-sym="J(u,v)" data-desc="2D Jacobian determinant |∂(x,y)/∂(u,v)| — the area scaling factor."><span class="ef-vsym">J</span><span class="ef-vname">— Jacobian</span></span>
+    <span class="ef-vchip" data-sym="u, v" data-desc="New coordinate variables in a change of variables."><span class="ef-vsym">u, v</span><span class="ef-vname">— new coordinates</span></span>
   </td>
 </tr>
 
-<!-- 30 Surface Int: Surface Area -->
+<!-- 30 -->
 <tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Surface Area" data-explain="Area of a parameterized surface. |rᵤ×rᵥ| gives the area of each infinitesimal parallelogram.">
   <td class="ef-num">30</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
@@ -5067,12 +5080,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Surface Area</td>
   <td class="ef-formula">\( A(S) = \iint_{R}|\mathbf{r}_{u}\times\mathbf{r}_{v}|\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="AS" data-sym="A(S)" data-desc="Surface area of S.">A(S)</span>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="A surface in 3D space.">S</span>
-    <span class="ef-vchip" data-var="rurv" data-sym="rᵤ × rᵥ" data-desc="Cross product of partial derivatives — surface normal vector.">rᵤ×rᵥ</span>
+    <span class="ef-vchip" data-sym="A(S)" data-desc="Surface area of S."><span class="ef-vsym">A(S)</span><span class="ef-vname">— surface area</span></span>
+    <span class="ef-vchip" data-sym="S" data-desc="A surface in 3D space."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="rᵤ × rᵥ" data-desc="Cross product of partial derivatives — gives the surface normal vector."><span class="ef-vsym">rᵤ×rᵥ</span><span class="ef-vname">— surface normal</span></span>
   </td>
 </tr>
-<!-- 31 Surface Int: Scalar (z=f) -->
+<!-- 31 -->
 <tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (z=f)" data-explain="Integrates a scalar F over surface z=f(x,y). The square root is the area magnification factor.">
   <td class="ef-num">31</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
@@ -5080,11 +5093,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Scalar Surface Int. (z=f)</td>
   <td class="ef-formula">\( \iint_{S}F\,dS = \iint_{R}F(x,y,f(x,y))\sqrt{f_{x}^{2}+f_{y}^{2}+1}\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="A surface.">S</span>
-    <span class="ef-vchip" data-var="dSs" data-sym="dS" data-desc="Scalar surface area element.">dS</span>
+    <span class="ef-vchip" data-sym="S" data-desc="A surface in 3D space."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="dS" data-desc="Scalar surface area element: |rᵤ × rᵥ| dA."><span class="ef-vsym">dS</span><span class="ef-vname">— area element</span></span>
   </td>
 </tr>
-<!-- 32 Surface Int: Scalar (parametric) -->
+<!-- 32 -->
 <tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Scalar Surface Integral (param.)" data-explain="General form for a parameterized surface r(u,v).">
   <td class="ef-num">32</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
@@ -5092,12 +5105,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Scalar Surface Int. (param.)</td>
   <td class="ef-formula">\( \iint_{S}F\,dS = \iint_{R}F(\mathbf{r}(u,v))\,|\mathbf{r}_{u}\times\mathbf{r}_{v}|\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="A surface.">S</span>
-    <span class="ef-vchip" data-var="rurv" data-sym="rᵤ × rᵥ" data-desc="Cross product giving normal.">rᵤ×rᵥ</span>
-    <span class="ef-vchip" data-var="uv" data-sym="u, v" data-desc="Surface parameters.">u, v</span>
+    <span class="ef-vchip" data-sym="S" data-desc="A surface in 3D space."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="dS" data-desc="Scalar surface area element: |rᵤ × rᵥ| dA."><span class="ef-vsym">dS</span><span class="ef-vname">— area element</span></span>
+    <span class="ef-vchip" data-sym="rᵤ × rᵥ" data-desc="Cross product of partial derivatives — gives the surface normal vector."><span class="ef-vsym">rᵤ×rᵥ</span><span class="ef-vname">— surface normal</span></span>
+    <span class="ef-vchip" data-sym="u, v" data-desc="Surface parameterization variables."><span class="ef-vsym">u, v</span><span class="ef-vname">— parameters</span></span>
   </td>
 </tr>
-<!-- 33 Surface Int: Flux (z=z(x,y)) -->
+<!-- 33 -->
 <tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (z=z(x,y))" data-explain="Flux through surface z=z(x,y). The vector (−zₓ, −zᵧ, 1) is the upward-pointing normal.">
   <td class="ef-num">33</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
@@ -5105,12 +5119,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Flux Integral (z=z(x,y))</td>
   <td class="ef-formula">\( \iint_{S}\mathbf{F}\cdot d\mathbf{S} = \iint_{R}\mathbf{F}(x,y,z)\cdot(-z_{x},-z_{y},1)\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="A surface.">S</span>
-    <span class="ef-vchip" data-var="dSv" data-sym="dS (vector)" data-desc="Vector surface element encoding orientation.">dS</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
+    <span class="ef-vchip" data-sym="S" data-desc="A surface in 3D space."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="dS (vector)" data-desc="Vector surface element encoding orientation: (rᵤ × rᵥ) dA."><span class="ef-vsym">dS</span><span class="ef-vname">— oriented element</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
   </td>
 </tr>
-<!-- 34 Surface Int: Flux (parametric) -->
+<!-- 34 -->
 <tr class="ef-row" data-cat="Surface Integrals" data-ch="6" data-title="Flux Integral (parametric)" data-explain="General flux formula. The cross product gives the oriented surface normal.">
   <td class="ef-num">34</td>
   <td><span class="ef-ch-badge" style="background:rgba(227,100,20,.1);color:#e36414;">6</span></td>
@@ -5118,26 +5132,27 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Flux Integral (parametric)</td>
   <td class="ef-formula">\( \iint_{S}\mathbf{F}\cdot d\mathbf{S} = \iint_{R}\mathbf{F}(\mathbf{r}(u,v))\cdot(\mathbf{r}_{u}\times\mathbf{r}_{v})\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="A surface.">S</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
-    <span class="ef-vchip" data-var="rurv" data-sym="rᵤ × rᵥ" data-desc="Cross product — oriented normal.">rᵤ×rᵥ</span>
+    <span class="ef-vchip" data-sym="S" data-desc="A surface in 3D space."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="dS (vector)" data-desc="Vector surface element encoding orientation: (rᵤ × rᵥ) dA."><span class="ef-vsym">dS</span><span class="ef-vname">— oriented element</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="rᵤ × rᵥ" data-desc="Cross product of partial derivatives — gives the oriented surface normal."><span class="ef-vsym">rᵤ×rᵥ</span><span class="ef-vname">— surface normal</span></span>
   </td>
 </tr>
 
-<!-- 35 Fund Thms: Green's -->
-<tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Green's Theorem" data-explain="Relates a closed line integral to a double integral over the enclosed region. 2D Stokes'.">
+<!-- 35 -->
+<tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Green's Theorem" data-explain="Relates a closed line integral to a double integral over the enclosed region. 2D version of Stokes'.">
   <td class="ef-num">35</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
   <td><span class="ef-cat-badge" style="background:rgba(217,4,41,.1);color:#d90429;">Fundamental Theorems</span></td>
   <td class="ef-title">Green's Theorem</td>
   <td class="ef-formula">\( \oint_{C}P\,dx + Q\,dy = \iint_{R}\!\left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right)dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="A closed curve.">C</span>
-    <span class="ef-vchip" data-var="PQR" data-sym="P, Q" data-desc="Component functions.">P, Q</span>
-    <span class="ef-vchip" data-var="R" data-sym="R" data-desc="Enclosed region.">R</span>
+    <span class="ef-vchip" data-sym="C" data-desc="A closed curve bounding region R with positive (CCW) orientation."><span class="ef-vsym">C</span><span class="ef-vname">— closed curve</span></span>
+    <span class="ef-vchip" data-sym="P, Q" data-desc="Component scalar functions of a 2D vector field F = (P, Q)."><span class="ef-vsym">P, Q</span><span class="ef-vname">— field components</span></span>
+    <span class="ef-vchip" data-sym="R" data-desc="A 2D region of integration enclosed by C."><span class="ef-vsym">R</span><span class="ef-vname">— enclosed region</span></span>
   </td>
 </tr>
-<!-- 36 Fund Thms: Stokes' -->
+<!-- 36 -->
 <tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Stokes' Theorem" data-explain="Circulation around boundary C equals the flux of curl F through surface S.">
   <td class="ef-num">36</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
@@ -5145,14 +5160,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Stokes' Theorem</td>
   <td class="ef-formula">\( \oint_{C}\mathbf{F}\cdot d\mathbf{r} = \iint_{S}(\nabla\times\mathbf{F})\cdot d\mathbf{S} \)</td>
   <td>
-    <span class="ef-vchip" data-var="C" data-sym="C" data-desc="Boundary curve.">C</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="Surface bounded by C.">S</span>
-    <span class="ef-vchip" data-var="curlF" data-sym="curl F" data-desc="Curl of F.">curl F</span>
+    <span class="ef-vchip" data-sym="C" data-desc="Boundary curve of surface S with right-hand-rule orientation."><span class="ef-vsym">C</span><span class="ef-vname">— boundary curve</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="S" data-desc="An oriented surface bounded by curve C."><span class="ef-vsym">S</span><span class="ef-vname">— surface</span></span>
+    <span class="ef-vchip" data-sym="curl F" data-desc="Curl — vector measuring rotational tendency: ∇ × F."><span class="ef-vsym">curl F</span><span class="ef-vname">— rotation</span></span>
+    <span class="ef-vchip" data-sym="dS (vector)" data-desc="Vector surface element encoding orientation: (rᵤ × rᵥ) dA."><span class="ef-vsym">dS</span><span class="ef-vname">— oriented element</span></span>
   </td>
 </tr>
 
-<!-- 37 Triple Int: Cartesian -->
+<!-- 37 -->
 <tr class="ef-row" data-cat="Triple Integrals" data-ch="6" data-title="Triple Integral (Cartesian)" data-explain="Integrates over a 3D solid by slicing: for each (x,y) in R integrate z between bounding surfaces.">
   <td class="ef-num">37</td>
   <td><span class="ef-ch-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">6</span></td>
@@ -5160,12 +5176,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Triple Integral (Cartesian)</td>
   <td class="ef-formula">\( \iiint_{V}f\,dV = \iint_{R}\!\int_{u_{1}}^{u_{2}}f(x,y,z)\,dz\,dA \)</td>
   <td>
-    <span class="ef-vchip" data-var="V" data-sym="V" data-desc="A 3D solid region of integration.">V</span>
-    <span class="ef-vchip" data-var="u12" data-sym="u₁, u₂" data-desc="Lower and upper bounding surfaces in z.">u₁, u₂</span>
-    <span class="ef-vchip" data-var="R" data-sym="R" data-desc="2D region.">R</span>
+    <span class="ef-vchip" data-sym="V" data-desc="A 3D solid region (volume) of integration."><span class="ef-vsym">V</span><span class="ef-vname">— solid region</span></span>
+    <span class="ef-vchip" data-sym="u₁, u₂" data-desc="Lower and upper surfaces bounding a solid region in z."><span class="ef-vsym">u₁, u₂</span><span class="ef-vname">— z-bounds</span></span>
+    <span class="ef-vchip" data-sym="R" data-desc="A 2D region of integration in the xy-plane."><span class="ef-vsym">R</span><span class="ef-vname">— base region</span></span>
   </td>
 </tr>
-<!-- 38 Triple Int: Change of Vars -->
+<!-- 38 -->
 <tr class="ef-row" data-cat="Triple Integrals" data-ch="6" data-title="Change of Variables (3D)" data-explain="General 3D coordinate transform. The 3×3 Jacobian determinant scales volume elements.">
   <td class="ef-num">38</td>
   <td><span class="ef-ch-badge" style="background:rgba(88,139,139,.1);color:#588b8b;">6</span></td>
@@ -5173,12 +5189,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Change of Variables (3D)</td>
   <td class="ef-formula">\( \iiint_{V}f\,dV = \iiint_{D}f(x(u,v,w),\ldots)\,|J(u,v,w)|\,du\,dv\,dw \)</td>
   <td>
-    <span class="ef-vchip" data-var="V" data-sym="V" data-desc="3D solid region.">V</span>
-    <span class="ef-vchip" data-var="J3d" data-sym="J(u,v,w)" data-desc="3D Jacobian determinant.">J</span>
+    <span class="ef-vchip" data-sym="V" data-desc="A 3D solid region (volume) of integration."><span class="ef-vsym">V</span><span class="ef-vname">— solid region</span></span>
+    <span class="ef-vchip" data-sym="J(u,v,w)" data-desc="3D Jacobian determinant |∂(x,y,z)/∂(u,v,w)| — the volume scaling factor."><span class="ef-vsym">J</span><span class="ef-vname">— 3D Jacobian</span></span>
   </td>
 </tr>
 
-<!-- 39 Coord: Cylindrical -->
+<!-- 39 -->
 <tr class="ef-row" data-cat="Coordinate Systems" data-ch="6" data-title="Cylindrical Coordinates" data-explain="Polar coords in the xy-plane plus height z. Factor r in dV accounts for radial stretching.">
   <td class="ef-num">39</td>
   <td><span class="ef-ch-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">6</span></td>
@@ -5186,13 +5202,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Cylindrical Coordinates</td>
   <td class="ef-formula">\( x = r\cos\theta,\; y = r\sin\theta,\; z = z \;;\; dV = r\,dr\,d\theta\,dz \)</td>
   <td>
-    <span class="ef-vchip" data-var="r" data-sym="r" data-desc="Radial distance from z-axis.">r</span>
-    <span class="ef-vchip" data-var="th" data-sym="θ" data-desc="Angle parameter.">θ</span>
-    <span class="ef-vchip" data-var="z" data-sym="z" data-desc="Height.">z</span>
-    <span class="ef-vchip" data-var="dV" data-sym="dV" data-desc="Volume element: r dr dθ dz.">dV</span>
+    <span class="ef-vchip" data-sym="r" data-desc="Radial distance from the z-axis (cylindrical coordinates)."><span class="ef-vsym">r</span><span class="ef-vname">— radial distance</span></span>
+    <span class="ef-vchip" data-sym="θ" data-desc="Azimuthal angle in the xy-plane."><span class="ef-vsym">θ</span><span class="ef-vname">— angle</span></span>
+    <span class="ef-vchip" data-sym="z" data-desc="Height coordinate (same as Cartesian z)."><span class="ef-vsym">z</span><span class="ef-vname">— height</span></span>
+    <span class="ef-vchip" data-sym="dV" data-desc="Volume element — r dr dθ dz (cylindrical) or ρ² sinφ dρ dφ dθ (spherical)."><span class="ef-vsym">dV</span><span class="ef-vname">— volume element</span></span>
   </td>
 </tr>
-<!-- 40 Coord: Spherical -->
+<!-- 40 -->
 <tr class="ef-row" data-cat="Coordinate Systems" data-ch="6" data-title="Spherical Coordinates" data-explain="Full 3D radial coords. ρ = distance from origin, φ = angle from z-axis, θ = azimuthal angle.">
   <td class="ef-num">40</td>
   <td><span class="ef-ch-badge" style="background:rgba(131,56,236,.1);color:#8338ec;">6</span></td>
@@ -5200,14 +5216,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Spherical Coordinates</td>
   <td class="ef-formula">\( x = \rho\sin\varphi\cos\theta,\; y = \rho\sin\varphi\sin\theta,\; z = \rho\cos\varphi \;;\; dV = \rho^{2}\sin\varphi\,d\rho\,d\varphi\,d\theta \)</td>
   <td>
-    <span class="ef-vchip" data-var="rho" data-sym="ρ" data-desc="Radial distance from origin.">ρ</span>
-    <span class="ef-vchip" data-var="phi" data-sym="φ" data-desc="Polar angle from positive z-axis.">φ</span>
-    <span class="ef-vchip" data-var="th" data-sym="θ" data-desc="Azimuthal angle.">θ</span>
-    <span class="ef-vchip" data-var="dV" data-sym="dV" data-desc="Volume element: ρ²sinφ dρ dφ dθ.">dV</span>
+    <span class="ef-vchip" data-sym="ρ" data-desc="Radial distance from the origin in spherical coordinates."><span class="ef-vsym">ρ</span><span class="ef-vname">— radial distance</span></span>
+    <span class="ef-vchip" data-sym="φ" data-desc="Polar angle measured from the positive z-axis (spherical coordinates)."><span class="ef-vsym">φ</span><span class="ef-vname">— polar angle</span></span>
+    <span class="ef-vchip" data-sym="θ" data-desc="Azimuthal angle in the xy-plane (spherical coordinates)."><span class="ef-vsym">θ</span><span class="ef-vname">— azimuthal angle</span></span>
+    <span class="ef-vchip" data-sym="dV" data-desc="Volume element — ρ² sinφ dρ dφ dθ (spherical)."><span class="ef-vsym">dV</span><span class="ef-vname">— volume element</span></span>
   </td>
 </tr>
 
-<!-- 41 Fund Thms: Divergence -->
+<!-- 41 -->
 <tr class="ef-row" data-cat="Fundamental Theorems" data-ch="6" data-title="Divergence Theorem" data-explain="Total outward flux through closed surface S equals total divergence inside volume V.">
   <td class="ef-num">41</td>
   <td><span class="ef-ch-badge" style="background:rgba(217,4,41,.1);color:#d90429;">6</span></td>
@@ -5215,10 +5231,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
   <td class="ef-title">Divergence Theorem</td>
   <td class="ef-formula">\( \iint_{S}\mathbf{F}\cdot d\mathbf{S} = \iiint_{V}(\nabla\cdot\mathbf{F})\,dV \)</td>
   <td>
-    <span class="ef-vchip" data-var="S" data-sym="S" data-desc="Closed surface.">S</span>
-    <span class="ef-vchip" data-var="Fvec" data-sym="F" data-desc="Vector field.">F</span>
-    <span class="ef-vchip" data-var="V" data-sym="V" data-desc="Volume enclosed by S.">V</span>
-    <span class="ef-vchip" data-var="divF" data-sym="div F" data-desc="Divergence of F.">div F</span>
+    <span class="ef-vchip" data-sym="S" data-desc="A closed surface enclosing volume V."><span class="ef-vsym">S</span><span class="ef-vname">— closed surface</span></span>
+    <span class="ef-vchip" data-sym="F = (P, Q, R)" data-desc="Vector field with component functions P, Q, R."><span class="ef-vsym">F</span><span class="ef-vname">— vector field</span></span>
+    <span class="ef-vchip" data-sym="V" data-desc="A 3D solid region enclosed by surface S."><span class="ef-vsym">V</span><span class="ef-vname">— enclosed volume</span></span>
+    <span class="ef-vchip" data-sym="div F" data-desc="Divergence — scalar measuring outward flux density: ∂P/∂x + ∂Q/∂y + ∂R/∂z."><span class="ef-vsym">div F</span><span class="ef-vname">— divergence</span></span>
+    <span class="ef-vchip" data-sym="dS (vector)" data-desc="Vector surface element encoding orientation: (rᵤ × rᵥ) dA."><span class="ef-vsym">dS</span><span class="ef-vname">— oriented element</span></span>
   </td>
 </tr>
 
@@ -5229,7 +5246,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
     <!-- Exam formula sheet JS -->
     <script>
     (function(){
-      // Filter
       window.efFilter = function(){
         var q = document.getElementById('ef-search').value.toLowerCase();
         var cat = document.getElementById('ef-cat-filter').value;
@@ -5244,15 +5260,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
           var searchOk = !q || rt.indexOf(q)>=0 || rc.toLowerCase().indexOf(q)>=0 || re.indexOf(q)>=0 || rch.indexOf(q)>=0;
           var vis = catOk && searchOk;
           r.style.display = vis ? '' : 'none';
-          // Also hide explanation row if exists
           var next = r.nextElementSibling;
-          if(next && !next.classList.contains('ef-row')) next.style.display = vis ? '' : 'none';
+          if(next && next.classList.contains('ef-explain-row')) next.style.display = vis ? '' : 'none';
           if(vis) shown++;
         });
         document.getElementById('ef-count').textContent = shown + ' of 41 equations';
       };
-
-      // Row click → toggle explanation
       document.getElementById('ef-tbody').addEventListener('click', function(e){
         var chip = e.target.closest('.ef-vchip');
         if(chip){ e.stopPropagation(); return; }
@@ -5261,40 +5274,27 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
         var explainText = row.getAttribute('data-explain');
         var next = row.nextElementSibling;
         if(next && next.classList.contains('ef-explain-row')){
-          next.remove();
-          row.classList.remove('open');
-          return;
+          next.remove(); row.classList.remove('open'); return;
         }
-        // Remove any other open explanations
         document.querySelectorAll('.ef-explain-row').forEach(function(r){ r.remove(); });
         document.querySelectorAll('.ef-row.open').forEach(function(r){ r.classList.remove('open'); });
-        // Insert explanation row
         var tr = document.createElement('tr');
         tr.className = 'ef-explain-row';
         var td = document.createElement('td');
-        td.colSpan = 6;
-        td.style.padding = '0 10px 6px';
-        td.style.background = 'transparent';
+        td.colSpan = 6; td.style.padding = '0 10px 6px'; td.style.background = 'transparent';
         var div = document.createElement('div');
-        div.className = 'ef-explain';
-        div.textContent = explainText;
-        td.appendChild(div);
-        tr.appendChild(td);
+        div.className = 'ef-explain'; div.textContent = explainText;
+        td.appendChild(div); tr.appendChild(td);
         row.parentNode.insertBefore(tr, row.nextSibling);
         row.classList.add('open');
       });
-
-      // Variable chip click → popup
       var popup = document.getElementById('ef-varpop');
       document.getElementById('ef-tbody').addEventListener('click', function(e){
         var chip = e.target.closest('.ef-vchip');
         if(!chip) return;
         e.stopPropagation();
-        // Toggle
         if(chip.classList.contains('active')){
-          chip.classList.remove('active');
-          popup.style.display = 'none';
-          return;
+          chip.classList.remove('active'); popup.style.display = 'none'; return;
         }
         document.querySelectorAll('.ef-vchip.active').forEach(function(c){ c.classList.remove('active'); });
         chip.classList.add('active');
@@ -5302,11 +5302,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
         document.getElementById('ef-varpop-desc').textContent = chip.getAttribute('data-desc');
         var rect = chip.getBoundingClientRect();
         popup.style.display = 'block';
-        popup.style.left = (rect.left + rect.width/2 - popup.offsetWidth/2) + 'px';
+        popup.style.left = Math.max(10, Math.min(window.innerWidth - 310, rect.left + rect.width/2 - 140)) + 'px';
         popup.style.top = (rect.top - popup.offsetHeight - 8) + 'px';
+        if(parseInt(popup.style.top) < 10) popup.style.top = (rect.bottom + 8) + 'px';
       });
-
-      // Close popup on click outside
       document.addEventListener('click', function(e){
         if(!e.target.closest('.ef-vchip') && !e.target.closest('#ef-varpop')){
           popup.style.display = 'none';
