@@ -5385,6 +5385,82 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 
 </div>
 
+<h2 id="intel" style="color:#8B0000;">🔍 What the Final Looks Like</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:12px;font-style:italic;">Sourced from students who wrote the Winter 2026 final (Prof. Lucy). Your deferred final may differ in specific questions but the structure and topic weighting should be very similar.</p>
+
+<div class="card-bracket def-card" style="border-left-color:#2563EB;">
+<div class="def-name">Exam Structure</div>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>Component</th><th>Details</th><th>Weight</th></tr>
+<tr><td><strong>Multiple Choice</strong></td><td>~15 questions, scantron-graded</td><td>60 marks (est.)</td></tr>
+<tr><td><strong>Long Answer</strong></td><td>4 questions, hand-graded</td><td>40 marks (confirmed)</td></tr>
+<tr><td><strong>Passing</strong></td><td>No minimum exam grade — just 50% overall to pass the course</td><td>—</td></tr>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:8px;">Students reported the MCQ were heavily "formula sheet slop" — questions answerable by knowing what is on the provided formula sheet and when to apply it. Formula sheet fluency is critical.</p>
+</div>
+
+<div class="card-bracket eq-card" style="border-left-color:#8B1A1A;">
+<div class="eq-name">Confirmed Long Answer Topics (W26)</div>
+<p style="font-size:14px;margin:6px 0 10px;">All four long answer questions were identified by multiple students:</p>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>#</th><th>Topic</th><th>What showed up</th><th>Key notes from students</th></tr>
+<tr><td style="font-weight:700;">Q1</td><td>Continuity</td><td>Determine if a multivariable function is continuous or discontinuous at a point</td><td>Answer was <strong>discontinuous</strong>. Many left it blank — tricky. Review two-path test + piecewise limit analysis (§3.1)</td></tr>
+<tr><td style="font-weight:700;">Q2</td><td>Critical Points &amp; Max/Min</td><td>Find and classify critical points using the Second Derivative Test</td><td>CPs were (0,0) and (1,1). Requires computing \(f_{xx}, f_{yy}, f_{xy}\), discriminant \(D\), then classifying each (§7.2)</td></tr>
+<tr><td style="font-weight:700;">Q3</td><td>Stokes' Theorem (via Curl)</td><td>Evaluate a line integral using Stokes' — involved a plane and an elliptic boundary</td><td>Hardest question. Use the normal vector from the plane equation + curl of F. Avoid parameterizing the ellipse directly. Answer involved \(\pi\). (§6.4)</td></tr>
+<tr><td style="font-weight:700;">Q4</td><td>Divergence Theorem</td><td>Evaluate flux through a cylinder — divergence simplified to a constant</td><td>Easiest long answer. Divergence = constant, so flux = constant × volume of cylinder. Answer was \(16\pi\). Cylindrical coords helped but weren't required. (§6.8)</td></tr>
+</table>
+</div>
+
+<div class="card-bracket tip-card">
+<div class="tip-label">★ High-Priority Topics (Heavily Featured)</div>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>Topic</th><th>Why it matters</th><th>Where to study</th></tr>
+<tr><td><strong>Line Integrals</strong></td><td>Confirmed heavily featured across MCQ and long answer — work integrals, regular line integrals, FTC for line integrals</td><td>Ch4: §4.1–4.3, Formula #29–#32</td></tr>
+<tr><td><strong>Divergence Theorem</strong></td><td>Long answer Q4. Know how to compute divergence and recognize when it simplifies to constant × volume</td><td>Ch6: §6.8, Formula #48</td></tr>
+<tr><td><strong>Stokes' Theorem</strong></td><td>Long answer Q3. Know curl computation, normal vector from plane, and how to avoid messy parameterizations</td><td>Ch6: §6.4, Formula #44</td></tr>
+<tr><td><strong>Green's Theorem</strong></td><td>Connected to line integrals and Stokes'. Likely on MCQ</td><td>Ch6: §6.3, Formula #42–#43</td></tr>
+<tr><td><strong>Formula Sheet Fluency</strong></td><td>Many MCQ were solvable by recognizing which formula to apply. Know every formula on the exam-provided sheet</td><td>Exam Provided Formula Sheet (41 equations)</td></tr>
+<tr><td><strong>Continuity of f(x,y)</strong></td><td>Long answer Q1. Two-path test, piecewise limits, ε-δ proofs</td><td>Ch3: §3.1, Examples 3.1–3.4</td></tr>
+<tr><td><strong>Critical Points + SDT</strong></td><td>Long answer Q2. Find CPs, compute discriminant, classify</td><td>Ch7: §7.2, Formula #45–#46</td></tr>
+<tr><td><strong>Scalar Triple Product</strong></td><td>MCQ — volume of parallelepiped = |u · (v × w)| = |det[u; v; w]|. Cross two, dot one.</td><td>Ch1: §1.10, Formula #12</td></tr>
+</table>
+</div>
+
+<div class="card-bracket" style="border-left-color:#D97706;">
+<strong style="color:#D97706;">⚠ Medium Priority — Know But Don't Overinvest</strong>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>Topic</th><th>Notes</th></tr>
+<tr><td>Parameterized intersection of two planes</td><td>Showed up on MCQ. Students found it tricky — review §2.4 (cross the normals for direction vector)</td></tr>
+<tr><td>Cylindrical coordinates</td><td>Useful for divergence theorem Q but you can survive without deep mastery. Know \(dV = r\,dr\,d\theta\,dz\)</td></tr>
+<tr><td>Change of variables / Jacobians</td><td>Not much on the exam. Know the formulas but don't deep-drill</td></tr>
+<tr><td>Conservative fields + potential functions</td><td>Likely MCQ — curl F = 0 test and FTCLI shortcut</td></tr>
+</table>
+</div>
+
+<div class="card-bracket drv-card" style="border-left-color:#2D8B46;">
+<div class="drv-label">✅ Low Priority — Deprioritize These</div>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>Topic</th><th>Why</th></tr>
+<tr><td>Plotting / sketching</td><td>Confirmed: <strong>no plotting</strong> on the exam</td></tr>
+<tr><td>Change of coordinate systems (deep)</td><td>Not much showed up beyond basic cylindrical</td></tr>
+<tr><td>Standalone triple integrals</td><td>Only appeared inside the divergence theorem question — not tested as a standalone computation</td></tr>
+<tr><td>Proofs / derivations</td><td>Joked about but did not appear</td></tr>
+</table>
+</div>
+
+<div class="card-bracket" style="border-left-color:#7C3AED;">
+<strong style="color:#7C3AED;">💡 Insider Tips</strong>
+<p style="font-size:14px;margin:8px 0 4px;">From the W26 cohort:</p>
+<ul style="font-size:14px;line-height:24px;padding-left:20px;">
+<li>Several long answer questions were <strong>reused from the 2019 final</strong> with different numbers — practice those solutions above</li>
+<li>At least two MCQ were <strong>copy-pasted from Lucy's in-term tests</strong> — review your midterms</li>
+<li>When div F is a constant, <strong>don't bother integrating</strong> — just multiply by the volume of the region (cylinder = \(\pi r^2 h\))</li>
+<li>For Stokes' on a plane: the <strong>unit normal comes straight from the plane equation</strong> \(ax+by+cz=d \implies \mathbf{n}=\frac{(a,b,c)}{|(a,b,c)|}\). Skip parameterizing the boundary curve entirely</li>
+<li>Only ~1 triple integral question appeared — don't over-study triple integral mechanics</li>
+<li>YouTube resources recommended by students: <strong>Houston Math Prep Calc 3</strong> and <strong>Professor Leonard</strong></li>
+</ul>
+</div>
+
 <h2 id="strategy" style="color:#8B0000;">Exam Strategy Quick Reference</h2>
 
 <div class="card-bracket" style="border-left-color:#8B0000;">
