@@ -30,6 +30,7 @@ FRAGMENTS = [
     'ch5-notes.html',  'ch5-prob.html',
     'ch6-notes.html',  'ch6-prob.html',
     'formulas.html',
+    'exam-formulas.html',
     't1prep.html', 't2prep.html', 't3prep.html', 't4prep.html', 'final.html',
     'summary.html',
     'progress.html',
@@ -77,3 +78,4 @@ def build():
 
 if __name__ == '__main__':
     build()
+
