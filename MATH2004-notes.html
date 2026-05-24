@@ -37,7 +37,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17
 .sidebar a.sub-link::before{content:'└ ';color:var(--border);}
 .sidebar .sep{height:1px;background:var(--border);margin:6px 10px;}
 .content-area{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;}
-.main-scroll{flex:1;overflow-y:auto;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:var(--gs) var(--gs);background-color:var(--bg);background-attachment:local;}
+.main-scroll{flex:1;overflow-y:auto;position:relative;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:var(--gs) var(--gs);background-color:var(--bg);background-attachment:local;}
 .page{display:none;padding:var(--gs) 32px calc(var(--gs)*3);max-width:800px;}
 .page.active{display:block;}
 .page-title{font-size:12px;color:var(--muted);font-family:var(--font);letter-spacing:1px;line-height:var(--gs);}
@@ -4619,8 +4619,9 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
       while(h2 && h2.tagName !== 'H2') h2 = h2.previousElementSibling;
       if(h2) chTitle = h2.textContent.replace(/Chapter \d+ — /,'').trim();
     }
-    // Add id for scrolling
-    card.id = 'eq-' + num;
+    // Add id for scrolling (preserve existing IDs)
+    if(!card.id) card.id = 'eq-' + num;
+    card.setAttribute('data-eq-num', num);
     catalog.push({num:num, name:name, ch:chTitle, el:card});
   });
 
@@ -7496,7 +7497,7 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <script>
 function toggleSidebar(){var s=document.getElementById('sidebar'),o=document.getElementById('toggleOpen');s.classList.toggle('closed');o.style.display=s.classList.contains('closed')?'flex':'none';}
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.getElementById(id).classList.add('active');document.querySelectorAll('.sidebar a').forEach(function(a){a.classList.remove('active')});var l=document.querySelector('.sidebar a[data-page="'+id+'"]');if(l)l.classList.add('active');document.querySelector('.main-scroll').scrollTop=0;renderMathInElement(document.getElementById(id),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,trust:true,strict:false});if(id==='formulas'){setTimeout(initVarPopups,300);setTimeout(initVarPopups,800);}}
-function goToEq(page,eid){showPage(page);function _try(){var ms=document.querySelector('.main-scroll');var el=document.getElementById(eid);if(!ms||!el)return;var rect=el.getBoundingClientRect();var msRect=ms.getBoundingClientRect();var offset=rect.top-msRect.top+ms.scrollTop-(ms.clientHeight/2)+(rect.height/2);ms.scrollTo({top:Math.max(0,offset),behavior:'smooth'});el.style.transition='background .3s';el.style.background='rgba(37,99,235,.18)';setTimeout(function(){el.style.background=''},2000);}setTimeout(_try,250);setTimeout(_try,600);}
+function goToEq(page,eid){showPage(page);function _go(){var el=document.getElementById(eid);if(!el)return;if(page==='examformulas'){var si=document.getElementById('ef-search');if(si)si.value='';var cf=document.getElementById('ef-cat-filter');if(cf)cf.value='All';if(window.efFilter)efFilter();el.style.display='';}var ms=document.querySelector('.main-scroll');if(!ms)return;var top=0,cur=el;while(cur){top+=cur.offsetTop||0;cur=cur.offsetParent;if(cur===ms)break;}ms.scrollTop=Math.max(0,top-ms.clientHeight/3);el.style.background='rgba(37,99,235,.22)';el.style.outline='2px solid rgba(37,99,235,.5)';el.style.transition='background .5s, outline .5s';setTimeout(function(){el.style.background='';el.style.outline=''},2500);}requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(_go,200);setTimeout(_go,800)});});}
 function toggleGroup(h){h.querySelector('.chevron').classList.toggle('open');h.nextElementSibling.classList.toggle('show');}
 function setView(v,btn){document.getElementById('fs-content').dataset.view=v;document.querySelectorAll('.fs-toggle button').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');}
 var SK='math2004-progress';
