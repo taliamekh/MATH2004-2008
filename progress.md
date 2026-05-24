@@ -552,3 +552,20 @@ MATH2004-2008/
 - **build.py updated** — added `recommended.html` to FRAGMENTS list
 - **Built MATH2004-notes.html** — 1,041KB, 29/29 fragments assembled
 - Files changed: shell-head.html, build.py, chapters/recommended.html (NEW), MATH2004-notes.html
+
+### Session 15 — May 24, 2026
+- **Added MC elimination notes + alternative quick solutions across all 4 past finals** (48 MC questions total)
+  - Each MC question now has two new annotated blocks:
+    - 🔑 **Early Elimination** — identifies the exact step where process-of-elimination reveals the answer, often before the full solution is complete
+    - 🧩 **Alternative Quick Solution** — a secondary fast path (geometric reasoning, plug-and-check, separability tricks, memorized formulas, repeated-question recognition)
+  - **Winter 2019** (12 Qs): 12 elimination notes + 12 alternative solutions added
+    - Highlights: A1 normal coefficients match only (c), A7 √2 factor narrows to (c), A8 integrand doesn't change eliminates (b)(c), A12 symmetry in a²b²c² eliminates 3 choices instantly
+  - **Fall 2014** (12 Qs): 7 missing notes added (5 🧩 alternatives + 2 🔑 eliminations — rest existed from prior session)
+    - Highlights: A3 axis-aligned = instant, A8 sign check kills 3 negative choices, A9 upper bound < 1/2 kills 4 choices
+  - **Fall 2017** (12 Qs): 24 notes added from scratch (none existed)
+    - Highlights: A1 impossible cosine values, A2 circle interpretation avoids integration, A5 separable split, A11 large f_xy heuristic for saddle detection
+  - **Fall 2013** (12 Qs): 24 notes added from scratch (none existed)
+    - Highlights: A1 geometric reasoning (top of circle = horizontal), A3 factor-of-2 parallelogram trap, A8 positive integrand kills 3 choices, A10 "forgot the Jacobian" trap detector
+  - Cross-exam patterns documented: F13 A5/A6/A9/A11 are identical to F14 — flagged as repeated questions for instant recognition
+- **Built MATH2004-notes.html** — 1,066KB, 29/29 fragments assembled
+- Files changed: chapters/final-w19.html, chapters/final-f14.html, chapters/final-f17.html, chapters/final-f13.html, MATH2004-notes.html
