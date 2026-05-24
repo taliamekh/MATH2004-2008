@@ -244,9 +244,26 @@ MATH2004-2008/
 **Examples:** 9 worked examples (region by parabolas, iterated rectangle, variable limits, reversing order, volume under paraboloid, polar disk integral, cardioid area, elliptic paraboloid, cylinder parametrization)
 **Quadric catalog:** ellipsoid, elliptic paraboloid, hyperbolic paraboloid, cone, hyperboloid (1/2 sheets), cylinder — all with standard equations and trace descriptions
 
-### Ch6 — Surface Integrals & Integral Theorems (§6.1–6.8) ⬜ OUTLINE ONLY
-**Sections:** surface area, surface integrals, flux, Green's theorem, Stokes' theorem, triple integrals, cylindrical/spherical coords, Divergence theorem
-**Recommended problems:** Exercise Sets 41–48
+### Ch6 — Surface Integrals & Integral Theorems (§6.1–6.8) ✅ COMPLETE
+**Defined:** surface integral (scalar), surface area via integration, orientable/non-orientable surface, open/closed surface, Möbius strip, outer/inner unit normal, upward/downward pointing, positive side, flux (net flow through surface), dS = n dS, Green's theorem, positive orientation (CCW), 2D scalar curl (Q_x − P_y), area via Green's, divergence form of Green's, Stokes' theorem, right-hand rule for orientation, surface independence, triple integral, Fubini for triple integrals (6 orderings), hypervolume, mass/center of mass of solid, cylindrical coordinates, spherical coordinates, 3D Jacobian, Divergence theorem (Gauss's theorem)
+**Key formulas:**
+- Surface integral (graph): ∬F dS = ∬F(x,y,f(x,y)) √(1+f_x²+f_y²) dA
+- Surface integral (parametric): ∬F dS = ∬F(r(u,v)) |r_u × r_v| dA
+- Outer unit normal: n = (−f_x,−f_y,1)/√(1+f_x²+f_y²)
+- Flux (graph): ∬F·dS = ∬(−Pf_x − Qf_y + R) dA
+- Flux (parametric): ∬F·dS = ∬F(r(u,v))·(r_u × r_v) dA
+- Green's: ∮P dx+Q dy = ∬(Q_x−P_y) dA
+- Area: ½∮(x dy − y dx)
+- Green's divergence: ∬div F dA = ∮F·n ds
+- Stokes': ∮F·dr = ∬(∇×F)·n dS
+- Triple integral: ∭f dV (6 orderings via Fubini)
+- Cylindrical: x=rcosθ, y=rsinθ, z=z, J=r, dV=r dr dθ dz
+- Spherical: x=ρsinφcosθ, y=ρsinφsinθ, z=ρcosφ, J=ρ²sinφ
+- Divergence: ∭div F dV = ∬F·n dS
+**Key tests:** closed surface → Divergence; open surface with boundary → Stokes'; 2D closed curve → Green's
+**Key identities:** curl flux through closed surface = 0 (∵ div(curl F) = 0); Volume = ∬F·n dS with div F = 1
+**Examples:** 12 worked examples (plane surface integral, cylinder 3 methods, paraboloid flux, Green's with e^{y²}, annulus area, Stokes' hemisphere verification, elliptic Stokes', tetrahedron triple integral, sphere volume, cylinder volume, Divergence tetrahedron, Divergence sphere)
+**Diagrams:** 5 SVG figures (surface integral geometry, Green's theorem region, Stokes' surface+boundary, cylindrical vs spherical coordinates, Divergence theorem solid+flux)
 
 ---
 
@@ -254,9 +271,9 @@ MATH2004-2008/
 
 | Section | Status | Contains |
 |---------|--------|----------|
-| Formula Sheet | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch7 | 48 formula cards with variable popups, 3-view toggle. Ch7: critical point condition, SDT discriminant, closed-region extrema, Lagrange multiplier method |
-| Summary | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch7 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters. Ch4: 3 clusters. Ch5: 3 clusters. Ch7: 3 clusters (CPs/SDT, closed-region, Lagrange). Quick ref table with 39 rows |
-| Progress | Full skeleton | All checkpoints and groups. Ch7 expanded to 9 items (3 sections + 5 example groups + formulas) |
+| Formula Sheet | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch6 + Ch7 | 59 formula cards with variable popups, 3-view toggle. Ch6: surface integral graph/parametric, flux, Green's, area via Green's, Stokes', triple Fubini, cylindrical, spherical, Divergence theorem |
+| Summary | Ch1 + Ch2 + Ch3 + Ch4 + Ch5 + Ch6 + Ch7 | Ch1: 7 clusters. Ch2: 4 clusters. Ch3: 6 clusters. Ch4: 3 clusters. Ch5: 3 clusters. Ch6: 5 clusters (surface int/flux, Green's, Stokes', triple/coords, Divergence). Ch7: 3 clusters. Quick ref table with 46 rows |
+| Progress | Full skeleton | All checkpoints and groups. Ch6 expanded to 15 items (8 sections + 6 example groups + formulas) |
 | Test 1 Prep | Placeholder | — |
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
@@ -448,3 +465,25 @@ MATH2004-2008/
   - Classification tables expanded to show all intermediate values (f_xx, f_yy, f_xy, D)
   - Closed-region examples label results as ★ GLOBAL MIN / ★ GLOBAL MAX
 - Files changed: ch7-notes.html, MATH2004-notes.html
+
+### Session 10 — May 23, 2026
+- **Chapter 6 notes written** (57KB, §6.1–6.8): 12 worked examples, 5 SVG diagrams
+  - §6.1 Surface Integrals: definition via Riemann sums, graph form (3 projections), parametric form, evaluation strategy. 2 examples (plane triangle, cylinder 3 methods)
+  - §6.2 Flux & Oriented Surfaces: orientability, open/closed surfaces, Möbius strip, outer/inner normals, flux definition F·dS = F·n dS, flux formulas (graph + parametric). 1 example (paraboloid flux)
+  - §6.3 Green's Theorem: statement, positive orientation, proof idea, area formula, divergence form, regions with holes. 2 examples (e^{y²} shortcut, annulus area)
+  - §6.4 Stokes' Theorem: statement, right-hand rule, Green's as special case, surface independence, conservative fields. 2 examples (hemisphere verification, elliptic surface)
+  - §6.5 Triple Integrals: definition, Fubini (6 orderings), mass/center of mass. 1 example (tetrahedron)
+  - §6.6 Cylindrical & Spherical Coordinates: cylindrical (J=r), spherical (J=ρ²sinφ), volume elements. 2 examples (sphere volume, cylinder volume)
+  - §6.7 Describing Solids: reference table (sphere/cylinder/cone/plane in each system), coordinate choice guide
+  - §6.8 Divergence Theorem: statement, consequences (curl flux = 0, volume via flux), unified view of all 3 theorems. 2 examples (tetrahedron, sphere)
+  - SVG diagrams: surface integral geometry, Green's theorem region, Stokes' surface+boundary, cylindrical vs spherical, Divergence theorem solid
+- **Formula sheet expanded** — 11 new Ch6 cards added (48→59 total):
+  - Surface integral (graph + parametric), flux, Green's theorem, area via Green's, Stokes', triple Fubini, cylindrical, spherical, Divergence theorem
+  - All tooltips comma-free and equals-free per established convention
+- **Summary expanded** — 5 new Ch6 concept clusters + 7 new quick reference rows (39→46 total)
+  - Ch6: teal palette (#0A5C64/#0B7D7D/#10A0AA/#D85050) for What/Why/How/Trap labels
+- **Progress tracker expanded** — Ch6: 2→15 items (8 sections + 6 example groups + formulas)
+- **Shell-head updated** — --ch6-title set to #0E7C86 (deep teal), pending removed from Ch6 sidebar links
+- **Built MATH2004-notes.html** — 580KB, 22/22 fragments assembled
+- **ALL CHAPTERS COMPLETE** — Ch1 through Ch7 now have full notes. Course content is 100% written.
+- Files changed: shell-head.html, ch6-notes.html, formulas.html, summary.html, progress.html, progress.md, MATH2004-notes.html
