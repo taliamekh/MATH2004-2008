@@ -251,6 +251,7 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
     <a onclick="showPage('final-f13')" class="sub-link" data-page="final-f13">Fall 2013</a>
     <a onclick="showPage('final-f17')" class="sub-link" data-page="final-f17">Fall 2017</a>
     <a onclick="showPage('final-prac')" class="sub-link" data-page="final-prac">Practice Qs</a>
+    <a onclick="showPage('recommended')" class="sub-link" data-page="recommended">🎯 Recommended</a>
     <div class="sep"></div>
     <a onclick="showPage('summary')" data-page="summary">Summary</a>
     <a onclick="showPage('progress')" data-page="progress">Progress</a>
@@ -9289,6 +9290,337 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);"><strong>✅ Answer: Max = \(\frac{1}{2}\) at \((\pm\frac{1}{\sqrt{2}},\pm\frac{1}{\sqrt{2}})\). Min = \(-\frac{1}{2}\) at \((\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}})\) and \((-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\).</strong></div>
 <div class="card-bracket" style="border-left-color:#F59E0B;margin-top:12px;"><strong>⚡ Quick Guide — Lagrange Multipliers (Circle Constraint)</strong><div class="qg-list"><div class="qg-step"><span class="step-bubble">1</span>Set up \(\nabla f=\lambda\nabla g\)</div><div class="qg-step"><span class="step-bubble">2</span>Eliminate λ by dividing/multiplying equations</div><div class="qg-step"><span class="step-bubble">3</span>Apply constraint for each λ → find points</div><div class="qg-step"><span class="step-bubble">4</span>Compare f-values → classify</div></div></div>
 </details>
+
+</div>
+
+  <!-- ═══ recommended.html ═══ -->
+  <div class="page" id="recommended"><div class="page-title">Assessment Prep</div>
+<h1 style="color:#8B0000;">🎯 Recommended Problems for Final Exam</h1>
+<p class="page-intro">Curated from past finals (W19, F14, F13, F17) and practice questions — organized by topic and ranked by exam likelihood. Every problem links to its fully worked solution. Start with 🔴 High Priority, then work through 🟡 Medium.</p>
+
+<div class="card-bracket tip-card" style="margin-bottom:20px;">
+<div class="tip-label">★ How to Use This Page</div>
+<p style="font-size:14px;line-height:24px;">Each problem below is clickable — it jumps straight to the full worked solution on the corresponding exam page. The <strong>priority ranking</strong> is based on the W26 Exam Intel: confirmed long-answer topics, frequently recurring MCQ topics, and student reports. Do every 🔴 problem first. Then fill gaps with 🟡. Skip 🟢 unless you have extra time.</p>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div style="background:#8B000015;border-left:4px solid #8B0000;padding:10px 14px;border-radius:6px;margin:24px 0 8px;font-family:var(--font);font-size:16px;font-weight:700;color:#8B0000;letter-spacing:.5px;">🔴 HIGH PRIORITY — Confirmed / Very Likely on Exam</div>
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<!-- ─── SECTION 1: Stokes' Theorem ─── -->
+<h2 style="color:#0E7C86;margin-top:24px;">§6.4 Stokes' Theorem</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Confirmed Long Answer Q3 on W26. Appeared on <strong>every single past final</strong>. Expect: curl F, normal from plane, flux integral = line integral.</p>
+
+<div class="card-bracket" style="border-left-color:#0E7C86;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B3</td><td>Flux of Curl Through Tilted Disk — Stokes' or direct computation, answer = π</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B6</td><td>Stokes' on Flat Ellipse — curl F·n on elliptic region, answer = 4π</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B6</td><td>Stokes' on Flat Disk — curl F·n, answer = 36π</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B6</td><td>Stokes' on Paraboloid Cap — line integral via surface integral, answer = 12π</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q25</td><td>Stokes' — Choose Easier Surface, answer = −2π</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 2: Divergence Theorem ─── -->
+<h2 style="color:#0E7C86;margin-top:24px;">§6.8 Divergence Theorem</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Confirmed Long Answer Q4 on W26. The trick: when div F = constant, flux = constant × volume (no integration needed). Know volumes of spheres, cylinders, cubes.</p>
+
+<div class="card-bracket" style="border-left-color:#0E7C86;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B4</td><td>div F = constant → Volume shortcut, answer = 16π/3</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A12</td><td>Constant-free div, separable integral, answer = a²b²c²</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A12</td><td>div F = const on sphere, answer = 8π</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B5</td><td>div = ρ², spherical coords, answer = 2π/5</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A12</td><td>Sphere, div F = constant, answer = 64π</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B5</td><td>Constant div on unit cube, answer = −2</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q26</td><td>Constant div, unit cube, answer = 3</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 3: Critical Points & SDT ─── -->
+<h2 style="color:#B91C1C;margin-top:24px;">§7.2 Critical Points & Second Derivative Test</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Confirmed Long Answer Q2 on W26. Drill: find CPs (set ∇f = 0), compute f<sub>xx</sub>, f<sub>yy</sub>, f<sub>xy</sub>, discriminant D, classify each point.</p>
+
+<div class="card-bracket" style="border-left-color:#B91C1C;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B6</td><td>Extrema on Closed Disk — interior SDT + boundary substitution, min = 4, max = 14</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A7</td><td>Classify extrema using SDT — max at (2,−1)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A7</td><td>Set partials to zero, find CPs — (4,2) and (0,0)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A11</td><td>SDT Classification — (0,0) saddle, (2,1) min</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q27</td><td>Monkey Saddle, SDT inconclusive at (0,0), saddle</td><td>⭐⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 4: Continuity / Limits ─── -->
+<h2 style="color:#D35400;margin-top:24px;">§3.1 Continuity & Limits of f(x,y)</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Confirmed Long Answer Q1 on W26 (answer was discontinuous). Two-path test, piecewise limit analysis. No direct past exam MCQ, but your Ch3 examples are the best drill — see Examples 3.1–3.4 in the chapter notes.</p>
+
+<div class="card-bracket" style="border-left-color:#D35400;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr><td colspan="4" style="font-style:italic;color:var(--muted);">No direct MCQ in past finals — but this was Long Answer Q1 on W26. Review these from your chapter notes:</td></tr>
+<tr><td>Ch3 Notes</td><td>Ex 3.1</td><td>ε-δ limit proof — showing a limit exists rigorously</td><td>⭐⭐⭐</td></tr>
+<tr><td>Ch3 Notes</td><td>Ex 3.2</td><td>Two-path DNE test — different limits along y=0 and y=x</td><td>⭐⭐</td></tr>
+<tr><td>Ch3 Notes</td><td>Ex 3.3</td><td>Prove continuity — show limit equals function value</td><td>⭐⭐</td></tr>
+<tr><td>Ch3 Notes</td><td>Ex 3.4</td><td>Cannot-be-made-continuous — piecewise function analysis</td><td>⭐⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 5: Conservative Fields & Potential Functions ─── -->
+<h2 style="color:#D35400;margin-top:24px;">§3.7 / §4.3 Conservative Fields & Potential Functions</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">MCQ staple: curl F = 0 test, then find potential by integrating components. Also connected to FTCLI (shortcut for line integrals).</p>
+
+<div class="card-bracket" style="border-left-color:#D35400;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A6</td><td>Conservative field test — which F has curl = 0?</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B5</td><td>Conservative test + find potential f = xe<sup>y+z</sup> + C</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B4</td><td>div(curl F) identity — prove no such F exists (≠ 0)</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B5</td><td>Potential function — integrate components, f = x/(yz)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q18</td><td>Conservative test — check P<sub>y</sub> = Q<sub>x</sub></td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q19</td><td>Find potential — integrate + match, f = x³+2xy+y⁴</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q20</td><td>Divergence — sum of partials</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q21</td><td>Curl — verify conservative (curl = 0)</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 6: Line Integrals & FTCLI ─── -->
+<h2 style="color:#670D2F;margin-top:24px;">§4.1–4.3 Line Integrals & FTCLI</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Confirmed heavily featured on W26 (both MCQ and long answer). Know scalar (ds) vs vector (F·dr), when to use FTCLI shortcut (conservative → endpoints only).</p>
+
+<div class="card-bracket" style="border-left-color:#670D2F;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A7</td><td>Mass of cable — scalar line integral ∫ρ ds, answer = √2 L³/3</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A11</td><td>Vector line integral — parametrize and compute, answer = 1</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A11</td><td>Conservative field → FTCLI shortcut, answer = 236</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B3</td><td>Line integral on helix — parametric + integration by parts, answer = 3π</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A11</td><td>Conservative → FTCLI, answer = 236</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q17</td><td>Line integral via Green's, F=(y,−x) on circle, answer = −2π</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 7: Green's Theorem ─── -->
+<h2 style="color:#0E7C86;margin-top:24px;">§6.3 Green's Theorem</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Connected to both Stokes' (2D special case) and line integrals. Likely MCQ. Key idea: closed curve in 2D → convert to double integral via Q<sub>x</sub> − P<sub>y</sub>.</p>
+
+<div class="card-bracket" style="border-left-color:#0E7C86;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B1</td><td>Green's Theorem — closed curve → double integral, answer = 12π</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q17</td><td>F=(y,−x) on circle via Green's, answer = −2π</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q24</td><td>Green's with non-constant integrand on square, answer = 5/2</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 8: Scalar Triple Product / Cross Product ─── -->
+<h2 style="color:#1B3A5C;margin-top:24px;">§1.7–1.10 Cross Products & Scalar Triple Product</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">MCQ on W26. Volume = |u·(v×w)| = |det[u;v;w]|. Triangle area = ½|u×v|. Quick determinant computation.</p>
+
+<div class="card-bracket" style="border-left-color:#1B3A5C;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A3</td><td>Parallelepiped volume via scalar triple product, answer = 4</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A3</td><td>Triangle area via cross product, answer = 3√2</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 9: Lagrange Multipliers ─── -->
+<h2 style="color:#B91C1C;margin-top:24px;">§7.3 Lagrange Multipliers</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Appeared on every past final as a long answer. Set up ∇f = λ∇g, solve the system, evaluate f at each solution.</p>
+
+<div class="card-bracket" style="border-left-color:#B91C1C;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A10</td><td>Minimize distance to curve, answer = 1 (official) / √2 (Euclidean)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B1</td><td>Optimize x²y² on x+y=1 — max 1/16 at (1/2, 1/2)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B1</td><td>Linear f on ellipsoid — max = 2, min = −2</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B1</td><td>Cubic on ellipse — max = 64, min = −64</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q28</td><td>xy on unit circle — max 1/2, min −1/2</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div style="background:#D9770615;border-left:4px solid #D97706;padding:10px 14px;border-radius:6px;margin:32px 0 8px;font-family:var(--font);font-size:16px;font-weight:700;color:#D97706;letter-spacing:.5px;">🟡 MEDIUM PRIORITY — Recurring MCQ Topics</div>
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<!-- ─── SECTION 10: Planes & Lines ─── -->
+<h2 style="color:#255F38;margin-top:24px;">§2.1–2.5 Planes & Lines</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">MCQ staple across all exams. Plane equation from normal + point, angle between planes, parameterized intersection, point on a line.</p>
+
+<div class="card-bracket" style="border-left-color:#255F38;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A1</td><td>Plane through 2 points, perpendicular to another plane</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A4</td><td>Point on a parametric line check</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A2</td><td>Angle between planes — dot normals, cos α = 5/14</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A4</td><td>Plane perpendicular to line (direction = normal)</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A2</td><td>Angle between planes — cos θ = 8/9</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A4</td><td>Plane through a point, perpendicular to line</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A1</td><td>Angle between planes — cos θ = 8/9</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q1</td><td>Parametric line — point + direction vector</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q2</td><td>Plane equation from normal + point</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q3</td><td>Angle between planes via dot product</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 11: Chain Rule ─── -->
+<h2 style="color:#D35400;margin-top:24px;">§3.6 Chain Rule</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Appeared on every single past final as MCQ. Plug into dz/dt = z<sub>x</sub>·x' + z<sub>y</sub>·y' and evaluate. Quick points if you know the formula.</p>
+
+<div class="card-bracket" style="border-left-color:#D35400;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A5</td><td>∂f/∂s with given values, answer = 1</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A5</td><td>Total derivative dw/dt at a point, answer = 6</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A5</td><td>Total derivative dw/dt at a point, answer = 6</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A7</td><td>∂w/∂t with multiple dependencies, answer = 18</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q11</td><td>Total derivative dz/dt, answer = e<sup>t</sup>(cos t + sin t)</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 12: Gradient & Directional Derivative ─── -->
+<h2 style="color:#D35400;margin-top:24px;">§3.5 Gradient & Directional Derivative</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Recurring MCQ. Compute ∇f, then D<sub>u</sub>f = ∇f · û. Remember to normalize the direction vector.</p>
+
+<div class="card-bracket" style="border-left-color:#D35400;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A6</td><td>Direction of steepest increase</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A6</td><td>Direction of steepest increase</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A3</td><td>Directional derivative — gradient dot unit vector, answer = 5e/3</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q9</td><td>Gradient at a point, answer = (2,2,3)</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q10</td><td>Directional derivative, answer = 14/5</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 13: Double Integrals ─── -->
+<h2 style="color:#740A03;margin-top:24px;">§5.1–5.4 Double Integrals & Polar Double Integrals</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">MCQ + long answer. Reversing integration order is a common trick. Polar form for circular/radial regions.</p>
+
+<div class="card-bracket" style="border-left-color:#740A03;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A8</td><td>Reverse integration order — sketch region, swap bounds</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A9</td><td>Volume — paraboloid cut by plane, cylindrical coords, answer = 8π</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A8</td><td>Double integral — inner constant, u-substitution</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>B2</td><td>Polar double integral — annulus in first quadrant, answer = 31/10</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A8</td><td>Separable double integral on rectangle, answer = 1/2</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B2</td><td>Polar double integral — quarter-disk, cos(r²), answer = π sin 1 / 4</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A5</td><td>Volume under surface, rectangle, answer = 12</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B2</td><td>Reverse order — sin y/y becomes integrable, answer = 2</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B3</td><td>Polar double integral — upper half annulus, answer = 104/3</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q12</td><td>Double integral — polynomial on triangle, answer = 16/3</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q14</td><td>Polar to Cartesian integral conversion, answer = 2π/3</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 14: Polar Coordinates ─── -->
+<h2 style="color:#255F38;margin-top:24px;">§2.11–2.14 Polar Coordinates</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Polar tangent slopes, area (½∫r²dθ), arc length (∫√(r²+r'²)dθ). Common MCQ.</p>
+
+<div class="card-bracket" style="border-left-color:#255F38;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A2</td><td>Polar area — sector of unit circle, answer = π/10</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A1</td><td>Polar tangent slope dy/dx at given angle, answer = √3/3</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A1</td><td>Polar tangent slope at top of circle, answer = 0</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B4</td><td>Area between polar curves — cardioid vs circle, answer = π</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A2</td><td>Polar arc length — r²+r'² simplifies, answer = √2π/4</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q6</td><td>Cartesian to polar conversion, answer = r = 2</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q7</td><td>Polar area — cardioid, half-angle identity, answer = 3π/2</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q8</td><td>Polar arc length — spiral, answer involves ln</td><td>⭐⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 15: Surface Integrals & Flux ─── -->
+<h2 style="color:#0E7C86;margin-top:24px;">§6.1–6.2 Surface Integrals & Flux</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Surface area via √(1+f<sub>x</sub>²+f<sub>y</sub>²) dA, flux via F·n dS. Often tested alongside Divergence/Stokes'.</p>
+
+<div class="card-bracket" style="border-left-color:#0E7C86;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>B2</td><td>Odd integrand on symmetric domain → 0 (trick!)</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>B4</td><td>Mass of hemispherical shell — spherical coords</td><td>⭐⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q22</td><td>Surface area — plane over unit square, answer = √3</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q23</td><td>Flux through paraboloid (upward normal), answer = 8π</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 16: Change of Variables / Jacobian ─── -->
+<h2 style="color:#740A03;margin-top:24px;">§5.4 Change of Variables & Jacobians</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Know the Jacobian formula |∂(x,y)/∂(u,v)| and when to use it. Not heavily tested but can appear as MCQ.</p>
+
+<div class="card-bracket" style="border-left-color:#740A03;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A10</td><td>Ellipse → circle substitution, Jacobian, answer involves 100uv</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A10</td><td>Ellipse → circle, Jacobian, answer involves 288uv</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q15</td><td>Jacobian determinant, answer = 2</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q16</td><td>Change of variables — simplify integrand, answer = 8/3</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div style="background:#05966915;border-left:4px solid #059669;padding:10px 14px;border-radius:6px;margin:32px 0 8px;font-family:var(--font);font-size:16px;font-weight:700;color:#059669;letter-spacing:.5px;">🟢 LOWER PRIORITY — Quick Review Only</div>
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<!-- ─── SECTION 17: Tangent Plane ─── -->
+<h2 style="color:#D35400;margin-top:24px;">§3.6.3 Tangent Planes</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Appeared once (F17). Know f<sub>x</sub>(x−x₀)+f<sub>y</sub>(y−y₀)+f<sub>z</sub>(z−z₀)=0.</p>
+
+<div class="card-bracket" style="border-left-color:#059669;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A4</td><td>Tangent plane via gradient of implicit surface, answer = 7x+13y+11z=44</td><td>⭐⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 18: Triple Integrals ─── -->
+<h2 style="color:#0E7C86;margin-top:24px;">§6.5–6.6 Triple Integrals & Coordinate Systems</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">W26 intel: only appeared inside Divergence Theorem, not standalone. Know cylindrical (dV=r dr dθ dz) and spherical (dV=ρ²sinφ dρ dφ dθ) but don't over-drill.</p>
+
+<div class="card-bracket" style="border-left-color:#059669;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f14')"><td>F14 Final</td><td>A9</td><td>Triple integral — Cartesian, cone-to-plane, answer = 3/8</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>A9</td><td>Triple integral — Cartesian, cone-to-plane, answer = 3/8</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A12</td><td>Triple integral — box region, answer = 4</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q13</td><td>Separable triple integral on box, answer = 9</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── SECTION 19: Misc MCQ ─── -->
+<h2 style="color:#255F38;margin-top:24px;">Other MCQ Topics</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Conic sections, orthogonal vectors, curl computation, coordinate conversions, arc length — topics that appeared once or twice.</p>
+
+<div class="card-bracket" style="border-left-color:#059669;">
+<table class="ptbl" style="font-size:14px;">
+<tr><th style="width:90px;">Source</th><th style="width:60px;">Q#</th><th>Problem Description</th><th style="width:90px;">Difficulty</th></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-w19')"><td>W19 Final</td><td>A3</td><td>Conic section area — complete the square → ellipse, answer = 6π</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A6</td><td>Orthogonal vectors — dot product = 0, answer = r = 5</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A8</td><td>Curl of vector field, answer = (−2, 1, 0)</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f17')"><td>F17 Final</td><td>A9</td><td>Cylindrical/spherical coordinate conversion</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-f13')"><td>F13 Final</td><td>B3</td><td>Arc length — parametric curve, u-substitution, answer = 61/27</td><td>⭐⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q4</td><td>Arc length setup (no closed form)</td><td>⭐</td></tr>
+<tr style="cursor:pointer;" onclick="showPage('final-prac')"><td>Practice</td><td>Q5</td><td>Tangent vector r'(t) at a point</td><td>⭐</td></tr>
+</table>
+</div>
+
+<!-- ─── STATS SUMMARY ─── -->
+<div class="card-bracket" style="border-left-color:#8B0000;margin-top:28px;">
+<strong style="color:#8B0000;">📊 Coverage Stats</strong>
+<table class="ptbl" style="font-size:14px;">
+<tr><th>Priority</th><th>Topics</th><th># Problems</th></tr>
+<tr><td>🔴 High</td><td>Stokes', Divergence, SDT/CPs, Continuity, Conservative/Potential, Line Integrals, Green's, Cross Products, Lagrange</td><td>45</td></tr>
+<tr><td>🟡 Medium</td><td>Planes/Lines, Chain Rule, Gradient/D.D., Double Integrals, Polar, Surface Integrals, Jacobians</td><td>42</td></tr>
+<tr><td>🟢 Lower</td><td>Tangent Planes, Triple Integrals, Misc MCQ</td><td>12</td></tr>
+<tr><td colspan="2" style="font-weight:700;">Total</td><td style="font-weight:700;">99 problems (all with full solutions)</td></tr>
+</table>
+</div>
 
 </div>
 

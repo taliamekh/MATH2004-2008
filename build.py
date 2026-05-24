@@ -34,6 +34,7 @@ FRAGMENTS = [
     't1prep.html', 't2prep.html', 't3prep.html', 't4prep.html', 'final.html',
     'final-w19.html', 'final-f14.html', 'final-f13.html', 'final-f17.html',
     'final-practice.html',
+    'recommended.html',
     'summary.html',
     'progress.html',
 ]
