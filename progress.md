@@ -119,7 +119,8 @@ MATH2004-2008/
     ├── t2prep.html       ← Test 2 prep (placeholder)
     ├── t3prep.html       ← Test 3 prep (placeholder)
     ├── t4prep.html       ← Test 4 prep (placeholder)
-    └── final.html        ← Final exam prep (placeholder)
+    ├── final.html        ← Final exam prep (placeholder)
+    └── recommended.html  ← Recommended problems by predicted exam topic
 ```
 
 ## Workflow for Claude
@@ -279,6 +280,7 @@ MATH2004-2008/
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
 | Test 4 Prep | Placeholder | — |
+| Recommended | ✅ COMPLETE | 99 problems from W19/F14/F13/F17/Practice, organized by 19 topic sections with priority ranking |
 | Final Prep | ✅ COMPLETE | W19 (18 Q), F14 (18 Q), F13 (18 Q), Practice (28 Q) — 76 fully worked solutions with Quick Guides + Exam Intel segment |
 
 ---
@@ -537,3 +539,16 @@ MATH2004-2008/
   - Insider Tips: questions reused from W19 final, MCQ from Lucy's tests, div F = constant shortcut, Stokes' normal from plane equation
 - **Built MATH2004-notes.html** — 769KB, 27/27 fragments assembled
 - Files changed: chapters/final.html, MATH2004-notes.html, progress.md
+
+### Session 14 — May 24, 2026
+- **Created Recommended Problems page** (`recommended.html`) — 99 problems curated from all 4 past finals + practice set
+  - Organized into 19 topic sections ranked by exam likelihood (🔴 High / 🟡 Medium / 🟢 Lower)
+  - 🔴 High Priority (45 problems): Stokes' Theorem (5), Divergence Theorem (7), Critical Points/SDT (5), Continuity (4 from ch3 notes), Conservative Fields/Potential (8), Line Integrals/FTCLI (6), Green's Theorem (3), Cross Products (2), Lagrange Multipliers (5)
+  - 🟡 Medium Priority (42 problems): Planes/Lines (10), Chain Rule (5), Gradient/D.D. (5), Double Integrals (11), Polar Coordinates (8), Surface Integrals (4), Change of Variables (4)
+  - 🟢 Lower Priority (12 problems): Tangent Planes (1), Triple Integrals (4), Misc MCQ (7)
+  - Every problem row is clickable → navigates to the full worked solution on the corresponding exam page
+  - Priority ranking based on W26 Exam Intel (confirmed long answer topics + student reports)
+- **Sidebar updated** — added "🎯 Recommended" sub-link under Final Prep
+- **build.py updated** — added `recommended.html` to FRAGMENTS list
+- **Built MATH2004-notes.html** — 1,041KB, 29/29 fragments assembled
+- Files changed: shell-head.html, build.py, chapters/recommended.html (NEW), MATH2004-notes.html
