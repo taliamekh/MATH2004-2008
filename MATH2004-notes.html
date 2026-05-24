@@ -6747,6 +6747,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\[= \frac{4\cos 2\theta}{-8\sin\theta\cos\theta} = \frac{4\cos 2\theta}{-4\sin 2\theta} = \frac{-\cos 2\theta}{\sin 2\theta}\]</p></div></div>
 <p class="step-why">Use double-angle identities: cos²θ − sin²θ = cos 2θ and 2 sin θ cos θ = sin 2θ.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (b)</strong>
+<p style="font-size:14px;">The slope is \(-\cot(2\theta)\). At \(\theta = \pi/3\): \(2\theta = 2\pi/3\) is in Q2, where cos is negative and sin is positive, so \(-\cot = -(\text{neg})/(\text{pos}) = \text{positive}\). Eliminate (a) 0 and (e) vertical. The value is \(1/\sqrt{3} = \sqrt{3}/3 \approx 0.577\). Choices (c) \(1/3 \approx 0.33\) and (d) \(\sqrt{3} \approx 1.73\) don't match. Only <strong>(b) \(\sqrt{3}/3\)</strong> fits.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Evaluate at \(\theta = \pi/3\)</strong>
 <p>\[\frac{-\cos(2\pi/3)}{\sin(2\pi/3)} = \frac{-(-1/2)}{\sqrt{3}/2} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}} = \boxed{\frac{\sqrt{3}}{3}}\]</p></div></div>
 <p class="step-why">cos(2π/3) = −1/2 and sin(2π/3) = √3/2. Rationalize: 1/√3 = √3/3.</p>
@@ -6764,6 +6769,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Simplify using double-angle identities if possible</div>
 <div class="qg-step"><span class="step-bubble">4</span>Plug in the given \(\theta\) value</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Convert to Cartesian</strong>
+<p style="font-size:14px;">The curve \(r = 4\cos\theta\) is a circle: multiply by \(r\) to get \(r^2 = 4r\cos\theta\), i.e., \(x^2+y^2 = 4x\), i.e., \((x-2)^2+y^2 = 4\). At \(\theta=\pi/3\): \(x = 4\cos^2(\pi/3) = 1\), \(y = 4\cos(\pi/3)\sin(\pi/3) = \sqrt{3}\). Implicit differentiation: \(2(x-2)+2y\,dy/dx = 0\), so \(dy/dx = -(x-2)/y = -(1-2)/\sqrt{3} = 1/\sqrt{3} = \sqrt{3}/3\). No parametric formula needed.</p>
 </div>
 </details>
 
@@ -6799,6 +6809,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\(\mathbf{n}_1\cdot\mathbf{n}_2 = 6 + (-3) + 2 = 5\)</p>
 <p>\(|\mathbf{n}_1| = \sqrt{9+1+4} = \sqrt{14}\), \(|\mathbf{n}_2| = \sqrt{4+9+1} = \sqrt{14}\)</p></div></div>
 <p class="step-why">Dot product: multiply corresponding components and sum. Magnitude: square root of sum of squares.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (c)</strong>
+<p style="font-size:14px;">Both magnitudes equal \(\sqrt{14}\), so the denominator is \(\sqrt{14}\cdot\sqrt{14} = 14\) — a clean integer. The dot product is 5, so \(\cos\alpha = 5/14\). Scan choices: (a) has \(\sqrt{14}\) in the answer, (b) has \(\sqrt{14}\) in the denominator — both wrong denominators. (d) 69 is absurd (cosα must be ≤ 1). Only <strong>(c) \(5/14\)</strong> has denominator 14.</p>
+</div>
 
 <div class="step-row"><span class="step-bubble">3</span><div class="step-body"><strong>Compute cosα</strong>
 <p>\[\cos\alpha = \frac{5}{\sqrt{14}\cdot\sqrt{14}} = \boxed{\frac{5}{14}}\]</p></div></div>
@@ -6856,6 +6871,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Otherwise: compute the 3×3 determinant</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Speed Note — This IS the Fast Path</strong>
+<p style="font-size:14px;">Axis-aligned vectors → the 3×3 determinant is diagonal → volume = product of magnitudes = \(2 \cdot \sqrt{2} \cdot \sqrt{2} = 4\). One line. If you set up a full determinant for this, you're overworking — recognize the shortcut and circle <strong>(a)</strong> in 5 seconds.</p>
+</div>
 </details>
 
 <!-- ─── A4 ─── -->
@@ -6882,6 +6902,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\(-2x+6+3y+6+3z-12=0 \Rightarrow -2x+3y+3z=0\)</p></div></div>
 <p class="step-why">A plane perpendicular to a line has the line's direction vector as its normal.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (e)</strong>
+<p style="font-size:14px;">The plane equation is \(-2x+3y+3z = 0\). The RHS is zero, which means the origin \((0,0,0)\) automatically satisfies it (since \(-2(0)+3(0)+3(0)=0\)). Scan for the origin in the choices — it's <strong>(e)</strong>. No need to test any other point.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Test (e): \((0,0,0)\)</strong>
 <p>\(-2(0)+3(0)+3(0) = 0\) ✓</p></div></div>
 <p class="step-why">Plug each answer choice into the plane equation until one gives 0.</p>
@@ -6899,6 +6924,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>Expand and simplify to \(ax+by+cz=d\)</div>
 <div class="qg-step"><span class="step-bubble">4</span>Test each answer choice by plugging in</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Skip the Plane Equation Entirely</strong>
+<p style="font-size:14px;">A point \(R\) is on the plane iff \(\mathbf{n}\cdot\vec{PR} = 0\), where \(P = (3,-2,4)\) and \(\mathbf{n} = (-2,3,3)\). For (e) \(R = (0,0,0)\): \(\vec{PR} = (-3,2,-4)\), and \(\mathbf{n}\cdot\vec{PR} = 6+6-12 = 0\) ✓. Done — never needed to write out the full plane equation.</p>
 </div>
 </details>
 
@@ -6924,6 +6954,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute partials and derivatives</strong>
 <p>\(w_x = 2x + 3y^4\), \(w_y = 1 + 12xy^3\), \(x'(t) = 2\cos 2t\), \(y'(t) = -\sin t\)</p></div></div>
 <p class="step-why">Differentiate w with respect to each variable, and each variable with respect to t.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Half the Formula Dies</strong>
+<p style="font-size:14px;">At \(t=0\): \(y'(0) = -\sin(0) = 0\). The entire \(w_y \cdot y'\) term vanishes. You only need \(w_x \cdot x'\). With \(x(0)=0\), \(y(0)=1\): \(w_x = 0+3(1)^4 = 3\) and \(x'(0) = 2\cos 0 = 2\). So \(dw/dt = 3 \cdot 2 = 6\). Circle <strong>(d)</strong>.</p>
+</div>
 
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Evaluate at \(t = 0\): \(x = 0\), \(y = 1\)</strong>
 <p>\(w_x = 0 + 3 = 3\), \(w_y = 1 + 0 = 1\), \(x' = 2\), \(y' = 0\)</p>
@@ -6969,6 +7004,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\(f_x = \frac{1}{y}\), \(f_y = \frac{-x}{y^2}+\frac{1}{z}\), \(f_z = \frac{-y}{z^2}\)</p></div></div>
 <p class="step-why">Treat f as x/y + y/z and differentiate with respect to each variable.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — One Partial Derivative Decides It</strong>
+<p style="font-size:14px;">After computing just \(f_x = 1/y = 1/(-1) = -1\), scan the i-components of each choice: (a) has \(+1\), (b) has \(-1\), (c) has \(+1\), (d) has \(+4\), (e) says undefined. Only <strong>(b)</strong> has i-component \(-1\). Circle it — you don't even need to compute \(f_y\) or \(f_z\).</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Evaluate at \((1,-1,2)\)</strong>
 <p>\(f_x = \frac{1}{-1} = -1\), \(f_y = \frac{-1}{1}+\frac{1}{2} = -\frac{1}{2}\), \(f_z = \frac{-(-1)}{4} = \frac{1}{4}\)</p>
 <p>\[\nabla f = \boxed{\left(-1, -\frac{1}{2}, \frac{1}{4}\right)}\]</p></div></div>
@@ -7008,6 +7048,12 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 
 <div class="card-bracket" style="border-left-color:#2563EB;">
 <strong>📝 Full Solution</strong>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Before Any Computation</strong>
+<p style="font-size:14px;">The leading terms are \(-x^2\) and \(-3y^2\) — both negative. This means \(f\) is <strong>concave down everywhere</strong> (like an upside-down bowl). It can only have a <strong>maximum</strong>, never a minimum or saddle. Eliminate (a) min, (b) has a min, (d) saddle, (e) has a min. Only <strong>(c) "Max at (2,−1) only"</strong> is possible. If you trust this reasoning, circle (c) without computing the SDT.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Find critical point</strong>
 <p>\(f_x = -2x+4 = 0 \Rightarrow x=2\), \(f_y = -6y-6 = 0 \Rightarrow y=-1\).</p></div></div>
 <p class="step-why">Set each partial derivative to zero.</p>
@@ -7030,6 +7076,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">3</span>\(D = f_{xx}f_{yy}-f_{xy}^2\)</div>
 <div class="qg-step"><span class="step-bubble">4</span>D > 0, \(f_{xx}>0\) → min. D > 0, \(f_{xx}<0\) → max. D < 0 → saddle.</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Complete the Square</strong>
+<p style="font-size:14px;">\(f = -(x^2-4x) - 3(y^2+2y) + 8 = -(x-2)^2+4 - 3(y+1)^2+3+8 = 15-(x-2)^2-3(y+1)^2\). This is \(15\) minus two positive terms → max value is 15 at \((2,-1)\). Identifies the type AND the CP in one step.</p>
 </div>
 </details>
 
@@ -7061,6 +7112,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>Let \(u = -x^2\), \(du = -2x\,dx\), so \(x\,dx = -\frac{du}{2}\).</p>
 <p>\[= \frac{1}{2}\int_0^{-4} e^u\cdot\left(-\frac{du}{2}\right) = \frac{1}{4}\int_{-4}^0 e^u\,du = \frac{1}{4}[e^u]_{-4}^0 = \frac{1}{4}(1-e^{-4}) = \boxed{\frac{e^4-1}{4e^4}}\]</p></div></div>
 <p class="step-why">u-substitution with u = −x². Flip limits when changing sign. Factor out 1/4.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Denominator Check</strong>
+<p style="font-size:14px;">The integral gives \(\frac{1}{4}(1 - e^{-4}) = \frac{e^4-1}{4e^4}\). The key: the result involves \(e^{-4} = 1/e^4\), so the answer must have \(e^4\) in the <strong>denominator</strong>. Scan: (b) \(\frac{e^4-1}{4}\), (c) \(\frac{e^4}{4}\), (d) \(\frac{4e^2-1}{4}\) — none have \(e^4\) downstairs. Only <strong>(a) \(\frac{e^4-1}{4e^4}\)</strong> does.</p>
+</div>
 </div>
 
 <div class="card-bracket" style="border-left-color:#16A34A;background:rgba(22,163,74,.04);">
@@ -7120,6 +7176,13 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">4</span>Track fractions carefully</div>
 </div>
 </div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Exploit Separability</strong>
+<p style="font-size:14px;">After the z-integral, the integrand is \(2xy - \frac{x^3y}{2} - \frac{xy^3}{2}\). Each term is separable over \([0,1]^2\):</p>
+<p style="font-size:14px;">\(2\cdot\frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{4}\cdot\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{1}{4} = \frac{1}{2} - \frac{1}{16} - \frac{1}{16} = \frac{8-1-1}{16} = \frac{3}{8}\)</p>
+<p style="font-size:14px;">Using \(\int_0^1 x^n dx = 1/(n+1)\) mentally avoids writing out intermediate steps.</p>
+</div>
 </details>
 
 <!-- ─── A10 ─── -->
@@ -7145,6 +7208,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="step-row"><span class="step-bubble">1</span><div class="step-body"><strong>Compute Jacobian</strong>
 <p>\[J = \begin{vmatrix}x_u&x_v\\y_u&y_v\end{vmatrix} = \begin{vmatrix}5&0\\0&2\end{vmatrix} = 10\]</p></div></div>
 <p class="step-why">The Jacobian scales area elements from (u,v) to (x,y) coordinates.</p>
+
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — You already know it's (d)</strong>
+<p style="font-size:14px;">Jacobian \(= 10\). The integrand transforms as \(xy = (5u)(2v) = 10uv\). Total: \(10uv \cdot 10 = 100uv\). The result has \(uv\) (not \(u^2v^2\) or \(u^2+v^2\)), which eliminates (a), (b), and (c). The coefficient 100 eliminates (e) which has 25/4. Only <strong>(d) \(100uv\)</strong> survives.</p>
+</div>
 
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Substitute</strong>
 <p>\(xy = (5u)(2v) = 10uv\), and \(dA = |J|\,dA' = 10\,dA'\).</p>
@@ -7196,6 +7264,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\(P_y = 12xy - 3y^2\), \(Q_x = 12xy - 3y^2\). Equal ✓ → conservative.</p></div></div>
 <p class="step-why">If P_y = Q_x, the field is conservative and we can use FTCLI.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Conservative → Skip Parametrization</strong>
+<p style="font-size:14px;">The moment you confirm \(P_y = Q_x = 12xy - 3y^2\), you know the field is conservative. This means: (1) the answer is <strong>path-independent</strong> — you don't need to parametrize the line segment at all, and (2) you need FTCLI, which avoids integration along C entirely. Also, (a) 0 is unlikely since the endpoints differ and the field isn't symmetric — tentatively eliminate it.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Find potential function</strong>
 <p>\(f_x = 6xy^2-y^3 \Rightarrow f = 3x^2y^2-xy^3+g(y)\)</p>
 <p>\(f_y = 6x^2y-3xy^2+g'(y) = 6x^2y-3xy^2 \Rightarrow g'(y) = 0 \Rightarrow g = C\)</p>
@@ -7218,6 +7291,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">2</span>Find potential: integrate \(f_x = P\), match \(f_y = Q\)</div>
 <div class="qg-step"><span class="step-bubble">3</span>Answer = \(f(\text{end}) - f(\text{start})\)</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — Spot the Potential by Inspection</strong>
+<p style="font-size:14px;">The terms \(6xy^2\) and \(6x^2y\) suggest \(f\) contains \(3x^2y^2\) (check: \(f_x = 6xy^2\) ✓, \(f_y = 6x^2y\) ✓). The terms \(-y^3\) in P and \(-3xy^2\) in Q suggest subtracting \(xy^3\) (check: partial in x gives \(-y^3\) ✓, partial in y gives \(-3xy^2\) ✓). So \(f = 3x^2y^2 - xy^3\) by inspection — no integration needed. Then \(f(3,4)-f(1,2) = (432-192)-(12-8) = 236\).</p>
 </div>
 </details>
 
@@ -7245,6 +7323,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <p>\(\text{div}\,\mathbf{F} = 1 + 2 + 3 = 6\)</p></div></div>
 <p class="step-why">Only the linear terms contribute: ∂(sinz)/∂x = 0, ∂(cosx)/∂y = 0, ∂(tanz)/∂z cancels with +3.</p>
 
+<div class="card-bracket" style="border-left-color:#E11D48;background:rgba(225,29,72,.05);margin:8px 0;">
+<strong>🔑 Early Elimination — Constant div → One Multiplication</strong>
+<p style="font-size:14px;">The dominant part of div F is \(1+2+3 = 6\) (the linear terms). For the unit sphere (\(R=1\)), volume = \(\frac{4\pi}{3}\). So flux ≈ \(6 \cdot \frac{4\pi}{3} = 8\pi\). Scan choices: (e) 8 has no π — eliminate. (a) π and (d) 4π are too small. (b) 16π is double. Only <strong>(c) \(8\pi\)</strong> matches \(6 \cdot \frac{4\pi}{3}\). Circle it.</p>
+</div>
+
 <div class="step-row"><span class="step-bubble">2</span><div class="step-body"><strong>Wait — recompute \(R_z\)</strong>
 <p>\(R = 3z + \tan z\), \(R_z = 3 + \sec^2 z\). So \(\text{div}\,\mathbf{F} = 1 + 2 + 3 + \sec^2 z = 6 + \sec^2 z\).</p></div></div>
 <p class="step-why">The tan z term contributes sec²z. This doesn't simplify to a constant.</p>
@@ -7266,6 +7349,11 @@ a.fsrc{text-decoration:none;}a.fsrc:hover{text-decoration:underline;}
 <div class="qg-step"><span class="step-bubble">2</span>If constant: Flux = div × Volume</div>
 <div class="qg-step"><span class="step-bubble">3</span>Sphere volume: \(\frac{4}{3}\pi R^3\)</div>
 </div>
+</div>
+
+<div class="card-bracket" style="border-left-color:#6366F1;margin-top:12px;">
+<strong>🧩 Alternative Quick Solution — "Ignore the Ugly Terms" Strategy</strong>
+<p style="font-size:14px;">In div F, \(\sin z\), \(\cos x\), and \(\tan z\) only produce terms that either vanish under differentiation or integrate to manageable values over a symmetric domain. On an MC exam, compute just the constant part of div F (here: \(1+2+3=6\)), multiply by volume, and match. If the answer is among the choices — and here \(6 \cdot \frac{4\pi}{3} = 8\pi\) is exactly (c) — you're done. The \(\sec^2 z\) contribution would shift the answer away from any listed choice if it mattered, so the exam must intend div F = 6.</p>
 </div>
 </details>
 
