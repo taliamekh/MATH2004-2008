@@ -279,7 +279,7 @@ MATH2004-2008/
 | Test 2 Prep | Placeholder | — |
 | Test 3 Prep | Placeholder | — |
 | Test 4 Prep | Placeholder | — |
-| Final Prep | ✅ COMPLETE | W19 (18 Q), F14 (18 Q), F13 (18 Q), Practice (28 Q) — 76 fully worked solutions with Quick Guides |
+| Final Prep | ✅ COMPLETE | W19 (18 Q), F14 (18 Q), F13 (18 Q), Practice (28 Q) — 76 fully worked solutions with Quick Guides + Exam Intel segment |
 
 ---
 
@@ -526,3 +526,14 @@ MATH2004-2008/
 - **Sidebar updated** — Final Prep link activated (pending removed), sub-link "W19 · F14 · F13" added
 - **Built MATH2004-notes.html** — 679KB, 23/23 fragments assembled
 - Files changed: shell-head.html, chapters/final.html (76 solutions), MATH2004-notes.html
+
+### Session 13 — May 23, 2026
+- **Added Exam Intel segment to Final Prep page** — sourced from W26 Discord chat logs
+  - Exam Structure: ~15 MCQ (scantron) + 4 long answer (40 marks), no minimum exam grade
+  - Confirmed Long Answer Topics: (1) Continuity, (2) Critical Points/SDT, (3) Stokes' Theorem via curl, (4) Divergence Theorem on cylinder
+  - High-Priority Topics table: line integrals, divergence/Stokes'/Green's theorems, formula sheet fluency, continuity, SDT, scalar triple product
+  - Medium-Priority: plane intersection parameterization, cylindrical coords, change of variables, conservative fields
+  - Low-Priority (deprioritize): plotting/sketching, standalone triple integrals, proofs
+  - Insider Tips: questions reused from W19 final, MCQ from Lucy's tests, div F = constant shortcut, Stokes' normal from plane equation
+- **Built MATH2004-notes.html** — 769KB, 27/27 fragments assembled
+- Files changed: chapters/final.html, MATH2004-notes.html, progress.md
